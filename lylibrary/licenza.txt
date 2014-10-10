@@ -1,258 +1,166 @@
-Lylibrary  (C) CodeLinSoft 2013
--------------------------------------
-1. CONTRATTO  DI  LICENZA  D'USO:
+GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
 
-Lylibrary e' fornito all' utente  finale in licenza d' uso  includendo  tutti 
-i componenti software  (intendendo  sia  le procedure che  gli  archivi ) e i 
-supporti di  memorizzazione ad   esso  associati,  il materiale  stampato e la 
-documentazione  "online"  o  elettronica. Installando e/o  utilizzando 
-Lylibrary  l' Utente   accetta  di essere  vincolato  dalle  condizioni del 
-presente CONTRATTO ed  ai sensi  degli  art.  1341   e 1342  del Codice Civile 
-dichiara di aver preso visione  e di  approvare   tutte  le   disposizioni del 
-CONTRATTO stesso. Qualora l' utente non accetti  i  termini   e  le condizioni
-del  presente CONTRATTO,  non   e'  autorizzato   a  installare  e  utilizzare
-Lylibrary
-
-Lylibrary  e' protetto  dalle   leggi  e  dai  trattati  internazionali  sul 
-copyright, oltre che da altre  leggi e  trattati sulla  proprietà  intellettua
-le, inoltre non viene venduto ma concesso in LICENZA  D'  USO   alle  seguenti
-condizioni:
-
-L' utente ha il diritto di installare e   utilizzare  UNA  copia di  Lylibrary
-su UN qualsiasi computer di sua proprieta'. 
-
-COPIE DI BACKUP: L' UTENTE  puo' effettuare  copie  di backup o di archivio di
-Lylibrary
-
-SERVIZIO DI SUPPORTO TECNICO A Lylibrary:  L'utent e dichiara  di  aver preso 
-visione  e  approvare   tutte le  disposizioni  e le  condizioni descritte nel 
-"CONTRATTO DI SERVIZIO DI SUPPORTO  TECNICO"   riportato   come   allegato "A" 
-al presente CONTRATTO.
+ Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
 
 
-2. DESCRIZIONE DI ALTRI DIRITTI E RESTRIZIONI:
-Conservazione delle comunicazioni di copyright.  L'UTENTE  non  e'  autorizzato 
-a rimuovere o alterare alcuna c omunicazione  di  copyright  o infomazione sul
-produttore relativa a Lylibrary .
+  This version of the GNU Lesser General Public License incorporates
+the terms and conditions of version 3 of the GNU General Public
+License, supplemented by the additional permissions listed below.
 
-Distribuzione:  L'UTENTE e' tenuto   ad  astenersi   dal   distribuire copie di 
-Lylibrary a terzi.
+  0. Additional Definitions.
 
-Divieto di decodificazione,  decompilazione e   disassemblaggio:  L'utente non 
-puo' decodificare, decompilare  o  disassemblare  Lylibrary  con l'eccezione 
-e  solamente  per  quanto  espressamente  consentito, nonostante questa limita
-zione, dalla legge in  vigore e  delle  parti di  codice  sorgente  rilasciate
-sotto licenza GPL per le quali l'autore si riserva  il  diritto  di  essere ci
-tato come tale ed impone alcune condizioni sui  derivati  del  codice  ( eredi
-tare la licenza GPL) ma  lascia all'  utente   finale  la  liberta'  di  usare
-modificare, copiare le parti di codice rilasciato sotto GPL.
+  As used herein, "this License" refers to version 3 of the GNU Lesser
+General Public License, and the "GNU GPL" refers to version 3 of the GNU
+General Public License.
 
-LOCAZIONE: L' utente  non  puo' concedere  in   locazione   in  leasing o in  
-prestito Lylibrary .
+  "The Library" refers to a covered work governed by this License,
+other than an Application or a Combined Work as defined below.
 
-TRASFERIMENTO: L' utente NON puo' trasferire i diritti concessi dal presente 
-CONTRATTO.
+  An "Application" is any work that makes use of an interface provided
+by the Library, but which is not otherwise based on the Library.
+Defining a subclass of a class defined by the Library is deemed a mode
+of using an interface provided by the Library.
 
-CONFORMITA' CON LA LEGGE  IN VIGORE: L'utente e' tenuto a rispettare la legge
-in vigore relativa all'utilizzo di Lylibrary.
+  A "Combined Work" is a work produced by combining or linking an
+Application with the Library.  The particular version of the Library
+with which the Combined Work was made is also called the "Linked
+Version".
 
-TUTELA DELLE PERSONE E DI ALTRI SOGGETTI RISPETTO AL TRATTAMENTO DEI 
-DATI PERSONALI: Ai sensi dell'art. 10 della legge 675/96 in relazione ai dati 
-personali  dell' utente,  si  rende noto che: i dati sono raccolti per adempie 
-re agli obblighi che derivano dal rapporto  tra  le  parti, con particolare ri
-ferimento  agli  obblighi commerciali, fiscali e  quelli derivati dal presente 
-CONTRATTO; i dati  non  verranno  diffusi   e   saranno  protetti per impedire 
-l'accesso a terzi.
-Per quanto riguarda i diritti del Cliente  e  quanto   non  specificato  si fa 
-riferimento al testo della legge riportato nell'allegato "B".
+  The "Minimal Corresponding Source" for a Combined Work means the
+Corresponding Source for the Combined Work, excluding any source code
+for portions of the Combined Work that, considered in isolation, are
+based on the Application, and not on the Linked Version.
 
-3. RISOLUZIONE. Se l'utente non si attiene alle  condizioni  e  alle  clausole
-del presente CONTRATTO, lo  stesso  e'  decade   automaticamente  ed in  questo 
-caso, come misura minima  e  preliminare, l' UTENTE  e'  tenuto  a  distruggere
-tutte le copie di Lylibrary.
+  The "Corresponding Application Code" for a Combined Work means the
+object code and/or source code for the Application, including any data
+and utility programs needed for reproducing the Combined Work from the
+Application, but excluding the System Libraries of the Combined Work.
 
-4. COPYRIGHT E DIRITTI. Tutti i diritti, ivi  inclusi,  ma  non  limitatamente 
-al copyright relativo a  Lylibrary  ed   alle   copie   di   questo, sono di 
-proprieta' della società CodeLinSoft.  Il  titolo e i  diritti sulla proprieta'
-intellettuale  relativi  a  contenuti  cui  l' utente  puo' accedere  mediante 
-l'utilizzo di  Lylibrary   sono di  proprieta' dello stesso e possono essere 
-tutelati  dal   copyright  o  da   altre  leggi  e  trattati sulla  proprieta' 
-intellettuale.
-Dal  presente  CONTRATTO  non   scaturisce alcun  diritto di  utilizzare  tali 
-contenuti.
+  1. Exception to Section 3 of the GNU GPL.
 
-Il  CodeLinSoft   si   riserva  tutti  i  diritti  non  espressamente  
-concessi dal presente CONTRATTO.
+  You may convey a covered work under sections 3 and 4 of this License
+without being bound by section 3 of the GNU GPL.
 
-5. ESCLUSIONE DI GARANZIE. La   CodeLinSoft  non  riconosce alcun tipo 
-di garanzia per Lylibrary Il  PROGRAMMA E OGNI  TIP O DI  DOCUMENTAZIONE AD 
-ESSO  RELATIVA SONO FORNITI  "COSI' COME SONO",  SENZA  ALCUNA GARANZIA DI QUAL 
-SIASI TIPO, SIA  ESPRESSA CHE  IMPLICITA,  IVI  INCLUSE, SENZA LIMITAZIONI, LE
-GARANZIE IMPLICITE DI COMMERCIABILITA' O IDONEITA' PER  UNO  SCOPO   PARTICOLARE 
-OVVERO QUELLE CHE ESCLUDANO  LA  VIOLAZIONE   DI  DIRITTI  ALTRUI. L' INTERO
-RISCHIO DERIVANTE DALL'USO O DAL NON USO  O DALLE PRESTAZIONI DI
-Lylibrary RIMANE A CARICO DELL' UTENTE.
+  2. Conveying Modified Versions.
 
-6. LIMITAZIONE DI RESPONSABILITA'.  Nella  misura   massima  consentita  dalla 
-legge in vigore, in nessun  caso  Il  CodeLinSoft o i suoi rivenditori 
-saranno responsabili per eventuali danni  speciali,   accidentali,   indiretti 
-o conseguenziali ziali (ivi inclusi,  senza  limitazioni, danni per perdita  o
-mancato guadagno interruzione dell' attivita', perdita di informazioni o altre
-perdite economiche )  derivanti  dall' uso o  dall' incapacita' di  utilizzare 
-Lylibrary  ovvero  dalla fornitura o  mancata  fornitura  del  Servizio  di 
-Supporto Tecnico a   Lylibrary anche nel caso in cui il  CodeLinSoft
-sia stato stato avvertito  della possibilita' del verificarsi di tali danni.
+  If you modify a copy of the Library, and, in your modifications, a
+facility refers to a function or data to be supplied by an Application
+that uses the facility (other than as an argument passed when the
+facility is invoked), then you may convey a copy of the modified
+version:
 
-7. ALTRE DISPOSIZIONI.
-Per quanto non citato. Il  presente   Contratto  e'  disciplinato  dalla  legge
-dello Stato Italiano.  Per  quanto non  espressamente citato si fa riferimento
-alla normativa vigente.
+   a) under this License, provided that you make a good faith effort to
+   ensure that, in the event an Application does not supply the
+   function or data, the facility still operates, and performs
+   whatever part of its purpose remains meaningful, or
 
-ALLEGATO "A"
-CONTRATTO DI SERVIZIO DI SUPPORTO TECNICO
+   b) under the GNU GPL, with none of the additional permissions of
+   this License applicable to that copy.
 
-Il presente Contratto   riguarda  il Servizio di Supporto Tecnico a Lylibrary 
-afferto all'utente finale dal  CodeLinSoft o da un suo rivenditore che
-se ne fa carico.
+  3. Object Code Incorporating Material from Library Header Files.
 
-1.DURATA. Il presente  contratto  ha  la  durata   di un anno solare e scade al 
-31 dicembre di ogni anno.   E'  tacitamente  r innovato  salvo  la v olonta' di 
-recedere comunicata  dall' UTENTE  con  lettera raccomandata fino a 30 (trenta) 
-giorni dopo il  ricevimento   della   Proposta di  Fattura oppure della Fattura 
-per il canone annuo di abbonamento emessa dal FORNITORE DEL SERVIZIO. 
+  The object code form of an Application may incorporate material from
+a header file that is part of the Library.  You may convey such object
+code under terms of your choice, provided that, if the incorporated
+material is not limited to numerical parameters, data structure
+layouts and accessors, or small macros, inline functions and templates
+(ten or fewer lines in length), you do both of the following:
 
-2.VALIDITA'.  Il presente  contratto   ha   validita' immediata  ed  annulla  e 
-sostituisce tutti i precedenti accordi verbali o scritti. 
+   a) Give prominent notice with each copy of the object code that the
+   Library is used in it and that the Library and its use are
+   covered by this License.
 
-3.CANONE DI ABBONAMENTO . Il FORNITORE  DEL SERVIZIO si riserva la possibilita' 
-di variare il canone  di   abbonamento  annuo,  a sua  completa discrezione, in 
-merito anche all'aumento di costi di gestione e variazioni ISTAT.
+   b) Accompany the object code with a copy of the GNU GPL and this license
+   document.
 
-4.DESCRIZIONE DEL SERVIZIO DI SUPPORTI TECNICO A GCHEMIST'S : 
-Il Servizio di  Supporto  Tecnico da diritto all'UTENTE,  per il periodo in cui 
-il  contratto e' in vigore,  sia  a  usufruire  l' Assistenza   E-mail prestata 
-dal  FORNITORE  D L SERVIZIO che a ricevere gli Aggiornamenti resi disponibili.
-Per Assistenz a   E-mail si  internde l' assistenza  prestata attraverso  posta 
-elettronic a  nei confronti dell'UTENTE per eseguire le  procedure di  installa
-zione ed  eventuali  chiarimenti e delucidazioni sull' utilizzo del programma.
-Sono escluse consulenze su quando non esplicitamente specificato.
+  4. Combined Works.
 
-Per aggiornamenti  si intendono   tutte  le  modifiche apportate, a discrezione
-del programmer, al   software   stesso  con  l' intento di renderlo  sempre piÃÂ¹ 
-vicino alle  richieste  della  propria  utenza nonche' gli adeguamenti previsti 
-da variazioni   della normativa. Sono  incluse  negli  aggiornamenti  anche lei
-modifiche e  gli  ampliamenti apportati  all' annesso  ARCHIVIO  DEI  PRODOTTI.
+  You may convey a Combined Work under terms of your choice that,
+taken together, effectively do not restrict modification of the
+portions of the Library contained in the Combined Work and reverse
+engineering for debugging such modifications, if you also do each of
+the following:
 
-Sono escluse  dagli  aggiornamenti tutte le richieste particolari e  personali.
-Sono escluse dal contratto  la  manutenzione  dell' apparecchiature  Hardware e 
-del Software di sistema dell'UTENTE,    il  riassesto  di  archivi e  programma
-nel caso  di  problemi  generati  da   malfunzionamenti   Hardware / Software o 
-incuria dell' UTENTE.  Sono  esclusi  anche  qualsiasi  corso di formazione o 
-di avviamento del  programma  in sede  o  fuori   sede.   Qualsiasi  intervento
-manutenzione o  prestazione  aggiuntiva  fuori   al  presente contratto verrano 
-fatturati di volta in volta in base a preventivi di intervento. 
+   a) Give prominent notice with each copy of the Combined Work that
+   the Library is used in it and that the Library and its use are
+   covered by this License.
 
-Per quanto riguarda le informazioni  tecniche  date dall' utente  al  FORNITORE 
-DEL SERVIZIO nell'ambito  del  SUPPORTO TECNICO, l  stesso  si  riserva  la pos
-sibilita' di utilizzare tali  informazioni  per  la propria attivita', compreso 
-il SUPPORTO TECNICO e lo sviluppo di Lylibrary.
+   b) Accompany the Combined Work with a copy of the GNU GPL and this license
+   document.
 
-L'utilizzo da  parte del  FORNITORE  DEL SERVIZIO di tali informazioni avverra'
-in modo tale da non consentire l'individuazione dell' utente.
+   c) For a Combined Work that displays copyright notices during
+   execution, include the copyright notice for the Library among
+   these notices, as well as a reference directing the user to the
+   copies of the GNU GPL and this license document.
 
-5.Restrizioni  dell' Uso.  Gli   Aggiornamenti  costituiscono parte  integrante 
-della Licenza  d'Uso  a cui  sono  destinati  ovvero  l'aggiornamento  NON puo' 
-essere considerato una nuova Licenza d'Uso.  Gli   aggiornamenti  sono   quindi 
-soggetti alle stesse condizioni della Licenza d'Uso.
+   d) Do one of the following:
 
-6.Esecuzione del contratto:  Gli  aggiornamenti emessi durante il  corso  dello
-anno  solare,  potranno essere distribuiti, a seconda dell'entita' degli stessi
-degli  accordi con l'UTENTE e della volonta' del CodeLinSoft su:
+       0) Convey the Minimal Corresponding Source under the terms of this
+       License, and the Corresponding Application Code in a form
+       suitable for, and under terms that permit, the user to
+       recombine or relink the Application with a modified version of
+       the Linked Version to produce a modified Combined Work, in the
+       manner specified by section 6 of the GNU GPL for conveying
+       Corresponding Source.
 
-- supporti magnetici: floppy disk 3 e ? - 1.44MB
-- CD-ROM 
-- attraverso la posta elettronica (servizio e-mail su Internet)
-- attraverso procedure che prevedono il download  degli  aggiornamenti  tramite
-Internet.
+       1) Use a suitable shared library mechanism for linking with the
+       Library.  A suitable mechanism is one that (a) uses at run time
+       a copy of the Library already present on the user's computer
+       system, and (b) will operate properly with a modified version
+       of the Library that is interface-compatible with the Linked
+       Version.
 
-In ogni caso sono esclusi dal contratto,  a  meno  di  diversa  precisazione  e 
-di costi aggiuntivi, tutti gli strumenti  o  i  servizi  necessari per l' esecu
-zione del contratto, con  particolare  riferimento a  servizi   di  accesso  ad 
-Internet.
+   e) Provide Installation Information, but only if you would otherwise
+   be required to provide such information under section 6 of the
+   GNU GPL, and only to the extent that such information is
+   necessary to install and execute a modified version of the
+   Combined Work produced by recombining or relinking the
+   Application with a modified version of the Linked Version. (If
+   you use option 4d0, the Installation Information must accompany
+   the Minimal Corresponding Source and Corresponding Application
+   Code. If you use option 4d1, you must provide the Installation
+   Information in the manner specified by section 6 of the GNU GPL
+   for conveying Corresponding Source.)
 
-7.GARANZIA DELLA PROCEDURA: Il FORNITORE DEL SERVIZIO garantisce solamente
-che il supporto magnetico o ottico e' esente  da  vizi  di  fabbricazione  e si 
-impegna alla sostituzione in caso  contrario  entro e non oltre 30 giorni dalla
-data di consegna.
-Non e' responsabile in  nessun caso per quando riguarda l'eventuale alterazione 
-dei files che  costituiscono  l' aggiornamento  dovuti anche a malfunzionamenti
-dei lettori, deterioramento del  supporto, errata  trasmissione / ricezione dei 
-dati, errata memorizzazione sui supporti.
+  5. Combined Libraries.
 
-8. Il FORNITORE DEL SERVIZIO si impegna a  mantenere   efficiente  il  SUPPORTO 
-TECNICO comunque in nessun caso FORNITORE DEL SERVIZIO sara' ritenuto 
-responsabile del malfunzionamento o errato utilizzo del SUPPORTO TECNICO. 
-Nessun risarcimento danni potra' essere richiesto al FORNITORE DEL SERVIZIO per
-danni diretti e/o indiretti causati dall'utilizzazione o  non utilizzazione del
-SUPPORTO TECNICO.
+  You may place library facilities that are a work based on the
+Library side by side in a single library together with other library
+facilities that are not Applications and are not covered by this
+License, and convey such a combined library under terms of your
+choice, if you do both of the following:
 
-ALLEGATO "B"
+   a) Accompany the combined library with a copy of the same work based
+   on the Library, uncombined with any other library facilities,
+   conveyed under the terms of this License.
 
-Legge 31 dicembre 1996, n. 675 
-"Tutela delle persone e di altri soggetti rispetto  al   trattamento  dei  dati 
-personali"  pubblicata  nella  Gazzetta  Ufficiale n. 5   dell' 8  gennaio 1997
-- Supplemento Ordinario n. 3 
+   b) Give prominent notice with the combined library that part of it
+   is a work based on the Library, and explaining where to find the
+   accompanying uncombined form of the same work.
 
-[..]
+  6. Revised Versions of the GNU Lesser General Public License.
 
-Art. 13.
-(Diritti dell'interessato).
+  The Free Software Foundation may publish revised and/or new versions
+of the GNU Lesser General Public License from time to time. Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.
 
-1. In relazione al trattamento di dati personali l'interessato ha diritto:
-a) di conoscere, mediante accesso  gratuito al registro  di cui all'articolo 31 
-comma 1, lettera a), l'esistenza  di trattamenti dei dati che possono riguardar
-lo.
+  Each version is given a distinguishing version number. If the
+Library as you received it specifies that a certain numbered version
+of the GNU Lesser General Public License "or any later version"
+applies to it, you have the option of following the terms and
+conditions either of that published version or of any later version
+published by the Free Software Foundation. If the Library as you
+received it does not specify a version number of the GNU Lesser
+General Public License, you may choose any version of the GNU Lesser
+General Public License ever published by the Free Software Foundation.
 
-b) di essere informato su quanto indicato all' articolo 7,  comma  4, lettere a)
-b) e h);
-c) di ottenere, a cura del titolare o del responsabile, senza ritardo:
-1) la conferma dell'esistenza o  meno di dati  personali che lo  riguardano, an
-che se non ancora  registrati,  e  la  comunicazione   in  forma  intellegibile 
-dei medesimi dati e della loro origine, nonche'  della logica e  delle finalita'
-su cui si basa il trattamento;  la  richiesta   puo' essere   rinnovata,  salva 
-l'esistenza di giustificati motivi, con intervallo non minore  di  novanta gior
-ni.
-
-2) la cancellazione, la  trasformazione  in forma anonima  o il blocco dei dati
-trattati in violazione  di  legge, compresi  quelli di cui non e' necessaria la 
-conservazione in relazione  agli  scopi  per i quali i dati sono stati raccolti 
-o successivamente trattati.
-3) l'aggiornamento,  la  rettificazione  ovvero, qualora  vi  abbi a  interesse 
-l'integrazione dei dati.
-4) l'attestazione che le operazioni di cui ai numeri 2) e 3) sono state portate
-a conoscenza, anche per quanto  riguarda il loro contenuto, di coloro ai quali i
-dati sono stati comunicati o diffusi,  eccettuato il caso in cui tale adempimen
-to si riveli impossibile o comporti un impiego di mezzi  manifestamente spropor
-zionato rispetto al diritto tutelato:
-d) di opporsi, in tutto o in parte, per  motivi  legittimi,  al trattamento dei 
-dati personali che lo riguardano, ancorche' pertinenti allo scopo della  raccol
-ta.
-e) di  opporsi, in  tutto o  in  parte, al trattamento di dati personali che lo 
-riguardano, previsto a fini di informazione commerciale o di invio di materiale 
-pubblicitario o di vendita diretta  ovvero  per  il  compimento  di ricerche di 
-mercato o di comunicazione commerciale interattiva e di essere  informato dal
-titolare, non oltre il momento in  cui i dati sono comunicati o  diffusi, della 
-possibilita' di esercitare gratuitamente tale diritto. 
-2. Per ciascuna richiesta di cui al comma 1, lettera c), numero 1), puo' essere
-chiesto all'interessato, ove non risulti confermata l'esistenza di dati  che lo
-riguardano, un contributo spese, non superiore ai costi effettivamente supporta
-ti, secondo le modalita' ed entro i limiti stabiliti dal regolamento di cui  al
-l 'articolo 33, comma 3. 
-3. I  diritti di  cui al comma 1 riferiti ai dati personali concernenti persone 
-decedute possono essere esercitati da chiunque vi abbia interesse. 
-4. Nell'esercizio dei diritti di cui al comma 1  l' interessato  puo' conferire
-per iscritto, delega o procura a persone fisiche o ad associazioni. 
-5. Restano ferme le norme sul segreto professionale  degli esercenti la  profes
-sione di giornalista, limitatamente alla fonte della notizia.  
-
+  If the Library as you received it specifies that a proxy can decide
+whether future versions of the GNU Lesser General Public License shall
+apply, that proxy's public statement of acceptance of any version is
+permanent authorization for you to choose that version for the
+Library.
 
