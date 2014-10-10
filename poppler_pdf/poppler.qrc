@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/dialog-close.png</file>
+        <file>images/manuale_lylibrary.pdf</file>
+        <file>images/go-previous.png</file>
+    </qresource>
+</RCC>

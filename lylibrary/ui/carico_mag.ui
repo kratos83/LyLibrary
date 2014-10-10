@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>carico_mag</class>
+ <widget class="QDialog" name="carico_mag">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>689</width>
+    <height>441</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>carico_mag</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_7">
+   <item row="0" column="0" rowspan="3">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Carico magazzino</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Totale acquistato in magazzino</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="tot_car"/>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QTableView" name="tab_view">
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>15</number>
+        </attribute>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0">
+      <widget class="QCheckBox" name="car_lb">
+       <property name="text">
+        <string>Visualizza lista carico libri</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="car_pr">
+       <property name="text">
+        <string>Visualizza lista carico prodotti digitali</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="quan"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Quantità residua in magazzino</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Informazioni dettagliate</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="1" column="0">
+       <widget class="QTextEdit" name="dettagli"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../initdb/images.qrc">
+         <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="ex_csv">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/excel.png</normaloff>:/images/excel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="ex_pdf">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/pdf.png</normaloff>:/images/pdf.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pr_st">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="del_rec">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>car_pr</tabstop>
+  <tabstop>car_lb</tabstop>
+  <tabstop>quan</tabstop>
+  <tabstop>ex_pdf</tabstop>
+  <tabstop>pr_st</tabstop>
+  <tabstop>ex_csv</tabstop>
+  <tabstop>del_rec</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>tab_view</tabstop>
+  <tabstop>dettagli</tabstop>
+  <tabstop>tot_car</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../../initdb/images.qrc"/>
+  <include location="../biblio.qrc"/>
+ </resources>
+ <connections/>
+</ui>

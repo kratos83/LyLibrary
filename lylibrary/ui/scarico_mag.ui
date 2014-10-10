@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>scarico_mag</class>
+ <widget class="QDialog" name="scarico_mag">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>754</width>
+    <height>456</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_6">
+   <item row="0" column="0" rowspan="3">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Scarico magazzino</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Totale vendita prodotti</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="tot_scar">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QTableView" name="tab_view">
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>15</number>
+        </attribute>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Informazioni dettagliate</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="1" column="0">
+       <widget class="QTextEdit" name="dettagli">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="quan"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Quantità venduta</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="1">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="car_pr">
+       <property name="text">
+        <string>Visualizza lista scarico prodotti digitali</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="car_lb">
+       <property name="text">
+        <string>Visualizza lista scarico libri</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="2">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../initdb/images.qrc">
+         <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="ex_csv">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/excel.png</normaloff>:/images/excel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="ex_pdf">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/pdf.png</normaloff>:/images/pdf.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pr_st">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="del_rec">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../biblio.qrc">
+         <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>car_lb</tabstop>
+  <tabstop>car_pr</tabstop>
+  <tabstop>ex_pdf</tabstop>
+  <tabstop>pr_st</tabstop>
+  <tabstop>ex_csv</tabstop>
+  <tabstop>del_rec</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>quan</tabstop>
+  <tabstop>dettagli</tabstop>
+  <tabstop>tab_view</tabstop>
+  <tabstop>tot_scar</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../../initdb/images.qrc"/>
+  <include location="../biblio.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fatt_acq</class>
+ <widget class="QDialog" name="fatt_acq">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>661</width>
+    <height>465</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Fatture acquisto</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/images/logo.png</normaloff>:/images/logo.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_4">
+   <item row="0" column="0">
+    <widget class="QTableView" name="tab_view">
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>15</number>
+     </attribute>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Totale fatture</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="tot_fatt">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <spacer name="horizontalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>169</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Totale</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLineEdit" name="tot_eur">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="minimumSize">
+      <size>
+       <width>251</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>251</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>251</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>251</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0" colspan="2">
+       <widget class="QTextEdit" name="textEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="find_cer">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="sizeIncrement">
+         <size>
+          <width>50</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>50</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../biblio.qrc">
+          <normaloff>:/images/edit-find.png</normaloff>:/images/edit-find.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Cerca fattura</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="cerca_txt">
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="2">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="Aggiungi">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../biblio.qrc">
+            <normaloff>:/images/dialog-ok-apply.png</normaloff>:/images/dialog-ok-apply.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="modifica">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../biblio.qrc">
+            <normaloff>:/images/document-edit.png</normaloff>:/images/document-edit.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="elimina">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../biblio.qrc">
+            <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QPushButton" name="stampa">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../biblio.qrc">
+            <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QPushButton" name="esci">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../initdb/images.qrc">
+            <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="cerca1"/>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>142</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="id"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>Aggiungi</tabstop>
+  <tabstop>modifica</tabstop>
+  <tabstop>elimina</tabstop>
+  <tabstop>stampa</tabstop>
+  <tabstop>esci</tabstop>
+  <tabstop>id</tabstop>
+  <tabstop>cerca1</tabstop>
+  <tabstop>find_cer</tabstop>
+  <tabstop>cerca_txt</tabstop>
+  <tabstop>tab_view</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>tot_fatt</tabstop>
+  <tabstop>tot_eur</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../../initdb/images.qrc"/>
+  <include location="../biblio.qrc"/>
+ </resources>
+ <connections/>
+</ui>

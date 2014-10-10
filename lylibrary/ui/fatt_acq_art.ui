@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fatt_acq_art</class>
+ <widget class="QDialog" name="fatt_acq_art">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1031</width>
+    <height>412</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Inserisci fattura riga</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/images/logo.png</normaloff>:/images/logo.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Immagine</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QLabel" name="dir_image">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="ins_image">
+        <property name="text">
+         <string>Inserisci immagine</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>442</width>
+       <height>250</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="5" colspan="2">
+       <widget class="QLineEdit" name="cod_art">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:rgb(255, 255, 127)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="6">
+       <widget class="QComboBox" name="comboBox">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="10">
+       <widget class="QLineEdit" name="totale">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2" colspan="14">
+       <widget class="Line" name="line_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="6">
+       <widget class="QLineEdit" name="quant">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="8">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Prezzo con iva</string>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="2">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Quantità</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="2">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Prezzo senza iva</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="9" colspan="5">
+       <widget class="QLineEdit" name="lingua"/>
+      </item>
+      <item row="17" column="8">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Sconto</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="6" colspan="2">
+       <widget class="QLineEdit" name="scaffale"/>
+      </item>
+      <item row="2" column="2" colspan="14">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="id_fatt_lab">
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" colspan="2">
+       <widget class="QLabel" name="label_13">
+        <property name="font">
+         <font>
+          <underline>false</underline>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>Cod. Libro</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="2">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Iva</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="6" colspan="10">
+       <widget class="QTextEdit" name="textEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2" colspan="2">
+       <widget class="QLabel" name="label_15">
+        <property name="text">
+         <string>Descizione</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="2" colspan="4">
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>Info editore</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="2" colspan="2">
+       <widget class="QLabel" name="label_17">
+        <property name="text">
+         <string>Collocazione</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="2" colspan="3">
+       <widget class="QLabel" name="label_18">
+        <property name="text">
+         <string>Tipo di libro</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="6" colspan="10">
+       <widget class="QComboBox" name="comboBox_2">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="2" colspan="14">
+       <widget class="Line" name="line_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="5" colspan="11">
+       <widget class="QTextEdit" name="descrizione">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>10</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="2" colspan="2">
+       <widget class="QLabel" name="label_20">
+        <property name="text">
+         <string>Image dir</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="6" colspan="10">
+       <widget class="QLineEdit" name="image_dir"/>
+      </item>
+      <item row="0" column="7">
+       <widget class="QLabel" name="barre">
+        <property name="text">
+         <string>Cod. a barre</string>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="8">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Totale</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="7">
+       <widget class="QLabel" name="label_9">
+        <property name="font">
+         <font>
+          <family>Helvetica</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="id_fatt"/>
+      </item>
+      <item row="17" column="11">
+       <widget class="QLabel" name="label_11">
+        <property name="font">
+         <font>
+          <family>Helvetica</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="6">
+       <widget class="QLineEdit" name="p_s_iva">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="2">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>UM</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="10">
+       <widget class="QLineEdit" name="p_c_iva">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="10">
+       <widget class="QLineEdit" name="sconto">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="6" colspan="4">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="6">
+       <widget class="QComboBox" name="um">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="8">
+       <widget class="QLabel" name="label_21">
+        <property name="text">
+         <string>Lingua</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="8">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Titolo</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="8">
+       <widget class="QLabel" name="label_19">
+        <property name="text">
+         <string>Autore</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8" colspan="4">
+       <widget class="QLineEdit" name="cod_barre">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="6" colspan="2">
+       <widget class="QLineEdit" name="art_nom">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="9" colspan="3">
+       <widget class="QLineEdit" name="autore"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QRadioButton" name="f_libri">
+        <property name="text">
+         <string>Acquiso libri</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QRadioButton" name="f_prod_dig">
+        <property name="text">
+         <string>Prodotti digitali</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="8">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Prezzo unitario</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="10">
+       <widget class="QLineEdit" name="pr_unit"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="aggiorna">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../biblio.qrc">
+          <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="exit_art">
+        <property name="toolTip">
+         <string>Esci</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../biblio.qrc">
+          <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="agg_art">
+        <property name="toolTip">
+         <string>Salva</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../biblio.qrc">
+          <normaloff>:/images/document-save.png</normaloff>:/images/document-save.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>0</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_6">
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <widget class="QLabel" name="testo_show">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>cod_art</tabstop>
+  <tabstop>cod_barre</tabstop>
+  <tabstop>art_nom</tabstop>
+  <tabstop>autore</tabstop>
+  <tabstop>descrizione</tabstop>
+  <tabstop>comboBox_2</tabstop>
+  <tabstop>scaffale</tabstop>
+  <tabstop>lingua</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>image_dir</tabstop>
+  <tabstop>um</tabstop>
+  <tabstop>pr_unit</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>sconto</tabstop>
+  <tabstop>p_s_iva</tabstop>
+  <tabstop>p_c_iva</tabstop>
+  <tabstop>quant</tabstop>
+  <tabstop>totale</tabstop>
+  <tabstop>ins_image</tabstop>
+  <tabstop>id_fatt</tabstop>
+  <tabstop>f_libri</tabstop>
+  <tabstop>f_prod_dig</tabstop>
+  <tabstop>aggiorna</tabstop>
+  <tabstop>exit_art</tabstop>
+  <tabstop>agg_art</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../biblio.qrc"/>
+ </resources>
+ <connections/>
+</ui>
