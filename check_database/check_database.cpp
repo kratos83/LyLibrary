@@ -24,13 +24,13 @@ void check_database::analizza_database()
 {
     ui->outpuarea->clear();
     #ifdef Q_OS_LINUX
-    QString comando="mysqlcheck --databases lylibrary -u root -p"+general->value("Database/password").toString();
+    QString comando="mysqlcheck --databases lylibrary -a -u root -p"+general->value("Database/password").toString();
     #endif
     #ifdef Q_OS_MAC
-    QString comando="mysqlcheck --databases lylibrary -u root -p"+general->value("Database/password").toString();
+    QString comando="mysqlcheck --databases lylibrary -a -u root -p"+general->value("Database/password").toString();
     #endif
     #ifdef Q_OS_WIN
-    QString comando="mysqlcheck --databases lylibrary -u root -p"+general->value("Database/password").toString();
+    QString comando="mysqlcheck --databases lylibrary -a -u root -p"+general->value("Database/password").toString();
     #endif
     analizza = new QProcess(this);
     analizza->setReadChannel(QProcess::StandardOutput);
@@ -54,13 +54,13 @@ void check_database::ripristina_database()
 {
     ui->outpuarea->clear();
     #ifdef Q_OS_LINUX
-    QString comando="mysqlcheck --databases lylibrary -u root -p"+general->value("Database/password").toString();
+    QString comando="mysqlcheck --databases lylibrary -r -u root -p"+general->value("Database/password").toString();
     #endif
     #ifdef Q_OS_MAC
-    QString comando="mysqlcheck --databases lylibrary -u root -p"+general->value("Database/password").toString();
+    QString comando="mysqlcheck --databases lylibrary -r -u root -p"+general->value("Database/password").toString();
     #endif
     #ifdef Q_OS_WIN
-    QString comando="mysqlcheck --databases lylibrary -u root -p"+general->value("Database/password").toString();
+    QString comando="mysqlcheck --databases lylibrary -r -u root -p"+general->value("Database/password").toString();
     #endif
     ripristina = new QProcess(this);
     ripristina->setReadChannel(QProcess::StandardOutput);
