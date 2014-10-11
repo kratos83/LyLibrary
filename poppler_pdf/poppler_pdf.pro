@@ -41,7 +41,7 @@ DESTDIR = ../lylibrary/data/
 }
 
 windows{
-INCLUDEPATH  +=/usr/i686-pc-mingw32/mingw/include/poppler/qt4/
+INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
 LIBS         += -lpoppler-qt4
 TARGET_EXT = .lyb
 QMAKE_EXTENSION_SHLIB = lyb
