@@ -5,7 +5,6 @@
 #include <QSettings>
 #include <QtGui>
 #include <QDir>
-#include "settingsmanager.h"
 
 namespace Ui {
     class license;

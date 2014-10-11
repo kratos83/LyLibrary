@@ -13,8 +13,6 @@
 #include <QGraphicsOpacityEffect>
 #include <QProcess>
 
-using namespace std;
-
 license::license(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::license)
@@ -33,11 +31,16 @@ license::license(QWidget *parent) :
     ui->back->setEnabled(false);
     ui->canc->setEnabled(false);
     ui->stackedWidget->setCurrentIndex(0);
-    myprocess = new QProcess(this);
+#ifdef Q_WS_WIN
+    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+#else
+    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+#endif
 
+    general = new QSettings(settingsDir->path()+"/config.conf",QSettings::IniFormat);
 
     read_conf();
-    load_style(settingsManager->generalValue("Tema/sel_tema",QVariant()).toString());
+    load_style(general->value("Tema/sel_tema").toString());
 }
 
 void license::button(){
@@ -46,8 +49,8 @@ void license::button(){
         ui->canc->setEnabled(false);
         ui->next->setEnabled(true);
         ui->canc->setEnabled(false);
-        settingsManager->setGeneralValue("main/option1",ui->accetto->isChecked());
-        settingsManager->setGeneralValue("main/versione","open source");
+        general->setValue("main/option1",ui->accetto->isChecked());
+        general->setValue("main/versione","open source");
     }
     else{
         page_stack();
@@ -97,8 +100,8 @@ void license::read_conf(){
         ui->next->setEnabled(false);
         ui->back->setEnabled(false);
         ui->canc->setEnabled(false);
-        settingsManager->generalValue("main/option1",QVariant());
-        settingsManager->generalValue("main/versione","open source");
+        general->value("main/option1").toString();
+        general->value("main/versione","open source").toString();
 }
 
 void license::esci(){

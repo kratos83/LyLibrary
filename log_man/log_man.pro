@@ -30,11 +30,9 @@ QMAKE_EXTENSION_SHLIB = lyb
 DESTDIR = ../lylibrary/data/
 }
 
-SOURCES += license.cpp \
-            settingsmanager.cpp
+SOURCES += license.cpp
 
-HEADERS  += license.h \
-            settingsmanager.h
+HEADERS  += license.h
 
 FORMS    += license.ui
 
