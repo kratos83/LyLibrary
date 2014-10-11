@@ -33,7 +33,7 @@ LIBS += data/libpdf_read.lap
 }
 
 windows{
-INCLUDEPATH  += /usr/i686-pc-mingw32/mingw/include/poppler/qt4/
+INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
 LIBS         += -lpoppler-qt4
 LIBS += data/log_man-1.0.lyb
 LIBS += data/initdb-1.0.lyb
