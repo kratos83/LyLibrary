@@ -23,7 +23,7 @@
    <string>Backup e ripristino database</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../lylibrary/biblio.qrc">
+   <iconset resource="images.qrc">
     <normaloff>:/images/svn-commit.png</normaloff>:/images/svn-commit.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -123,7 +123,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../lylibrary/biblio.qrc">:/images/backup_restor.png</pixmap>
+         <pixmap resource="../initdb/images.qrc">:/images/backup_restor.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>false</bool>
@@ -133,7 +133,7 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="1">
+   <item row="2" column="1">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -146,18 +146,18 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="QPushButton" name="bak_but">
      <property name="text">
       <string>Backup</string>
      </property>
      <property name="icon">
-      <iconset resource="../lylibrary/biblio.qrc">
+      <iconset resource="../initdb/images.qrc">
        <normaloff>:/images/vcs_add.png</normaloff>:/images/vcs_add.png</iconset>
      </property>
     </widget>
    </item>
-   <item row="1" column="3">
+   <item row="2" column="3">
     <spacer name="horizontalSpacer_2">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -170,32 +170,56 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="2">
+   <item row="2" column="2">
     <widget class="QPushButton" name="ripr_but">
      <property name="text">
       <string>Ripristino</string>
      </property>
      <property name="icon">
-      <iconset resource="../lylibrary/biblio.qrc">
+      <iconset resource="images.qrc">
        <normaloff>:/images/svn-commit.png</normaloff>:/images/svn-commit.png</iconset>
      </property>
     </widget>
    </item>
-   <item row="1" column="4">
+   <item row="2" column="4">
     <widget class="QPushButton" name="chiudi">
      <property name="text">
       <string>Esci</string>
      </property>
      <property name="icon">
-      <iconset resource="../lylibrary/biblio.qrc">
+      <iconset resource="../initdb/images.qrc">
        <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
      </property>
     </widget>
    </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Password</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <spacer name="horizontalSpacer_7">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1" colspan="3">
+    <widget class="QLineEdit" name="password"/>
+   </item>
   </layout>
  </widget>
  <resources>
-  <include location="../lylibrary/biblio.qrc"/>
+  <include location="../initdb/images.qrc"/>
+  <include location="images.qrc"/>
  </resources>
  <connections/>
 </ui>
