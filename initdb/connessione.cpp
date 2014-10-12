@@ -17,7 +17,7 @@ connessione::connessione(QWidget *parent) :
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowFlags(Qt::Dialog | Qt::WindowMaximizeButtonHint | Qt::WindowMinimizeButtonHint);
-    connect(p_crea,SIGNAL(clicked()),this,SLOT(creadb()));
+    connect(p_crea,SIGNAL(clicked()),this,SLOT(connetti()));
     connect(open_db,SIGNAL(clicked()),this,SLOT(connettidatabase()));
     connect(add_mysql_socket,SIGNAL(clicked(bool)),this,SLOT(add_vis_groupbox(bool)));
     timer = new QTimer(this);
@@ -41,24 +41,54 @@ connessione::~connessione()
 {
 }
 
-void connessione::creadb(){
+QSqlDatabase connessione::connetti(){
 
-        open_db->setEnabled(false);
-        ip_dat->setEnabled(false);
-        port->setEnabled(false);
-        n_dat_lan->setEnabled(false);
-        user->setEnabled(false);
-        pwd_lan->setEnabled(false);
-        add_vis_groupbox(true);
-        QString db_lylibrary = "lylibrary";
-        QString db_user = "lylibrary";
-        QString db_pwd = "lylibrary";
-        db = QSqlDatabase::addDatabase("QMYSQL");
-            db.setHostName("localhost");
-            db.setDatabaseName("mysql");
-            db.setUserName("root");
-            db.setPassword(password->text());
+    open_db->setEnabled(false);
+    ip_dat->setEnabled(false);
+    port->setEnabled(false);
+    n_dat_lan->setEnabled(false);
+    user->setEnabled(false);
+    pwd_lan->setEnabled(false);
+    QString db_lylibrary = "lylibrary";
+    db = QSqlDatabase::addDatabase("QMYSQL");
+        db.setHostName("localhost");
+        db.setDatabaseName("mysql");
+        db.setUserName("root");
+        db.setPassword(password->text());
 
+        if(!db.open()){
+
+        }
+        else{
+            db.open();
+            creadb(db,db_lylibrary);
+            QDate date = QDate::currentDate();
+            QSqlQuery query("select anno_ins from anno");
+            query.exec();
+            if(query.next()){
+            }
+            else{
+                if(query.value(0).toString() == ""){
+                    db.exec("INSERT INTO anno(anno_ins) VALUES("+QString::number(date.year())+")");
+                    setdate(date.year());
+                }
+                else{
+                    qDebug() << "|-----------INSERIMENTO NON EFFETTUATO--------------|";
+                }
+            }
+        }
+
+    return db;
+}
+
+void connessione::setdate(int year){
+    general->setValue("Esercizio/anno",year);
+}
+
+bool connessione::isNull(){
+    return FALSE;
+}
+void connessione::creadb(QSqlDatabase db, QString db_lylibrary){
 
 
         if (db.open())

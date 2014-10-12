@@ -32,12 +32,15 @@ private:
     QSettings *general;
 
 public slots:
-    void creadb();
+    void creadb(QSqlDatabase db, QString db_lylibrary);
     void barra_progresso();
     void connettidatabase();
     void confread();
     bool add_vis_groupbox(bool vis);
     void messaggio();
+    bool isNull();
+    QSqlDatabase connetti();
+    void setdate(int year);
 
 protected:
     void closeEvent(QCloseEvent *);
