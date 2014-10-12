@@ -23,7 +23,7 @@ db_bk_rs::db_bk_rs(QWidget *parent) :
 #else
     settingsDir = new QDir(QDir::homePath()+"/.luxury/");
 #endif
-
+    password->setEchoMode(QLineEdit::Password);
     general = new QSettings(settingsDir->path()+"/config.conf",QSettings::IniFormat);
 }
 
@@ -33,6 +33,14 @@ db_bk_rs::~db_bk_rs()
 
 void db_bk_rs::crea_backup()
 {
+    if(password->text().length() == 0){
+        QMessageBox MsgBox;
+        MsgBox.setText(QString::fromUtf8("Backup database..."));
+        MsgBox.setInformativeText(QString::fromUtf8("Inserisci la password, prima di effettuare il backup del database..."));
+        MsgBox.setIcon(QMessageBox::Information);
+        MsgBox.exec();
+    }
+    else{
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save file"), "*.bkp", "Database(*.bkp);;Tutti i file(*.*)");
 
             // Aggiunge estensione alla fine del file se non c'è
@@ -46,13 +54,13 @@ void db_bk_rs::crea_backup()
         QStringList args;
         if(general->value("Database/databaselocale").toString() == "locale"){
         #ifdef Q_OS_LINUX
-            comando=getLineFromCommandOutput("mysqldump --database lylibrary -u root -p"+general->value("Database/password").toString()+"> "+fileName);
+            comando=getLineFromCommandOutput("mysqldump --database lylibrary -u root -p"+password->text()+"> "+fileName);
         #endif
         #ifdef Q_OS_MAC
-        comando=getLineFromCommandOutput("mysqldump --database lylibrary -u root -p"+general->value("Database/password").toString()+"> "+fileName);
+        comando=getLineFromCommandOutput("mysqldump --database lylibrary -u root -p"+password->text()+"> "+fileName);
         #endif
         #ifdef Q_OS_WIN
-        comando=getLineFromCommandOutput("mysqldump.exe --database lylibrary -u root -p"+general->value("Database/password").toString()+"> "+fileName);
+        comando=getLineFromCommandOutput("mysqldump.exe --database lylibrary -u root -p"+password->text()+"> "+fileName);
         #endif
         }
         else if(general->value("Database/databaselocale").toString() == "server"){
@@ -86,12 +94,20 @@ void db_bk_rs::crea_backup()
         MsgBox.exec();
         this->close();
     }
-
+    }
 
 }
 
 void db_bk_rs::restore_db()
 {
+    if(password->text().length() == 0){
+        QMessageBox MsgBox;
+        MsgBox.setText(QString::fromUtf8("Backup database..."));
+        MsgBox.setInformativeText(QString::fromUtf8("Inserisci la password, prima di effettuare il ripristino del database..."));
+        MsgBox.setIcon(QMessageBox::Information);
+        MsgBox.exec();
+    }
+    else{
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), QString(), "Database(*.bkp);;Tutti i file(*.*)");
     fileName = QDir::toNativeSeparators(fileName);
 
@@ -99,13 +115,13 @@ void db_bk_rs::restore_db()
         QString comando;
         if(general->value("Database/databaselocale").toString() == "locale"){
         #ifdef Q_OS_LINUX
-            comando=getLineFromCommandOutput("mysql --one-database lylibrary -u root -p"+general->value("Database/password").toString()+" < "+fileName);
+        comando=getLineFromCommandOutput("mysql --one-database lylibrary -u root -p"+password->text()+" < "+fileName);
         #endif
         #ifdef Q_OS_MAC
-        comando=getLineFromCommandOutput("/usr/local/mysql/bin/mysql --one-database lylibrary -u root -p"+general->value("Database/password").toString()+" < "+fileName);
+        comando=getLineFromCommandOutput("/usr/local/mysql/bin/mysql --one-database lylibrary -u root -p"+password->text()+" < "+fileName);
         #endif
         #ifdef Q_OS_WIN
-        comando=getLineFromCommandOutput("mysql.exe --one-database lylibrary -u root -p"+general->value("Database/password").toString()+" < "+fileName);
+        comando=getLineFromCommandOutput("mysql.exe --one-database lylibrary -u root -p"+password->text()+" < "+fileName);
         #endif
         }
         else if(general->value("Database/databaselocale").toString() == "server"){
@@ -139,6 +155,7 @@ void db_bk_rs::restore_db()
         qDebug("Impossibile ripristinare il database...");
         MsgBox.exec();
         this->close();
+    }
     }
 
 }
