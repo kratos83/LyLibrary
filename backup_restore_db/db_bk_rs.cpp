@@ -102,7 +102,7 @@ void db_bk_rs::restore_db()
 {
     if(password->text().length() == 0){
         QMessageBox MsgBox;
-        MsgBox.setText(QString::fromUtf8("Backup database..."));
+        MsgBox.setText(QString::fromUtf8("Ripristino database..."));
         MsgBox.setInformativeText(QString::fromUtf8("Inserisci la password, prima di effettuare il ripristino del database..."));
         MsgBox.setIcon(QMessageBox::Information);
         MsgBox.exec();
