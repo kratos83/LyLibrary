@@ -14,7 +14,6 @@
 #include <QDebug>
 #include <QFile>
 #include <QVariant>
-#include "conn_db.h"
 #include "settingsmanager.h"
 #include "splashscreen.h"
 
@@ -72,9 +71,48 @@ int main(int argc, char *argv[])
          translator->load(QString(":/language/biblio_")+locale);
          a.installTranslator(translator);
 
-                 Database conn;
-                 QSqlDatabase db = conn.connect();
-                 db.open();
+         /*************************
+          *Impostazione del tema
+          *************************/
+         if(settingsManager->generalValue("Tema/sel_tema",QVariant()).toString().length() == 0)
+         {
+             settingsManager->setGeneralValue("Tema/sel_tema","Style");
+         }
+         else
+         {
+             settingsManager->generalValue("Tema/sel_tema",QVariant()).toString();
+         }
+                 connessione *conn = new connessione();
+                 QSqlDatabase db = conn->connetti();
+                 /*************************
+                  *Impostazione del database
+                  *************************/
+                 if(settingsManager->generalValue("Database/databaselocale","locale").toString()== "locale"){
+                     db.setHostName("localhost");
+                     db.setDatabaseName("lylibrary");
+                     db.setUserName("lylibrary");
+                     db.setPassword("lylibrary");
+                 }
+                 else if(settingsManager->generalValue("Database/databaselocale","server").toString()== "server"){
+                     db.setHostName(settingsManager->generalValue("DatabaseServer/indirizzoip",QVariant()).toString());
+                     db.setPort(settingsManager->generalValue("DatabaseServer/portadb",QVariant()).toInt());
+                     db.setDatabaseName(settingsManager->generalValue("DatabaseServer/nomedb",QVariant()).toString());
+                     db.setUserName(settingsManager->generalValue("DatabaseServer/userdb",QVariant()).toString());
+                     db.setPassword(settingsManager->generalValue("DatabaseServer/passdb",QVariant()).toString());
+                 }
+
+                 if(!db.open()){
+                     QMessageBox MsgBox;
+                     MsgBox.setText(QString::fromUtf8("Errore di connessione al DB"));
+                     MsgBox.setInformativeText(QString::fromUtf8("Controllare di aver installato MySql e di aver creato il DB fabaria"));
+                     MsgBox.setIcon(QMessageBox::Warning);
+                     MsgBox.exec();
+                     conn->exec();
+                 }
+                 else if(db.open()){
+                 MainWindow *w = new MainWindow();
+                 w->show();
+                 }
                  delete splash;
 
 
