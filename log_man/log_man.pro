@@ -9,7 +9,6 @@ QT       += core gui
 
 TARGET = log_man-1.0
 TEMPLATE = lib
-CONFIG += plugin
 CONFIG += release
 
 unix{
