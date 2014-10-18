@@ -19,6 +19,7 @@ articoli::articoli(QWidget *parent) : QDialog(parent)
 
     prodotto = this;
     setupUi(this);
+    setWindowModality(Qt::WindowModal);
     setAttribute(Qt::WA_DeleteOnClose);
     connect(exit_art,SIGNAL(clicked()),this,SLOT(close_art()));
     exit_art->setShortcut(tr("Ctrl+E"));
@@ -44,7 +45,7 @@ articoli::articoli(QWidget *parent) : QDialog(parent)
     pushButton->setShortcut(tr("Ctrl+C"));
     connect(cerca1,SIGNAL(textEdited(QString)),this,SLOT(cerca_libri(QString)));
     connect(ins_image,SIGNAL(clicked()),this,SLOT(image_but()));
-    codice_barre = new barcode(groupBox_2);
+    codice_barre = new barcode;
     cod_barre->setMaxLength(13);
     connect(tab_view,SIGNAL(clicked(QModelIndex)),this,SLOT(ist_codbarre()));
     connect(pr_bar,SIGNAL(clicked()),this,SLOT(stampacodbarreart()));
@@ -656,9 +657,10 @@ void articoli::esporta_cvs()
 
 void articoli::vis_codbarre(){
 
+    gridLayout_4->addWidget(codice_barre,3, 1, 1, 1);
+
     codice_barre->show();
 
-    gridLayout_4->addWidget(codice_barre,3, 1, 1, 1);
 }
 
 void articoli::ist_codbarre(){

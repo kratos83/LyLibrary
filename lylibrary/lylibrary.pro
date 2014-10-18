@@ -28,6 +28,7 @@ LIBS += data/liblog_man-1.0.lap
 LIBS += data/libinitdb-1.0.lap
 LIBS += data/libanalogclock.lap
 LIBS += data/libpdf_read.lap
+macx:ICON = images/logo4.icns
 }
 
 windows{
@@ -37,6 +38,7 @@ LIBS += data/log_man-1.0.lyb
 LIBS += data/initdb-1.0.lyb
 LIBS += data/analogclock.lyb
 LIBS += data/pdf_read.lyb
+RC_FILE = winicon.rc
 }
 
 
@@ -188,7 +190,6 @@ target.path = /opt/lylibrary/
 INSTALLS += lylibrary_data lylibrary_plugin lylibrary_desktop_file lylibrary_logo target
 }
 RESOURCES = biblio.qrc
-RC_FILE = winicon.rc
 
 TRANSLATIONS = language/biblio_it.ts \
                language/biblio_en.ts
