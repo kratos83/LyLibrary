@@ -5,7 +5,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = analogclock
 TEMPLATE = lib
-CONFIG += release
+CONFIG += plugin release
 
 unix{
 TARGET_EXT = .lux
