@@ -12,9 +12,9 @@ SettingsManager::SettingsManager(QObject *parent): QObject(parent) {
 	settingsManager = this;
 
 #ifdef Q_WS_WIN
-    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
-    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
 
 	if(!settingsDir->exists())
