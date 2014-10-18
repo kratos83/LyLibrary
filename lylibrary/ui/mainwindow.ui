@@ -95,7 +95,8 @@
              </size>
             </property>
             <property name="text">
-             <string>Codice fiscale</string>
+             <string>Codice fiscale
+ italiano</string>
             </property>
             <property name="icon">
              <iconset resource="../biblio.qrc">
@@ -214,6 +215,48 @@
             <property name="icon">
              <iconset resource="../../backup_restore_db/images.qrc">
               <normaloff>:/images/vcs_add.png</normaloff>:/images/vcs_add.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="cod_fiscale_estero">
+            <property name="minimumSize">
+             <size>
+              <width>151</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>151</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>151</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>151</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Codice fiscale
+ estero</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../biblio.qrc">
+              <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
             </property>
             <property name="iconSize">
              <size>

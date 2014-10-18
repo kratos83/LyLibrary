@@ -14,8 +14,8 @@ cod_fisc_est::cod_fisc_est(QWidget *parent) :
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
     today = ui->calendarWidget_2->selectedDate();
+    ui->tabWidget->setCurrentIndex(1);
     ui->tab->setEnabled(false);
-    ui->tab_2->setVisible(true);
     initStato();
 }
 

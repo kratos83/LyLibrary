@@ -328,6 +328,7 @@ void MainWindow::interface(){
     connect(actionCarico_magazzino,SIGNAL(triggered()),this,SLOT(vis_carico_magazzino()));
     connect(actionScarico_magazzino,SIGNAL(triggered()),this,SLOT(vis_scarico_magazzino()));
     connect(cod_fiscale,SIGNAL(clicked()),this,SLOT(gest_codfisc()));
+    connect(cod_fiscale_estero,SIGNAL(clicked()),this,SLOT(gest_codfisc_estero()));
     connect(actionInstalla_plugin,SIGNAL(triggered()),this,SLOT(installa_plugin()));
     onwid();
     azienda_ok();
