@@ -25,9 +25,9 @@ connessione::connessione(QWidget *parent) :
     textEdit->setReadOnly(true);
     setModal(true);
 #ifdef Q_WS_WIN
-    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
-    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
 
     general = new QSettings(settingsDir->path()+"/config.conf",QSettings::IniFormat);
