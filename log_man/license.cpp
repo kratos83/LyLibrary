@@ -32,9 +32,9 @@ license::license(QWidget *parent) :
     ui->canc->setEnabled(false);
     ui->stackedWidget->setCurrentIndex(0);
 #ifdef Q_WS_WIN
-    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
-    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
 
     general = new QSettings(settingsDir->path()+"/config.conf",QSettings::IniFormat);
