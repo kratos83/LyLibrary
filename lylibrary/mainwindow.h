@@ -154,6 +154,8 @@ public slots:
         void vis_carico_magazzino();
         void vis_scarico_magazzino();
         void installa_plugin();
+        void scrivi_posizione();
+        void leggi_posizione();
 
 protected slots:
         void pluginLoad(QObject *plugin, QTreeWidgetItem *item);
@@ -161,6 +163,8 @@ protected slots:
         void avvia_widget();
         void readPlug();
         void avvia_backup();
+        void moveEvent(QMoveEvent *);
+        void resizeEvent(QResizeEvent *);
 
 Q_SIGNALS:
         void pluginLoaded(const QString&, bool);

@@ -111,6 +111,7 @@ int main(int argc, char *argv[])
                  }
                  else if(db.open()){
                  MainWindow *w = new MainWindow();
+                 w->leggi_posizione();
                  w->show();
                  }
                  delete splash;

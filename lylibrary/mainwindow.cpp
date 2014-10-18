@@ -59,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     core();
     orologio();
     createStatusBar();
-    showMaximized();
     readPlug();
     load_style(settingsManager->generalValue("Tema/sel_tema",QVariant()).toString());
 }
@@ -1019,6 +1018,7 @@ void MainWindow::onactiondatabasetriggered()
 
 void MainWindow::closeEvent(QCloseEvent *event){
 
+    scrivi_posizione();
     event->ignore();
     QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::Information;
     if (trayIcon->isVisible()) {
@@ -1029,6 +1029,16 @@ void MainWindow::closeEvent(QCloseEvent *event){
                                     " del vassoio di sistema... ")),icon,15 * 1000);
         hide();
     }
+    QMainWindow::closeEvent(event);
+}
+
+void MainWindow::moveEvent(QMoveEvent *){
+    scrivi_posizione();
+}
+
+void MainWindow::resizeEvent(QResizeEvent *)
+{
+    scrivi_posizione();
 }
 
 void MainWindow::createStatusBar(){
@@ -1135,6 +1145,30 @@ void MainWindow::installa_plugin()
     #endif
 }
 
+
+void MainWindow::scrivi_posizione()
+{
+    settingsManager->setGeneralValue("main/geometria",saveGeometry());
+    settingsManager->setGeneralValue("main/salvastato",saveState());
+    settingsManager->setGeneralValue("main/massimizza",isMaximized());
+
+    if(!isMaximized())
+    {
+        settingsManager->setGeneralValue("main/pos",pos());
+        settingsManager->setGeneralValue("main/size",size());
+    }
+}
+
+void MainWindow::leggi_posizione()
+{
+    restoreGeometry(settingsManager->generalValue("main/geometria",saveGeometry()).toByteArray());
+    restoreState(settingsManager->generalValue("main/slavastato",saveState()).toByteArray());
+    move(settingsManager->generalValue("main/pos",pos()).toPoint());
+    resize(settingsManager->generalValue("main/size",size()).toSize());
+
+    if(settingsManager->generalValue("main/massimizza",isMaximized()).toBool())
+        showMaximized();
+}
 
 void MainWindow::changeEvent(QEvent *e)
 {
