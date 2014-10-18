@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core sql xml network svg multimedia gui qt3support webkit
-QT       -= phonon
 
 TARGET = lylibrary
 TEMPLATE = app
@@ -23,7 +22,6 @@ LIBS += data/libpdf_read.lux
 }
 
 macx{
-Qt -= phonon
 INCLUDEPATH  += /opt/local/include/poppler/qt4
 LIBS         += -lpoppler-qt4
 LIBS += data/liblog_man-1.0.lap
