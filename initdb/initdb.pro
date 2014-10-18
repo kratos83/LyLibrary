@@ -1,7 +1,7 @@
 QT       += core widgets gui sql
 TARGET = initdb-1.0
 TEMPLATE = lib
-CONFIG += release
+CONFIG += plugin release
 
 unix{
 TARGET_EXT = .lux
