@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../log_man/license.qrc">
+   <iconset resource="../biblio.qrc">
     <normaloff>:/images/icons32x32.png</normaloff>:/images/icons32x32.png</iconset>
   </property>
   <property name="styleSheet">
@@ -840,6 +840,8 @@
     <addaction name="separator"/>
     <addaction name="actionCalcola_codicefiscale"/>
     <addaction name="separator"/>
+    <addaction name="actionCalcola_codice_fiscale_estero"/>
+    <addaction name="separator"/>
     <addaction name="actionInstalla_plugin"/>
    </widget>
    <widget class="QMenu" name="menuInformazioni">
@@ -1170,7 +1172,7 @@
      <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
    </property>
    <property name="text">
-    <string>Calcola codicefiscale</string>
+    <string>Calcola codicefiscale italiano</string>
    </property>
   </action>
   <action name="actionCausali_di_trasporto">
@@ -1254,6 +1256,15 @@
     <string>Installa plugin</string>
    </property>
   </action>
+  <action name="actionCalcola_codice_fiscale_estero">
+   <property name="icon">
+    <iconset resource="../biblio.qrc">
+     <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
+   </property>
+   <property name="text">
+    <string>Calcola codice fiscale estero</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
@@ -1270,7 +1281,6 @@
  </tabstops>
  <resources>
   <include location="../../backup_restore_db/images.qrc"/>
-  <include location="../../log_man/license.qrc"/>
   <include location="../biblio.qrc"/>
  </resources>
  <connections/>

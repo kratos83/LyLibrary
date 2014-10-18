@@ -2,372 +2,402 @@
 <ui version="4.0">
  <class>cod_fisc</class>
  <widget class="QDialog" name="cod_fisc">
-  <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
-  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
-    <height>426</height>
+    <width>427</width>
+    <height>480</height>
    </rect>
   </property>
-  <property name="sizeIncrement">
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
    <size>
-    <width>10</width>
-    <height>10</height>
+    <width>427</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>427</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>427</width>
+    <height>480</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Codice fiscale</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="fabariagest.qrc">
-    <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
-  </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1" columnstretch="0" rowminimumheight="1,1,1" columnminimumwidth="0">
-   <property name="sizeConstraint">
-    <enum>QLayout::SetMinimumSize</enum>
-   </property>
-   <item row="2" column="0">
-    <layout class="QVBoxLayout">
-     <item>
-      <layout class="QHBoxLayout" name="_2">
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Cognome</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEditCognome"/>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="_3">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Nome</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEditNome"/>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="_4">
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Sesso</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="radioButtonM">
-         <property name="text">
-          <string>M</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="radioButtonF">
-         <property name="text">
-          <string>F</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>151</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="_5">
-       <item>
-        <widget class="QLabel" name="label_4">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Comune</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboBoxComune">
-         <property name="editable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="_6">
-       <item>
-        <widget class="QLabel" name="label_5">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Data nascita</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCalendarWidget" name="calendarWidget"/>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <widget class="QFrame" name="frame">
-       <property name="styleSheet">
-        <string notr="true">background-image:url(:/images/frame.png)</string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="QPushButton" name="esci">
-          <property name="text">
-           <string>Esci</string>
-          </property>
-          <property name="icon">
-           <iconset resource="fabariagest.qrc">
-            <normaloff>:/images/application-exit.png</normaloff>:/images/application-exit.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>66</width>
-            <height>28</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="pushButtonCancella">
-          <property name="text">
-           <string>cancella</string>
-          </property>
-          <property name="icon">
-           <iconset resource="fabariagest.qrc">
-            <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>66</width>
-            <height>28</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="4">
-         <widget class="QPushButton" name="pushButtonCalcola">
-          <property name="text">
-           <string>calcola</string>
-          </property>
-          <property name="icon">
-           <iconset resource="fabariagest.qrc">
-            <normaloff>:/images/images.png</normaloff>:/images/images.png</iconset>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="_7">
-       <item>
-        <widget class="QLabel" name="label_6">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Codice Fiscale</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEditCodiceFiscale">
-         <property name="palette">
-          <palette>
-           <active>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>204</red>
-               <green>255</green>
-               <blue>170</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </active>
-           <inactive>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>204</red>
-               <green>255</green>
-               <blue>170</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </inactive>
-           <disabled>
-            <colorrole role="Base">
-             <brush brushstyle="SolidPattern">
-              <color alpha="255">
-               <red>255</red>
-               <green>255</green>
-               <blue>255</blue>
-              </color>
-             </brush>
-            </colorrole>
-           </disabled>
-          </palette>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </item>
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QLabel" name="label_7">
-     <property name="font">
-      <font>
-       <family>A Cut Above The Rest</family>
-       <pointsize>16</pointsize>
-       <italic>true</italic>
-      </font>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Codice fiscale</string>
      </property>
-     <property name="text">
-      <string>CODICE FISCALE</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0" colspan="3">
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>Codice fiscale italiano</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="3" column="1" colspan="3">
+           <widget class="QComboBox" name="comboBoxComune">
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Comune</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Data di nascita</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QRadioButton" name="radioButtonM">
+            <property name="text">
+             <string>M</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="3">
+           <widget class="QLineEdit" name="lineEditCognome"/>
+          </item>
+          <item row="4" column="1" colspan="3">
+           <widget class="QCalendarWidget" name="calendarWidget"/>
+          </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="QLineEdit" name="lineEditNome"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Cognome</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Nome</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Codice Fiscale</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Sesso</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" colspan="3">
+           <widget class="QLineEdit" name="lineEditCodiceFiscale">
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>192</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>192</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>241</red>
+                  <green>241</green>
+                  <blue>241</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QRadioButton" name="radioButtonF">
+            <property name="text">
+             <string>F</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_2">
+         <attribute name="title">
+          <string>Codice fiscale estero</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Cognome</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="3">
+           <widget class="QLineEdit" name="lineEditCognome_2"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Nome</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="QLineEdit" name="lineEditNome_2"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Sesso</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Data di nascita</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QRadioButton" name="radioButtonF_2">
+            <property name="text">
+             <string>F</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QRadioButton" name="radioButtonM_2">
+            <property name="text">
+             <string>M</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="1" colspan="3">
+           <widget class="QCalendarWidget" name="calendarWidget_2"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Codice Fiscale</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" colspan="3">
+           <widget class="QLineEdit" name="lineEditCodiceFiscale_2">
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>192</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>192</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>241</red>
+                  <green>241</green>
+                  <blue>241</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Stato</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" colspan="3">
+           <widget class="QComboBox" name="comboBoxStati">
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButtonCalcola">
+        <property name="text">
+         <string>Calcola</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../biblio.qrc">
+          <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButtonCancella">
+        <property name="text">
+         <string>Cancella</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../biblio.qrc">
+          <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="esci">
+        <property name="text">
+         <string>Esci</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../backup_restore_db/images.qrc">
+          <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>lineEditCognome</tabstop>
+  <tabstop>lineEditNome</tabstop>
+  <tabstop>radioButtonM</tabstop>
+  <tabstop>radioButtonF</tabstop>
+  <tabstop>comboBoxComune</tabstop>
+  <tabstop>calendarWidget</tabstop>
+  <tabstop>lineEditCodiceFiscale</tabstop>
+  <tabstop>pushButtonCalcola</tabstop>
+  <tabstop>pushButtonCancella</tabstop>
+  <tabstop>esci</tabstop>
+  <tabstop>lineEditCognome_2</tabstop>
+  <tabstop>lineEditNome_2</tabstop>
+  <tabstop>radioButtonM_2</tabstop>
+  <tabstop>radioButtonF_2</tabstop>
+  <tabstop>comboBoxStati</tabstop>
+  <tabstop>calendarWidget_2</tabstop>
+  <tabstop>lineEditCodiceFiscale_2</tabstop>
+ </tabstops>
  <resources>
-  <include location="fabariagest.qrc"/>
+  <include location="../../backup_restore_db/images.qrc"/>
+  <include location="../biblio.qrc"/>
  </resources>
  <connections/>
 </ui>

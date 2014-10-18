@@ -1,4 +1,4 @@
-#include "cod_fisc.h"
+#include "cod_fisc_est.h"
 #include "ui_cod_fisc.h"
 #include <QFile>
 #include <QTextStream>
@@ -7,44 +7,44 @@
 #include <QCompleter>
 #include <QDebug>
 
-cod_fisc::cod_fisc(QWidget *parent) :
+cod_fisc_est::cod_fisc_est(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::cod_fisc)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
-    today = ui->calendarWidget->selectedDate();
-    ui->tab_2->setEnabled(false);
-    ui->tab->setVisible(true);
-    initComuni();
+    today = ui->calendarWidget_2->selectedDate();
+    ui->tab->setEnabled(false);
+    ui->tab_2->setVisible(true);
+    initStato();
 }
 
-void cod_fisc::initComuni(){
+void cod_fisc_est::initStato(){
 
-    QFile file(":/comuni.txt");
+    QFile file(":/estero.txt");
 
             if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
                     return;
 
             QTextStream in(&file);
             QString com;
-            for (int i = 0; i < 8098; i++)
+            for (int i = 0; i < 292; i++)
             {
                     QString line = in.readLine();
                     com  = line.section(':', 0, 0);
-                    ui->comboBoxComune->addItem(com);
+                    ui->comboBoxStati->addItem(com);
             }
 }
 
-void cod_fisc::on_pushButtonCalcola_clicked(){
+void cod_fisc_est::on_pushButtonCalcola_clicked(){
 
     // acquisizione dati
-            cognome = ui->lineEditCognome->displayText().toUpper();
-            nome = ui->lineEditNome->displayText().toUpper();
-            sesso = (ui->radioButtonM->isChecked() == true);
-            comune = ui->comboBoxComune->currentText().toUpper();
+            cognome = ui->lineEditCognome_2->displayText().toUpper();
+            nome = ui->lineEditNome_2->displayText().toUpper();
+            sesso = (ui->radioButtonM_2->isChecked() == true);
+            comune = ui->comboBoxStati->currentText().toUpper();
 
-            QDate date = ui->calendarWidget->selectedDate();
+            QDate date = ui->calendarWidget_2->selectedDate();
             dataGiorno = date.day();
             dataMese = date.month();
             dataAnno = date.year();
@@ -56,23 +56,23 @@ void cod_fisc::on_pushButtonCalcola_clicked(){
             calculateCognome();
             calculateNome();
             calculateData();
-            calculateComune();
+            calculateStato();
             calculateLetteraControllo();
 
             merge();
 }
 
-void cod_fisc::on_pushButtonCancella_clicked(){
+void cod_fisc_est::on_pushButtonCancella_clicked(){
 
-    ui->lineEditCognome->setText("");
-    ui->lineEditNome->setText("");
-    ui->radioButtonM->setChecked(true);
-    ui->comboBoxComune->setCurrentIndex(0);
-    ui->calendarWidget->setSelectedDate(today);
-    ui->lineEditCodiceFiscale->setText("");
+    ui->lineEditCognome_2->setText("");
+    ui->lineEditNome_2->setText("");
+    ui->radioButtonM_2->setChecked(true);
+    ui->comboBoxStati->setCurrentIndex(0);
+    ui->calendarWidget_2->setSelectedDate(today);
+    ui->lineEditCodiceFiscale_2->setText("");
 }
 
-void cod_fisc::calculateCognome(){
+void cod_fisc_est::calculateCognome(){
 
     block1 = "";
 
@@ -111,7 +111,7 @@ void cod_fisc::calculateCognome(){
                     block1 += "X";
 }
 
-void cod_fisc::calculateNome(){
+void cod_fisc_est::calculateNome(){
 
     block2 = "";
             bool ok = false;
@@ -171,7 +171,7 @@ void cod_fisc::calculateNome(){
                     block2 += "X";
 }
 
-void cod_fisc::calculateData(){
+void cod_fisc_est::calculateData(){
 
     // calcolo  dell'anno
             QString anno;
@@ -221,7 +221,7 @@ void cod_fisc::calculateData(){
 
             // calcolo  del giorno
             QString giorno;
-            if (ui->radioButtonM->isChecked())
+            if (ui->radioButtonM_2->isChecked())
             {
                     giorno.setNum(dataGiorno);
                     if (giorno.length() == 1)
@@ -230,17 +230,17 @@ void cod_fisc::calculateData(){
                             giorno = "0" + tmp;
                     }
             }
-            else if (ui->radioButtonF->isChecked())
+            else if (ui->radioButtonF_2->isChecked())
                     giorno.setNum(dataGiorno+40);
 
             block3 += giorno;
 }
 
-void cod_fisc::calculateComune(){
+void cod_fisc_est::calculateStato(){
 
-    int currentIndex = ui->comboBoxComune->currentIndex();
+    int currentIndex = ui->comboBoxStati->currentIndex();
 
-    QFile file(":/comuni.txt");
+    QFile file(":/estero.txt");
 
             if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
                     return;
@@ -255,7 +255,7 @@ void cod_fisc::calculateComune(){
             block4 = cod.left(4);
 }
 
-void cod_fisc::calculateLetteraControllo(){
+void cod_fisc_est::calculateLetteraControllo(){
 
     int sum = 0;
             QString CFtmp = block1+block2+block3+block4;
@@ -272,14 +272,14 @@ void cod_fisc::calculateLetteraControllo(){
             block5 = mapNumber(total);
 }
 
-void cod_fisc::merge(){
+void cod_fisc_est::merge(){
 
     CF = block1+block2+block3+block4+block5;
 
-            ui->lineEditCodiceFiscale->setText(CF);
+            ui->lineEditCodiceFiscale_2->setText(CF);
 }
 
-int cod_fisc::checkVocale(QString v){
+int cod_fisc_est::checkVocale(QString v){
 
     v.toUpper();
 
@@ -291,15 +291,15 @@ int cod_fisc::checkVocale(QString v){
             return 0;
 }
 
-bool cod_fisc::chechInput(){
+bool cod_fisc_est::chechInput(){
 
     QString errors = "";
 
-            if (ui->lineEditCognome->displayText() == "")
+            if (ui->lineEditCognome_2->displayText() == "")
                     errors += "Inserisci il cognome\n";
-            if (ui->lineEditNome->displayText() == "")
+            if (ui->lineEditNome_2->displayText() == "")
                     errors += "Inserisci il nome\n";
-            if ((!ui->radioButtonM->isChecked()) && (!ui->radioButtonF->isChecked()))
+            if ((!ui->radioButtonM_2->isChecked()) && (!ui->radioButtonF_2->isChecked()))
                     errors += "Inserisci il sesso\n";
 
             if (errors != "")
@@ -312,7 +312,7 @@ bool cod_fisc::chechInput(){
             return true;
 }
 
-int cod_fisc::getEvenCode(QString c){
+int cod_fisc_est::getEvenCode(QString c){
 
     // calcolo del carattere
             if ((c == "A") || (c == "0"))
@@ -371,7 +371,7 @@ int cod_fisc::getEvenCode(QString c){
             return -1;
 }
 
-int cod_fisc::getOddCode(QString c){
+int cod_fisc_est::getOddCode(QString c){
 
     // calcolo del carattere
             if ((c == "A") || (c == "0"))
@@ -430,7 +430,7 @@ int cod_fisc::getOddCode(QString c){
             return -1;
 }
 
-QString cod_fisc::mapNumber(int n){
+QString cod_fisc_est::mapNumber(int n){
 
     // calcolo del carattere
             if (n == 0)
@@ -489,12 +489,12 @@ QString cod_fisc::mapNumber(int n){
             return "_";
 }
 
-cod_fisc::~cod_fisc()
+cod_fisc_est::~cod_fisc_est()
 {
     delete ui;
 }
 
-void cod_fisc::on_esci_clicked()
+void cod_fisc_est::on_esci_clicked()
 {
     close();
 }

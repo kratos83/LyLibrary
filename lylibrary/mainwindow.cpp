@@ -258,6 +258,8 @@ void MainWindow::interface(){
     menu_d->addSeparator();
     menu_d->addAction(actionCalcola_codicefiscale);
     menu_d->addSeparator();
+    menu_d->addAction(actionCalcola_codice_fiscale_estero);
+    menu_d->addSeparator();
     menu_d->addAction(actionInstalla_plugin);
     toolButton_9->setMenu(menu_d);
     toolButton_9->setPopupMode(QToolButton::InstantPopup);
@@ -314,6 +316,7 @@ void MainWindow::interface(){
     connect(gest_plugin,SIGNAL(clicked()),this,SLOT(gestioneplugin()));
     connect(actionGestione_plugin,SIGNAL(triggered()),this,SLOT(gestioneplugin()));
     connect(actionCalcola_codicefiscale,SIGNAL(triggered()),this,SLOT(gest_codfisc()));
+    connect(actionCalcola_codice_fiscale_estero,SIGNAL(triggered()),this,SLOT(gest_codfisc_estero()));
     connect(actionAnagrafica_pagamenti,SIGNAL(triggered()),this,SLOT(gest_pagamento()));
     connect(actionCausali_di_trasporto,SIGNAL(triggered()),this,SLOT(gest_causali()));
     connect(actionAnagrafica_iva,SIGNAL(triggered()),this,SLOT(gest_iva()));
@@ -911,8 +914,17 @@ void MainWindow::gest_codfisc(){
     fisc->setWindowModality(Qt::WindowModal);
     fisc->exec();
 
-    QMainWindow::statusBar()->showMessage(tr("Apertura calcolo codice fiscale...."));
+    QMainWindow::statusBar()->showMessage(tr("Apertura calcolo codice fiscale italiano...."));
 
+}
+
+void MainWindow::gest_codfisc_estero()
+{
+    fisc_est = new cod_fisc_est(this);
+    fisc_est->setWindowModality(Qt::WindowModal);
+    fisc_est->exec();
+
+    QMainWindow::statusBar()->showMessage(tr("Apertura calcolo codice fiscale estero...."));
 }
 
 void MainWindow::gest_pagamento(){

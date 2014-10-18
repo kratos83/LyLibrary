@@ -87,7 +87,8 @@ SOURCES += main.cpp\
         fattura_rg.cpp \
         fattura_rg_art.cpp \
     scarico_mag.cpp \
-    splashscreen.cpp
+    splashscreen.cpp \
+    cod_fisc_est.cpp
 
 HEADERS  += mainwindow.h \
             about.h \
@@ -133,7 +134,8 @@ HEADERS  += mainwindow.h \
             fattura_rg.h \
             fattura_rg_art.h \
     scarico_mag.h \
-    splashscreen.h
+    splashscreen.h \
+    cod_fisc_est.h
 
 
 FORMS    += ui/mainwindow.ui \

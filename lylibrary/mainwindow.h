@@ -34,6 +34,7 @@
 #include "prestito_app_dig.h"
 #include "prestito_dig.h"
 #include "cod_fisc.h"
+#include "cod_fisc_est.h"
 #include "pag.h"
 #include "causali.h"
 #include "iva.h"
@@ -90,6 +91,7 @@ public:
     prestito_app_dig *prestoapp;
     prestito_dig *dig_app;
     cod_fisc *fisc;
+    cod_fisc_est *fisc_est;
     pag *pagamento;
     causali *caus;
     iva *iv;
@@ -140,6 +142,7 @@ public slots:
         void gest_pagamento();
         void gest_causali();
         void gest_codfisc();
+        void gest_codfisc_estero();
         void gest_iva();
         void azienda_cod();
         void azienda_ok();
