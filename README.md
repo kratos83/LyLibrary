@@ -1,4 +1,4 @@
-LyLibrary 2.0.1 (beta1) 
+LyLibrary 2.0.1 (rc1) 
 =========
 
 Software per la gestione delle bibioteche
