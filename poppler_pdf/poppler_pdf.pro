@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = pdf_read
 TEMPLATE = lib
-CONFIG += release
+CONFIG += plugin release
 
 SOURCES += \
     open_pdf.cpp \
