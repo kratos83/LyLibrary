@@ -60,7 +60,6 @@ SOURCES += main.cpp\
         pref.cpp \
         classe.cpp \
         prest_lib.cpp \
-        conn_db.cpp \
         settingsmanager.cpp \
         pluginmanager.cpp \
         barcode.cpp \
@@ -105,7 +104,6 @@ HEADERS  += mainwindow.h \
             pref.h \
             classe.h \
             prest_lib.h \
-            conn_db.h \
             luxuryim.h \
             settingsmanager.h \
             pluginmanager.h \
