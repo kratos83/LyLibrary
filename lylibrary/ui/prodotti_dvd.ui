@@ -658,6 +658,34 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>cod_art</tabstop>
+  <tabstop>cod_barre</tabstop>
+  <tabstop>art_nom</tabstop>
+  <tabstop>descrizione</tabstop>
+  <tabstop>autore</tabstop>
+  <tabstop>lingua</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>scaffale</tabstop>
+  <tabstop>quant1</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>image_dir</tabstop>
+  <tabstop>cerca1</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>comboBox_2</tabstop>
+  <tabstop>nuovo1</tabstop>
+  <tabstop>agg_art</tabstop>
+  <tabstop>modifica</tabstop>
+  <tabstop>del_art</tabstop>
+  <tabstop>print_art</tabstop>
+  <tabstop>print_barcode</tabstop>
+  <tabstop>st_pdf</tabstop>
+  <tabstop>st_cvs</tabstop>
+  <tabstop>exit_art</tabstop>
+  <tabstop>ins_image</tabstop>
+  <tabstop>dettagli</tabstop>
+  <tabstop>tab_view</tabstop>
+ </tabstops>
  <resources>
   <include location="../biblio.qrc"/>
  </resources>

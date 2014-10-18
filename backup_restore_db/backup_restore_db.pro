@@ -13,7 +13,7 @@ DESTDIR = ../lylibrary/plugin/
 macx{
 TARGET_EXT = .lap
 QMAKE_EXTENSION_SHLIB = lap
-DESTDIR = ../lylibrary/data/
+DESTDIR = ../lylibrary/plugin/
 }
 
 windows{
