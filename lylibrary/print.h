@@ -76,6 +76,8 @@ public:
     void pagina_fatt_vendita_prod_dig(int pagNo,int id);
     void intestazione();
     void layout_fattura();
+    void print_codice(QPrinter *printer, QImage img, QString cognome, QString nome, bool maschio, bool femmina,
+                      QString com_st, QString pr_st, QString codice, QDate date);
 
 
     QPrinter *printer;

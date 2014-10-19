@@ -1,14 +1,15 @@
 #ifndef COD_FISC_H
 #define COD_FISC_H
 
-#include <QtGui/QDialog>
+#include <QtGui>
 #include <QDate>
+#include <QPainter>
 
 namespace Ui {
     class cod_fisc;
 }
 
-class cod_fisc : public QDialog {
+class cod_fisc : public QMainWindow {
     Q_OBJECT
 public:
     cod_fisc(QWidget *parent = 0);
@@ -39,11 +40,13 @@ private slots:
     void on_pushButtonCalcola_clicked();
     void on_pushButtonCancella_clicked();
     void initComuni();
+    bool vis_cod_fisc(bool click);
+    void stampa_codice();
+    void anteprima(QPrinter *printer);
 
 private:
-    Ui::cod_fisc *ui;
-                QDate today;
-
+        Ui::cod_fisc *ui;
+        QDate today;
 
 
 		QString cognome;
@@ -61,6 +64,11 @@ private:
 		QString block5;
 		
 		QString CF;
+        QPixmap img;
+        QPainter *painter;
+
+protected:
+        void paintEvent(QPaintEvent *event);
 };
 
 #endif // COD_FISC_H

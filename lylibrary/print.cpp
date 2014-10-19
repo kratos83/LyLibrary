@@ -2473,3 +2473,37 @@ void Stampe::layout_fattura()
                       "Lylibrary - versione "+settingsManager->generalValue("Version/version",QVariant()).toString()+" Powered by Codelinsoft");
 
 }
+
+void Stampe::print_codice(QPrinter *printer, QImage img, QString cognome, QString nome,
+                         bool maschio, bool femmina, QString com_st, QString pr_st, QString codice, QDate date)
+{
+        printer->setPaperSize(QPrinter::A7);
+        printer->setOrientation(QPrinter::Landscape);
+        printer->setResolution(254);
+
+           //printer->setOrientation(QPrinter::Landscape);
+         // inizio fase di stampa. Si attiva il painter sulla printer
+         // impostata in precedenza
+      painter->begin(printer);
+
+      painter->drawImage(5,5,img);
+      painter->setFont(QFont("Arial",10,50));
+      painter->setPen(QPen(Qt::black, 10, Qt::SolidLine, Qt::RoundCap));
+      painter->drawText(60,190,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,codice);
+      painter->drawText(30,240,480,100, Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,cognome);
+      painter->drawText(30,290,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap, nome);
+      painter->drawText(40,340,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap, com_st);
+      painter->drawText(40,395,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,pr_st);
+      painter->drawText(30,450,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,date.toString(QString("dd/MM/yyyy")));
+
+      if(maschio){
+          painter->drawText(480,335,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,"M");
+      }
+      else if(femmina){
+          painter->drawText(480,335,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,"F");
+      }
+      
+      painter->setFont(QFont("Arial",12,50));
+      painter->drawText(400,440,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,"FAC SIMILE");
+      painter->end();
+}

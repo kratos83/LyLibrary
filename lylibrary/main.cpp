@@ -23,8 +23,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     SettingsManager *settings = new SettingsManager();
     QPixmap img(":/images/splash.png");
-       // QSplashScreen *splash = new QSplashScreen;
-        //splash->setPixmap(img);
     splashscreen *splash = new splashscreen(img);
         splash->setMask(img.mask());
         splash->show();
@@ -76,7 +74,7 @@ int main(int argc, char *argv[])
           *************************/
          if(settingsManager->generalValue("Tema/sel_tema",QVariant()).toString().length() == 0)
          {
-             settingsManager->setGeneralValue("Tema/sel_tema","Style");
+             settingsManager->setGeneralValue("Tema/sel_tema","Default");
          }
          else
          {

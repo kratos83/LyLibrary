@@ -7,7 +7,6 @@ class topHeader : public QWidget
 {
 public:
     topHeader(QWidget *p = 0);
-    QString versione;
 
 protected:
         void paintEvent ( QPaintEvent * event );

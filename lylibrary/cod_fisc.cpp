@@ -6,14 +6,22 @@
 #include <iostream>
 #include <QCompleter>
 #include <QDebug>
+#include "print.h"
 
 cod_fisc::cod_fisc(QWidget *parent) :
-    QDialog(parent),
+    QMainWindow(parent),
     ui(new Ui::cod_fisc)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
     today = ui->calendarWidget->selectedDate();
+    connect(ui->actionVisualizza_anteprima,SIGNAL(triggered(bool)),this,SLOT(vis_cod_fisc(bool)));
+    connect(ui->actionStampa,SIGNAL(triggered()),this,SLOT(stampa_codice()));
+    connect(ui->actionEsci,SIGNAL(triggered()),this,SLOT(on_esci_clicked()));
+    ui->actionVisualizza_anteprima->setChecked(true);
+    ui->radioButtonM->setChecked(true);
+    setWindowTitle("Codice fiscale italiano");
+    img = QPixmap(":/images/codicefiscale.jpg");
     ui->tab_2->setEnabled(false);
     ui->tab->setVisible(true);
     initComuni();
@@ -492,6 +500,65 @@ QString cod_fisc::mapNumber(int n){
 cod_fisc::~cod_fisc()
 {
     delete ui;
+}
+
+bool cod_fisc::vis_cod_fisc(bool click)
+{
+
+    if(click == true)
+    {
+        setFixedSize(846,521);
+    }
+    else if(click == false)
+       {
+        setFixedSize(418,521);
+       }
+
+    return click;
+}
+
+void cod_fisc::paintEvent(QPaintEvent *event)
+{
+    painter = new QPainter(this);
+    painter->drawImage(435,60,img);
+    painter->setPen(QPen(Qt::black, 12, Qt::SolidLine, Qt::RoundCap));
+    painter->drawText(330,130,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,CF);
+    painter->drawText(300,155,480,100, Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,ui->lineEditCognome->text());
+    painter->drawText(300,180,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap, ui->lineEditNome->text());
+    painter->drawText(330,210,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap, ui->comboBoxComune->currentText());
+    painter->drawText(330,235,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,ui->comboBoxComune->currentText());
+    painter->drawText(330,260,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,ui->calendarWidget->selectedDate().toString(QString("dd/MM/yyyy")));
+    if(ui->radioButtonM->isChecked())
+    {
+        painter->drawText(550,195,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,"M");
+    }
+    else if(ui->radioButtonF->isChecked())
+    {
+        painter->drawText(550,195,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,"F");
+    }
+    painter->setFont(QFont("Arial",18,50));
+    painter->drawText(513,250,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,"FAC SIMILE");
+    update();
+    QWidget::paintEvent(event);
+}
+
+void cod_fisc::stampa_codice()
+{
+    QPrinter printer(QPrinter::HighResolution);
+
+    QPrintPreviewDialog preview(&printer);
+    preview.setWindowFlags(Qt::Window);
+    preview.setWindowTitle("Anteprima di stampa.");
+    connect(&preview,SIGNAL(paintRequested(QPrinter*)),SLOT(anteprima(QPrinter*)));
+    preview.exec();
+}
+
+void cod_fisc::anteprima(QPrinter *printer)
+{
+    Q_UNUSED(printer);
+    Stampe *stampa = new Stampe();
+    QImage image_800x600 = QImage(":/images/codicefiscale_800x600.jpg");
+    stampa->print_codice(printer,image_800x600,ui->lineEditCognome->text(),ui->lineEditNome->text(),ui->radioButtonM->isChecked(),ui->radioButtonF->isChecked(),ui->comboBoxComune->currentText(),ui->comboBoxComune->currentText(),CF,ui->calendarWidget->selectedDate());
 }
 
 void cod_fisc::on_esci_clicked()

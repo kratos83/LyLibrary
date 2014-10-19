@@ -913,7 +913,7 @@ void MainWindow::gest_codfisc(){
 
     fisc = new cod_fisc(this);
     fisc->setWindowModality(Qt::WindowModal);
-    fisc->exec();
+    fisc->show();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura calcolo codice fiscale italiano...."));
 
@@ -923,7 +923,7 @@ void MainWindow::gest_codfisc_estero()
 {
     fisc_est = new cod_fisc_est(this);
     fisc_est->setWindowModality(Qt::WindowModal);
-    fisc_est->exec();
+    fisc_est->show();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura calcolo codice fiscale estero...."));
 }

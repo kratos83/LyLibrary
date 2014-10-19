@@ -37,7 +37,7 @@ pref::pref(QWidget *parent) :
     graphicsView->setStyleSheet("background-color: transparent");
 
     QStringList lista;
-    lista << "Default" << "Style" << "Modern";
+    lista << "Modern" << "Style" << "Elegant" << "Nero";
     sel_tema->addItems(lista);
     menu_pref();
     interface();

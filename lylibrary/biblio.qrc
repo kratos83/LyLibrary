@@ -27,7 +27,6 @@
         <file>images/logo_maj.png</file>
         <file>images/application-exit.png</file>
         <file>images/accessories-dictionary.png</file>
-        <file>qss/style.qss</file>
         <file>images/system-software-update.png</file>
         <file>images/wizard.png</file>
         <file>images/system-run.png</file>
@@ -45,7 +44,7 @@
         <file>images/cash2.png</file>
         <file>images/codicefisc.png</file>
         <file>comuni.txt</file>
-	<file>estero.txt</file>
+        <file>estero.txt</file>
         <file>images/iva.png</file>
         <file>images/documentation.png</file>
         <file>images/icons32x32.png</file>
@@ -53,6 +52,10 @@
         <file>images/excel.png</file>
         <file>images/splash.png</file>
         <file>qss/modern.qss</file>
-        <file>qss/default.qss</file>
+        <file>qss/style.qss</file>
+        <file>images/codicefiscale.jpg</file>
+        <file>images/codicefiscale_800x600.jpg</file>
+        <file>qss/elegante.qss</file>
+        <file>qss/nero.qss</file>
     </qresource>
 </RCC>
