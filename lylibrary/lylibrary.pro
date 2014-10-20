@@ -10,7 +10,7 @@ TARGET = lylibrary
 TEMPLATE = app
 CONFIG += release
 
-INCLUDEPATH += ../analogclock ../license ../initdb
+INCLUDEPATH += ../analogclock ../log_man ../initdb
 
 unix{
 INCLUDEPATH  += /usr/include/poppler/qt4
