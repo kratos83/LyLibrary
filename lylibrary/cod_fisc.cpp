@@ -519,6 +519,7 @@ bool cod_fisc::vis_cod_fisc(bool click)
 
 void cod_fisc::paintEvent(QPaintEvent *event)
 {
+    event = event;
     painter = new QPainter(this);
     painter->drawImage(435,60,img);
     painter->setPen(QPen(Qt::black, 12, Qt::SolidLine, Qt::RoundCap));
@@ -539,7 +540,7 @@ void cod_fisc::paintEvent(QPaintEvent *event)
     painter->setFont(QFont("Arial",18,50));
     painter->drawText(513,250,480,100,Qt::AlignVCenter | Qt::AlignHCenter | Qt::TextWordWrap,"FAC SIMILE");
     update();
-    QWidget::paintEvent(event);
+    painter->end();
 }
 
 void cod_fisc::stampa_codice()
