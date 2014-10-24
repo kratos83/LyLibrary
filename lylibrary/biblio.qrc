@@ -53,8 +53,8 @@
         <file>images/splash.png</file>
         <file>qss/modern.qss</file>
         <file>qss/style.qss</file>
-        <file>images/codicefiscale.jpg</file>
-        <file>images/codicefiscale_800x600.jpg</file>
+        <file>images/codicefiscale.png</file>
+        <file>images/codicefiscale_800x600.png</file>
         <file>qss/elegante.qss</file>
         <file>qss/nero.qss</file>
     </qresource>

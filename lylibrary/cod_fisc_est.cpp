@@ -20,7 +20,7 @@ cod_fisc_est::cod_fisc_est(QWidget *parent) :
     ui->actionVisualizza_anteprima->setChecked(true);
     ui->radioButtonM_2->setChecked(true);
     setWindowTitle("Codice fiscale estero");
-    img = QImage(":/images/codicefiscale.jpg");
+    img = QImage(":/images/codicefiscale.png");
     today = ui->calendarWidget_2->selectedDate();
     ui->tabWidget->setCurrentIndex(1);
     ui->tab->setEnabled(false);
@@ -558,7 +558,7 @@ void cod_fisc_est::anteprima(QPrinter *printer)
 {
     Q_UNUSED(printer);
     Stampe *stampa = new Stampe();
-    QImage image_800x600 = QImage(":/images/codicefiscale_800x600.jpg");
+    QImage image_800x600 = QImage(":/images/codicefiscale_800x600.png");
     stampa->print_codice(printer,image_800x600,ui->lineEditCognome_2->text(),ui->lineEditNome_2->text(),ui->radioButtonM_2->isChecked(),ui->radioButtonF_2->isChecked(),ui->comboBoxStati->currentText(),ui->comboBoxStati->currentText(),CF,ui->calendarWidget_2->selectedDate());
 }
 void cod_fisc_est::on_esci_clicked()
