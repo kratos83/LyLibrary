@@ -70,7 +70,7 @@ bool pluginmanager::readPlugins(){
         }
     }
 
-
+    return true;
 }
 
 void pluginmanager::leggiplugin(){

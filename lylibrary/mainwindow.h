@@ -44,6 +44,8 @@
 #include "fornitori.h"
 #include "carico_mag.h"
 #include "scarico_mag.h"
+#include "find_cap_italian.h"
+#include "verify_piva.h"
 
 
 namespace Ui {
@@ -101,6 +103,8 @@ public:
     fornitori *forn;
     carico_mag *car_mag;
     read_pdf *pdf;
+    find_cap_italian *find_cap;
+    verify_piva *verifica_iva;
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -159,6 +163,8 @@ public slots:
         void installa_plugin();
         void scrivi_posizione();
         void leggi_posizione();
+        void cerca_cap_comune();
+        void verifica_part_iva();
 
 protected slots:
         void pluginLoad(QObject *plugin, QTreeWidgetItem *item);

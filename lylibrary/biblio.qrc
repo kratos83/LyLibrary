@@ -57,5 +57,8 @@
         <file>images/codicefiscale_800x600.png</file>
         <file>qss/elegante.qss</file>
         <file>qss/nero.qss</file>
+        <file>images/cap.png</file>
+        <file>comuni_cap.txt</file>
+        <file>images/p_iva_large.png</file>
     </qresource>
 </RCC>

@@ -21,16 +21,6 @@ LIBS += data/libanalogclock.lux
 LIBS += data/libpdf_read.lux
 }
 
-macx{
-INCLUDEPATH  += /opt/local/include/poppler/qt4
-LIBS         += -lpoppler-qt4
-LIBS += data/liblog_man-1.0.lap
-LIBS += data/libinitdb-1.0.lap
-LIBS += data/libanalogclock.lap
-LIBS += data/libpdf_read.lap
-macx:ICON = images/logo4.icns
-}
-
 windows{
 INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
 LIBS         += -lpoppler-qt4
@@ -88,9 +78,11 @@ SOURCES += main.cpp\
         fattura.cpp \
         fattura_rg.cpp \
         fattura_rg_art.cpp \
-    scarico_mag.cpp \
-    splashscreen.cpp \
-    cod_fisc_est.cpp
+        scarico_mag.cpp \
+        splashscreen.cpp \
+        cod_fisc_est.cpp \
+        find_cap_italian.cpp \
+        verify_piva.cpp
 
 HEADERS  += mainwindow.h \
             about.h \
@@ -129,15 +121,17 @@ HEADERS  += mainwindow.h \
             fatt_new.h \
             fatt_acq_art.h \
             impo_iva_toto.h \
-    widgetplugininterface.h \
+            widgetplugininterface.h \
             pdf_export.h \
             carico_mag.h \
             fattura.h \
             fattura_rg.h \
             fattura_rg_art.h \
-    scarico_mag.h \
-    splashscreen.h \
-    cod_fisc_est.h
+            scarico_mag.h \
+            splashscreen.h \
+            cod_fisc_est.h \
+            find_cap_italian.h \
+            verify_piva.h
 
 
 FORMS    += ui/mainwindow.ui \
@@ -169,7 +163,9 @@ FORMS    += ui/mainwindow.ui \
             ui/fattura.ui \
             ui/fattura_rg.ui \
             ui/fattura_rg_art.ui \
-            ui/scarico_mag.ui
+            ui/scarico_mag.ui \
+            ui/find_cap_italian.ui \
+            ui/verify_piva.ui
 
 unix{
 

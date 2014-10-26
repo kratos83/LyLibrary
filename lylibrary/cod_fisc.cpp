@@ -21,7 +21,7 @@ cod_fisc::cod_fisc(QWidget *parent) :
     ui->actionVisualizza_anteprima->setChecked(true);
     ui->radioButtonM->setChecked(true);
     setWindowTitle("Codice fiscale italiano");
-    img = QPixmap(":/images/codicefiscale.jpg");
+    img = QPixmap(":/images/codicefiscale.png");
     ui->tab_2->setEnabled(false);
     ui->tab->setVisible(true);
     initComuni();
@@ -558,7 +558,7 @@ void cod_fisc::anteprima(QPrinter *printer)
 {
     Q_UNUSED(printer);
     Stampe *stampa = new Stampe();
-    QImage image_800x600 = QImage(":/images/codicefiscale_800x600.jpg");
+    QImage image_800x600 = QImage(":/images/codicefiscale_800x600.png");
     stampa->print_codice(printer,image_800x600,ui->lineEditCognome->text(),ui->lineEditNome->text(),ui->radioButtonM->isChecked(),ui->radioButtonF->isChecked(),ui->comboBoxComune->currentText(),ui->comboBoxComune->currentText(),CF,ui->calendarWidget->selectedDate());
 }
 

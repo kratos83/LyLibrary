@@ -256,6 +256,10 @@ void MainWindow::interface(){
     menu_d->addSeparator();
     menu_d->addAction(actionGestione_plugin);
     menu_d->addSeparator();
+    menu_d->addAction(actionVerifica_patrtita_iva);
+    menu_d->addSeparator();
+    menu_d->addAction(actionCerca_CAP);
+    menu_d->addSeparator();
     menu_d->addAction(actionCalcola_codicefiscale);
     menu_d->addSeparator();
     menu_d->addAction(actionCalcola_codice_fiscale_estero);
@@ -330,6 +334,8 @@ void MainWindow::interface(){
     connect(cod_fiscale,SIGNAL(clicked()),this,SLOT(gest_codfisc()));
     connect(cod_fiscale_estero,SIGNAL(clicked()),this,SLOT(gest_codfisc_estero()));
     connect(actionInstalla_plugin,SIGNAL(triggered()),this,SLOT(installa_plugin()));
+    connect(actionCerca_CAP,SIGNAL(triggered()),this,SLOT(cerca_cap_comune()));
+    connect(actionVerifica_patrtita_iva,SIGNAL(triggered()),this,SLOT(verifica_part_iva()));
     onwid();
     azienda_ok();
     reload_data();
@@ -1181,6 +1187,22 @@ void MainWindow::leggi_posizione()
 
     if(settingsManager->generalValue("main/massimizza",isMaximized()).toBool())
         showMaximized();
+}
+
+void MainWindow::cerca_cap_comune()
+{
+    find_cap = new find_cap_italian(this);
+    find_cap->exec();
+
+    QMainWindow::statusBar()->showMessage(tr("Apertura finestra per cercare il cap..."));
+}
+
+void MainWindow::verifica_part_iva()
+{
+    verifica_iva = new verify_piva(this);
+    verifica_iva->exec();
+
+    QMainWindow::statusBar()->showMessage(tr("Apertura finestra per verificare la partita iva..."));
 }
 
 void MainWindow::changeEvent(QEvent *e)
