@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
              settingsManager->generalValue("Tema/sel_tema",QVariant()).toString();
          }
                  connessione *conn = new connessione();
-                 QSqlDatabase db = conn->connetti();
+                 QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
                  /*************************
                   *Impostazione del database
                   *************************/

@@ -56,11 +56,6 @@ QSqlDatabase connessione::connetti(){
         db.setUserName("root");
         db.setPassword(password->text());
 
-        if(!db.open()){
-
-        }
-        else{
-            db.open();
             creadb(db,db_lylibrary);
             QDate date = QDate::currentDate();
             QSqlQuery query("select anno_ins from anno");
@@ -76,7 +71,7 @@ QSqlDatabase connessione::connetti(){
                     qDebug() << "|-----------INSERIMENTO NON EFFETTUATO--------------|";
                 }
             }
-        }
+        
 
     return db;
 }
