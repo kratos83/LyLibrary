@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
                  if(!db.open()){
                      QMessageBox MsgBox;
                      MsgBox.setText(QString::fromUtf8("Errore di connessione al DB"));
-                     MsgBox.setInformativeText(QString::fromUtf8("Controllare di aver installato MySql e di aver creato il DB fabaria"));
+                     MsgBox.setInformativeText(QString::fromUtf8("Controllare di aver installato MySql e di aver creato il DB lylibrary"));
                      MsgBox.setIcon(QMessageBox::Warning);
                      MsgBox.exec();
                      conn->exec();
