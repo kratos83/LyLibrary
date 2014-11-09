@@ -4,6 +4,7 @@
 Fix gestore plugin
 Fix upgrade and new gestore aggiornamenti
 Fix cap comuni
+Fix intensive cpu
 Add verifica codice fiscale
 
 /***************************************************
@@ -19,4 +20,4 @@ ADD print codice fiscale
 ADD find italian cap
 ADD check partita IVA italian
 FIX create database
-FIZ check partita iva italian
+FIX check partita iva italian
