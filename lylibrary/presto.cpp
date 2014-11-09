@@ -5,6 +5,8 @@
 #include "mainwindow.h"
 #include "pref.h"
 #include <QCalendarWidget>
+#include <QMessageBox>
+#include <QPrintPreviewDialog>
 
 presto::presto(QWidget *parent) :
     QDialog(parent),
@@ -194,16 +196,16 @@ void presto::inserisci(){
                  qr.prepare(sql1);
 
                  Query.bindValue(":id",ui->id->text());
-                 Query.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText()));
-                 Query.bindValue(":libro",QString::fromUtf8(ui->libro->currentText()));
+                 Query.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText().toStdString().c_str()));
+                 Query.bindValue(":libro",QString::fromUtf8(ui->libro->currentText().toStdString().c_str()));
                  Query.bindValue(":data_prestito",ui->data_prestito->date());
-                 Query.bindValue(":ora_prestito",QString::fromUtf8(ui->time_prest->text()));
+                 Query.bindValue(":ora_prestito",QString::fromUtf8(ui->time_prest->text().toStdString().c_str()));
                  Query.bindValue(":data_rientro",ui->data_rientro->date());
-                 Query.bindValue(":ora_rientro",QString::fromUtf8(ui->time_ren->text()));
+                 Query.bindValue(":ora_rientro",QString::fromUtf8(ui->time_ren->text().toStdString().c_str()));
 
                  qr.bindValue(":id",ui->id->text());
-                 qr.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText()));
-                 qr.bindValue(":libro",QString::fromUtf8(ui->libro->currentText()));
+                 qr.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText().toStdString().c_str()));
+                 qr.bindValue(":libro",QString::fromUtf8(ui->libro->currentText().toStdString().c_str()));
                  qr.bindValue(":data_prestito",ui->data_prestito->date());
                  qr.bindValue(":data_rientro",ui->data_rientro->date());
 
@@ -265,18 +267,18 @@ void presto::aggiorna(QModelIndex index){
     Query.prepare(sql2);
 
     Query.bindValue(":id",ui->id->text());
-    Query.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText()));
-    Query.bindValue(":libro",QString::fromUtf8(ui->libro->currentText()));
+    Query.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText().toStdString().c_str()));
+    Query.bindValue(":libro",QString::fromUtf8(ui->libro->currentText().toStdString().c_str()));
     Query.bindValue(":data_prestito",ui->data_prestito->date());
-    Query.bindValue(":ora_prestito",QString::fromUtf8(ui->time_prest->text()));
+    Query.bindValue(":ora_prestito",QString::fromUtf8(ui->time_prest->text().toStdString().c_str()));
     Query.bindValue(":data_rientro",ui->data_rientro->date());
-    Query.bindValue(":ora_rientro",QString::fromUtf8(ui->time_ren->text()));
+    Query.bindValue(":ora_rientro",QString::fromUtf8(ui->time_ren->text().toStdString().c_str()));
 
     //Execute update prestiti
     quer.prepare(sql3);
     quer.bindValue(":id",ui->id->text());
-    quer.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText()));
-    quer.bindValue(":libro",QString::fromUtf8(ui->libro->currentText()));
+    quer.bindValue(":cliente",QString::fromUtf8(ui->cliente->currentText().toStdString().c_str()));
+    quer.bindValue(":libro",QString::fromUtf8(ui->libro->currentText().toStdString().c_str()));
     quer.bindValue(":data_prestito",ui->data_prestito->date());
     quer.bindValue(":data_rientro",ui->data_rientro->date());
 
@@ -368,7 +370,6 @@ void presto::lista(){
 
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->tableView->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setSortingEnabled(true);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -537,9 +538,6 @@ bool presto::eventFilter(QObject *o, QEvent *e){
                 QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (e);
                 this ->Popup(mouseEvent->pos());
                 return false;
-    }
-    else{
-                return ui->tableView->eventFilter(o,e);
     }
 
     return QDialog::eventFilter(o,e);

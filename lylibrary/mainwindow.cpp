@@ -4,8 +4,8 @@
  ************************************/
 #include <QDateTime>
 #include <QCloseEvent>
-#include <QtGui/QMdiSubWindow>
-#include <QtGui/QMdiArea>
+#include <QMdiSubWindow>
+#include <QMdiArea>
 #include <QtSql/QtSql>
 #include <QToolTip>
 #include <QMessageBox>
@@ -13,6 +13,11 @@
 #include <QSettings>
 #include <QtWebKit/QtWebKit>
 #include <QDesktopWidget>
+#include <QMenu>
+#include <QWidget>
+#include <QToolButton>
+#include <QToolTip>
+#include <QFileDialog>
 
 /*******************************
   Classi c++
@@ -207,6 +212,8 @@ void MainWindow::interface(){
     menu->addAction(actionAbout_2);
     menu->addSeparator();
     menu->addAction(actionAbout_Qt);
+    menu->addSeparator();
+    menu->addAction(actionRicerca_aggiornamento);
     about_tool->setMenu(menu);
     about_tool->setPopupMode(QToolButton::InstantPopup);
 
@@ -251,20 +258,22 @@ void MainWindow::interface(){
 
     menu_d = new QMenu(this);
     menu_plugins = new QMenu("Plugins",this);
+    menu_verifica = new QMenu("Calcola e verifica",this);
+    menu_d->addMenu(menu_verifica);
     menu_d->addMenu(menu_plugins);
     menu_d->addAction(actionPreferenze);
     menu_d->addSeparator();
     menu_d->addAction(actionGestione_plugin);
     menu_d->addSeparator();
-    menu_d->addAction(actionVerifica_patrtita_iva);
-    menu_d->addSeparator();
-    menu_d->addAction(actionCerca_CAP);
-    menu_d->addSeparator();
-    menu_d->addAction(actionCalcola_codicefiscale);
-    menu_d->addSeparator();
-    menu_d->addAction(actionCalcola_codice_fiscale_estero);
-    menu_d->addSeparator();
-    menu_d->addAction(actionInstalla_plugin);
+    menu_verifica->addAction(actionCalcola_codicefiscale);
+    menu_verifica->addSeparator();
+    menu_verifica->addAction(actionVerifica_codice_fiscale_2);
+    menu_verifica->addSeparator();
+    menu_verifica->addAction(actionVerifica_patrtita_iva);
+    menu_verifica->addSeparator();
+    menu_verifica->addAction(actionCerca_CAP);
+    menu_plugins->addAction(actionInstalla_plugin);
+    menu_plugins->addSeparator();
     toolButton_9->setMenu(menu_d);
     toolButton_9->setPopupMode(QToolButton::InstantPopup);
 
@@ -272,7 +281,7 @@ void MainWindow::interface(){
     menu_doc->addAction(this->actionFattura_d_aquisto);
     menu_doc->addSeparator();
     menu_doc->addAction(this->actionFattura_di_vendita_2);
-     menu_doc->addSeparator();
+    menu_doc->addSeparator();
     menu_doc->addAction(this->actionCarico_magazzino);
     menu_doc->addSeparator();
     menu_doc->addAction(this->actionScarico_magazzino);
@@ -320,7 +329,6 @@ void MainWindow::interface(){
     connect(gest_plugin,SIGNAL(clicked()),this,SLOT(gestioneplugin()));
     connect(actionGestione_plugin,SIGNAL(triggered()),this,SLOT(gestioneplugin()));
     connect(actionCalcola_codicefiscale,SIGNAL(triggered()),this,SLOT(gest_codfisc()));
-    connect(actionCalcola_codice_fiscale_estero,SIGNAL(triggered()),this,SLOT(gest_codfisc_estero()));
     connect(actionAnagrafica_pagamenti,SIGNAL(triggered()),this,SLOT(gest_pagamento()));
     connect(actionCausali_di_trasporto,SIGNAL(triggered()),this,SLOT(gest_causali()));
     connect(actionAnagrafica_iva,SIGNAL(triggered()),this,SLOT(gest_iva()));
@@ -332,10 +340,11 @@ void MainWindow::interface(){
     connect(actionCarico_magazzino,SIGNAL(triggered()),this,SLOT(vis_carico_magazzino()));
     connect(actionScarico_magazzino,SIGNAL(triggered()),this,SLOT(vis_scarico_magazzino()));
     connect(cod_fiscale,SIGNAL(clicked()),this,SLOT(gest_codfisc()));
-    connect(cod_fiscale_estero,SIGNAL(clicked()),this,SLOT(gest_codfisc_estero()));
     connect(actionInstalla_plugin,SIGNAL(triggered()),this,SLOT(installa_plugin()));
     connect(actionCerca_CAP,SIGNAL(triggered()),this,SLOT(cerca_cap_comune()));
     connect(actionVerifica_patrtita_iva,SIGNAL(triggered()),this,SLOT(verifica_part_iva()));
+    connect(actionRicerca_aggiornamento,SIGNAL(triggered()),this,SLOT(gest_update()));
+    connect(actionVerifica_codice_fiscale_2,SIGNAL(triggered()),this,SLOT(verifica_cod_fisc()));
     onwid();
     azienda_ok();
     reload_data();
@@ -453,7 +462,7 @@ void MainWindow::readPlug(){
 
 void MainWindow::pluginLoad(QObject *plugin, QTreeWidgetItem *item){
 
-    bool loaded = TRUE;
+    bool loaded = true;
 
     if (loaded && qobject_cast<Interface_plugin*>(plugin))
         loaded = loadImPlugin( plugin );
@@ -464,13 +473,12 @@ void MainWindow::pluginLoad(QObject *plugin, QTreeWidgetItem *item){
         QIcon icona(ic);
         item->setIcon(1,icona);
 
-        emit pluginLoaded( plugin->metaObject()->className(), TRUE );
+        emit pluginLoaded( plugin->metaObject()->className(), true );
     } else {
        pluginUnload( plugin, item );
     }
 
 }
-
 
 void MainWindow::pluginUnload(QObject *plugin, QTreeWidgetItem *item){
 
@@ -482,7 +490,7 @@ void MainWindow::pluginUnload(QObject *plugin, QTreeWidgetItem *item){
     QIcon icona(ic);
     item->setIcon(1,icona);
     item->setSelected(false);
-    emit pluginLoaded( plugin->metaObject()->className(), FALSE );
+    emit pluginLoaded( plugin->metaObject()->className(), false );
     delete plugin;
 }
 
@@ -490,24 +498,22 @@ bool MainWindow::unloadImPlugin(QObject *pl){
 
     QString cname = pl->metaObject()->className();
     Interface_plugin *in = qobject_cast<Interface_plugin*>(pl);
-    //settingsManager->setGeneralValue("plugin/loaded",cname);
     //Disabilito plugin
     in->pluginUnload();
 
-    return FALSE;
+    return true;
 }
 
 bool MainWindow::loadImPlugin(QObject *plug){
     QString cname = plug->metaObject()->className();
     Interface_plugin *inter = qobject_cast<Interface_plugin*>(plug);
-    //settingsManager->setGeneralValue("plugin/loaded",cname);
     //Avvio plugin
-    if(plug->objectName().latin1()){
+    if(plug->objectName().utf16()){
         populateMenus(plug);
     }
     inter->pluginLoad();
 
-    return TRUE;
+    return true;
 }
 
 void MainWindow::populateMenus(QObject *plugin){
@@ -925,15 +931,6 @@ void MainWindow::gest_codfisc(){
 
 }
 
-void MainWindow::gest_codfisc_estero()
-{
-    fisc_est = new cod_fisc_est(this);
-    fisc_est->setWindowModality(Qt::WindowModal);
-    fisc_est->show();
-
-    QMainWindow::statusBar()->showMessage(tr("Apertura calcolo codice fiscale estero...."));
-}
-
 void MainWindow::gest_pagamento(){
 
     pagamento = new pag(this);
@@ -1042,7 +1039,7 @@ void MainWindow::closeEvent(QCloseEvent *event){
     QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::Information;
     if (trayIcon->isVisible()) {
         trayIcon->showMessage(tr("Lylibrary"),
-                                 QString::fromAscii(tr("Il programma continuer\E0  a funzionare nella "
+                                 (QString::fromUtf8("Il programma continuer\E0  a funzionare nella "
                                     "barra delle applicazioni. Per terminare il programma"
                                     " scegliere <b> Esci </b> nel menu contestuale"
                                     " del vassoio di sistema... ")),icon,15 * 1000);
@@ -1115,13 +1112,13 @@ void MainWindow::installa_plugin()
             proc->start("pkexec unzip "+fileName+" -d /opt/lylibrary/plugin");
             if(proc->waitForFinished()){
             QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-            trayIcon->showMessage("Lylibrary", QString::fromAscii("Il plugin \E8 stato installato correttamente..."),ts, 15*10000);
+            trayIcon->showMessage("Lylibrary", QString::fromUtf8("Il plugin \E8 stato installato correttamente..."),ts, 15*10000);
             ag_tray->setVisible(false);
             }
     }
     else{
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage("Lylibrary", QString::fromAscii("Il plugin non \E8 stato installato correttamente... "),ts, 15*10000);
+        trayIcon->showMessage("Lylibrary", QString::fromUtf8("Il plugin non \E8 stato installato correttamente... "),ts, 15*10000);
         ag_tray->setVisible(false);
     }
 
@@ -1203,6 +1200,18 @@ void MainWindow::verifica_part_iva()
     verifica_iva->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura finestra per verificare la partita iva..."));
+}
+
+void MainWindow::verifica_cod_fisc()
+{
+    verifica_codice = new verify_codicefiscale(this);
+    verifica_codice->exec();
+}
+
+void MainWindow::gest_update()
+{
+    sh1 = new pref(this);
+    sh1->self_update();
 }
 
 void MainWindow::changeEvent(QEvent *e)

@@ -1,6 +1,6 @@
 #include "iva.h"
 #include "ui_iva.h"
-#include <QtGui/QMessageBox>
+#include <QMessageBox>
 #include <QDebug>
 #include <QtSql/QtSql>
 #include "itdelegato.h"
@@ -16,7 +16,7 @@ iva::iva(QWidget *parent) :
     connect(agg_iva,SIGNAL(clicked()),this,SLOT(aggiungi_iva()));
     connect(del_iva,SIGNAL(clicked()),this,SLOT(delete_iva()));
     connect(nuovo_b,SIGNAL(clicked()),this,SLOT(nuovo()));
-    lineEdit->setEnabled(FALSE);
+    lineEdit->setEnabled(false);
     mod_grid = new QSqlQueryModel;
     lista();
 }
@@ -139,7 +139,7 @@ void iva::aggiorna(){
         // Errore Aggiornamento
         // scrivere codice per per gestione dell'errore
               QMessageBox box;
-            box.setText(QString::fromUtf8("Impossibile aggiornare \n"+Query.lastError().text()));
+            box.setText("Impossibile aggiornare \n"+Query.lastError().text());
             box.setIcon(QMessageBox::Information);
             box.exec();
      }

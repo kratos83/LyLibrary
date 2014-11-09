@@ -2,6 +2,8 @@
 #include "itdelegato.h"
 #include "print.h"
 #include "ui_carico_mag.h"
+#include <QMessageBox>
+#include <QFileDialog>
 
 carico_mag::carico_mag(QWidget *parent) :
     QDialog(parent)
@@ -62,7 +64,7 @@ void carico_mag::lista_libri()
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Collocazione"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr("Quantità")));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8("Quantità"));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Prezzo unitario"));
     mod_grid->setHeaderData(10,Qt::Horizontal,tr("Prezzo senza iva"));
     mod_grid->setHeaderData(11,Qt::Horizontal,tr("Prezzo con iva"));
@@ -71,7 +73,6 @@ void carico_mag::lista_libri()
     mod_grid->setHeaderData(14, Qt::Horizontal, tr("Image"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -96,7 +97,7 @@ void carico_mag::lista_prod_dig()
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Collocazione"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr("Quantità")));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8("Quantità"));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Prezzo unitario"));
     mod_grid->setHeaderData(10,Qt::Horizontal,tr("Prezzo senza iva"));
     mod_grid->setHeaderData(11,Qt::Horizontal,tr("Prezzo con iva"));
@@ -105,7 +106,6 @@ void carico_mag::lista_prod_dig()
     mod_grid->setHeaderData(14, Qt::Horizontal, tr("Image"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);

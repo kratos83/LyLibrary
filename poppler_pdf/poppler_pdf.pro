@@ -4,9 +4,32 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core gui qt3support
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+unix{
+INCLUDEPATH  += /usr/include/poppler/qt4
+LIBS         += -lpoppler-qt4
+}
+
+windows{
+INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
+LIBS         += -lpoppler-qt4
+}
+}
+
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core gui widgets printsupport
+unix{
+INCLUDEPATH  += /usr/include/poppler/qt5
+LIBS         += -lpoppler-qt5
+}
+
+windows{
+INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
+LIBS         += -lpoppler-qt4
+}
+}
 
 TARGET = pdf_read
 TEMPLATE = lib
@@ -24,24 +47,12 @@ FORMS    += \
     read_pdf.ui
 
 unix{
-INCLUDEPATH  += /usr/include/poppler/qt4
-LIBS         += -lpoppler-qt4
 TARGET_EXT = .lux
 QMAKE_EXTENSION_SHLIB = lux
 DESTDIR = ../lylibrary/data/
 }
 
-macx{
-INCLUDEPATH  += /opt/local/include/poppler/qt4
-LIBS         += -lpoppler-qt4
-TARGET_EXT = .lap
-QMAKE_EXTENSION_SHLIB = lap
-DESTDIR = ../lylibrary/data/
-}
-
 windows{
-INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
-LIBS         += -lpoppler-qt4
 TARGET_EXT = .lyb
 QMAKE_EXTENSION_SHLIB = lyb
 DESTDIR = ../lylibrary/data/

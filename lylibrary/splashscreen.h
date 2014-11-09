@@ -4,6 +4,7 @@
 #include <QSplashScreen>
 #include <QtGui>
 #include <QCloseEvent>
+#include <QProgressBar>
 
 class splashscreen : public QSplashScreen
 {

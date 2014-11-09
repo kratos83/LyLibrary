@@ -12,6 +12,9 @@
 class inventario_plugin : public QObject, public Interface_plugin
 {
     Q_OBJECT
+#if QT_VERSION >= 0x050000
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.importinventario_plugin" FILE "inventario_plugin.json")
+#endif
     Q_INTERFACES(Interface_plugin)
 
 

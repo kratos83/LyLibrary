@@ -44,10 +44,10 @@ int main(int argc, char *argv[])
     }
 
     if(settings->generalValue("Version/version",QVariant()).toString().length() == 0){
-        settings->setGeneralValue("Version/version","2.0.1");
+        settings->setGeneralValue("Version/version","2.0.2");
     }
-    else if(settings->generalValue("Version/version",QVariant()).toString() <= "2.0"){
-        settings->setGeneralValue("Version/version","2.0.1");
+    else if(settings->generalValue("Version/version",QVariant()).toString() <= "2.0.1"){
+        settings->setGeneralValue("Version/version","2.0.2");
     }
     else{
         settings->generalValue("Version/version",QVariant()).toString();
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
           *************************/
          if(settingsManager->generalValue("Tema/sel_tema",QVariant()).toString().length() == 0)
          {
-             settingsManager->setGeneralValue("Tema/sel_tema","Default");
+             settingsManager->setGeneralValue("Tema/sel_tema","Nero");
          }
          else
          {

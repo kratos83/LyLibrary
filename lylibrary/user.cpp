@@ -4,7 +4,7 @@
 #include "user.h"
 #include "ui_user.h"
 #include <QtGui>
-#include <QtGui/QMessageBox>
+#include <QMessageBox>
 #include <QDebug>
 #include <QtSql/QtSql>
 #include <QPrinter>
@@ -12,6 +12,8 @@
 #include <QPainter>
 #include <QPrintPreviewDialog>
 #include <QCompleter>
+#include <QMenu>
+#include <QFileDialog>
 #include "itdelegato.h"
 #include "print.h"
 #include "pdf_export.h"
@@ -115,14 +117,14 @@ void user::save(){
                            "WHERE id= :id");
 
              Query.bindValue(":id",ui->id->text());
-             Query.bindValue(":nome", QString::fromUtf8(ui->nome->text()));
-             Query.bindValue(":cognome",QString::fromUtf8(ui->cognome->text()));
-             Query.bindValue(":indirizzo",QString::fromUtf8(ui->indirizzo->text()));
-             Query.bindValue(":telefono",QString::fromUtf8(ui->telefono->text()));
-             Query.bindValue(":email",QString::fromUtf8(ui->email->text()));
-             Query.bindValue(":cod_fisc",QString::fromUtf8(ui->cod_f->text()));
-             Query.bindValue(":part_iva",QString::fromUtf8(ui->part_iva->text()));
-             Query.bindValue(":fax",QString::fromUtf8(ui->fax->text()));
+             Query.bindValue(":nome", QString::fromUtf8(ui->nome->text().toStdString().c_str()));
+             Query.bindValue(":cognome",QString::fromUtf8(ui->cognome->text().toStdString().c_str()));
+             Query.bindValue(":indirizzo",QString::fromUtf8(ui->indirizzo->text().toStdString().c_str()));
+             Query.bindValue(":telefono",QString::fromUtf8(ui->telefono->text().toStdString().c_str()));
+             Query.bindValue(":email",QString::fromUtf8(ui->email->text().toStdString().c_str()));
+             Query.bindValue(":cod_fisc",QString::fromUtf8(ui->cod_f->text().toStdString().c_str()));
+             Query.bindValue(":part_iva",QString::fromUtf8(ui->part_iva->text().toStdString().c_str()));
+             Query.bindValue(":fax",QString::fromUtf8(ui->fax->text().toStdString().c_str()));
 
              if (Query.exec())
              {
@@ -171,14 +173,14 @@ void user::inserisci(){
                   " VALUES (:id, :nome, :cognome, :telefono, :indirizzo, :email, :cod_fisc, :part_iva, :fax )");
 
     Query.bindValue(":id",ui->id->text());
-    Query.bindValue(":nome", QString::fromUtf8(ui->nome->text()));
-    Query.bindValue(":cognome",QString::fromUtf8(ui->cognome->text()));
-    Query.bindValue(":indirizzo",QString::fromUtf8(ui->indirizzo->text()));
-    Query.bindValue(":telefono",QString::fromUtf8(ui->telefono->text()));
-    Query.bindValue(":email",QString::fromUtf8(ui->email->text()));
-    Query.bindValue(":cod_fisc",QString::fromUtf8(ui->cod_f->text()));
-    Query.bindValue(":part_iva",QString::fromUtf8(ui->part_iva->text()));
-    Query.bindValue(":fax",QString::fromUtf8(ui->fax->text()));
+    Query.bindValue(":nome", QString::fromUtf8(ui->nome->text().toStdString().c_str()));
+    Query.bindValue(":cognome",QString::fromUtf8(ui->cognome->text().toStdString().c_str()));
+    Query.bindValue(":indirizzo",QString::fromUtf8(ui->indirizzo->text().toStdString().c_str()));
+    Query.bindValue(":telefono",QString::fromUtf8(ui->telefono->text().toStdString().c_str()));
+    Query.bindValue(":email",QString::fromUtf8(ui->email->text().toStdString().c_str()));
+    Query.bindValue(":cod_fisc",QString::fromUtf8(ui->cod_f->text().toStdString().c_str()));
+    Query.bindValue(":part_iva",QString::fromUtf8(ui->part_iva->text().toStdString().c_str()));
+    Query.bindValue(":fax",QString::fromUtf8(ui->fax->text().toStdString().c_str()));
 
     if (Query.exec()) //Se esito OK inserimento DB
     {
@@ -277,7 +279,7 @@ void user::lista(){
         mod_grid->setHeaderData(8,Qt::Horizontal,tr("Fax"));
 
         ui->g_lista->setSelectionBehavior(QAbstractItemView::SelectRows);
-        ui->g_lista->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+        //ui->g_lista->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
         ui->g_lista->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->g_lista->setSelectionMode(QAbstractItemView::SingleSelection);
         ui->g_lista->setSortingEnabled(true);
@@ -565,9 +567,9 @@ bool user::eventFilter(QObject *o, QEvent *e){
                     this ->Popup(mouseEvent->pos());
                     return false;
         }
-        else{
+        /*else{
                     return ui->g_lista->eventFilter(o,e);
-        }
+        }*/
 
         return QDialog::eventFilter(o,e);
 

@@ -4,9 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core gui sql qt3support
+}
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core gui sql widgets printsupport
+}
 
 TARGET = inventario
 TEMPLATE = lib
@@ -42,3 +46,6 @@ HEADERS  += inventario.h \
     export_inv.h
 
 FORMS    += inventario.ui
+
+OTHER_FILES += \
+    inventario_plugin.json

@@ -1,4 +1,5 @@
 #include "dbbkrs_plugin.h"
+#include <qglobal.h>
 
 dbbkrs_plugin::dbbkrs_plugin(QObject *parent) :
     QObject(parent)
@@ -70,4 +71,6 @@ QIcon dbbkrs_plugin::icona(){
     return QIcon(":/images/svn-commit.png");
 }
 
+#if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(importdbbkrs_plugin, dbbkrs_plugin)
+#endif // QT_VERSION < 0x050000

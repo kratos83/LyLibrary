@@ -2,7 +2,11 @@
 #define OPEN_PDF_H
 
 #include <QLabel>
+#if QT_VERSION >= 0x050000
+#include <poppler-qt5.h>
+#else
 #include <poppler-qt4.h>
+#endif
 
 class QRubberBand;
 

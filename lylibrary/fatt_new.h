@@ -6,6 +6,7 @@
 #include <QLocale>
 #include <QCompleter>
 #include <QtGui>
+#include <QTableWidgetItem>
 #include "ui_fatt_new.h"
 
 namespace Ui {

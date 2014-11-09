@@ -309,7 +309,7 @@ void fornitori::lista(){
     mod_grid->setHeaderData(3,Qt::Horizontal,"Codice Fiscale");
     mod_grid->setHeaderData(4,Qt::Horizontal,"Indirizzo");
     mod_grid->setHeaderData(5,Qt::Horizontal,"CAP");
-    mod_grid->setHeaderData(6,Qt::Horizontal,QString::fromUtf8(tr("Località")));
+    mod_grid->setHeaderData(6,Qt::Horizontal,QString::fromUtf8(("Località")));
     mod_grid->setHeaderData(7,Qt::Horizontal,"PROV");
     mod_grid->setHeaderData(8,Qt::Horizontal,"Telefono");
     mod_grid->setHeaderData(9,Qt::Horizontal,"FAX");

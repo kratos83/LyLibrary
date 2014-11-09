@@ -6,7 +6,8 @@ SUBDIRS       = initdb \
                 inventario \
                 poppler_pdf \
                 lylibrary \
-                check_database
+                check_database \
+		update
 
 
 

@@ -5,7 +5,6 @@
  *************************/
 #include "ui_pref.h"
 #include "settingsmanager.h"
-#include "upgrade.h"
 #include "imagescene.h"
 #include "image_resize.h"
 
@@ -19,6 +18,8 @@
 #include <QtGui>
 #include <QVector>
 #include <QtSql>
+#include <QTableWidget>
+#include <QTableWidgetItem>
 
 
 class QPluginLoader;
@@ -49,7 +50,7 @@ public:
     QTableWidgetItem *box_1,*box_2,*box_3;
     SettingsManager *settings;
     int k,y,mn;
-    upgrade *up;
+    QProcess *process;
     QDir *dir;
     QSqlDatabase db;
 
@@ -80,7 +81,7 @@ public slots:
     void agg_dis();
     void visagg();
     bool dir_server();
-    void up_dw();
+    void up_dw(QString package, QString url);
     void apri();
     void save_file();
     void showResizeDialog();

@@ -50,8 +50,8 @@ void pag::clicca(){
 
 
         Query.bindValue(":codice",codice->text());
-        Query.bindValue(":descrizione",textEdit->text());
-        Query.bindValue(":nota_fattura",textEdit_2->text());
+        Query.bindValue(":descrizione",textEdit->toPlainText());
+        Query.bindValue(":nota_fattura",textEdit_2->toPlainText());
 
         if(Query.exec()){
             codice->setText("");
@@ -186,8 +186,8 @@ void pag::inserisci(){
                   "VALUES(:codice,:descrizione,:nota_fattura)");
 
     query.bindValue(":codice",codice->text());
-    query.bindValue(":descrizione",textEdit->text());
-    query.bindValue(":nota_fattura",textEdit_2->text());
+    query.bindValue(":descrizione",textEdit->toPlainText());
+    query.bindValue(":nota_fattura",textEdit_2->toPlainText());
 
 
     if(query.exec()){

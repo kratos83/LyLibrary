@@ -2,7 +2,7 @@
 #define PDF_EXPORT_H
 
 #include <QtSql>
-#include <QtGui/QPrinter>
+#include <QPrinter>
 #include <QPainter>
 #include <QDialog>
 #include <QPrintDialog>

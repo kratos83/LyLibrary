@@ -3,7 +3,10 @@
 #include <QSqlQuery>
 #include <QtSql>
 #include <QModelIndex>
+#include <QCompleter>
+#include <QStringList>
 #include <QDebug>
+#include <QMenu>
 #include <QMessageBox>
 #include "itdelegato.h"
 
@@ -129,7 +132,7 @@ void porto::aggiorna(){
         query.prepare("UPDATE categoria SET tipo_categ = :tipo_categ "
                       " where categ=:categ");
         query.bindValue(":categ",ui->id->text());
-        query.bindValue(":tipo_categ",QString::fromUtf8(ui->lineEdit->text()));
+        query.bindValue(":tipo_categ",QString::fromUtf8(ui->lineEdit->text().toStdString().c_str()));
 
         if(query.exec()){
             ui->id->setText("");
@@ -156,7 +159,7 @@ void porto::salva(){
                   "VALUES(:categ,:tipo_categ)");
 
     query.bindValue(":categ",ui->id->text());
-    query.bindValue(":tipo_categ",QString::fromUtf8(ui->lineEdit->text()));
+    query.bindValue(":tipo_categ",QString::fromUtf8(ui->lineEdit->text().toStdString().c_str()));
 
     if(query.exec()){
         ui->id->setText("");;
@@ -165,7 +168,7 @@ void porto::salva(){
     else{
         QMessageBox MsgBox;
         MsgBox.setText(QString::fromUtf8("Errore"));
-        MsgBox.setInformativeText(QString::fromUtf8("Inpossibile inserire...\n"+query.lastError().text()));
+        MsgBox.setInformativeText("Inpossibile inserire...\n"+query.lastError().text());
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -201,7 +204,7 @@ void porto::elimina(){
             {
                 QMessageBox MsgBox;
                 MsgBox.setText(QString::fromUtf8("Errore"));
-                MsgBox.setInformativeText(QString::fromUtf8("Inpossibile eliminare...\n"+query.lastError().text()));
+                MsgBox.setInformativeText("Inpossibile eliminare...\n"+query.lastError().text());
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -293,9 +296,6 @@ bool porto::eventFilter(QObject *o, QEvent *e){
                         QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (e);
                         this ->Popup(mouseEvent->pos());
                         return false;
-            }
-            else{
-                        return ui->tableView->eventFilter(o,e);
             }
 
             return QDialog::eventFilter(o,e);

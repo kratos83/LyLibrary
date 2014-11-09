@@ -2,7 +2,7 @@
  *Intestazione Qt4
  ************************************/
 #include <QCompleter>
-
+#include <QMessageBox>
 
 /*************************************
  *Intestazione fattura_rg
@@ -358,11 +358,10 @@ void fattura_rg::lista_libri()
     mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantità")));
+    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8("Quantità"));
     mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -385,11 +384,10 @@ void fattura_rg::lista_prod_dig()
     mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantità")));
+    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8("Quantità"));
     mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -470,7 +468,7 @@ void fattura_rg::fatt_aggiorna()
             query.bindValue(":sconto_3",sconto3->text());
             query.bindValue(":spese_trasporto",spes_tr->text());
             query.bindValue(":spese_incasso",spes_in->text());
-            query.bindValue(":annotazioni",ann->text());
+            query.bindValue(":annotazioni",ann->toPlainText());
             query.bindValue(":vs_ordine",ordine->text());
             query.bindValue(":tipo_pagamento",pagam->currentText());
             query.bindValue(":note_pagamento",lineEdit->text());
@@ -566,7 +564,7 @@ void fattura_rg::fatt_aggiorna()
             query.bindValue(":sconto_3",sconto3->text());
             query.bindValue(":spese_trasporto",spes_tr->text());
             query.bindValue(":spese_incasso",spes_in->text());
-            query.bindValue(":annotazioni",ann->text());
+            query.bindValue(":annotazioni",ann->toPlainText());
             query.bindValue(":vs_ordine",ordine->text());
             query.bindValue(":tipo_pagamento",pagam->currentText());
             query.bindValue(":note_pagamento",lineEdit->text());
@@ -662,7 +660,7 @@ void fattura_rg::fatt_inserisci()
     query.bindValue(":sconto_3",sconto3->text());
     query.bindValue(":spese_trasporto",spes_tr->text());
     query.bindValue(":spese_incasso",spes_in->text());
-    query.bindValue(":annotazioni",ann->text());
+    query.bindValue(":annotazioni",ann->toPlainText());
     query.bindValue(":vs_ordine",ordine->text());
     query.bindValue(":tipo_pagamento",pagam->currentText());
     query.bindValue(":note_pagamento",lineEdit->text());
@@ -753,7 +751,7 @@ void fattura_rg::fatt_inserisci()
         query.bindValue(":sconto_3",sconto3->text());
         query.bindValue(":spese_trasporto",spes_tr->text());
         query.bindValue(":spese_incasso",spes_in->text());
-        query.bindValue(":annotazioni",ann->text());
+        query.bindValue(":annotazioni",ann->toPlainText());
         query.bindValue(":vs_ordine",ordine->text());
         query.bindValue(":tipo_pagamento",pagam->currentText());
         query.bindValue(":note_pagamento",lineEdit->text());

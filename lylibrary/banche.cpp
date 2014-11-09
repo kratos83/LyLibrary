@@ -3,6 +3,7 @@
 #include "itdelegato.h"
 #include "pdf_export.h"
 #include <QMessageBox>
+#include <QFileDialog>
 #include <QtGui>
 
 banche::banche(QWidget *parent) :

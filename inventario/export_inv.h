@@ -1,5 +1,5 @@
 #include <QtSql/QtSql>
-#include <QtGui/QPrinter>
+#include <QPrinter>
 #include <QPainter>
 #include <QDialog>
 #include <QPrintDialog>

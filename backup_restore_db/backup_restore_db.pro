@@ -1,4 +1,10 @@
-QT       += core widgets gui sql network
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core gui sql network
+}
+
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core gui sql network widgets printsupport
+}
 TARGET = backup_restore_db
 TEMPLATE = lib
 CONFIG += plugin
@@ -29,3 +35,6 @@ SOURCES       = db_bk_rs.cpp \
 FORMS += db_bk_rs.ui
 RESOURCES += \
     images.qrc
+
+OTHER_FILES += \
+    dbbkrs_plugin.json

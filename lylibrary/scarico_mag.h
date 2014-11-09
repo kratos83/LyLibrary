@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QtGui>
 #include <QtSql>
+#include <QPrinter>
 #include "ui_scarico_mag.h"
 
 namespace Ui {

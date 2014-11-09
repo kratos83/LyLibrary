@@ -1,0 +1,22 @@
+/***************************************************/
+			LyLibrary 2.0.2
+
+Fix gestore plugin
+Fix upgrade and new gestore aggiornamenti
+Fix cap comuni
+Add verifica codice fiscale
+
+/***************************************************
+			LyLibrary 2.0.1
+FIX dump and restore database
+FIX check and repair database
+ADD codice fiscale old state
+FIX connection database
+FIX QWidget::setTabOrder()
+FIX QLayout:: Attempting  to add QLayout
+ADD image codice fiscale
+ADD print codice fiscale
+ADD find italian cap
+ADD check partita IVA italian
+FIX create database
+FIZ check partita iva italian

@@ -1,4 +1,10 @@
-QT       += core widgets gui sql
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core gui sql qt3support
+}
+
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core gui sql widgets printsupport
+}
 TARGET = initdb-1.0
 TEMPLATE = lib
 CONFIG += plugin release

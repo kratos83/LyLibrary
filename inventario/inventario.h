@@ -3,6 +3,9 @@
 
 #include <QDialog>
 #include <QtGui>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QPrintPreviewDialog>
 
 namespace Ui {
 class inventario;

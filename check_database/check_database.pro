@@ -4,9 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core gui
+}
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core gui widgets
+}
 
 TARGET = check_database
 TEMPLATE = lib
@@ -39,3 +43,6 @@ HEADERS  += check_database.h \
             checkdatabase_plugin.h
 
 FORMS    += check_database.ui
+
+OTHER_FILES += \
+    checkdatabase_plugin.json

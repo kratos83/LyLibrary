@@ -3,6 +3,9 @@
 #include "mainwindow.h"
 #include "itdelegato.h"
 #include <QMouseEvent>
+#include <QMessageBox>
+#include <QHeaderView>
+#include <QMenu>
 #include <QtGui>
 
 prest_lib::prest_lib(QWidget *parent) :
@@ -81,7 +84,6 @@ void prest_lib::lista(){
     model->setHeaderData(5, Qt::Horizontal, tr("Rientro libro"));
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->tableView->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -116,7 +118,6 @@ void prest_lib::lista_rietrati(){
     model->setHeaderData(5, Qt::Horizontal, "Rientro libro");
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->tableView->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -141,7 +142,6 @@ void prest_lib::list_comp(){
     model->setHeaderData(5, Qt::Horizontal, "Rientro libro");
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->tableView->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -171,8 +171,8 @@ void prest_lib::aggiorna(){
                       "data_rientro=:data_rientro, rientro=:rientro "
                       " where id=:id");
         query.bindValue(":id",ui->id->text());
-        query.bindValue(":cliente",QString::fromUtf8(ui->cliente->text()));
-        query.bindValue(":libro",QString::fromUtf8(ui->libro->text()));
+        query.bindValue(":cliente",QString::fromUtf8(ui->cliente->text().toStdString().c_str()));
+        query.bindValue(":libro",QString::fromUtf8(ui->libro->text().toStdString().c_str()));
         query.bindValue(":data_prestito",ui->data_prestito->date());
         query.bindValue(":data_rientro",ui->data_rientro->date());
         if(ui->lib_rientro->isChecked() == true){
@@ -369,9 +369,6 @@ bool prest_lib::eventFilter(QObject *o, QEvent *e){
                 QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (e);
                 this ->Popup(mouseEvent->pos());
                 return false;
-    }
-    else{
-                return ui->tableView->eventFilter(o,e);
     }
 
     return QDialog::eventFilter(o,e);

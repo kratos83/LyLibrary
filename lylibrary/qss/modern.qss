@@ -70,7 +70,7 @@ QLabel
 {
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                        stop: 0 #E0E0E0, stop: 1 #000000);
-color: white;
+color: black;
 }
 
 QFrame
@@ -108,7 +108,7 @@ QRadioButton {
      background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                        stop: 0 #E0E0E0, stop: 1 #00000);
 
-color: white;
+color: black;
  }
 
  QRadioButton::indicator {
@@ -191,18 +191,10 @@ QComboBox {
 
  
 /*/////////////////////////////////////////////////////////////////////////*/
-QGroupBox{
-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                       stop: 0 #E0E0E0, stop: 1 #000000);
 
-	 border: 2px solid gray;
-     border-radius: 5px;
-     margin-top: 2ex; /* leave space at the top for the title */
-	color:white;
-}
 
 QStatusBar{
-color: white;
+color: black;
 }
 QPushButton
 {

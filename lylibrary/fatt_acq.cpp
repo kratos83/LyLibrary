@@ -3,6 +3,9 @@
 #include "fatt_new.h"
 #include <QtGui>
 #include <QtSql>
+#include <QMenu>
+#include <QMessageBox>
+#include <QPrintPreviewDialog>
 #include "print.h"
 #include "articoli.h"
 
@@ -203,7 +206,7 @@ void fatt_acq::salva_fattura(){
     query.prepare("select count(id) from fatture_acq");
     query.exec();
     if(query.next()){
-        QString text = QString::fromUtf8(tr("Le fatture d'acquisto sono: ")) + query.value(0).toString();
+        QString text = QString::fromUtf8("Le fatture d'acquisto sono: ") + query.value(0).toString();
         tot_fatt->setText(text);
     }
     else{
@@ -213,7 +216,7 @@ void fatt_acq::salva_fattura(){
     query1.prepare("select sum(totale) from fatture_acq");
     query1.exec();
     if(query1.next()){
-        QString txt = QString::fromUtf8(tr("Il totale delle fatture d'acquisto è: ")+"\u20AC"+" "+query1.value(0).toString());
+        QString txt = QString::fromUtf8("Il totale delle fatture d'acquisto è: ")+"€"+" "+query1.value(0).toString();
         tot_eur->setText(txt);
     }
     else{
@@ -361,7 +364,7 @@ void fatt_acq::cerca(){
     query.bindValue(":id",id->text());
     query.exec();
     if(query.next()){
-        textEdit->setText(QString::fromUtf8(tr("Informazioni della fattura d'acquisto: "))+"\n"
+        textEdit->setText(QString::fromUtf8("Informazioni della fattura d'acquisto: ")+"\n"
                           +tr("ID:")+query.value(0).toString()+"\n"
                           +tr("Data: ")+query.value(1).toString()+"\n"
                           +tr("Fornitore: ")+query.value(2).toString()+"\n"
@@ -397,7 +400,6 @@ void fatt_acq::lista(){
     mod_grid->setHeaderData(4,Qt::Horizontal,"Totale");
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);

@@ -1912,7 +1912,7 @@ void Stampe::pagina_fatt_vendita_libri(int pagNo,int id)
 
 
                     //Setto i caratteri in grassetto
-                    painter->setFont(QFont("Arial",6,QFont::Bold,TRUE ));
+                    painter->setFont(QFont("Arial",6,QFont::Bold,true ));
                     //Visualizza imponibile
                     painter->drawText(1670,2290,4000,100,
                                       Qt::AlignJustify | Qt::AlignJustify,
@@ -2186,7 +2186,7 @@ void Stampe::pagina_fatt_vendita_prod_dig(int pagNo, int id)
 
 
                    //Setto i caratteri in grassetto
-                   painter->setFont(QFont("Arial",6,QFont::Bold,TRUE ));
+                   painter->setFont(QFont("Arial",6,QFont::Bold,true ));
                    //Visualizza imponibile
                    painter->drawText(1670,2290,4000,100,
                                      Qt::AlignJustify | Qt::AlignJustify,

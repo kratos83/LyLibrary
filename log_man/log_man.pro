@@ -4,8 +4,13 @@
 #
 #-------------------------------------------------
 
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core gui
+}
 
-QT       += core gui
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core gui widgets
+}
 
 TARGET = log_man-1.0
 TEMPLATE = lib

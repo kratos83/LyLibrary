@@ -3,9 +3,12 @@
 #include "fattura_rg.h"
 #include "../lylibrary/print.h"
 #include <QtSql>
-#include <Qt3Support>
 #include <QtGui>
-#include <QPrinter>
+#include <QMenu>
+#include <QMessageBox>
+#include <QPrintPreviewDialog>
+#include <QCompleter>
+#include <QFileDialog>
 
 fattura::fattura(QWidget *parent) :
     QWidget(parent)
@@ -566,7 +569,7 @@ void fattura::vis_dati_fattura_libri(){
     query.prepare("select count(id) from fattura_vendita");
     query.exec();
     if(query.next()){
-        QString text = QString::fromUtf8(tr("Le fatture di vendita sono: ")) + query.value(0).toString();
+        QString text = QString::fromUtf8("Le fatture di vendita sono: ") + query.value(0).toString();
         tot_fatt->setText(text);
     }
     else{
@@ -576,7 +579,7 @@ void fattura::vis_dati_fattura_libri(){
     query1.prepare("select sum(totale) from fattura_vendita");
     query1.exec();
     if(query1.next()){
-        QString txt = QString::fromUtf8(tr("Il totale delle fatture di vendita è: ")+"\u20AC"+" "+query1.value(0).toString());
+        QString txt = QString::fromUtf8("Il totale delle fatture di vendita è: ")+"€"+" "+query1.value(0).toString();
         tot_eur->setText(txt);
     }
     else{
@@ -590,7 +593,7 @@ void fattura::vis_dati_fattura_prod_dig()
     query.prepare("select count(id) from fattura_vendita");
     query.exec();
     if(query.next()){
-        QString text = QString::fromUtf8(tr("Le fatture di vendita sono: ")) + query.value(0).toString();
+        QString text = QString::fromUtf8("Le fatture di vendita sono: ") + query.value(0).toString();
         tot_fatt->setText(text);
     }
     else{
@@ -600,7 +603,7 @@ void fattura::vis_dati_fattura_prod_dig()
     query1.prepare("select sum(totale) from fattura_vendita");
     query1.exec();
     if(query1.next()){
-        QString txt = QString::fromUtf8(tr("Il totale delle fatture di vendita è: ")+"\u20AC"+" "+query1.value(0).toString());
+        QString txt = QString::fromUtf8("Il totale delle fatture di vendita è: ")+"€"+" "+query1.value(0).toString();
         tot_eur->setText(txt);
     }
     else{
@@ -742,7 +745,6 @@ void fattura::lista_libri(){
     mod_grid->setHeaderData(4,Qt::Horizontal,"Totale");
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -765,7 +767,6 @@ void fattura::lista_prod_dig()
     mod_grid->setHeaderData(4,Qt::Horizontal,"Totale");
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -781,7 +782,7 @@ void fattura::cerca_libri(){
     query.bindValue(":id",id->text());
     query.exec();
     if(query.next()){
-        textEdit->setText(QString::fromUtf8(tr("Informazioni della fattura di vendita: "))+"\n"
+        textEdit->setText(QString::fromUtf8("Informazioni della fattura di vendita: ")+"\n"
                           +tr("ID:")+query.value(0).toString()+"\n"
                           +tr("Data: ")+query.value(1).toString()+"\n"
                           +tr("Fornitore: ")+query.value(2).toString()+"\n"
@@ -800,7 +801,7 @@ void fattura::cerca_prod_dig()
     query.bindValue(":id",id->text());
     query.exec();
     if(query.next()){
-        textEdit->setText(QString::fromUtf8(tr("Informazioni della fattura di vendita: "))+"\n"
+        textEdit->setText(QString::fromUtf8("Informazioni della fattura di vendita: ")+"\n"
                           +tr("ID:")+query.value(0).toString()+"\n"
                           +tr("Data: ")+query.value(1).toString()+"\n"
                           +tr("Fornitore: ")+query.value(2).toString()+"\n"

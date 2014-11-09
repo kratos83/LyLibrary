@@ -1,6 +1,8 @@
 #include "inventario.h"
 #include "ui_inventario.h"
 #include "export_inv.h"
+#include <QMenu>
+#include <QFileDialog>
 
 inventario::inventario(QWidget *parent) :
     QDialog(parent),

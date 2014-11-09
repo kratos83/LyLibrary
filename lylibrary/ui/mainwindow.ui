@@ -95,8 +95,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Codice fiscale
- italiano</string>
+             <string>Codice fiscale</string>
             </property>
             <property name="icon">
              <iconset resource="../biblio.qrc">
@@ -215,48 +214,6 @@
             <property name="icon">
              <iconset resource="../../initdb/images.qrc">
               <normaloff>:/images/vcs_add.png</normaloff>:/images/vcs_add.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QPushButton" name="cod_fiscale_estero">
-            <property name="minimumSize">
-             <size>
-              <width>151</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>151</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="sizeIncrement">
-             <size>
-              <width>151</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>151</width>
-              <height>60</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Codice fiscale
- estero</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../biblio.qrc">
-              <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -883,11 +840,10 @@
     <addaction name="separator"/>
     <addaction name="actionVerifica_patrtita_iva"/>
     <addaction name="separator"/>
+    <addaction name="actionVerifica_codice_fiscale_2"/>
     <addaction name="actionCerca_CAP"/>
     <addaction name="separator"/>
     <addaction name="actionCalcola_codicefiscale"/>
-    <addaction name="separator"/>
-    <addaction name="actionCalcola_codice_fiscale_estero"/>
     <addaction name="separator"/>
     <addaction name="actionInstalla_plugin"/>
    </widget>
@@ -898,6 +854,7 @@
     <addaction name="actionAbout_2"/>
     <addaction name="separator"/>
     <addaction name="actionAbout_Qt"/>
+    <addaction name="actionRicerca_aggiornamento"/>
    </widget>
    <widget class="QMenu" name="menuDocumenti">
     <property name="title">
@@ -1219,7 +1176,7 @@
      <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
    </property>
    <property name="text">
-    <string>Calcola codicefiscale italiano</string>
+    <string>Calcola codicefiscale</string>
    </property>
   </action>
   <action name="actionCausali_di_trasporto">
@@ -1271,7 +1228,7 @@
   </action>
   <action name="actionFattura_di_vendita_2">
    <property name="icon">
-    <iconset resource="../biblio.qrc">
+    <iconset resource="../../update/update.qrc">
      <normaloff>:/images/logo4.png</normaloff>:/images/logo4.png</iconset>
    </property>
    <property name="text">
@@ -1327,7 +1284,30 @@
      <normaloff>:/images/iva.png</normaloff>:/images/iva.png</iconset>
    </property>
    <property name="text">
-    <string>Verifica patrtita iva</string>
+    <string>Verifica partita iva</string>
+   </property>
+  </action>
+  <action name="actionRicerca_aggiornamento">
+   <property name="icon">
+    <iconset resource="../biblio.qrc">
+     <normaloff>:/images/system-software-update.png</normaloff>:/images/system-software-update.png</iconset>
+   </property>
+   <property name="text">
+    <string>Ricerca aggiornamento</string>
+   </property>
+  </action>
+  <action name="actionVerifica_codice_fiscale">
+   <property name="text">
+    <string>Verifica codice fiscale</string>
+   </property>
+  </action>
+  <action name="actionVerifica_codice_fiscale_2">
+   <property name="icon">
+    <iconset resource="../biblio.qrc">
+     <normaloff>:/images/codicefisc.png</normaloff>:/images/codicefisc.png</iconset>
+   </property>
+   <property name="text">
+    <string>Verifica codice fiscale</string>
    </property>
   </action>
  </widget>
@@ -1345,6 +1325,7 @@
   <tabstop>about_qt_2</tabstop>
  </tabstops>
  <resources>
+  <include location="../../update/update.qrc"/>
   <include location="../../initdb/images.qrc"/>
   <include location="../../backup_restore_db/images.qrc"/>
   <include location="../biblio.qrc"/>

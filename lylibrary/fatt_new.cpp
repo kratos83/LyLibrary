@@ -8,6 +8,7 @@
 #include <QCompleter>
 #include <QtGui>
 #include <QtSql>
+#include <QMessageBox>
 
 fatt_new::fatt_new(QWidget *parent) :
     QDialog(parent)
@@ -138,7 +139,7 @@ void fatt_new::fatt_inserisci(){
     query.bindValue(":tipo_pagamento",t_pagam->currentText());
     query.bindValue(":numero_fattura",n_fatt->text());
     query.bindValue(":data_fattura",dateEdit->date());
-    query.bindValue(":note_fattura",textEdit->text());
+    query.bindValue(":note_fattura",textEdit->toPlainText());
     query.bindValue(":prezzo_s_iva",imponibile->text());
     query.bindValue(":iva",iva_ft->text());
     query.bindValue(":totale",totale->text());
@@ -249,7 +250,7 @@ void fatt_new::fatt_aggiorna(){
     query.bindValue(":tipo_pagamento",t_pagam->currentText());
     query.bindValue(":numero_fattura",n_fatt->text());
     query.bindValue(":data_fattura",dateEdit->date());
-    query.bindValue(":note_fattura",textEdit->text());
+    query.bindValue(":note_fattura",textEdit->toPlainText());
     query.bindValue(":prezzo_s_iva",imponibile->text());
     query.bindValue(":iva",iva_ft->text());
     query.bindValue(":totale",totale->text());
@@ -630,11 +631,10 @@ void fatt_new::lista(){
     mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantità")));
+    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8("Quantità"));
     mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);

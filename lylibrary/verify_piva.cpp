@@ -57,14 +57,14 @@ QString verify_piva::read_piva(QString code)
 
     s=0;
     for(i=0; i<9;i+=2)
-        s += code[i].toAscii();
+        s += code[i].toLatin1();
     for(i=1;i<9;i+=2){
-        c = 2*(code[i].toAscii());
+        c = 2*(code[i].toLatin1());
         if(c >9) c = c-9;{
             s+=c;
         }
 
-    if( ( 10 - s%10 )%10 != code[10].ascii() - '0' ){
+    if( ( 10 - s%10 )%10 != code[10].toLatin1() - '0' ){
         ui->icona->setPixmap(QPixmap(QString::fromUtf8(":/images/dialog-close.png")));
         ui->es_er->setText(testo_p_nvalida);
     }

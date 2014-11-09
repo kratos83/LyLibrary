@@ -1,7 +1,7 @@
 #ifndef IVA_H
 #define IVA_H
 
-#include <QtGui/QDialog>
+#include <QDialog>
 #include <QtSql>
 #include "ui_iva.h"
 

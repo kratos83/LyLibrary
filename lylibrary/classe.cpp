@@ -10,5 +10,6 @@ classe::~classe()
 
 void classe:: mousePressEvent(QMouseEvent *event)
 {
+    event = event;
         emit clicked();
 }

@@ -3,11 +3,13 @@
 #include "itdelegato.h"
 #include <math.h>
 #include "print.h"
-#include <QtGui/QMessageBox>
+#include <QMessageBox>
 #include <QCompleter>
 #include <QStringList>
 #include <QVariant>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QPrintPreviewDialog>
 #include <QtSql/QtSql>
 #include "settingsmanager.h"
 
@@ -328,18 +330,18 @@ void prodotti_dvd::aggiorna(QModelIndex index){
                   "categ=:categ, scaffale=:scaffale, quantita=:quantita, image=:image "
                   "WHERE cod_prodotto = :cod_prodotto");
 
-    Query.bindValue(":cod_prodotto",QString::fromUtf8(cod_art->text()));
-    Query.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query.bindValue(":nome_prodotto",QString::fromUtf8(art_nom->text()));
-    Query.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query.bindValue(":categ",QString::fromUtf8(comboBox->currentText()));
-    Query.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
-    double quant = local_settings->toDouble(quant1->text());
+    Query.bindValue(":cod_prodotto",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query.bindValue(":nome_prodotto",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query.bindValue(":categ",QString::fromUtf8(comboBox->currentText().toStdString().c_str()));
+    Query.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
+    double quant = local_settings->toDouble(quant1->text().toStdString().c_str());
     Query.bindValue(":quantita",quant);
-    Query.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if (Query.exec())
     {
@@ -376,7 +378,7 @@ void prodotti_dvd::inserisci(){
 
     //Tentativo di inserimento record perché nuovo codice voce
 
-    if(!cod_barre->text().length() && !art_nom->text().length() && !scaffale->text().length() && !descrizione->text().length()
+    if(!cod_barre->text().length() && !art_nom->text().length() && !scaffale->text().length() && !descrizione->toPlainText().length()
             && !autore->text().length() && !lingua->text().length() && !quant1->text().length()){
         QMessageBox::warning(this,"LyLibrary","Inserisci prima i dati correttamente");
         art_nom->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -393,18 +395,18 @@ void prodotti_dvd::inserisci(){
                     Query.prepare("INSERT INTO prodotti_dvd (cod_prodotto,codbarre,nome_prodotto,descrizione,autore,lingua,infoeditore,categ,scaffale,quantita,image)"
                                   " VALUES (:cod_prodotto,:cod_barre,:nome_prodotto,:descrizione,:autore,:lingua,:infoeditore,:categ,:scaffale,:quantita,:image)");
 
-                    Query.bindValue(":cod_prodotto",QString::fromUtf8(cod_art->text()));
-                    Query.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-                    Query.bindValue(":nome_prodotto",QString::fromUtf8(art_nom->text()));
-                    Query.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-                    Query.bindValue(":categ",QString::fromUtf8(comboBox->currentText()));
-                    Query.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-                    Query.bindValue(":autore",QString::fromUtf8(autore->text()));
-                    Query.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-                    Query.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
-                    double quant = local_settings->toDouble(quant1->text());
+                    Query.bindValue(":cod_prodotto",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+                    Query.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+                    Query.bindValue(":nome_prodotto",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+                    Query.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+                    Query.bindValue(":categ",QString::fromUtf8(comboBox->currentText().toStdString().c_str()));
+                    Query.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+                    Query.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+                    Query.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+                    Query.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
+                    double quant = local_settings->toDouble(quant1->text().toStdString().c_str());
                     Query.bindValue(":quantita",quant);
-                    Query.bindValue(":image",QString::fromUtf8(image_dir->text()));
+                    Query.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
                     if (Query.exec())
                     {
@@ -428,7 +430,6 @@ void prodotti_dvd::inserisci(){
                             MsgBox.setInformativeText("Impossibile inserire");
                             MsgBox.setIcon(QMessageBox::Warning);
                             MsgBox.exec();
-                        qWarning() << Query.lastError();
 
 
                     }
@@ -449,12 +450,11 @@ void prodotti_dvd::lista(){
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Scaffale"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr("Quantità")));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(("Quantità")));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Info editore"));
     mod_grid->setHeaderData(10, Qt::Horizontal, tr("Image"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
     tab_view->setSortingEnabled(true);
     tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);

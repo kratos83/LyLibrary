@@ -4,7 +4,27 @@
 #
 #-------------------------------------------------
 
-QT       += core sql xml network svg multimedia gui qt3support webkit
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core sql xml network svg gui qt3support
+unix{
+INCLUDEPATH  += /usr/include/poppler/qt4
+LIBS         += -lpoppler-qt4
+}
+
+windows{
+INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
+LIBS         += -lpoppler-qt4
+}
+}
+
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core sql xml network svg gui widgets printsupport webkitwidgets
+
+unix{
+INCLUDEPATH  += /usr/include/poppler/qt5
+LIBS         += -lpoppler-qt5
+}
+}
 
 TARGET = lylibrary
 TEMPLATE = app
@@ -12,9 +32,8 @@ CONFIG += release
 
 INCLUDEPATH += ../analogclock ../log_man ../initdb
 
+
 unix{
-INCLUDEPATH  += /usr/include/poppler/qt4
-LIBS         += -lpoppler-qt4
 LIBS += data/liblog_man-1.0.lux
 LIBS += data/libinitdb-1.0.lux
 LIBS += data/libanalogclock.lux
@@ -22,8 +41,6 @@ LIBS += data/libpdf_read.lux
 }
 
 windows{
-INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
-LIBS         += -lpoppler-qt4
 LIBS += data/log_man-1.0.lyb
 LIBS += data/initdb-1.0.lyb
 LIBS += data/analogclock.lyb
@@ -58,7 +75,6 @@ SOURCES += main.cpp\
         prestito_app_dig.cpp \
         prestito_dig.cpp \
         progressbar.cpp \
-        upgrade.cpp \
         pag.cpp \
         image_resize.cpp \
         imagescene.cpp \
@@ -80,9 +96,11 @@ SOURCES += main.cpp\
         fattura_rg_art.cpp \
         scarico_mag.cpp \
         splashscreen.cpp \
-        cod_fisc_est.cpp \
         find_cap_italian.cpp \
-        verify_piva.cpp
+        verify_piva.cpp \
+        verify_codicefiscale.cpp
+
+
 
 HEADERS  += mainwindow.h \
             about.h \
@@ -106,7 +124,6 @@ HEADERS  += mainwindow.h \
             prestito_app_dig.h \
             prestito_dig.h \
             progressbar.h \
-            upgrade.h \
             pag.h \
             image_resize.h \
             imagescene.h \
@@ -129,9 +146,9 @@ HEADERS  += mainwindow.h \
             fattura_rg_art.h \
             scarico_mag.h \
             splashscreen.h \
-            cod_fisc_est.h \
             find_cap_italian.h \
-            verify_piva.h
+            verify_piva.h \
+            verify_codicefiscale.h
 
 
 FORMS    += ui/mainwindow.ui \
@@ -148,7 +165,6 @@ FORMS    += ui/mainwindow.ui \
             ui/prodotti_dvd.ui \
             ui/prestito_app_dig.ui \
             ui/prestito_dig.ui \
-            ui/upgrade.ui \
             ui/pag.ui \
             ui/cod_fisc.ui \
             ui/causali.ui \
@@ -165,7 +181,8 @@ FORMS    += ui/mainwindow.ui \
             ui/fattura_rg_art.ui \
             ui/scarico_mag.ui \
             ui/find_cap_italian.ui \
-            ui/verify_piva.ui
+            ui/verify_piva.ui \
+            ui/verify_codicefiscale.ui
 
 unix{
 

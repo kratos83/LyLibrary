@@ -3,6 +3,7 @@
 #include <QtGui>
 #include <QDebug>
 #include <QFile>
+#include <QMessageBox>
 
 static const int PageRole = Qt::UserRole + 1;
 

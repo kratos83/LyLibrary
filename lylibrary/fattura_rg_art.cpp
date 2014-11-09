@@ -1,3 +1,10 @@
+/******************************************************
+ * Intestazioni Qt
+ * ***************************************************/
+#include <QMessageBox>
+#include <QCompleter>
+#include <QFileDialog>
+
 #include "fattura_rg_art.h"
 #include "ui_fattura_rg_art.h"
 
@@ -494,7 +501,7 @@ void fattura_rg_art::inserisci()
                      Query.bindValue(":cod_art",cod_art->text());
                      Query.bindValue(":cod_barre",cod_barre->text());
                      Query.bindValue(":nome_articolo", art_nom->text());
-                     Query.bindValue(":descrizione",descrizione->text());
+                     Query.bindValue(":descrizione",descrizione->toPlainText());
                      Query.bindValue(":unita",um->currentText());
                      double iva_art = comboBox->currentText().toDouble();
                      Query.bindValue(":iva",iva_art);
@@ -582,7 +589,7 @@ void fattura_rg_art::inserisci()
                      Query.bindValue(":cod_art",cod_art->text());
                      Query.bindValue(":cod_barre",cod_barre->text());
                      Query.bindValue(":nome_articolo", art_nom->text());
-                     Query.bindValue(":descrizione",descrizione->text());
+                     Query.bindValue(":descrizione",descrizione->toPlainText());
                      Query.bindValue(":unita",um->currentText());
                      double iva_art = comboBox->currentText().toDouble();
                      Query.bindValue(":iva",iva_art);
@@ -671,15 +678,15 @@ void fattura_rg_art::insert_scarico_libri()
     QSqlQuery Query1;
     Query1.prepare("INSERT INTO scarico_libri (cod_articolo,codbarre,nome_articolo,descrizione,autore,lingua,infoeditore,categ,scaffale,quantita,pr_unit,pr_s_iva,pr_c_iva,totale,image)"
                    " VALUES (:cod_articolo,:cod_barre,:nome_articolo,:descrizione,:autore,:lingua,:infoeditore,:categ,:scaffale,:quantita,:pr_unit,:pr_s_iva,:pr_c_iva,:totale,:image)");
-    Query1.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text()));
-    Query1.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query1.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text()));
-    Query1.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query1.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query1.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query1.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query1.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query1.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query1.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query1.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query1.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query1.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query1.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query1.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query1.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query1.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query1.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     Query1.bindValue(":quantita",quan);
     double p_unit = pr_unit->text().toDouble();
@@ -690,7 +697,7 @@ void fattura_rg_art::insert_scarico_libri()
     Query1.bindValue(":pr_c_iva",pc_iva);
     double tot = totale->text().toDouble();
     Query1.bindValue(":totale",tot);
-    Query1.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query1.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query1.exec()){
     }
@@ -705,15 +712,15 @@ void fattura_rg_art::insert_scarico_prod_dig()
     Query1.prepare("INSERT INTO scarico_prod_dig (cod_articolo,codbarre,nome_articolo,descrizione,autore,lingua,infoeditore,categ,scaffale,quantita,pr_unit,pr_s_iva,pr_c_iva,totale,image)"
                    " VALUES (:cod_articolo,:codbarre,:nome_articolo,:descrizione,:autore,:lingua,:infoeditore,:categ,:scaffale,:quantita,:pr_unit,:pr_s_iva,:pr_c_iva,:totale,:image)");
 
-    Query1.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text()));
-    Query1.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query1.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text()));
-    Query1.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query1.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query1.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query1.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query1.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query1.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query1.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query1.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query1.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query1.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query1.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query1.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query1.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query1.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query1.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     Query1.bindValue(":quantita",quan);
     double p_unit = pr_unit->text().toDouble();
@@ -724,7 +731,7 @@ void fattura_rg_art::insert_scarico_prod_dig()
     Query1.bindValue(":pr_c_iva",pc_iva);
     double tot = totale->text().toDouble();
     Query1.bindValue(":totale",tot);
-    Query1.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query1.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query1.exec()){
     }
@@ -750,7 +757,7 @@ void fattura_rg_art::aggiorna_riga()
         Query.bindValue(":id",id_fatt->text());
         Query.bindValue(":cod_art",cod_art->text());
         Query.bindValue(":nome_articolo", art_nom->text());
-        Query.bindValue(":descrizione",descrizione->text());
+        Query.bindValue(":descrizione",descrizione->toPlainText());
         Query.bindValue(":unita",um->currentText());
         double iva_art = comboBox->currentText().toDouble();
         Query.bindValue(":iva",iva_art);
@@ -826,7 +833,7 @@ void fattura_rg_art::aggiorna_riga()
         Query.bindValue(":id",id_fatt->text());
         Query.bindValue(":cod_art",cod_art->text());
         Query.bindValue(":nome_articolo", art_nom->text());
-        Query.bindValue(":descrizione",descrizione->text());
+        Query.bindValue(":descrizione",descrizione->toPlainText());
         Query.bindValue(":unita",um->currentText());
         double iva_art = comboBox->currentText().toDouble();
         Query.bindValue(":iva",iva_art);
@@ -903,19 +910,19 @@ void fattura_rg_art::update_articoli(double qua){
                   "WHERE cod_articolo = :cod_articolo");
 
 
-    Query1.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text()));
-    Query1.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query1.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text()));
-    Query1.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query1.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query1.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query1.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query1.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query1.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query1.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query1.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query1.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query1.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query1.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query1.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query1.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query1.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query1.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     double somma = qua-quan;
     Query1.bindValue(":quantita",somma);
-    Query1.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query1.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query1.exec()){
 
@@ -933,19 +940,19 @@ void fattura_rg_art::update_prod_dig(double qad)
                   "categ=:categ, scaffale=:scaffale, quantita=:quantita, image=:image "
                   "WHERE cod_prodotto = :cod_prodotto");
 
-    Query2.bindValue(":cod_prodotto",QString::fromUtf8(cod_art->text()));
-    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query2.bindValue(":nome_prodotto",QString::fromUtf8(art_nom->text()));
-    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query2.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query2.bindValue(":cod_prodotto",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query2.bindValue(":nome_prodotto",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query2.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     double somma = qad-quan;
     Query2.bindValue(":quantita",somma);
-    Query2.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query2.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query2.exec()){
     }
@@ -963,15 +970,15 @@ void fattura_rg_art::update_carico_libri(double ca, double _pr_u, double _p_siva
                    "pr_c_iva=:pr_c_iva, totale=:totale, image=:image "
                   "WHERE cod_articolo = :cod_articolo");
 
-    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text()));
-    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text()));
-    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query2.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query2.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     double somma = ca-quan;
     Query2.bindValue(":quantita",somma);
@@ -987,7 +994,7 @@ void fattura_rg_art::update_carico_libri(double ca, double _pr_u, double _p_siva
     double tot = totale->text().toDouble();
     double sum_tot = _tot-tot;
     Query2.bindValue(":totale",sum_tot);
-    Query2.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query2.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query2.exec()){
     }
@@ -1005,15 +1012,15 @@ void fattura_rg_art::update_carico_prod_dig(double pro, double _pr_u, double _p_
                    "pr_c_iva=:pr_c_iva, totale=:totale, image=:image "
                   "WHERE cod_articolo = :cod_articolo");
 
-    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text()));
-    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text()));
-    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query2.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query2.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     double somma = pro-quan;
     Query2.bindValue(":quantita",somma);
@@ -1029,7 +1036,7 @@ void fattura_rg_art::update_carico_prod_dig(double pro, double _pr_u, double _p_
     double tot = totale->text().toDouble();
     double sum_tot = _tot-tot;
     Query2.bindValue(":totale",sum_tot);
-    Query2.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query2.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query2.exec()){
     }
@@ -1047,15 +1054,15 @@ void fattura_rg_art::update_scarico_libri(double ca, double _pr_u, double _p_siv
                    "pr_c_iva=:pr_c_iva, totale=:totale, image=:image "
                   "WHERE cod_articolo = :cod_articolo");
 
-    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text()));
-    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text()));
-    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query2.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query2.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     double somma = ca+quan;
     Query2.bindValue(":quantita",somma);
@@ -1071,7 +1078,7 @@ void fattura_rg_art::update_scarico_libri(double ca, double _pr_u, double _p_siv
     double tot = totale->text().toDouble();
     double sum_tot = _tot+tot;
     Query2.bindValue(":totale",sum_tot);
-    Query2.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query2.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query2.exec()){
     }
@@ -1089,15 +1096,15 @@ void fattura_rg_art::update_scarico_prod_dig(double pro, double _pr_u, double _p
                    "pr_c_iva=:pr_c_iva, totale=:totale, image=:image "
                   "WHERE cod_articolo = :cod_articolo");
 
-    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text()));
-    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text()));
-    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text()));
-    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText()));
-    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText()));
-    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text()));
-    Query2.bindValue(":autore",QString::fromUtf8(autore->text()));
-    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text()));
-    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText()));
+    Query2.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
+    Query2.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
+    Query2.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
+    Query2.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
+    Query2.bindValue(":categ",QString::fromUtf8(comboBox_2->currentText().toStdString().c_str()));
+    Query2.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
+    Query2.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
+    Query2.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
+    Query2.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
     double quan = quant->text().toDouble();
     double somma = pro+quan;
     Query2.bindValue(":quantita",somma);
@@ -1113,7 +1120,7 @@ void fattura_rg_art::update_scarico_prod_dig(double pro, double _pr_u, double _p
     double tot = totale->text().toDouble();
     double sum_tot = _tot+tot;
     Query2.bindValue(":totale",sum_tot);
-    Query2.bindValue(":image",QString::fromUtf8(image_dir->text()));
+    Query2.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
 
     if(Query2.exec()){
     }

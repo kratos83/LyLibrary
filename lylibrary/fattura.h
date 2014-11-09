@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QtSql>
 #include <QtGui>
+#include <QPrinter>
 #include "ui_fattura.h"
 
 namespace Ui {

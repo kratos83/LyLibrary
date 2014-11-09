@@ -7,7 +7,12 @@
 #include <QtGui>
 #include <QtSql>
 #include <QSqlDatabase>
+#include <QMessageBox>
+#include <QGraphicsView>
 #include <QSysInfo>
+#include <QFileDialog>
+#include <QGraphicsItem>
+#include <QGraphicsScene>
 #include "articoli.h"
 #include "settingsmanager.h"
 #include "resizedialog.h"
@@ -37,7 +42,7 @@ pref::pref(QWidget *parent) :
     graphicsView->setStyleSheet("background-color: transparent");
 
     QStringList lista;
-    lista << "Modern" << "Style" << "Elegant" << "Nero";
+    lista << "Modern" << "Elegant" << "Nero";
     sel_tema->addItems(lista);
     menu_pref();
     interface();
@@ -338,27 +343,19 @@ QGraphicsItem *pref::getPixmapItem(){
 void pref::self_update(){
 
 #if defined(Q_OS_LINUX) && defined(__x86_64__)
-    QUrl url("http://www.codelinsoft.it/update/update-lin64.xml");
+    QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-lin64.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
 #elif defined(Q_OS_LINUX) && defined(__x86)
-    QUrl url("http://www.codelinsoft.it/update/update-lin.xml");
+    QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-lin32.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
 #elif defined(_WIN64)
-    QUrl url("http://www.codelinsoft.it/update/update-win64.xml");
+    QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-win64.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
 #elif defined(_WIN32)
-    QUrl url("http://www.codelinsoft.it/update/update-win32.xml");
-    manager->get(QNetworkRequest(QUrl(url)));
-    connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
-#elif defined(Q_OS_MAC32)
-    QUrl url("http://www.codelinsoft.it/update/update-mac32.xml");
-    manager->get(QNetworkRequest(QUrl(url)));
-    connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
-#elif defined(Q_OS_MAC64)
-    QUrl url("http://www.codelinsoft.it/update/update-mac64.xml");
+    QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-win32.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
 #endif
@@ -405,22 +402,28 @@ void pref::self_update_parse(QNetworkReply* reply){
 
             // Compare current version with the one on the server
             if( settings->generalValue("Version/version",QVariant()).toString() < latest_version){
-                    std::string htmlText =
-                            "<html>"
-                            "<b>E' disponibile la nuova versione:</b> " + latest_version.toStdString() + "<br><br>"
-                            "<br><br>";
                     // Add the list of files to download list
-                    QSystemTrayIcon::MessageIcon is = QSystemTrayIcon::Information;
-                    form->trayIcon->showMessage("Lylibrary",("E' disponibile la nuova versione "+latest_version+ ",se vuoi aggiornare clicca nel menu contestuale nell'icona di notifica."),is,15*10000);
-                    htmlText += "<br></html>";
-                    QString txtt= "http://www.codelinsoft.it/update/";
-                    up = new upgrade(this,txtt,filelist.data()->toStdString().c_str());
-                    form->trayMenu->addAction(form->ag_tray);
-                    form->trayIcon->setContextMenu(form->trayMenu);
-                    if(form->trayIcon->isSystemTrayAvailable()){
-                    connect(form->ag_tray,SIGNAL(triggered()),this,SLOT(up_dw()));
-                    }
+                QString txtt= "http://www.codelinsoft.it/package/";
 
+                QMessageBox *box= new QMessageBox(this);
+                box->setWindowTitle("CodiceFiscale");
+                box->setText("Backup");
+                box->setInformativeText("E' disponibile la nuova versione "+versione+ ",se vuoi aggiornare clicca per aggiornare.\n"
+                                        "Se clicchi ok si chiude il programma e si aggiorna il software alla nuova versione");
+                box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+                box->setDefaultButton(QMessageBox::Ok);
+                int ret = box->exec();
+                switch(ret){
+                      case QMessageBox::Ok:
+                       //Open update
+                       up_dw(QString::fromLatin1(filelist.data()->toStdString().c_str()),txtt);
+                       box->close();
+                       break;
+                      case QMessageBox::Cancel:
+                       //Close
+                       box->close();
+                       break;
+                       }
 
             }
             else if(reply->error()){
@@ -428,14 +431,20 @@ void pref::self_update_parse(QNetworkReply* reply){
             }
             else{
                     // Update success dialog
-                    QSystemTrayIcon::MessageIcon is1 = QSystemTrayIcon::Information;
-                    form->trayIcon->showMessage(tr(""),tr("Stai usando la nuova versione"),is1,15*10000);
+                QSystemTrayIcon::MessageIcon is1 = QSystemTrayIcon::Information;
+                form->trayIcon->showMessage(tr(""),tr("Stai usando la nuova versione"),is1,15*10000);
             }
 }
 
 
-void pref::up_dw(){
-    up->exec();
+void pref::up_dw(QString package, QString url){
+
+    process = new QProcess(this);
+#ifdef Q_OS_LINUX
+    process->start("./update -u "+url+" -p "+package);
+#elif Q_OS_WIN
+    process->start("C:\\LyLibrary\\update -u "+url+" -p "+package);
+#endif
 }
 
 void pref::seleziona_tema(const QString &sheetName)

@@ -52,7 +52,6 @@
         <file>images/excel.png</file>
         <file>images/splash.png</file>
         <file>qss/modern.qss</file>
-        <file>qss/style.qss</file>
         <file>images/codicefiscale.png</file>
         <file>images/codicefiscale_800x600.png</file>
         <file>qss/elegante.qss</file>
@@ -60,5 +59,6 @@
         <file>images/cap.png</file>
         <file>comuni_cap.txt</file>
         <file>images/p_iva_large.png</file>
+        <file>images/codice_fiscale_logo.png</file>
     </qresource>
 </RCC>

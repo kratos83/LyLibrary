@@ -1,5 +1,6 @@
 #include "inventario_plugin.h"
 #include <QtGui>
+#include <qglobal.h>
 
 inventario_plugin::inventario_plugin(QObject *parent) :
     QObject(parent)
@@ -71,4 +72,6 @@ QIcon inventario_plugin::icona(){
     return QIcon(":/images/documentation.png");
 }
 
+#if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(importinventario_plugin, inventario_plugin)
+#endif // QT_VERSION < 0x050000

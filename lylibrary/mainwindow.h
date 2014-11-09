@@ -12,6 +12,8 @@
 #include <QDir>
 #include <QPluginLoader>
 #include <QSystemTrayIcon>
+#include <QTreeWidgetItem>
+#include <QTreeWidget>
 
 /*
   Definizioni delle classi luxury
@@ -34,7 +36,6 @@
 #include "prestito_app_dig.h"
 #include "prestito_dig.h"
 #include "cod_fisc.h"
-#include "cod_fisc_est.h"
 #include "pag.h"
 #include "causali.h"
 #include "iva.h"
@@ -46,6 +47,7 @@
 #include "scarico_mag.h"
 #include "find_cap_italian.h"
 #include "verify_piva.h"
+#include "verify_codicefiscale.h"
 
 
 namespace Ui {
@@ -88,12 +90,11 @@ public:
     QAction *ag_tray;
     QComboBox *box;
     QToolButton *p_art,*toolButton,*about_tool,*toolButton_9,*doc_fatt;
-    QMenu *menu,*menu_p,*menu_d,*trayMenu,*menu_doc,*menu_ana,*menu_pr,*menu_sc,*menu_plugins;
+    QMenu *menu,*menu_p,*menu_d,*trayMenu,*menu_doc,*menu_ana,*menu_pr,*menu_sc,*menu_plugins,*menu_verifica;
     prodotti_dvd *digitale;
     prestito_app_dig *prestoapp;
     prestito_dig *dig_app;
     cod_fisc *fisc;
-    cod_fisc_est *fisc_est;
     pag *pagamento;
     causali *caus;
     iva *iv;
@@ -105,6 +106,7 @@ public:
     read_pdf *pdf;
     find_cap_italian *find_cap;
     verify_piva *verifica_iva;
+    verify_codicefiscale *verifica_codice;
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -146,7 +148,6 @@ public slots:
         void gest_pagamento();
         void gest_causali();
         void gest_codfisc();
-        void gest_codfisc_estero();
         void gest_iva();
         void azienda_cod();
         void azienda_ok();
@@ -165,6 +166,8 @@ public slots:
         void leggi_posizione();
         void cerca_cap_comune();
         void verifica_part_iva();
+        void verifica_cod_fisc();
+        void gest_update();
 
 protected slots:
         void pluginLoad(QObject *plugin, QTreeWidgetItem *item);

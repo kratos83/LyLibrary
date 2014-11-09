@@ -81,7 +81,7 @@ void connessione::setdate(int year){
 }
 
 bool connessione::isNull(){
-    return FALSE;
+    return false;
 }
 void connessione::creadb(QSqlDatabase db, QString db_lylibrary){
 

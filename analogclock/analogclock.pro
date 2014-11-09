@@ -1,7 +1,10 @@
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core gui
+}
 
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core gui widgets
+}
 
 TARGET = analogclock
 TEMPLATE = lib

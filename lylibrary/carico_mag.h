@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QtGui>
 #include <QtSql>
+#include <QPrinter>
+#include <QPrintPreviewDialog>
 #include "ui_carico_mag.h"
 
 

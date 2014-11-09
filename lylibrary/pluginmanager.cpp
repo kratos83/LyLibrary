@@ -52,7 +52,7 @@ bool pluginmanager::readPlugins(){
         loader->setFileName( pluginDir->absoluteFilePath(fileName) );
         QObject *plugin=loader->instance();
         if ( plugin ) {
-            cname=QString::fromAscii( plugin->metaObject()->className() );
+            cname=QString::fromLatin1( plugin->metaObject()->className() );
             if ( !pluginList.contains( cname ) ) {
                 Interface_plugin *plif=qobject_cast<Interface_plugin*>( plugin );
                 if(plif) {
@@ -69,8 +69,6 @@ bool pluginmanager::readPlugins(){
             }
         }
     }
-
-    return true;
 }
 
 void pluginmanager::leggiplugin(){
@@ -93,7 +91,7 @@ void pluginmanager::leggiplugin(){
         loader->setFileName( pluginDir->absoluteFilePath(fileName) );
         QObject *plugin=loader->instance();
         if ( plugin ) {
-            cname=QString::fromAscii( plugin->metaObject()->className() );
+            cname=QString::fromLatin1( plugin->metaObject()->className() );
             if ( !pluginList.contains( cname ) ) {
                 Interface_plugin *plif=qobject_cast<Interface_plugin*>( plugin );
                 if(plif) {
@@ -139,9 +137,9 @@ void pluginmanager::readPluginInfo(QTreeWidgetItem *item){
         autore->setText(pi->vendor());
         versione->setText(pi->version());
         descrizione->setText(pi->description());
-       //FIXME
-       //if( !loadedList.contains( plugin->metaObject()->className() ) )
-            //delete plugin;
+
+       if( !loadedList.contains( plugin->metaObject()->className() ) )
+           delete plugin;
     }
 }
 
