@@ -440,9 +440,9 @@ void pref::self_update_parse(QNetworkReply* reply){
 void pref::up_dw(QString package, QString url){
 
     process = new QProcess(this);
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_LINUX)
     process->start("./update -u "+url+" -p "+package);
-#elif Q_OS_WIN
+#elif defined(Q_OS_WIN)
     process->start("C:\\LyLibrary\\update -u "+url+" -p "+package);
 #endif
 }

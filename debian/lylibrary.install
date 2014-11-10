@@ -6,5 +6,6 @@ lylibrary/plugin/libbackup_restore_db.lux /opt/lylibrary/plugin
 lylibrary/plugin/libcheck_database.lux	  /opt/lylibrary/plugin
 lylibrary/plugin/libinventario.lux	 /opt/lylibrary/plugin
 lylibrary/lylibrary  /opt/lylibrary
+lylibrary/update	/opt/lylibrary
 lylibrary/lylibrary.desktop  /usr/share/applications
 lylibrary/images/logo4.png /opt/lylibrary/
