@@ -9,6 +9,7 @@ QT       += core gui sql xml network qt3support svg
 TARGET = ../lylibrary/update
 TEMPLATE = app
 CONFIG += link_prl
+CONFIG += release
 
 OBJECTS_DIR = build
 MOC_DIR = build
