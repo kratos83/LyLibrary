@@ -7,7 +7,7 @@ Fix cap comuni
 Fix intensive cpu
 Add verifica codice fiscale
 
-/***************************************************
+/***************************************************/
 			LyLibrary 2.0.1
 FIX dump and restore database
 FIX check and repair database
@@ -21,3 +21,8 @@ ADD find italian cap
 ADD check partita IVA italian
 FIX create database
 FIX check partita iva italian
+
+/****************************************************/
+			LyLibrary 2.0
+
+Stable release
