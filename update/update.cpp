@@ -174,11 +174,11 @@ void update::install_package(){
    QString filename = QFileInfo(url.path()).fileName();
 
    QDir *direct = new QDir( QCoreApplication::applicationDirPath() );
+   QString file_dir=direct->currentDirPath()+"/"+filename;
    QStringList fileNames=direct->entryList( QStringList("*.zip"), QDir::Files, QDir::Name);
    fileNames << filename;
 #if defined(Q_OS_LINUX)
     lin_start = new QProcess(this);
-    QString file_dir=direct->currentDirPath()+"/"+filename;
     connect(lin_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
     lin_start->start("pkexec unzip -o "+file_dir+" -d /opt/lylibrary/");
 #elif defined(Q_OS_WIN)
