@@ -35,6 +35,12 @@
    </item>
    <item row="0" column="1" rowspan="2">
     <widget class="QDockWidget" name="dockWidget_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>281</width>
@@ -54,7 +60,7 @@
       </size>
      </property>
      <property name="floating">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="features">
       <set>QDockWidget::NoDockWidgetFeatures</set>
@@ -568,7 +574,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../biblio.qrc">
+            <iconset resource="../../backup_restore_db/images.qrc">
              <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
            </property>
           </widget>
@@ -687,6 +693,7 @@
   <tabstop>tab_view</tabstop>
  </tabstops>
  <resources>
+  <include location="../../backup_restore_db/images.qrc"/>
   <include location="../biblio.qrc"/>
  </resources>
  <connections/>

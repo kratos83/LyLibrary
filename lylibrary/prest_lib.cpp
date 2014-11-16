@@ -110,12 +110,12 @@ void prest_lib::lista_rietrati(){
     model->setTable("prestiti");
     model->setFilter("rientro='Rientrato' order by id");
     model->select();
-    model->setHeaderData(0, Qt::Horizontal, "ID");
-    model->setHeaderData(1, Qt::Horizontal, "Cliente");
-    model->setHeaderData(2, Qt::Horizontal, "Libro");
-    model->setHeaderData(3, Qt::Horizontal, "Data prestito");
-    model->setHeaderData(4, Qt::Horizontal, "Data rientro");
-    model->setHeaderData(5, Qt::Horizontal, "Rientro libro");
+    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, tr("Cliente"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Libro"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Data prestito"));
+    model->setHeaderData(4, Qt::Horizontal, tr("Data rientro"));
+    model->setHeaderData(5, Qt::Horizontal, tr("Rientro libro"));
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -134,12 +134,12 @@ void prest_lib::list_comp(){
 
     model->setTable("prestiti");
     model->select();
-    model->setHeaderData(0, Qt::Horizontal, "ID");
-    model->setHeaderData(1, Qt::Horizontal, "Cliente");
-    model->setHeaderData(2, Qt::Horizontal, "Libro");
-    model->setHeaderData(3, Qt::Horizontal, "Data prestito");
-    model->setHeaderData(4, Qt::Horizontal, "Data rientro");
-    model->setHeaderData(5, Qt::Horizontal, "Rientro libro");
+    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, tr("Cliente"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Libro"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Data prestito"));
+    model->setHeaderData(4, Qt::Horizontal, tr("Data rientro"));
+    model->setHeaderData(5, Qt::Horizontal, tr("Rientro libro"));
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -156,11 +156,11 @@ void prest_lib::list_comp(){
 void prest_lib::aggiorna(){
 
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Seleziona una riga da modificare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Seleziona una riga da modificare..."));
     }
     else{
     QSqlQuery querys;
-    QString sql = "Non rientrato"; QString sql1 = "Rientrato";
+    QString sql = tr("Non rientrato"); QString sql1 = tr("Rientrato");
     querys.prepare("select id from prestiti where id=:id");
     querys.bindValue(":id",ui->id->text());
     querys.exec();
@@ -188,7 +188,7 @@ void prest_lib::aggiorna(){
             ui->libro->setText("");
         }//fine if(query.exec())
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare i prestiti...\n"+query.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare i prestiti...\n")+query.lastError().text());
         }//fine else
     }//fine if(query.next())
     list_comp();
@@ -209,7 +209,7 @@ void prest_lib::cerca(){
         ui->libro->setText(query.value(2).toString());
         ui->data_prestito->setDate(query.value(3).toDate());
         ui->data_rientro->setDate(query.value(4).toDate());
-        if(query.value(5).toString().indexOf("Non rientrato")){
+        if(query.value(5).toString().indexOf(tr("Non rientrato"))){
             ui->lib_rientro->setChecked(true);
         }
         else{
@@ -266,9 +266,9 @@ void prest_lib::filtro(){
     if(ui->cerca_txt->text().length() == 0){
         list_comp();
         QMessageBox MsgBox;
-        MsgBox.setWindowTitle("Lylibrary");
-        MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8("Inserisci il testo nella casella cerca"));
+        MsgBox.setWindowTitle(tr("Lylibrary"));
+        MsgBox.setText(tr("Avviso"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -284,7 +284,7 @@ void prest_lib::elimina(){
     QString flag_controllo = "NO";
 
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!ui->id->text().isEmpty())
         {
@@ -381,7 +381,6 @@ void prest_lib::mousePressEvent(QMouseEvent *event){
 
                  this->Popup(event ->pos());
                  event->accept();
-                 qWarning() << "prest_lib::mousePressEvent(QMousePressEvent *event)"<<event;
              }
 }
 
@@ -405,16 +404,16 @@ void prest_lib::Popup(const QPoint &pt){
     *  @author Angelo Scarnà
     *  Menu a tendina
     **/
-    QAction* pAction1 = new QAction("Chiudi", this);
+    QAction* pAction1 = new QAction(tr("Chiudi"), this);
     pAction1->setIcon(icon);
     pAction1->setIconVisibleInMenu(true);
-    QAction* pAction2 = new QAction("Elimina", this);
+    QAction* pAction2 = new QAction(tr("Elimina"), this);
     pAction2->setIcon(icon1);
     pAction2->setIconVisibleInMenu(true);
-    QAction* nw = new QAction("Visualizza lista completa",this);
-    QAction* ls = new QAction("Visualizza la lista dei prestiti",this);
-    QAction* sa = new QAction("Visualizza lista libri rientrati",this);
-    QAction* md = new QAction("Aggiorna",this);
+    QAction* nw = new QAction(tr("Visualizza lista completa"),this);
+    QAction* ls = new QAction(tr("Visualizza la lista dei prestiti"),this);
+    QAction* sa = new QAction(tr("Visualizza lista libri rientrati"),this);
+    QAction* md = new QAction(tr("Aggiorna"),this);
     md->setIcon(icon4);
     md->setIconVisibleInMenu(true);
 

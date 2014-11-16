@@ -160,7 +160,7 @@ void prestito_app_dig::aggiungi(){
         doppia.
         */
     if(ui->id->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
          //Si controlla se il record esiste già sul DB
@@ -220,8 +220,8 @@ void prestito_app_dig::inserisci(){
                      // scrivere codice per per gestione dell'errore
 
                          QMessageBox MsgBox;
-                         MsgBox.setText("Impossibile inserire");
-                         MsgBox.setInformativeText("Impossibile inserire "+Query.lastError().text());
+                         MsgBox.setText(tr("Impossibile inserire"));
+                         MsgBox.setInformativeText(tr("Impossibile inserire ")+Query.lastError().text());
                          MsgBox.setIcon(QMessageBox::Warning);
                          MsgBox.exec();
                  }
@@ -233,7 +233,7 @@ void prestito_app_dig::inserisci(){
 void prestito_app_dig::agg_ass(){
 
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Seleziona una riga da modificare....");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Seleziona una riga da modificare...."));
     }
     else{
     QModelIndex modelIndex = ui->tableView->selectionModel()->currentIndex();
@@ -291,8 +291,8 @@ void prestito_app_dig::aggiorna(QModelIndex index){
         // scrivere codice per per gestione dell'errore
 
             QMessageBox MsgBox;
-            MsgBox.setText("Voce non aggiornabile");
-            MsgBox.setInformativeText("Impossibile aggiornare"+Query.lastError().text());
+            MsgBox.setText(tr("Voce non aggiornabile"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare")+Query.lastError().text());
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
     }
@@ -306,7 +306,7 @@ void prestito_app_dig::delete_art(){
 
     QString flag_controllo = "NO";
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!ui->id->text().isEmpty())
         {
@@ -386,13 +386,13 @@ void prestito_app_dig::cerca(){
 
         if (query.next())
         {
-            ui->dettagli->setText("ID: "+query.value(0).toString()+"\n"
-                                  "Cliente: "+query.value(1).toString()+"\n"
-                                  "Libro: "+query.value(2).toString()+"\n"
-                                  "Data prestito: "+query.value(3).toString()+"\n"
-                                  "Ora prestito: "+query.value(4).toString()+"\n"
-                                  "Data rientro: "+query.value(5).toString()+"\n"
-                                  "Ora rientro: "+query.value(6).toString());
+            ui->dettagli->setText(tr("ID: ")+query.value(0).toString()+"\n"+
+                                  tr("Cliente: ")+query.value(1).toString()+"\n"+
+                                  tr("Libro: ")+query.value(2).toString()+"\n"+
+                                  tr("Data prestito: ")+query.value(3).toString()+"\n"+
+                                  tr("Ora prestito: ")+query.value(4).toString()+"\n"+
+                                  tr("Data rientro: ")+query.value(5).toString()+"\n"+
+                                  tr("Ora rientro: ")+query.value(6).toString());
             ui->cliente->setCurrentText(query.value(1).toString());
             ui->libro->setCurrentText(query.value(2).toString());
             ui->data_prestito->setDate(query.value(3).toDate());
@@ -483,7 +483,7 @@ void prestito_app_dig::stampa(){
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer);
     preview.setWindowFlags(Qt::Window);
-    preview.setWindowTitle("Anteprima di stampa.");
+    preview.setWindowTitle(tr("Anteprima di stampa."));
     QIcon icon;
     icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
     preview.setWindowIcon(icon);

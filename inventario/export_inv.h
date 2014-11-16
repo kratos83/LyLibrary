@@ -1,12 +1,3 @@
-#include <QtSql/QtSql>
-#include <QPrinter>
-#include <QPainter>
-#include <QDialog>
-#include <QPrintDialog>
-#include <QAbstractPrintDialog>
-#include <QLocale>
-#include <QModelIndex>
-
 #ifndef EXPORT_INV_H
 #define EXPORT_INV_H
 #define CODICE "Codice"
@@ -27,10 +18,23 @@
 #define DATA "Data inventario"
 #define ANNO "Anno"
 
-class export_inv
-{
+
+#include <QtSql/QtSql>
+#include <QPrinter>
+#include <QObject>
+#include <QPainter>
+#include <QDialog>
+#include <QPrintDialog>
+#include <QAbstractPrintDialog>
+#include <QLocale>
+#include <QModelIndex>
+
+class export_inv : public QObject {
+
+    Q_OBJECT
+
 public:
-    export_inv();
+    export_inv(QObject *parent);
 
     void stampa_inventario(QPrinter *printer, QSqlQueryModel *dataset);
     void pagina_inventario(int pagNo);

@@ -9,6 +9,7 @@
 #include <QSettings>
 #include <QtGui/QtGui>
 #include <QProcess>
+#include <QTranslator>
 
 
 connessione::connessione(QWidget *parent) :
@@ -92,13 +93,13 @@ void connessione::creadb(QSqlDatabase db, QString db_lylibrary){
             connect(timer, SIGNAL(timeout()), this, SLOT(barra_progresso()));
             timer->start();
             query.exec("create database "+db_lylibrary+" CHARACTER SET=utf8");
-            textEdit->append("Creazione database lylibrary effettuata....");
+            textEdit->append(tr("Creazione database lylibrary effettuata...."));
             db.close();
             barra_progresso();
 
             db.setDatabaseName(db_lylibrary);
             db.open();
-            textEdit->append("Creazione database Lylibrary effettuata...");
+            textEdit->append(tr("Creazione database Lylibrary effettuata..."));
 
             query.exec("CREATE TABLE "+db_lylibrary+".idzero "
                        "(id INT NOT NULL, "
@@ -835,9 +836,9 @@ void connessione::creadb(QSqlDatabase db, QString db_lylibrary){
 
 
                         QMessageBox MsgBox1;
-                        MsgBox1.setText(QString::fromUtf8("Errore di connessione al DB"));
+                        MsgBox1.setText(QString::fromUtf8(tr("Errore di connessione al DB")));
                         MsgBox1.setInformativeText(QString::fromUtf8("Controllare di aver installato Mysql e di aver creato il DB lylibrary"));
-                        MsgBox1.setWindowTitle("LyLibrary");
+                        MsgBox1.setWindowTitle(tr("LyLibrary"));
                         QIcon icon;
                         icon.addFile(QString::fromUtf8(":/images/logo1.png"), QSize(), QIcon::Normal, QIcon::Off);
                         MsgBox1.setWindowIcon(icon);
@@ -879,9 +880,9 @@ void connessione::barra_progresso(){
 
 void connessione::messaggio(){
     QMessageBox *box= new QMessageBox(this);
-    box->setWindowTitle("Lylibrary");
-    box->setText("Database");
-    box->setInformativeText("Creazione db strutturata con successo....");
+    box->setWindowTitle(tr("Lylibrary"));
+    box->setText(tr("Database"));
+    box->setInformativeText(tr("Creazione db strutturata con successo...."));
     box->setStandardButtons(QMessageBox::Ok);
     box->setDefaultButton(QMessageBox::Ok);
     int ret = box->exec();
@@ -911,9 +912,9 @@ void connessione::connettidatabase(){
 
     if(ip_dat->text().length() == 0 || n_dat_lan->text().length() == 0 || user->text().length() == 0 || pwd_lan->text().length() == 0){
         QMessageBox MsgBox2;
-        MsgBox2.setText(QString::fromUtf8("Errore di connessione al DB"));
-        MsgBox2.setInformativeText(QString::fromUtf8("Verificare che i dati siano corretti"));
-        MsgBox2.setWindowTitle("LyLibrary");
+        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB")));
+        MsgBox2.setInformativeText(QString::fromUtf8(tr("Verificare che i dati siano corretti")));
+        MsgBox2.setWindowTitle(tr("LyLibrary"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/logo1.png"), QSize(), QIcon::Normal, QIcon::Off);
         MsgBox2.setWindowIcon(icon);
@@ -949,9 +950,9 @@ void connessione::connettidatabase(){
     }
     else{
         QMessageBox MsgBox2;
-        MsgBox2.setText(QString::fromUtf8("Errore di connessione al DB"));
-        MsgBox2.setInformativeText(QString::fromUtf8("Impossibile connettersi al db.Controllare le impostazioni."));
-        MsgBox2.setWindowTitle("LyLibrary");
+        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB")));
+        MsgBox2.setInformativeText(QString::fromUtf8(tr("Impossibile connettersi al db.Controllare le impostazioni.")));
+        MsgBox2.setWindowTitle(tr("LyLibrary"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/logo1.png"), QSize(), QIcon::Normal, QIcon::Off);
         MsgBox2.setWindowIcon(icon);
@@ -989,4 +990,12 @@ void connessione::closeEvent(QCloseEvent *event){
 
     event->ignore();
 
+}
+
+void connessione::traduzione()
+{
+    QString locale = general->value("Language/language").toString();
+    QTranslator *translator = new QTranslator(this);
+    translator->load(":/language/initdb/"+locale+".qm");
+    qApp->installTranslator(translator);
 }

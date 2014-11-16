@@ -1,6 +1,8 @@
 #include "export_inv.h"
+#include <QObject>
 
-export_inv::export_inv()
+export_inv::export_inv(QObject *parent) :
+    QObject(parent)
 {
 
     // Creazione oggetto printer (puntatore)
@@ -147,26 +149,26 @@ void export_inv::pagina_inventario(int pagNo)
   painter->drawRect(0,0,2000,120);
   painter->drawText(0,0,2000,120,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Inventario magazzino");
+                   tr("Inventario magazzino"));
 
   //Valorizzazione header box intestazione colonne
 
   painter->drawRect(0,120,2000,200);
   painter->drawText(0,200,200,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Barcode");
+                   tr("Barcode"));
   painter->drawText(200,200,400,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Titolo");
+                   tr("Titolo"));
   painter->drawText(600,200,600,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   QString::fromUtf8("Quantità"));
+                   QString::fromUtf8(tr("Quantità")));
   painter->drawText(1000,200,800,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Prezzo unitario");
+                    tr("Prezzo unitario"));
   painter->drawText(1300,200,1000,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Totale");
+                    tr("Totale"));
 
   painter->drawRect(0,2660,2000,100);
   painter->drawRect(320,2660,320,100);
@@ -178,13 +180,13 @@ void export_inv::pagina_inventario(int pagNo)
   painter->setFont(QFont("Arial",8,50));
   painter->drawText(10,2665,320,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Imponibile");
+                    tr("Imponibile"));
   painter->drawText(650,2665,320,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Iva");
+                    tr("Iva"));
   painter->drawText(1290,2665,320,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Totale");
+                    tr("Totale"));
 
   QSqlQuery query;
   query.exec("select sum(pr_s_iva),sum(totale) from carico_libri");
@@ -211,10 +213,10 @@ void export_inv::pagina_inventario(int pagNo)
 
   painter->drawText(0,2770,2000,100,
                     Qt::AlignVCenter|Qt::AlignRight,
-                    "Pagina: "+QString("%1").arg(pagNo)+"   ");
+                    tr("Pagina: ")+QString("%1").arg(pagNo)+"   ");
   painter->drawText(5,2770,2770,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Lylibrary - versione "+general->value("Version/version",QVariant()).toString());
+                    tr("Lylibrary - versione ")+general->value("Version/version",QVariant()).toString());
   painter->drawLine(0,2760,2000,2760);
 }
 
@@ -313,26 +315,26 @@ void export_inv::pg_inv(int pagNo)
   painter->drawRect(0,0,2000,120);
   painter->drawText(0,0,2000,120,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Inventario magazzino");
+                   tr("Inventario magazzino"));
 
   //Valorizzazione header box intestazione colonne
 
   painter->drawRect(0,120,2000,200);
   painter->drawText(0,200,200,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Barcode");
+                   tr("Barcode"));
   painter->drawText(200,200,400,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Titolo");
+                   tr("Titolo"));
   painter->drawText(600,200,600,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   QString::fromUtf8("Quantità"));
+                   QString::fromUtf8(tr("Quantità")));
   painter->drawText(1000,200,800,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Prezzo unitario");
+                    tr("Prezzo unitario"));
   painter->drawText(1300,200,1000,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Totale");
+                    tr("Totale"));
 
   painter->drawRect(0,2660,2000,100);
   painter->drawRect(320,2660,320,100);
@@ -344,13 +346,13 @@ void export_inv::pg_inv(int pagNo)
   painter->setFont(QFont("Arial",8,50));
   painter->drawText(10,2665,320,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Imponibile");
+                    tr("Imponibile"));
   painter->drawText(650,2665,320,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Iva");
+                    tr("Iva"));
   painter->drawText(1290,2665,320,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Totale");
+                    tr("Totale"));
 
   QSqlQuery query;
   query.exec("select sum(pr_s_iva),sum(totale) from carico_prod_dig");
@@ -377,9 +379,9 @@ void export_inv::pg_inv(int pagNo)
 
   painter->drawText(0,2770,2000,100,
                     Qt::AlignVCenter|Qt::AlignRight,
-                    "Pagina: "+QString("%1").arg(pagNo)+"   ");
+                    tr("Pagina: ")+QString("%1").arg(pagNo)+"   ");
   painter->drawText(5,2770,2770,100,
                     Qt::AlignVCenter|Qt::AlignLeft,
-                    "Lylibrary - versione "+general->value("Version/version",QVariant()).toString());
+                    tr("Lylibrary - versione ")+general->value("Version/version",QVariant()).toString());
   painter->drawLine(0,2760,2000,2760);
 }

@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QDebug>
 #include <QSettings>
+#include <QTranslator>
 #include <QDir>
 #include "check_database.h"
 #include "../lylibrary/luxuryim.h"
@@ -30,6 +31,7 @@ public:
         QString name_menu() const;
         void pluginLoad();
         void pluginUnload();
+        void pluginTranslator();
 signals:
     
 public slots:

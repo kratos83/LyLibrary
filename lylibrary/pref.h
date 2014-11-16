@@ -53,6 +53,7 @@ public:
     QProcess *process;
     QDir *dir;
     QSqlDatabase db;
+    QString default_language;
 
 protected:
     void changeEvent(QEvent *e);
@@ -91,6 +92,8 @@ public slots:
     void connetti_database();
     void messaggio();
     void esci();
+    void combolanguage();
+    QString set_language();
 };
 
 #endif // PREF_H

@@ -14,7 +14,7 @@ about::about(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
     connect(ui->cancella,SIGNAL(clicked()),this,SLOT(close_ab()));
     QString str;
-    str = "Lylibrary "+settingsManager->generalValue("Version/version",QVariant()).toString();
+    str = tr("Lylibrary ")+settingsManager->generalValue("Version/version",QVariant()).toString();
     QFont font("Arial",26,75);
     ui->label_2->setFont(font);
     ui->label_2->setText(str);

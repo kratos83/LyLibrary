@@ -20,7 +20,6 @@
   */
 
 #include "../analogclock/analogclock.h"
-#include "../poppler_pdf/read_pdf.h"
 #include "../log_man/license.h"
 #include "about.h"
 #include "esci.h"
@@ -103,7 +102,6 @@ public:
     fatt_acq *fatt;
     fornitori *forn;
     carico_mag *car_mag;
-    read_pdf *pdf;
     find_cap_italian *find_cap;
     verify_piva *verifica_iva;
     verify_codicefiscale *verifica_codice;

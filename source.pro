@@ -4,7 +4,6 @@ SUBDIRS       = initdb \
                 analogclock \
                 log_man \
                 inventario \
-                poppler_pdf \
                 lylibrary \
                 check_database \
 		update

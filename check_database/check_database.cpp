@@ -7,7 +7,7 @@ check_database::check_database(QWidget *parent) :
     ui(new Ui::check_database)
 {
     ui->setupUi(this);
-    this->setWindowTitle("Analizza e ripara database");
+    this->setWindowTitle(tr("Analizza e ripara database"));
     connect(ui->analize_db,SIGNAL(clicked()),this,SLOT(analizza_database()));
     connect(ui->correct_db,SIGNAL(clicked()),this,SLOT(ripristina_database()));
     connect(ui->chiudi,SIGNAL(clicked()),this,SLOT(close()));
@@ -39,16 +39,16 @@ void check_database::analizza_database()
     analizza->start(comando);
 
     if(!analizza->waitForStarted()){
-        ui->outpuarea->append("Errore, impossbile avviare il servizio mysqlcheck...");
+        ui->outpuarea->append(tr("Errore, impossbile avviare il servizio mysqlcheck..."));
     }
     analizza->closeWriteChannel();
-    ui->outpuarea->append("Analizzazione tabelle in corso...\n\n");
+    ui->outpuarea->append(tr("Analizzazione tabelle in corso...\n\n"));
     while(analizza->state()!=QProcess::NotRunning){
         analizza->waitForReadyRead();
         QByteArray result = analizza->readAll();
         ui->outpuarea->append(QString(result));
     }
-    ui->outpuarea->append("Fine analizzazione...");
+    ui->outpuarea->append(tr("Fine analizzazione..."));
 }
 
 void check_database::ripristina_database()
@@ -69,17 +69,17 @@ void check_database::ripristina_database()
     ripristina->start(comando);
 
     if(!ripristina->waitForStarted()){
-    ui->outpuarea->append("Errore, impossbile avviare il servizio mysqlcheck...");
+    ui->outpuarea->append(tr("Errore, impossbile avviare il servizio mysqlcheck..."));
     }
     ripristina->closeWriteChannel();
 
-    ui->outpuarea->append("Riparazione tabelle in corso...\n\n");
+    ui->outpuarea->append(tr("Riparazione tabelle in corso...\n\n"));
     while(ripristina->state()!=QProcess::NotRunning){
         ripristina->waitForReadyRead();
         QByteArray result = ripristina->readAll();
         ui->outpuarea->append(QString(result));
     }
-    ui->outpuarea->append("Fine riparazione...");
+    ui->outpuarea->append(tr("Fine riparazione..."));
 }
 
 QString check_database::getLineFromCommandOutput(QString command){

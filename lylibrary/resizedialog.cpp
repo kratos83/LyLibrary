@@ -8,10 +8,10 @@
 #include <QComboBox>
 #include <QCheckBox>
 #include <QSpacerItem>
-#include <QSettings>
 
 #include <iostream>
 #include "pref.h"
+#include "settingsmanager.h"
 
 ResizeDialog::ResizeDialog(QWidget *parent, QSize size)
     : QDialog(parent)
@@ -23,19 +23,19 @@ ResizeDialog::ResizeDialog(QWidget *parent, QSize size)
     QGridLayout * topLayout = new QGridLayout();
     QGridLayout * buttonLayout = new QGridLayout();
 
-    labelWidth = new QLabel(tr("Width"), this);
+    labelWidth = new QLabel(tr("Larghezza"), this);
     spinWidth = new QSpinBox(this);
     spinWidth->setMaximum(10000);
 
-    labelHeight = new QLabel(tr("Height"), this);
+    labelHeight = new QLabel(tr("Altezza"), this);
     spinHeight = new QSpinBox(this);
     spinHeight->setMaximum(10000);
 
     comboQuality = new QComboBox(this);
-    comboQuality->addItem(tr("Average")); //index 0 or AVERAGE
-    comboQuality->addItem(tr("Bilinear")); //index 1 or BILINEAR
+    comboQuality->addItem(tr("Media")); //index 0 or AVERAGE
+    comboQuality->addItem(tr("Bilineare")); //index 1 or BILINEAR
 
-    checkKeepRatio = new QCheckBox(tr("Keep Aspect Ratio"), this);
+    checkKeepRatio = new QCheckBox(tr("Mantieni proporzioni"), this);
     checkKeepRatio->setChecked(true);
 
     resetButton = new QPushButton(tr("Re&set"), this);
@@ -51,7 +51,7 @@ ResizeDialog::ResizeDialog(QWidget *parent, QSize size)
     topLayout->addWidget(spinHeight, 2, 1);
     topLayout->addWidget(new QLabel(tr("pixels"), this), 2, 2);
 
-    QLabel *q = new QLabel(tr("Filter"), this);
+    QLabel *q = new QLabel(tr("Filtro"), this);
     topLayout->addWidget(q, 3, 0);
     topLayout->addWidget(comboQuality, 3, 1);
 
@@ -114,11 +114,8 @@ void ResizeDialog::accept()
         close();    //Nothing changed
     else {
         emit resizeImage(QSize(spinWidth->value(), spinHeight->value()), comboQuality->currentIndex());
-        QSettings set(".fabaria_gest/config.ini",QSettings::IniFormat);
-        set.beginGroup("Image_resize");
-        set.setValue("larghezza",spinWidth->value());
-        set.setValue("altezza",spinHeight->value());
-        set.endGroup();
+        settingsManager->generalValue("Image_resize/larghezza",spinWidth->value());
+        settingsManager->generalValue("Image_resize/altezza",spinHeight->value());
         close();
     }
 }

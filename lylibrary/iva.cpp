@@ -43,9 +43,9 @@ void iva::nuovo(){
 void iva::lista(){
 
     mod_grid->setQuery("select * from aliquota order by id");
-    mod_grid->setHeaderData(0, Qt::Horizontal, "ID");
-    mod_grid->setHeaderData(1, Qt::Horizontal, "Iva");
-    mod_grid->setHeaderData(2, Qt::Horizontal, "Descizione.");
+    mod_grid->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    mod_grid->setHeaderData(1, Qt::Horizontal, tr("Iva"));
+    mod_grid->setHeaderData(2, Qt::Horizontal, tr("Descizione."));
 
     list_view->setModel(mod_grid);
 
@@ -84,7 +84,7 @@ void iva::aggiungi_iva(){
          //Si controlla se il record esiste già sul DB
 
     if(lineEdit->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
          QSqlQuery Qctrl;
@@ -139,7 +139,7 @@ void iva::aggiorna(){
         // Errore Aggiornamento
         // scrivere codice per per gestione dell'errore
               QMessageBox box;
-            box.setText("Impossibile aggiornare \n"+Query.lastError().text());
+            box.setText(tr("Impossibile aggiornare \n")+Query.lastError().text());
             box.setIcon(QMessageBox::Information);
             box.exec();
      }
@@ -169,7 +169,7 @@ void iva::inserisci(){
         // Scrivere codice per errore inserimento
 
         QMessageBox box;
-        box.setText(QString::fromUtf8("Impossibile inserire"));
+        box.setText(QString::fromUtf8(tr("Impossibile inserire")));
         box.setIcon(QMessageBox::Information);
         box.exec();
      }
@@ -181,7 +181,7 @@ void iva::delete_iva(){
 
     QString flag_controllo = "NO";
     if(!list_view->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!lineEdit->text().isEmpty())
         {

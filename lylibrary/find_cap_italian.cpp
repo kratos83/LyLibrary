@@ -11,7 +11,7 @@ find_cap_italian::find_cap_italian(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->esci,SIGNAL(clicked()),this,SLOT(close()));
     connect(ui->cerca,SIGNAL(clicked()),this,SLOT(cap_trovato()));
-    this->setWindowTitle("Cerca CAP");
+    this->setWindowTitle(tr("Cerca CAP"));
     find_comune();
 }
 

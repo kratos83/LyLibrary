@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QSettings>
 #include <QDir>
+#include <QTranslator>
 #include "db_bk_rs.h"
 #include "../lylibrary/luxuryim.h"
 
@@ -28,6 +29,7 @@ public:
         QString displayName() const;
         QIcon icona();
         QString name_menu() const;
+        void pluginTranslator();
         void pluginLoad();
         void pluginUnload();
 signals:

@@ -46,7 +46,7 @@ verify_piva::verify_piva(QWidget *parent) :
     ui(new Ui::verify_piva)
 {
     ui->setupUi(this);
-    setWindowTitle("Controlla la tua partita iva");
+    setWindowTitle(tr("Controlla la tua partita iva"));
     connect(ui->esci,SIGNAL(clicked()),this,SLOT(close()));
     connect(ui->verifica,SIGNAL(clicked()),this,SLOT(verify()));
     ui->piva->setMaxLength(11);
@@ -65,16 +65,16 @@ QString verify_piva::read_piva(QString code)
     int p_dispari = 0;
     int num_sup = 0;
 
-    QString testo_ndigit = QString::fromUtf8("Errore: Non hai inserito nessun numero.");
+    QString testo_ndigit = QString::fromUtf8(tr("Errore: Non hai inserito nessun numero."));
 
-    QString testo_lung= QString::fromUtf8("La lunghezza della partita IVA non è\n"
+    QString testo_lung= QString::fromUtf8(tr("La lunghezza della partita IVA non è\n"
                                         "corretta: la partita iva deve essere lunga\n"
-                                        "esattamente 11 caratteri numerici");
+                                        "esattamente 11 caratteri numerici"));
 
-    QString testo_p_nvalida = QString::fromUtf8("La partita IVA non è valida:\n"
-                                                 "il codice di controllo non corrisponde");
+    QString testo_p_nvalida = QString::fromUtf8(tr("La partita IVA non è valida:\n"
+                                                 "il codice di controllo non corrisponde"));
 
-    QString testo_p_valida = QString::fromUtf8("La partita iva è corretta.");
+    QString testo_p_valida = QString::fromUtf8(tr("La partita iva è corretta."));
 
 
     if(code.length() == 0){

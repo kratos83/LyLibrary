@@ -39,7 +39,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="update.qrc">
+         <iconset resource="../lylibrary/biblio.qrc">
           <normaloff>:/images/pause.png</normaloff>:/images/pause.png</iconset>
         </property>
        </widget>
@@ -67,7 +67,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="update.qrc">:/images/logo4.png</pixmap>
+         <pixmap resource="../lylibrary/biblio.qrc">:/images/logo4.png</pixmap>
         </property>
        </widget>
       </item>
@@ -123,7 +123,7 @@
          <string>Installa aggiornamento</string>
         </property>
         <property name="icon">
-         <iconset resource="update.qrc">
+         <iconset resource="../lylibrary/biblio.qrc">
           <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
         </property>
        </widget>
@@ -134,10 +134,10 @@
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Download aggiornamento&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
-         <string>Downaload aggiornamento</string>
+         <string>Download aggiornamento</string>
         </property>
         <property name="icon">
-         <iconset resource="update.qrc">
+         <iconset resource="../lylibrary/biblio.qrc">
           <normaloff>:/images/upgrade.png</normaloff>:/images/upgrade.png</iconset>
         </property>
        </widget>
@@ -151,7 +151,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="update.qrc"/>
+  <include location="../lylibrary/biblio.qrc"/>
  </resources>
  <connections/>
 </ui>

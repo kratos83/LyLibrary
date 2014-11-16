@@ -65,7 +65,7 @@ void scarico_mag::lista_libri()
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Collocazione"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8("Quantità"));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr("Quantità")));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Prezzo unitario"));
     mod_grid->setHeaderData(10,Qt::Horizontal,tr("Prezzo senza iva"));
     mod_grid->setHeaderData(11,Qt::Horizontal,tr("Prezzo con iva"));
@@ -98,7 +98,7 @@ void scarico_mag::lista_prod_dig()
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Collocazione"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8("Quantità"));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr("Quantità")));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Prezzo unitario"));
     mod_grid->setHeaderData(10,Qt::Horizontal,tr("Prezzo senza iva"));
     mod_grid->setHeaderData(11,Qt::Horizontal,tr("Prezzo con iva"));
@@ -148,22 +148,35 @@ void scarico_mag::cerca()
         query.exec();
 
 
+        QString cod_art = tr("Cod. Art.: ");
+        QString cod_barre = tr("Codice a barre: ");
+        QString title = tr("Titolo: ");
+        QString desc = tr("Descrizione: ");
+        QString autore = tr("Autore: ");
+        QString lingua = tr("Lingua: ");
+        QString cat_lb = tr("Categoria libro: ");
+        QString info_ad = tr("Info editore: ");
+        QString coll = tr("Collocazione: ");
+        QString pr_un = tr("Prezzo unitario: ");
+        QString pr_s_iva = tr("Prezzo senza iva: ");
+        QString p_c_iva = tr("Prezzo con iva: ");
+        QString tot = tr("Totale: ");
         if (query.next())
         {
-            dettagli->setText("Cod. Art.: "+query.value(0).toString()+"\n"
-                               "Codice a barre: "+query.value(1).toString()+"\n"
-                                  "Titolo: "+query.value(2).toString()+"\n"
-                                  "Descrizione: "+query.value(3).toString()+"\n"
-                                  "Autore: "+query.value(4).toString()+"\n"
-                                  "Lingua: "+query.value(5).toString()+"\n"
-                                  "Categoria libro: "+query.value(6).toString()+"\n"
-                              "Info editore: "+query.value(13).toString()+"\n"
-                              "Collocazione: "+query.value(7).toString()+"\n"
-                          +QString::fromUtf8("Quantità: ")+query.value(8).toString()+"\n"
-                      "Prezzo unitario: "+QString::fromUtf8("\u20AC")+" "+query.value(9).toString()+"\n"
-                      "Prezzo senza iva: "+QString::fromUtf8("\u20AC")+" "+query.value(10).toString()+"\n"
-                      "Prezzo con iva: "+QString::fromUtf8("\u20AC")+" "+query.value(11).toString()+"\n"
-                      "Totale: "+QString::fromUtf8("\u20AC")+" "+query.value(12).toString());
+              dettagli->setText(cod_art+query.value(0).toString()+"\n"+
+                                cod_barre+query.value(1).toString()+"\n"+
+                                title +query.value(2).toString()+"\n"+
+                                desc+query.value(3).toString()+"\n"+
+                                autore+query.value(4).toString()+"\n"+
+                                lingua+query.value(5).toString()+"\n"+
+                                cat_lb+query.value(6).toString()+"\n"+
+                                info_ad+query.value(13).toString()+"\n"+
+                                coll+query.value(7).toString()+"\n"
+                                +QString::fromUtf8(tr("Quantità: "))+query.value(8).toString()+"\n"+
+                                pr_un+QString::fromUtf8("\u20AC")+" "+query.value(9).toString()+"\n"+
+                                pr_s_iva+QString::fromUtf8("\u20AC")+" "+query.value(10).toString()+"\n"+
+                                p_c_iva+QString::fromUtf8("\u20AC")+" "+query.value(11).toString()+"\n"+
+                                tot+QString::fromUtf8("\u20AC")+" "+query.value(12).toString());
         }
         else
         {
@@ -181,22 +194,35 @@ void scarico_mag::cerca_pr_dig()
         query.exec();
 
 
+        QString cod_art = tr("Cod. Art.: ");
+        QString cod_barre = tr("Codice a barre: ");
+        QString title = tr("Titolo: ");
+        QString desc = tr("Descrizione: ");
+        QString autore = tr("Autore: ");
+        QString lingua = tr("Lingua: ");
+        QString cat_lb = tr("Categoria libro: ");
+        QString info_ad = tr("Info editore: ");
+        QString coll = tr("Collocazione: ");
+        QString pr_un = tr("Prezzo unitario: ");
+        QString pr_s_iva = tr("Prezzo senza iva: ");
+        QString p_c_iva = tr("Prezzo con iva: ");
+        QString tot = tr("Totale: ");
         if (query.next())
         {
-            dettagli->setText("Cod. Art.: "+query.value(0).toString()+"\n"
-                               "Codice a barre: "+query.value(1).toString()+"\n"
-                                  "Titolo: "+query.value(2).toString()+"\n"
-                                  "Descrizione: "+query.value(3).toString()+"\n"
-                                  "Autore: "+query.value(4).toString()+"\n"
-                                  "Lingua: "+query.value(5).toString()+"\n"
-                                  "Categoria libro: "+query.value(6).toString()+"\n"
-                              "Info editore: "+query.value(13).toString()+"\n"
-                              "Collocazione: "+query.value(7).toString()+"\n"
-                              +QString::fromUtf8("Quantità: ")+query.value(8).toString()+"\n"
-                          "Prezzo unitario: "+QString::fromUtf8("\u20AC")+" "+query.value(9).toString()+"\n"
-                          "Prezzo senza iva: "+QString::fromUtf8("\u20AC")+" "+query.value(10).toString()+"\n"
-                          "Prezzo con iva: "+QString::fromUtf8("\u20AC")+" "+query.value(11).toString()+"\n"
-                          "Totale: "+QString::fromUtf8("\u20AC")+" "+query.value(12).toString());
+              dettagli->setText(cod_art+query.value(0).toString()+"\n"+
+                                cod_barre+query.value(1).toString()+"\n"+
+                                title +query.value(2).toString()+"\n"+
+                                desc+query.value(3).toString()+"\n"+
+                                autore+query.value(4).toString()+"\n"+
+                                lingua+query.value(5).toString()+"\n"+
+                                cat_lb+query.value(6).toString()+"\n"+
+                                info_ad+query.value(13).toString()+"\n"+
+                                coll+query.value(7).toString()+"\n"
+                                +QString::fromUtf8(tr("Quantità: "))+query.value(8).toString()+"\n"+
+                                pr_un+QString::fromUtf8("\u20AC")+" "+query.value(9).toString()+"\n"+
+                                pr_s_iva+QString::fromUtf8("\u20AC")+" "+query.value(10).toString()+"\n"+
+                                p_c_iva+QString::fromUtf8("\u20AC")+" "+query.value(11).toString()+"\n"+
+                                tot+QString::fromUtf8("\u20AC")+" "+query.value(12).toString());
         }
         else
         {
@@ -219,7 +245,7 @@ void scarico_mag::quan_art()
         quan->setText(QString::fromUtf8("N°  ")+QString::number(text));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary",QString::fromUtf8("Impossibile instanziare la quantità di articoli venduti..."));
+        QMessageBox::warning(this,tr("LyLibrary"),QString::fromUtf8(tr("Impossibile instanziare la quantità di articoli venduti...")));
     }
 }
 
@@ -236,15 +262,15 @@ void scarico_mag::totale_venduto()
         tot_scar->setText(QString::fromUtf8("\u20AC")+" "+QString::number(prezzo));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary",QString::fromUtf8("Impossibile instanziare il prezzo totale degli articoli venduti..."));
+        QMessageBox::warning(this,tr("LyLibrary"),QString::fromUtf8(tr("Impossibile instanziare il prezzo totale degli articoli venduti...")));
     }
 }
 
 void scarico_mag::esporta_csv()
 {
     if(tab_view->selectionModel()->currentIndex().isValid()){
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta CSv",
-                                                    "*.csv", "CSV(*.csv);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta CSV"),
+                                                    "*.csv", tr("CSV(*.csv);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -329,15 +355,15 @@ void scarico_mag::esporta_csv()
     file.write(ttext);
     }
     else{
-    QMessageBox::warning(this,"LyLibrary","Selezionare una riga da esportare in csv...");
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da esportare in csv..."));
     }
 }
 
 void scarico_mag::esporta_pdf()
 {
     if(tab_view->selectionModel()->currentIndex().isValid()){
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    "*.pdf", tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -353,7 +379,7 @@ void scarico_mag::esporta_pdf()
        st->esporta_scarico(printer,mod_grid);
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da esportare in pdf...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da esportare in pdf..."));
     }
 }
 
@@ -381,8 +407,8 @@ void scarico_mag::elimina_record_libri()
 
 
             QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle("Lylibrary");
-            box->setInformativeText("Vuoi eliminare veramente \n il record selezionato?....");
+            box->setWindowTitle(tr("Lylibrary"));
+            box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
             box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
             box->setDefaultButton(QMessageBox::Ok);
             int ret = box->exec();
@@ -399,7 +425,7 @@ void scarico_mag::elimina_record_libri()
             }
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
 }
 
@@ -416,8 +442,8 @@ void scarico_mag::elimina_riga_libri()
     else
     {
         QMessageBox *box= new QMessageBox(this);
-        box->setWindowTitle("Lylibrary");
-        box->setInformativeText("Impossibile eliminare \n il record selezionato?....");
+        box->setWindowTitle(tr("Lylibrary"));
+        box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
         box->exec();
      }
     quan_art();
@@ -435,8 +461,8 @@ void scarico_mag::elimina_record_prodotti()
 
 
             QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle("Lylibrary");
-            box->setInformativeText("Vuoi eliminare veramente \n il record selezionato?....");
+            box->setWindowTitle(tr("Lylibrary"));
+            box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
             box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
             box->setDefaultButton(QMessageBox::Ok);
             int ret = box->exec();
@@ -453,7 +479,7 @@ void scarico_mag::elimina_record_prodotti()
             }
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
 
 }
@@ -471,8 +497,8 @@ void scarico_mag::elimina_riga_prodotti()
     else
     {
         QMessageBox *box= new QMessageBox(this);
-        box->setWindowTitle("Lylibrary");
-        box->setInformativeText("Impossibile eliminare \n il record selezionato?....");
+        box->setWindowTitle(tr("Lylibrary"));
+        box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
         box->exec();
      }
     quan_art();
@@ -485,7 +511,7 @@ void scarico_mag::stampa_carico()
    QPrinter printer(QPrinter::HighResolution);
    QPrintPreviewDialog preview(&printer);
    preview.setWindowFlags(Qt::Window);
-   preview.setWindowTitle("Anteprima di stampa.");
+   preview.setWindowTitle(tr("Anteprima di stampa."));
    QIcon icon;
    icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
    preview.setWindowIcon(icon);
@@ -501,5 +527,5 @@ void scarico_mag::print_carico(QPrinter *printer)
 }
 scarico_mag::~scarico_mag()
 {
-    //delete ui;
+
 }

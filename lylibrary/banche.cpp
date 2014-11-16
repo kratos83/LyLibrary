@@ -46,7 +46,7 @@ void banche::nuovo(){
 void banche::clicca(){
 
     if(id->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
     QSqlQuery querys;
@@ -77,8 +77,8 @@ void banche::clicca(){
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText("Errore");
-            MsgBox.setInformativeText("Impossibile aggiornare.Controlla correttamente i dati.");
+            MsgBox.setText(tr("Errore"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare.Controlla correttamente i dati."));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -117,8 +117,8 @@ void banche::inserisci(){
     }
     else{
         QMessageBox MsgBox;
-        MsgBox.setText("Errore");
-        MsgBox.setInformativeText("Impossibile inserire.Controlla correttamente i dati.");
+        MsgBox.setText(tr("Errore"));
+        MsgBox.setInformativeText(tr("Impossibile inserire.Controlla correttamente i dati."));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -169,8 +169,8 @@ void banche::elimina(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8("Errore"));
-                MsgBox.setInformativeText(QString::fromUtf8("Inpossibile eliminare record poichè non hai selezionato nulla"));
+                MsgBox.setText(QString::fromUtf8(tr("Errore")));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -198,12 +198,12 @@ void banche::lista(){
 
     model->setTable("banca");
     model->select();
-    model->setHeaderData(0, Qt::Horizontal, "ID");
-    model->setHeaderData(1, Qt::Horizontal, "IBAN");
-    model->setHeaderData(2, Qt::Horizontal, "Banca");
-    model->setHeaderData(3, Qt::Horizontal, "CAP");
-    model->setHeaderData(4, Qt::Horizontal, "Indirizzo");
-    model->setHeaderData(5, Qt::Horizontal, "Citta");
+    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, tr("IBAN"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Banca"));
+    model->setHeaderData(3, Qt::Horizontal, tr("CAP"));
+    model->setHeaderData(4, Qt::Horizontal, tr("Indirizzo"));
+    model->setHeaderData(5, Qt::Horizontal, tr("Citta"));
 
     tableView->setModel(model);
 
@@ -246,8 +246,8 @@ void banche::cerca(){
 
 void banche::esporta_pdf()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    "*.pdf", tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è

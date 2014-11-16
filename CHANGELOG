@@ -1,4 +1,12 @@
 /***************************************************/
+			LyLibrary 2.0.3
+Remove dependes poppler
+Fix translator
+Add Language to management 
+FIX VAT 
+FIX tax code
+
+/***************************************************/
 			LyLibrary 2.0.2
 
 Fix gestore plugin

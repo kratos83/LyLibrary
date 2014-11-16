@@ -20,8 +20,8 @@ fattura::fattura(QWidget *parent) :
     /**********************************************
      *IMPOSTAZIONE AZIONI PUSHBUTTON
      *********************************************/
-    agg_fattura_libri = new QAction("Fattura",this);
-    agg_fattura_prod_dig = new QAction("Fattura prodotti digitali",this);
+    agg_fattura_libri = new QAction(tr("Fattura"),this);
+    agg_fattura_prod_dig = new QAction(tr("Fattura prodotti digitali"),this);
 
     /**********************************************
      * Impostazione menu pushbutton Aggiungi
@@ -35,8 +35,8 @@ fattura::fattura(QWidget *parent) :
     /**********************************************
      *IMPOSTAZIONE AZIONI PUSHBUTTON
      *********************************************/
-    el_libri = new QAction("Elimina fattura libri",this);
-    el_prod_dig = new QAction("Elimina fattura prodotti digitali",this);
+    el_libri = new QAction(tr("Elimina fattura libri"),this);
+    el_prod_dig = new QAction(tr("Elimina fattura prodotti digitali"),this);
 
     /**********************************************
      * Impostazione menu pushbutton elimina
@@ -50,8 +50,8 @@ fattura::fattura(QWidget *parent) :
     /**********************************************
      *IMPOSTAZIONE AZIONI PUSHBUTTON MODIFICA
      *********************************************/
-    mod_fat_libri = new QAction("Modifica fattura libri",this);
-    mod_fat_prod_dig = new QAction("Modifica fattura prodotti digitali",this);
+    mod_fat_libri = new QAction(tr("Modifica fattura libri"),this);
+    mod_fat_prod_dig = new QAction(tr("Modifica fattura prodotti digitali"),this);
 
     /**********************************************
      * Impostazione menu pushbutton modifica
@@ -65,8 +65,8 @@ fattura::fattura(QWidget *parent) :
     /**********************************************
      *IMPOSTAZIONE AZIONI PUSHBUTTON MODIFICA
      *********************************************/
-    print_libri = new QAction("Stampa fattura libri",this);
-    print_prod_dig = new QAction("Stampa fatture prodotti digitali",this);
+    print_libri = new QAction(tr("Stampa fattura libri"),this);
+    print_prod_dig = new QAction(tr("Stampa fatture prodotti digitali"),this);
 
     /**********************************************
      * Impostazione menu pushbutton modifica
@@ -80,8 +80,8 @@ fattura::fattura(QWidget *parent) :
     /**********************************************
     *IMPOSTAZIONE AZIONI PUSHBUTTON ESPORTA PDF
     *********************************************/
-    ex_pdf_libri = new QAction("Esporta fattura libri in pdf",this);
-    ex_pdf_prod_diag = new QAction("Esporta fattura prodotti digitali in pdf",this);
+    ex_pdf_libri = new QAction(tr("Esporta fattura libri in pdf"),this);
+    ex_pdf_prod_diag = new QAction(tr("Esporta fattura prodotti digitali in pdf"),this);
 
     /**********************************************
     * Impostazione menu pushbutton esporta pdf
@@ -312,9 +312,9 @@ void fattura::filtro(){
     if(cerca1->text().length() == 0){
         lista_libri();
         QMessageBox MsgBox;
-        MsgBox.setWindowTitle("Lylibrary");
-        MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8("Inserisci il testo nella casella cerca"));
+        MsgBox.setWindowTitle(tr("Lylibrary"));
+        MsgBox.setText(tr("Avviso"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -334,7 +334,7 @@ void fattura::stampa_fat(){
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog ft(&printer,this);
     ft.setWindowFlags(Qt::Window);
-    ft.setWindowTitle("Anteprima di stampa.");
+    ft.setWindowTitle(tr("Anteprima di stampa."));
     connect(&ft,SIGNAL(paintRequested(QPrinter*)),SLOT(preview_view(QPrinter*)));
     ft.exec();
 }
@@ -432,7 +432,7 @@ void fattura::aggiorna_fattura_prod_dig()
     }
     else
     {
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da modificare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da modificare..."));
     }
 }
 
@@ -456,7 +456,7 @@ void fattura::agg_fatt_prod_dig(QModelIndex index)
             ft->tipo_cliente->setCurrentIndex(query.value(3).toInt());
             ft->pers->setCurrentText(query.value(2).toString());
         }
-        if(rec.value("tipo_fattura").toString() == "Prodotti digitali"){
+        if(rec.value("tipo_fattura").toString() == tr("Prodotti digitali")){
             ft->f_libri_2->setEnabled(false);
             ft->f_prod_dig_2->setChecked(true);
         }
@@ -502,7 +502,7 @@ void fattura::aggiorna_fattura_libri(){
     }
     else
     {
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da modificare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da modificare..."));
     }
 }
 
@@ -526,7 +526,7 @@ void fattura::agg_fatt_libri(QModelIndex index){
                 ft->tipo_cliente->setCurrentIndex(query.value(3).toInt());
                 ft->pers->setCurrentText(query.value(2).toString());
             }
-            if(rec.value("tipo_fattura").toString() == "Vendita libri"){
+            if(rec.value("tipo_fattura").toString() == tr("Vendita libri")){
                 ft->f_prod_dig_2->setEnabled(false);
                 ft->f_libri_2->setChecked(true);
             }
@@ -569,21 +569,21 @@ void fattura::vis_dati_fattura_libri(){
     query.prepare("select count(id) from fattura_vendita");
     query.exec();
     if(query.next()){
-        QString text = QString::fromUtf8("Le fatture di vendita sono: ") + query.value(0).toString();
+        QString text = QString::fromUtf8(tr("Le fatture di vendita sono: ")) + query.value(0).toString();
         tot_fatt->setText(text);
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile ricavare le fatture di vendita...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile ricavare le fatture di vendita..."));
     }
 
     query1.prepare("select sum(totale) from fattura_vendita");
     query1.exec();
     if(query1.next()){
-        QString txt = QString::fromUtf8("Il totale delle fatture di vendita è: ")+"€"+" "+query1.value(0).toString();
+        QString txt = QString::fromUtf8(tr("Il totale delle fatture di vendita è: "))+QString::fromUtf8("\u20AC")+" "+query1.value(0).toString();
         tot_eur->setText(txt);
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile ricavare le fatture di vendita...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile ricavare le fatture di vendita..."));
     }
 }
 
@@ -593,21 +593,21 @@ void fattura::vis_dati_fattura_prod_dig()
     query.prepare("select count(id) from fattura_vendita");
     query.exec();
     if(query.next()){
-        QString text = QString::fromUtf8("Le fatture di vendita sono: ") + query.value(0).toString();
+        QString text = QString::fromUtf8(tr("Le fatture di vendita sono: ")) + query.value(0).toString();
         tot_fatt->setText(text);
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile ricavare le fatture di vendita...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile ricavare le fatture di vendita..."));
     }
 
     query1.prepare("select sum(totale) from fattura_vendita");
     query1.exec();
     if(query1.next()){
-        QString txt = QString::fromUtf8("Il totale delle fatture di vendita è: ")+"€"+" "+query1.value(0).toString();
+        QString txt = QString::fromUtf8(tr("Il totale delle fatture di vendita è: "))+"€"+" "+query1.value(0).toString();
         tot_eur->setText(txt);
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile ricavare le fatture di vendita...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile ricavare le fatture di vendita..."));
     }
 }
 
@@ -624,8 +624,8 @@ void fattura::elimina_fattura_prod_dig()
 
 
                 QMessageBox *box= new QMessageBox(this);
-                box->setWindowTitle("Lylibrary");
-                box->setInformativeText("Vuoi eliminare veramente \n il record selezionato?....");
+                box->setWindowTitle(tr("Lylibrary"));
+                box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
                 box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
                 box->setDefaultButton(QMessageBox::Ok);
                 int ret = box->exec();
@@ -665,7 +665,7 @@ void fattura::elimina_riga_pr_dig()
     else
     {
         //scrivere codice per gestione Errore cancellazione
-        QMessageBox::warning(this,"LyLibrary","Impossibile eliminare il record "+id->text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile eliminare il record ")+id->text());
      }
     lista_prod_dig();
     vis_dati_fattura_prod_dig();
@@ -685,8 +685,8 @@ void fattura::elimina_fattura(){
 
 
                         QMessageBox *box= new QMessageBox(this);
-                        box->setWindowTitle("Lylibrary");
-                        box->setInformativeText("Vuoi eliminare veramente \n il record selezionato?....");
+                        box->setWindowTitle(tr("Lylibrary"));
+                        box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
                         box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
                         box->setDefaultButton(QMessageBox::Ok);
                         int ret = box->exec();
@@ -726,7 +726,7 @@ void fattura::elimina_riga(){
     else
     {
         //scrivere codice per gestione Errore cancellazione
-        QMessageBox::warning(this,"LyLibrary","Impossibile eliminare il record "+id->text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile eliminare il record ")+id->text());
      }
     lista_libri();
     vis_dati_fattura_libri();
@@ -738,11 +738,11 @@ void fattura::lista_libri(){
     model->setSourceModel(mod_grid);
     model->sort(0,Qt::AscendingOrder);
 
-    mod_grid->setHeaderData(0,Qt::Horizontal,"ID");
-    mod_grid->setHeaderData(1,Qt::Horizontal,"Data");
-    mod_grid->setHeaderData(2,Qt::Horizontal,"Fornitore");
-    mod_grid->setHeaderData(3,Qt::Horizontal,"Tipo fattura");
-    mod_grid->setHeaderData(4,Qt::Horizontal,"Totale");
+    mod_grid->setHeaderData(0,Qt::Horizontal,tr("ID"));
+    mod_grid->setHeaderData(1,Qt::Horizontal,tr("Data"));
+    mod_grid->setHeaderData(2,Qt::Horizontal,tr("Fornitore"));
+    mod_grid->setHeaderData(3,Qt::Horizontal,tr("Tipo fattura"));
+    mod_grid->setHeaderData(4,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -760,11 +760,11 @@ void fattura::lista_prod_dig()
     model->setSourceModel(mod_grid);
     model->sort(0,Qt::AscendingOrder);
 
-    mod_grid->setHeaderData(0,Qt::Horizontal,"ID");
-    mod_grid->setHeaderData(1,Qt::Horizontal,"Data");
-    mod_grid->setHeaderData(2,Qt::Horizontal,"Fornitore");
-    mod_grid->setHeaderData(3,Qt::Horizontal,"Tipo fattura");
-    mod_grid->setHeaderData(4,Qt::Horizontal,"Totale");
+    mod_grid->setHeaderData(0,Qt::Horizontal,tr("ID"));
+    mod_grid->setHeaderData(1,Qt::Horizontal,tr("Data"));
+    mod_grid->setHeaderData(2,Qt::Horizontal,tr("Fornitore"));
+    mod_grid->setHeaderData(3,Qt::Horizontal,tr("Tipo fattura"));
+    mod_grid->setHeaderData(4,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
     tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -782,7 +782,7 @@ void fattura::cerca_libri(){
     query.bindValue(":id",id->text());
     query.exec();
     if(query.next()){
-        textEdit->setText(QString::fromUtf8("Informazioni della fattura di vendita: ")+"\n"
+        textEdit->setText(QString::fromUtf8(tr("Informazioni della fattura di vendita: "))+"\n"
                           +tr("ID:")+query.value(0).toString()+"\n"
                           +tr("Data: ")+query.value(1).toString()+"\n"
                           +tr("Fornitore: ")+query.value(2).toString()+"\n"
@@ -790,7 +790,7 @@ void fattura::cerca_libri(){
                           +tr("Totale: ")+QString::fromUtf8("\u20AC")+" "+query.value(4).toString()+"\n");
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile trovare le informazioni...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile trovare le informazioni..."));
     }
 }
 
@@ -801,7 +801,7 @@ void fattura::cerca_prod_dig()
     query.bindValue(":id",id->text());
     query.exec();
     if(query.next()){
-        textEdit->setText(QString::fromUtf8("Informazioni della fattura di vendita: ")+"\n"
+        textEdit->setText(QString::fromUtf8(tr("Informazioni della fattura di vendita: "))+"\n"
                           +tr("ID:")+query.value(0).toString()+"\n"
                           +tr("Data: ")+query.value(1).toString()+"\n"
                           +tr("Fornitore: ")+query.value(2).toString()+"\n"
@@ -809,7 +809,7 @@ void fattura::cerca_prod_dig()
                           +tr("Totale: ")+QString::fromUtf8("\u20AC")+" "+query.value(4).toString()+"\n");
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile trovare le informazioni...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile trovare le informazioni..."));
     }
 }
 
@@ -819,7 +819,7 @@ void fattura::stampa_libri()
         QPrinter printer(QPrinter::HighResolution);
         QPrintPreviewDialog preview(&printer);
         preview.setWindowFlags(Qt::Window);
-        preview.setWindowTitle("Anteprima di stampa fattura libri.");
+        preview.setWindowTitle(tr("Anteprima di stampa fattura libri."));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
         preview.setWindowIcon(icon);
@@ -827,7 +827,7 @@ void fattura::stampa_libri()
         preview.exec();
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Selezionare una fattura da stampare...");
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una fattura da stampare..."));
         }
 }
 
@@ -837,7 +837,7 @@ void fattura::stampa_prod_dig()
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer);
     preview.setWindowFlags(Qt::Window);
-    preview.setWindowTitle("Anteprima di stampa fattura prodotti digitali.");
+    preview.setWindowTitle(tr("Anteprima di stampa fattura prodotti digitali."));
     QIcon icon;
     icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
     preview.setWindowIcon(icon);
@@ -845,7 +845,7 @@ void fattura::stampa_prod_dig()
     preview.exec();
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Selezionare una fattura da stampare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una fattura da stampare..."));
     }
 }
 
@@ -876,8 +876,8 @@ void fattura::preview_prod_dig(QPrinter *printer){
 void fattura::esporta_pdf_libri()
 {
     if(tab_view->selectionModel()->currentIndex().isValid()){
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    "*.pdf", tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -893,7 +893,7 @@ void fattura::esporta_pdf_libri()
        st->stampa_fatt_vendita_libri(printer,mod_grid,tab_view->currentIndex(),id->text().toDouble());
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da esportare");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da esportare"));
     }
 
 }
@@ -901,8 +901,8 @@ void fattura::esporta_pdf_libri()
 void fattura::esporta_pdf_prod_dig()
 {
     if(tab_view->selectionModel()->currentIndex().isValid()){
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    "*.pdf", tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -918,7 +918,7 @@ void fattura::esporta_pdf_prod_dig()
        st->stampa_fatt_vendita_prod_dig(printer,mod_grid,tab_view->currentIndex(),id->text().toInt());
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da esportare");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da esportare"));
     }
 }
 

@@ -32,7 +32,7 @@ private:
     QNetworkRequest mCurrentRequest;
     QFile *output;
     QTime downloadTime;
-    QProcess *lin_start,*win_start;
+    QProcess *lin_start,*win_start, *mac_start;
 
     int downloadedCount;
     int totalCount;
@@ -51,6 +51,8 @@ public slots:
     void download();
     void display_progress_bar();
 
+protected:
+    void changeEvent(QEvent *e);
 signals:
     void finished();
 };

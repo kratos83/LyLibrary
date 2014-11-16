@@ -139,9 +139,9 @@ void articoli::filtro(){
     if(cerca1->text().length() == 0){
         lista();
         QMessageBox MsgBox;
-        MsgBox.setWindowTitle("Lylibrary");
-        MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8("Inserisci il testo nella casella cerca"));
+        MsgBox.setWindowTitle(tr("Lylibrary"));
+        MsgBox.setText(tr("Avviso"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -207,7 +207,7 @@ void articoli::delete_art(){
     QString flag_controllo = "NO";
     if(!tab_view->selectionModel()->currentIndex().isValid()){
 
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!cod_art->text().isEmpty())
         {
@@ -229,8 +229,8 @@ void articoli::delete_art(){
 
 
                     QMessageBox MsgBox;
-                    MsgBox.setText("Voce non eliminabile");
-                    MsgBox.setInformativeText("E' una voce utilizzata in anagrafica clienti");
+                    MsgBox.setText(tr("Voce non eliminabile"));
+                    MsgBox.setInformativeText(tr("E' una voce utilizzata in anagrafica clienti"));
                     MsgBox.setIcon(QMessageBox::Warning);
                     MsgBox.exec();
 
@@ -263,8 +263,8 @@ void articoli::delete_art(){
             {
                 //scrivere codice per gestione Errore cancellazione
                 QMessageBox MsgBox;
-                MsgBox.setText("Voce non eliminabile");
-                MsgBox.setInformativeText("Impossibile eliminare...");
+                MsgBox.setText(tr("Voce non eliminabile"));
+                MsgBox.setInformativeText(tr("Impossibile eliminare..."));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -300,7 +300,7 @@ void articoli::aggiungi(){
 void articoli::agg_ass(){
 
     if(!tab_view->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da modificare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da modificare..."));
     }
     else{
     QModelIndex modelIndex = tab_view->selectionModel()->currentIndex();
@@ -354,8 +354,8 @@ void articoli::aggiorna(QModelIndex index){
         // scrivere codice per per gestione dell'errore
 
             QMessageBox MsgBox;
-            MsgBox.setText("Voce non aggiornabile");
-            MsgBox.setInformativeText("Impossibile aggiornare");
+            MsgBox.setText(tr("Voce non aggiornabile"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare"));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
     }
@@ -370,7 +370,7 @@ void articoli::inserisci(){
 
     if(!cod_barre->text().length() && !art_nom->text().length() && !scaffale->text().length() && !descrizione->toPlainText().length()
             && !autore->text().length() && !lingua->text().length() && !quant1->text().length()){
-        QMessageBox::warning(this,"LyLibrary","Inserisci prima i dati correttamente");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci prima i dati correttamente"));
         art_nom->setStyleSheet("background-color: rgb(249, 22, 5)");
         cod_barre->setStyleSheet("background-color: rgb(249, 22, 5)");
         descrizione->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -416,8 +416,8 @@ void articoli::inserisci(){
                         // scrivere codice per per gestione dell'errore
 
                             QMessageBox MsgBox;
-                            MsgBox.setText("Non puoi inseriree");
-                            MsgBox.setInformativeText("Impossibile inserire");
+                            MsgBox.setText(tr("Non puoi inserire"));
+                            MsgBox.setInformativeText(tr("Impossibile inserire"));
                             MsgBox.setIcon(QMessageBox::Warning);
                             MsgBox.exec();
                     }
@@ -439,7 +439,7 @@ void articoli::lista(){
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Collocazione"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(("Quantità")));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr(("Quantità"))));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Info editore"));
     mod_grid->setHeaderData(10, Qt::Horizontal, tr("Image"));
 
@@ -478,16 +478,16 @@ void articoli::cerca(){
 
         if (query.next())
         {
-            dettagli->setText("Cod. Art.: "+query.value(0).toString()+"\n"
-                               "Codice a barre: "+query.value(1).toString()+"\n"
-                                  "Titolo: "+query.value(2).toString()+"\n"
-                                  "Descrizione: "+query.value(3).toString()+"\n"
-                                  "Autore: "+query.value(4).toString()+"\n"
-                                  "Lingua: "+query.value(5).toString()+"\n"
-                                  "Categoria libro: "+query.value(6).toString()+"\n"
-                                  "Info editore: "+query.value(9).toString()+"\n"
-                                  "Collocazione: "+query.value(7).toString()+"\n"
-                                  +QString::fromUtf8("Quantità: ")+query.value(8).toString());
+            dettagli->setText(QObject::tr("Cod. Art.: ")+query.value(0).toString()+"\n"+
+                               QObject::tr("Codice a barre: ")+query.value(1).toString()+"\n"+
+                                  QObject::tr("Titolo: ")+query.value(2).toString()+"\n"+
+                                  QObject::tr("Descrizione: ")+query.value(3).toString()+"\n"+
+                                  QObject::tr("Autore: ")+query.value(4).toString()+"\n"+
+                                  QObject::tr("Lingua: ")+query.value(5).toString()+"\n"+
+                                  QObject::tr("Categoria libro: ")+query.value(6).toString()+"\n"+
+                                  QObject::tr("Info editore: ")+query.value(9).toString()+"\n"+
+                                  QObject::tr("Collocazione: ")+query.value(7).toString()+"\n"+
+                                  QString::fromUtf8(QObject::tr("Quantità: "))+query.value(8).toString());
             QImage img(query.value(10).toString());
             image_file->setPixmap(QPixmap::fromImage(img));
             cod_barre->setText(query.value(1).toString());
@@ -515,13 +515,11 @@ void articoli::cerca(){
 }
 
 void articoli::image_but(){
-    QString fileName = QFileDialog::getOpenFileName(this,
-                                    tr("Open File"), QDir::currentPath());
+    QString fileName = QFileDialog::getOpenFileName(this,QObject::tr("Open File"), QDir::currentPath());
     if (!fileName.isEmpty()) {
         QImage image(fileName);
         if (image.isNull()) {
-            QMessageBox::information(this, tr("Lylibrary"),
-                                     tr("Impossibile aprire %1.").arg(fileName));
+            QMessageBox::information(this, QObject::tr("Lylibrary"),QObject::tr("Impossibile aprire %1.").arg(fileName));
             return;
         }
         image_file->setPixmap(QPixmap::fromImage(image));
@@ -534,7 +532,7 @@ void articoli::stampa(){
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer);
     preview.setWindowFlags(Qt::Window);
-    preview.setWindowTitle("Anteprima di stampa.");
+    preview.setWindowTitle(QObject::tr("Anteprima di stampa."));
     QIcon icon;
     icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
     preview.setWindowIcon(icon);
@@ -552,8 +550,8 @@ void articoli::preview_new(QPrinter *printer){
 
 void articoli::esporta_pdf()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, QObject::tr("Esporta PDF"),
+                                                    "*.pdf", QObject::tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -571,8 +569,8 @@ void articoli::esporta_pdf()
 
 void articoli::esporta_cvs()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta CSv",
-                                                    "*.csv", "CSV(*.csv);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, QObject::tr("Esporta CSV"),
+                                                    "*.csv", QObject::tr("CSV(*.csv);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -690,7 +688,7 @@ void articoli::view_barre(QModelIndex av){
          codice_barre->updateSwtClicked(qr.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile ottenere il barcode....\n"+qr.lastError().text());
+            QMessageBox::warning(this,QObject::tr("LyLibrary"),QObject::tr("Impossibile ottenere il barcode....\n")+qr.lastError().text());
         }
     }
 }
@@ -707,7 +705,7 @@ QString articoli::display_codbarre(QString text)
         cerca1->setFont(nv);
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile ottenere il barcode....\n"+qr.lastError().text());
+        QMessageBox::warning(this,QObject::tr("LyLibrary"),QObject::tr("Impossibile ottenere il barcode....\n")+qr.lastError().text());
     }
 
     return text;
@@ -722,7 +720,7 @@ void articoli::bar_code_en(){
 void articoli::stampacodbarreart(){
 
     if(!tab_view->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Seleziona una riga per stampare l'etichetta....");
+        QMessageBox::warning(this,QObject::tr("LyLibrary"),QObject::tr("Seleziona una riga per stampare l'etichetta...."));
     }
     else{
         QPrinter printer(QPrinter::HighResolution);
@@ -836,22 +834,22 @@ void  articoli::Popup(const QPoint &pt){
                 *  @author Angelo Scarnà
                 *  Menu a tendina
                 ************************************************************/
-                QAction* pAction1 = new QAction("Chiudi", this);
+                QAction* pAction1 = new QAction(QObject::tr("Chiudi"), this);
                 pAction1->setIcon(icon);
                 pAction1->setIconVisibleInMenu(true);
-                QAction* pAction2 = new QAction("Elimina", this);
+                QAction* pAction2 = new QAction(QObject::tr("Elimina"), this);
                 pAction2->setIcon(icon1);
                 pAction2->setIconVisibleInMenu(true);
-                QAction* nw = new QAction("Nuovo",this);
+                QAction* nw = new QAction(QObject::tr("Nuovo"),this);
                 nw->setIcon(icon2);
                 nw->setIconVisibleInMenu(true);
-                QAction* sa = new QAction("Salva",this);
+                QAction* sa = new QAction(QObject::tr("Salva"),this);
                 sa->setIcon(icon3);
                 sa->setIconVisibleInMenu(true);
-                QAction* md = new QAction("Aggiorna",this);
+                QAction* md = new QAction(QObject::tr("Aggiorna"),this);
                 md->setIcon(icon4);
                 md->setIconVisibleInMenu(true);
-                QAction* pr = new QAction("Stampa", this);
+                QAction* pr = new QAction(QObject::tr("Stampa"), this);
                 pr->setIcon(icon5);
                 pr->setIconVisibleInMenu(true);
 

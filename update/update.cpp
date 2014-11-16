@@ -13,7 +13,7 @@ update::update(QWidget *wig, QString url, QString agg):
     QDialog(wig), downloadedCount(0), totalCount(0), sizepause(0)
 {
     setupUi(this);
-    setWindowTitle("Gestore aggiornamento");
+    setWindowTitle(tr("Gestore aggiornamento"));
     manager = new QNetworkAccessManager(this);
     connect(down_agg,SIGNAL(clicked()),this,SLOT(download()));
     connect(dw_ps,SIGNAL(clicked()),this,SLOT(pause()));
@@ -33,7 +33,7 @@ void update::download(){
     mCurrentRequest = QNetworkRequest(url);
     output = new QFile(filename+".part");
     output->open(QIODevice::ReadWrite);
-    QString dw = "Scaricamento in corso di:  ";
+    QString dw = tr("Scaricamento in corso di:  ");
     QString w = filename;
     textEdit->setText(dw+" "+w);
     startNextDownload(mCurrentRequest);
@@ -100,7 +100,7 @@ void update::downloadProgress(qint64 bytesReceived, qint64 bytesTotal){
 
         QString ts = QString::fromLatin1("%1 %2").arg(speed, 3, 'f', 1).arg(unit);
         QString ts1 = QString::fromLatin1("%1 %2").arg(peso,3,'f',1).arg(dt);
-        test_agg->setText(QString::fromUtf8("Velocità di scaricamento: ")+ts+"  Dimensione: "+ts1+" Tempo stimato: "+QString("%1:%2:%3").arg(hours,2,10, QLatin1Char('0')).arg(mins,2,10, QLatin1Char('0')).arg(secs,2,10, QLatin1Char('0')));
+        test_agg->setText(QString::fromUtf8(tr("Velocità di scaricamento: "))+ts+tr("  Dimensione: ")+ts1+tr(" Tempo stimato: ")+QString("%1:%2:%3").arg(hours,2,10, QLatin1Char('0')).arg(mins,2,10, QLatin1Char('0')).arg(secs,2,10, QLatin1Char('0')));
         progressBar->update();
 }
 
@@ -113,7 +113,7 @@ void update::downloadFinished(){
                 QString fl = fileNames.at(0);
 
                 if(currentDownload->error()){
-                    QString ts = "Download fallito: "+currentDownload->errorString();
+                    QString ts = tr("Download fallito: ")+currentDownload->errorString();
                     textEdit->setText(ts);
                     output->remove(fl);
                 }
@@ -122,7 +122,7 @@ void update::downloadFinished(){
                 downloadReadyRead();
                 inst_agg->setEnabled(true);
                 ++downloadedCount;
-                QString txs = "Scaricamento completato";
+                QString txs = tr("Scaricamento completato");
                 textEdit->setText(txs);
                 emit finished();
                 install_package();
@@ -141,8 +141,6 @@ void update::downloadReadyRead(){
     fileNames << filename;
 #if defined (Q_OS_LINUX)
     lin_start->start("chmod 777 "+filename);
-#elif defined (Q_OS_MAC)
-    lin_start->start("chmod 777 "+filename);
 #endif
 }
 
@@ -153,7 +151,7 @@ void update::pause(){
     textEdit->setText(p_s);
 
     if( currentDownload == 0 ) {
-        textEdit->setText("Errore scaricamento");
+        textEdit->setText(tr("Errore scaricamento"));
     }
 
     disconnect(currentDownload,SIGNAL(downloadProgress(qint64,qint64)),this,SLOT(downloadProgress(qint64,qint64)));
@@ -180,22 +178,27 @@ void update::install_package(){
 #if defined(Q_OS_LINUX)
     lin_start = new QProcess(this);
     connect(lin_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
-    lin_start->start("pkexec unzip -o "+file_dir+" -d /opt/lylibrary/");
+    lin_start->start("pkexec unzip -o "+file_dir+" -d /opt/codicefiscale/");
 #elif defined(Q_OS_WIN)
     win_start = new QProcess(this);
     connect(win_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
-    win_start->start("C:\\LyLibrary\\windows\\unzip -o "+file_dir+" -d C:\\LyLibrary");
+    win_start->start("C:\\CodiceFiscale\\windows\\unzip -o "+file_dir+" -d C:\\CodiceFiscale");
+#elif defined(Q_OS_MAC64)
+    mac_start = new QProcess(this);
+    connect(mac_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
+    mac_start->start("unzip -o "+file_dir);
 #endif
 }
 
 void update::display_progress_bar()
 {
-#if defined(Q_OS_LINUX)
+#if defined (Q_OS_LINUX)
     int val = lin_start->readLine().toInt();
 #elif defined(Q_OS_WIN)
     int val = win_start->readLine().toInt();
+#elif defined(Q_OS_MAC64)
+    int val = mac_start->readLine().toInt();
 #endif
-
     for(val=0;val <= 100; val++){
         unzip_file->setValue(val);
     }
@@ -203,9 +206,21 @@ void update::display_progress_bar()
 }
 
 void update::error(QNetworkReply::NetworkError code){
-    textEdit->setText("Download fallito "+code);
+    textEdit->setText(tr("Download fallito ")+code);
 }
 
 update::~update()
 {
+}
+
+void update::changeEvent(QEvent *e)
+{
+    QDialog::changeEvent(e);
+    switch (e->type()) {
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
+    }
 }

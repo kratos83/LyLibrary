@@ -96,7 +96,7 @@ void user::save(){
         */
 
     if(ui->id->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
          QSqlQuery Qctrl;
@@ -210,11 +210,10 @@ void user::del_rec(){
 
     QString flag_controllo = "NO";
     if(!ui->g_lista->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!ui->id->text().isEmpty())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
 
             QSqlQuery qctrl;
             qctrl.prepare("SELECT * FROM clienti WHERE id = :id");
@@ -250,8 +249,8 @@ void user::del_rec(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8("Errore"));
-                MsgBox.setInformativeText(QString::fromUtf8("Inpossibile eliminare record poichè non hai selezionato nulla"));
+                MsgBox.setText(QString::fromUtf8(tr("Errore")));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -279,7 +278,6 @@ void user::lista(){
         mod_grid->setHeaderData(8,Qt::Horizontal,tr("Fax"));
 
         ui->g_lista->setSelectionBehavior(QAbstractItemView::SelectRows);
-        //ui->g_lista->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
         ui->g_lista->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->g_lista->setSelectionMode(QAbstractItemView::SingleSelection);
         ui->g_lista->setSortingEnabled(true);
@@ -299,15 +297,15 @@ void user::cerca(){
 
         if (query.next())
         {
-            ui->dettagli->setText("ID: "+query.value(0).toString()+"\n"
-                                  "Nome: "+query.value(1).toString()+"\n"
-                                  "Cognome: "+query.value(2).toString()+"\n"
-                                  "Indirizzo: "+query.value(3).toString()+"\n"
-                                  "Telefono: "+query.value(4).toString()+"\n"
-                                  "E-mail: "+query.value(5).toString()+"\n"
-                                  "Codice fiscale: "+query.value(6).toString()+"\n"
-                                  "Partita iva: "+query.value(7).toString()+"\n"
-                                  "Fax: "+query.value(8).toString()+"\n");
+            ui->dettagli->setText(tr("ID: ")+query.value(0).toString()+"\n"
+                                  +tr("Nome: ")+query.value(1).toString()+"\n"
+                                  +tr("Cognome: ")+query.value(2).toString()+"\n"
+                                  +tr("Indirizzo: ")+query.value(3).toString()+"\n"
+                                  +tr("Telefono: ")+query.value(4).toString()+"\n"
+                                  +tr("E-mail: ")+query.value(5).toString()+"\n"
+                                  +tr("Codice fiscale: ")+query.value(6).toString()+"\n"
+                                  +tr("Partita iva: ")+query.value(7).toString()+"\n"
+                                  +tr("Fax: ")+query.value(8).toString()+"\n");
             ui->nome->setText(query.value(1).toString());
             ui->cognome->setText(query.value(2).toString());
             ui->indirizzo->setText(query.value(3).toString());
@@ -386,9 +384,9 @@ void user::filtro(){
     if(ui->cerca->text().length() == 0){
         lista();
         QMessageBox MsgBox;
-        MsgBox.setWindowTitle("Luxury library");
-        MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8("Inserisci il testo nella casella cerca"));
+        MsgBox.setWindowTitle(tr("LyLibrary"));
+        MsgBox.setText(tr("Avviso"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -405,7 +403,7 @@ void user::anteprima(){
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer);
     preview.setWindowFlags(Qt::Window);
-    preview.setWindowTitle("Anteprima di stampa.");
+    preview.setWindowTitle(tr("Anteprima di stampa."));
     QIcon icon;
     icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
     preview.setWindowIcon(icon);
@@ -422,8 +420,8 @@ void user::preview_new(QPrinter *printer){
 
 void user::stampa_pdf(){
 
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    "*.pdf", tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -441,8 +439,8 @@ void user::stampa_pdf(){
 
 void user::esporta_cvs()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta CSv",
-                                                    "*.csv", "CSV(*.csv);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta CSV"),
+                                                    "*.csv", tr("CSV(*.csv);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -567,9 +565,6 @@ bool user::eventFilter(QObject *o, QEvent *e){
                     this ->Popup(mouseEvent->pos());
                     return false;
         }
-        /*else{
-                    return ui->g_lista->eventFilter(o,e);
-        }*/
 
         return QDialog::eventFilter(o,e);
 
@@ -625,28 +620,28 @@ void  user::Popup(const QPoint &pt){
                 *  @author Angelo Scarnà
                 *  Menu a tendina
                 ************************************************************/
-                QAction* pAction1 = new QAction("Chiudi", this);
+                QAction* pAction1 = new QAction(tr("Chiudi"), this);
                 pAction1->setIcon(icon);
                 pAction1->setIconVisibleInMenu(true);
-                QAction* pAction2 = new QAction("Elimina", this);
+                QAction* pAction2 = new QAction(tr("Elimina"), this);
                 pAction2->setIcon(icon1);
                 pAction2->setIconVisibleInMenu(true);
-                QAction* nw = new QAction("Nuovo",this);
+                QAction* nw = new QAction(tr("Nuovo"),this);
                 nw->setIcon(icon2);
                 nw->setIconVisibleInMenu(true);
-                QAction* sa = new QAction("Salva",this);
+                QAction* sa = new QAction(tr("Salva"),this);
                 sa->setIcon(icon3);
                 sa->setIconVisibleInMenu(true);
-                QAction* md = new QAction("Aggiorna",this);
+                QAction* md = new QAction(tr("Aggiorna"),this);
                 md->setIcon(icon4);
                 md->setIconVisibleInMenu(true);
-                QAction* pr = new QAction("Stampa", this);
+                QAction* pr = new QAction(tr("Stampa"), this);
                 pr->setIcon(icon5);
                 pr->setIconVisibleInMenu(true);
-                QAction *expdf = new QAction("Esporta pdf",this);
+                QAction *expdf = new QAction(tr("Esporta pdf"),this);
                 expdf->setIcon(icon7);
                 expdf->setIconVisibleInMenu(true);
-                QAction *excsv = new QAction("Esporta csv",this);
+                QAction *excsv = new QAction(tr("Esporta csv"),this);
                 excsv->setIcon(icon6);
                 excsv->setIconVisibleInMenu(true);
 

@@ -75,7 +75,7 @@ void prestito_dig::lista(){
     model->select();
     model->setHeaderData(0, Qt::Horizontal, tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, tr("Cliente"));
-    model->setHeaderData(2, Qt::Horizontal, tr("Libro"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Prodotto"));
     model->setHeaderData(3, Qt::Horizontal, tr("Data prestito"));
     model->setHeaderData(4, Qt::Horizontal, tr("Data rientro"));
     model->setHeaderData(5, Qt::Horizontal, tr("Rientro libro"));
@@ -107,12 +107,12 @@ void prestito_dig::lista_rietrati(){
     model->setTable("prestiti_dvd");
     model->setFilter("rientro='Rientrato' order by id");
     model->select();
-    model->setHeaderData(0, Qt::Horizontal, "ID");
-    model->setHeaderData(1, Qt::Horizontal, "Cliente");
-    model->setHeaderData(2, Qt::Horizontal, "Libro");
-    model->setHeaderData(3, Qt::Horizontal, "Data prestito");
-    model->setHeaderData(4, Qt::Horizontal, "Data rientro");
-    model->setHeaderData(5, Qt::Horizontal, "Rientro libro");
+    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, tr("Cliente"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Prodotto"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Data prestito"));
+    model->setHeaderData(4, Qt::Horizontal, tr("Data rientro"));
+    model->setHeaderData(5, Qt::Horizontal, tr("Rientro libro"));
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -131,12 +131,12 @@ void prestito_dig::list_comp(){
 
     model->setTable("prestiti_dvd");
     model->select();
-    model->setHeaderData(0, Qt::Horizontal, "ID");
-    model->setHeaderData(1, Qt::Horizontal, "Cliente");
-    model->setHeaderData(2, Qt::Horizontal, "Libro");
-    model->setHeaderData(3, Qt::Horizontal, "Data prestito");
-    model->setHeaderData(4, Qt::Horizontal, "Data rientro");
-    model->setHeaderData(5, Qt::Horizontal, "Rientro libro");
+    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, tr("Cliente"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Prodotto"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Data prestito"));
+    model->setHeaderData(4, Qt::Horizontal, tr("Data rientro"));
+    model->setHeaderData(5, Qt::Horizontal, tr("Rientro libro"));
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -153,11 +153,11 @@ void prestito_dig::list_comp(){
 void prestito_dig::aggiorna(){
 
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Seleziona una riga da modificare....");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Seleziona una riga da modificare...."));
     }
     else{
     QSqlQuery querys;
-    QString sql = "Non rientrato"; QString sql1 = "Rientrato";
+    QString sql = tr("Non rientrato"); QString sql1 = tr("Rientrato");
     querys.prepare("select id from prestiti_dvd where id=:id");
     querys.bindValue(":id",ui->id->text());
     querys.exec();
@@ -185,7 +185,7 @@ void prestito_dig::aggiorna(){
             ui->libro->setText("");
         }//fine if(query.exec())
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare i prestiti...\n"+query.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare i prestiti...\n")+query.lastError().text());
         }//fine else
     }//fine if(query.next())
     list_comp();
@@ -206,7 +206,7 @@ void prestito_dig::cerca(){
         ui->libro->setText(query.value(2).toString());
         ui->data_prestito->setDate(query.value(3).toDate());
         ui->data_rientro->setDate(query.value(4).toDate());
-        if(query.value(5).toString().indexOf("Non rientrato")){
+        if(query.value(5).toString().indexOf(tr("Non rientrato"))){
             ui->lib_rientro->setChecked(true);
         }
         else{
@@ -263,9 +263,9 @@ void prestito_dig::filtro(){
     if(ui->cerca_txt->text().length() == 0){
         list_comp();
         QMessageBox MsgBox;
-        MsgBox.setWindowTitle("Lylibrary");
-        MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8("Inserisci il testo nella casella cerca"));
+        MsgBox.setWindowTitle(tr("Lylibrary"));
+        MsgBox.setText(tr("Avviso"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -281,7 +281,7 @@ void prestito_dig::elimina(){
     QString flag_controllo = "NO";
 
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!ui->id->text().isEmpty())
         {

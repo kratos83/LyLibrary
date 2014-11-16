@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql xml network qt3support svg
+QT       += core gui xml network qt3support
 
 TARGET = ../lylibrary/update
 TEMPLATE = app
@@ -16,20 +16,24 @@ MOC_DIR = build
 RCC_DIR = build
 
 SOURCES += main.cpp\
-           update.cpp
+           update.cpp \
+           settingsmanager.cpp
 
-HEADERS  += update.h
+HEADERS  += update.h \
+            settingsmanager.h
 
 FORMS    += update.ui
 
 RESOURCES += \
-    update.qrc
+            update.qrc \
+    lang.qrc
 
 unix{
 
-target.path = /opt/lylibrary
+target.path = /opt/codicefiscale
 
 INSTALLS += target
-
 }
 
+TRANSLATIONS = language/English.ts \
+               language/Italian.ts

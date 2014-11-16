@@ -64,7 +64,7 @@ prodotti_dvd::prodotti_dvd(QWidget *parent) :QDialog(parent)
     cod_art->setEnabled(false);
     dockWidget->setMaximumWidth(385);
     QStringList list1;
-    list1 << tr("Cerca per codice a barre") << tr("Cerca per prodotto") << tr("Cerca per autore");
+    list1 << QObject::tr("Cerca per codice a barre") << QObject::tr("Cerca per prodotto") << QObject::tr("Cerca per autore");
     comboBox_2->addItems(list1);
     lista();
     clickgrid();
@@ -139,9 +139,9 @@ void prodotti_dvd::filtro(){
     if(cerca1->text().length() == 0){
         lista();
         QMessageBox MsgBox;
-        MsgBox.setWindowTitle("Luxury library");
-        MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8("Inserisci il testo nella casella cerca"));
+        MsgBox.setWindowTitle(tr("LyLibrary"));
+        MsgBox.setText(tr("Avviso"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -205,7 +205,7 @@ void prodotti_dvd::delete_art(){
     QString flag_controllo = "NO";
     if(!tab_view->selectionModel()->currentIndex().isValid()){
 
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else        if (!cod_art->text().isEmpty())
         {
@@ -227,8 +227,8 @@ void prodotti_dvd::delete_art(){
 
 
                     QMessageBox MsgBox;
-                    MsgBox.setText("Voce non eliminabile");
-                    MsgBox.setInformativeText("E' una voce utilizzata in anagrafica clienti");
+                    MsgBox.setText(tr("Voce non eliminabile"));
+                    MsgBox.setInformativeText(tr("E' una voce utilizzata in anagrafica clienti"));
                     MsgBox.setIcon(QMessageBox::Warning);
                     MsgBox.exec();
 
@@ -261,8 +261,8 @@ void prodotti_dvd::delete_art(){
             {
                 //scrivere codice per gestione Errore cancellazione
                 QMessageBox MsgBox;
-                MsgBox.setText("Voce non eliminabile");
-                MsgBox.setInformativeText("Impossibile eliminare...");
+                MsgBox.setText(tr("Voce non eliminabile"));
+                MsgBox.setInformativeText(tr("Impossibile eliminare..."));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -308,7 +308,7 @@ void prodotti_dvd::aggiungi(){
 void prodotti_dvd::agg_ass(){
 
     if(!tab_view->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da modificare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da modificare..."));
     }
     else{
     QModelIndex modelIndex = tab_view->selectionModel()->currentIndex();
@@ -362,8 +362,8 @@ void prodotti_dvd::aggiorna(QModelIndex index){
         // scrivere codice per per gestione dell'errore
 
             QMessageBox MsgBox;
-            MsgBox.setText("Voce non aggiornabile");
-            MsgBox.setInformativeText("Impossibile aggiornare");
+            MsgBox.setText(tr("Voce non aggiornabile"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare"));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         qWarning() << Query.lastError();
@@ -380,7 +380,7 @@ void prodotti_dvd::inserisci(){
 
     if(!cod_barre->text().length() && !art_nom->text().length() && !scaffale->text().length() && !descrizione->toPlainText().length()
             && !autore->text().length() && !lingua->text().length() && !quant1->text().length()){
-        QMessageBox::warning(this,"LyLibrary","Inserisci prima i dati correttamente");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci prima i dati correttamente"));
         art_nom->setStyleSheet("background-color: rgb(249, 22, 5)");
         cod_barre->setStyleSheet("background-color: rgb(249, 22, 5)");
         descrizione->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -426,8 +426,8 @@ void prodotti_dvd::inserisci(){
                         // scrivere codice per per gestione dell'errore
 
                             QMessageBox MsgBox;
-                            MsgBox.setText("Non puoi inseriree");
-                            MsgBox.setInformativeText("Impossibile inserire");
+                            MsgBox.setText(tr("Non puoi inserire"));
+                            MsgBox.setInformativeText(tr("Impossibile inserire"));
                             MsgBox.setIcon(QMessageBox::Warning);
                             MsgBox.exec();
 
@@ -450,7 +450,7 @@ void prodotti_dvd::lista(){
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Scaffale"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(("Quantità")));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr("Quantità")));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Info editore"));
     mod_grid->setHeaderData(10, Qt::Horizontal, tr("Image"));
 
@@ -491,16 +491,16 @@ void prodotti_dvd::cerca(){
 
         if (query.next())
         {
-            dettagli->setText("Cod. Art.: "+query.value(0).toString()+"\n"
-                               "Codice a barre: "+query.value(1).toString()+"\n"
-                                  "Nome prodotto: "+query.value(2).toString()+"\n"
-                                  "Descrizione: "+query.value(3).toString()+"\n"
-                                  "Autore: "+query.value(4).toString()+"\n"
-                                  "Lingua: "+query.value(5).toString()+"\n"
-                                  "Categoria prodotto: "+query.value(6).toString()+"\n"
-                                  "Info editore: "+query.value(9).toString()+"\n"
-                                  "Scaffale: "+query.value(7).toString()+"\n"
-                                  +QString::fromUtf8("Quantità: ")+query.value(8).toString());
+            dettagli->setText(tr("Cod. Art.: ")+query.value(0).toString()+"\n"
+                               +tr("Codice a barre: ")+query.value(1).toString()+"\n"
+                               +tr("Nome prodotto: ")+query.value(2).toString()+"\n"
+                               +tr("Descrizione: ")+query.value(3).toString()+"\n"
+                               +tr("Autore: ")+query.value(4).toString()+"\n"
+                               +tr("Lingua: ")+query.value(5).toString()+"\n"
+                               +tr("Categoria prodotto: ")+query.value(6).toString()+"\n"
+                               +tr("Info editore: ")+query.value(9).toString()+"\n"
+                               +tr("Scaffale: ")+query.value(7).toString()+"\n"
+                               +QString::fromUtf8(tr("Quantità: "))+query.value(8).toString());
             QImage img(query.value(10).toString());
             image_file->setPixmap(QPixmap::fromImage(img));
             cod_barre->setText(query.value(1).toString());
@@ -533,7 +533,7 @@ void prodotti_dvd::image_but(){
     if (!fileName.isEmpty()) {
         QImage image(fileName);
         if (image.isNull()) {
-            QMessageBox::information(this, tr("Luxury library"),
+            QMessageBox::information(this, tr("LyLibrary"),
                                      tr("Impossibile aprire %1.").arg(fileName));
             return;
         }
@@ -547,7 +547,7 @@ void prodotti_dvd::stampa(){
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer);
     preview.setWindowFlags(Qt::Window);
-    preview.setWindowTitle("Anteprima di stampa.");
+    preview.setWindowTitle(tr("Anteprima di stampa."));
     QIcon icon;
     icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
     preview.setWindowIcon(icon);
@@ -595,14 +595,14 @@ void prodotti_dvd::view_barre(QModelIndex av){
          codice_barre->updateSwtClicked(qr.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile ottenere il barcode...\n"+qr.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile ottenere il barcode...\n")+qr.lastError().text());
         }
     }
 }
 
 void prodotti_dvd::stampacodbarre(){
     if(!tab_view->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Seleziona una riga per stampare l'etichetta....");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Seleziona una riga per stampare l'etichetta...."));
     }
     else{
     QPrinter printer(QPrinter::HighResolution);
@@ -634,8 +634,8 @@ void prodotti_dvd::bar_code_en(){
 
 void prodotti_dvd::esporta_pdf()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    "*.pdf", tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -653,8 +653,8 @@ void prodotti_dvd::esporta_pdf()
 
 void prodotti_dvd::esporta_cvs()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta CSv",
-                                                    "*.csv", "CSV(*.csv);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta CSV"),
+                                                    "*.csv", tr("CSV(*.csv);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è

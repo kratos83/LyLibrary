@@ -160,7 +160,7 @@ void presto::aggiungi(){
         */
 
     if(ui->id->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
          //Si controlla se il record esiste già sul DB
@@ -222,8 +222,8 @@ void presto::inserisci(){
                      // scrivere codice per per gestione dell'errore
 
                          QMessageBox MsgBox;
-                         MsgBox.setText("Impossibile inserire");
-                         MsgBox.setInformativeText("Impossibile inserire "+Query.lastError().text());
+                         MsgBox.setText(tr("Impossibile inserire"));
+                         MsgBox.setInformativeText(tr("Impossibile inserire ")+Query.lastError().text());
                          MsgBox.setIcon(QMessageBox::Warning);
                          MsgBox.exec();
                  }
@@ -235,7 +235,7 @@ void presto::inserisci(){
 void presto::agg_ass(){
 
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Seleziona una riga da modificare....");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Seleziona una riga da modificare...."));
     }
     else{
     QModelIndex modelIndex = ui->tableView->selectionModel()->currentIndex();
@@ -293,8 +293,8 @@ void presto::aggiorna(QModelIndex index){
         // scrivere codice per per gestione dell'errore
 
             QMessageBox MsgBox;
-            MsgBox.setText("Voce non aggiornabile");
-            MsgBox.setInformativeText("Impossibile aggiornare"+Query.lastError().text());
+            MsgBox.setText(tr("Voce non aggiornabile"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare")+Query.lastError().text());
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
             qWarning() << Query.lastError();
@@ -311,7 +311,7 @@ void presto::delete_art(){
     QString flag_controllo = "NO";
 
     if(!ui->tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else  if (!ui->id->text().isEmpty())
         {
@@ -391,13 +391,13 @@ void presto::cerca(){
 
         if (query.next())
         {
-            ui->dettagli->setText("ID: "+query.value(0).toString()+"\n"
-                                  "Cliente: "+query.value(1).toString()+"\n"
-                                  "Libro: "+query.value(2).toString()+"\n"
-                                  "Data prestito: "+query.value(3).toString()+"\n"
-                                  "Ora prestito: "+query.value(4).toString()+"\n"
-                                  "Data rientro: "+query.value(5).toString()+"\n"
-                                  "Ora rientro: "+query.value(6).toString());
+            ui->dettagli->setText(tr("ID: ")+query.value(0).toString()+"\n"+
+                                  tr("Cliente: ")+query.value(1).toString()+"\n"
+                                  +tr("Libro: ")+query.value(2).toString()+"\n"
+                                  +tr("Data prestito: ")+query.value(3).toString()+"\n"
+                                  +tr("Ora prestito: ")+query.value(4).toString()+"\n"
+                                  +tr("Data rientro: ")+query.value(5).toString()+"\n"
+                                  +tr("Ora rientro: ")+query.value(6).toString());
             ui->cliente->setCurrentText(query.value(1).toString());
             ui->libro->setCurrentText(query.value(2).toString());
             ui->data_prestito->setDate(query.value(3).toDate());
@@ -490,7 +490,7 @@ void presto::stampa(){
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer);
     preview.setWindowFlags(Qt::Window);
-    preview.setWindowTitle("Anteprima di stampa.");
+    preview.setWindowTitle(tr("Anteprima di stampa."));
     QIcon icon;
     icon.addFile(QString::fromUtf8(":/images/document-preview.png"), QSize(), QIcon::Normal, QIcon::Off);
     preview.setWindowIcon(icon);
@@ -549,7 +549,6 @@ void presto::mousePressEvent(QMouseEvent *event){
 
                  this->Popup(event ->pos());
                  event->accept();
-                 qWarning() << "presto::mousePressEvent(QMousePressEvent *event)"<<event;
              }
 }
 
@@ -579,22 +578,22 @@ void presto::Popup(const QPoint &pt){
     *  @author Angelo Scarnà
     *  Menu a tendina
     ************************************************************/
-    QAction* pAction1 = new QAction("Chiudi", this);
+    QAction* pAction1 = new QAction(tr("Chiudi"), this);
     pAction1->setIcon(icon);
     pAction1->setIconVisibleInMenu(true);
-    QAction* pAction2 = new QAction("Elimina", this);
+    QAction* pAction2 = new QAction(tr("Elimina"), this);
     pAction2->setIcon(icon1);
     pAction2->setIconVisibleInMenu(true);
-    QAction* nw = new QAction("Nuovo",this);
+    QAction* nw = new QAction(tr("Nuovo"),this);
     nw->setIcon(icon2);
     nw->setIconVisibleInMenu(true);
-    QAction* sa = new QAction("Salva",this);
+    QAction* sa = new QAction(tr("Salva"),this);
     sa->setIcon(icon3);
     sa->setIconVisibleInMenu(true);
-    QAction* md = new QAction("Aggiorna",this);
+    QAction* md = new QAction(tr("Aggiorna"),this);
     md->setIcon(icon4);
     md->setIconVisibleInMenu(true);
-    QAction* pr = new QAction("Stampa", this);
+    QAction* pr = new QAction(tr("Stampa"), this);
     pr->setIcon(icon5);
     pr->setIconVisibleInMenu(true);
 

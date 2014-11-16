@@ -30,7 +30,7 @@ void pag::nuovo_id(){
 void pag::clicca(){
 
     if(codice->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
     QSqlQuery Qctrl;
@@ -60,8 +60,8 @@ void pag::clicca(){
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText("Errore");
-            MsgBox.setInformativeText("Impossibile aggiornare");
+            MsgBox.setText(tr("Errore"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare"));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -89,9 +89,9 @@ void pag::clickgrid(){
 void pag::lista(){
 
     mod_grid->setQuery("select * from pagam order by codice");
-    mod_grid->setHeaderData(0,Qt::Horizontal, "Codice");
-    mod_grid->setHeaderData(1,Qt::Horizontal, "Descrizione");
-    mod_grid->setHeaderData(2,Qt::Horizontal, "Nota su Fattura");
+    mod_grid->setHeaderData(0,Qt::Horizontal, tr("Codice"));
+    mod_grid->setHeaderData(1,Qt::Horizontal, tr("Descrizione"));
+    mod_grid->setHeaderData(2,Qt::Horizontal, tr("Nota su Fattura"));
 
     tableView->setModel(mod_grid);
 
@@ -129,7 +129,7 @@ void pag::elimina(){
     QString flag_controllo = "NO";
 
     if(!tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!codice->text().isEmpty())
         {
@@ -166,8 +166,8 @@ void pag::elimina(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8("Errore"));
-                MsgBox.setInformativeText(QString::fromUtf8("Inpossibile eliminare record poichè non hai selezionato nulla"));
+                MsgBox.setText(QString::fromUtf8(tr("Errore")));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -197,8 +197,8 @@ void pag::inserisci(){
     }
     else{
         QMessageBox MsgBox;
-        MsgBox.setText("Errore");
-        MsgBox.setInformativeText("Impossibile aggiornare");
+        MsgBox.setText(tr("Errore"));
+        MsgBox.setInformativeText(tr("Impossibile aggiornare"));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }

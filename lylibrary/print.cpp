@@ -153,7 +153,7 @@ void Stampe::creaPagVoci1(int pagNo){
     painter->drawRect(0,0,2870,120);
     painter->drawText(0,0,2870,120,
                      Qt::AlignVCenter|Qt::AlignHCenter,
-                     "Elenco Clienti");
+                     QObject::tr("Elenco Clienti"));
 
     //Valorizzazione header box intestazione colonne
 

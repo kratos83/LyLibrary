@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
 
     while( difftime(time(NULL),t) < 3.0  ) {
-        splash->showMessage(QString(QObject::tr("Application start")),Qt::AlignBottom | Qt::AlignHCenter, Qt::white);
+        splash->showMessage(QString(QObject::tr("Avvio applicazione...")),Qt::AlignBottom | Qt::AlignHCenter, Qt::white);
     }
 
     if(settings->generalValue("DatabaseServer/portadb",QVariant()).toInt() == 0){
@@ -44,10 +44,10 @@ int main(int argc, char *argv[])
     }
 
     if(settings->generalValue("Version/version",QVariant()).toString().length() == 0){
-        settings->setGeneralValue("Version/version","2.0.2");
+        settings->setGeneralValue("Version/version","2.0.3");
     }
-    else if(settings->generalValue("Version/version",QVariant()).toString() <= "2.0.1"){
-        settings->setGeneralValue("Version/version","2.0.2");
+    else if(settings->generalValue("Version/version",QVariant()).toString() <= "2.0.2"){
+        settings->setGeneralValue("Version/version","2.0.3");
     }
     else{
         settings->generalValue("Version/version",QVariant()).toString();
@@ -61,26 +61,34 @@ int main(int argc, char *argv[])
             settings->generalValue("Backup/date",QVariant());
         }
 
-    splash->showMessage(QString(QObject::tr("Start database")),Qt::AlignBottom | Qt::AlignHCenter, Qt::white);
+    if(settings->generalValue("Language/language",QVariant()).toString().length() == 0){
+        settings->setGeneralValue("Language/language","English");
+    }
+    else{
+        settings->generalValue("Language/language",QVariant()).toString();
+    }
+
+    splash->showMessage(QString(QObject::tr("Avvio database...")),Qt::AlignBottom | Qt::AlignHCenter, Qt::white);
 
     // Traduzione
-    QString locale = QLocale::system().name();
-    QTranslator *translator = new QTranslator();
-         translator->load(QString(":/language/biblio_")+locale);
-         a.installTranslator(translator);
+    QTranslator translator;
+    QString locale = settings->generalValue("Language/language",QVariant()).toString();
+    translator.load(":/language/lylibrary/"+locale+".qm");
+    a.installTranslator(&translator);
 
          /*************************
           *Impostazione del tema
           *************************/
          if(settingsManager->generalValue("Tema/sel_tema",QVariant()).toString().length() == 0)
          {
-             settingsManager->setGeneralValue("Tema/sel_tema","Nero");
+             settingsManager->setGeneralValue("Tema/sel_tema","Modern");
          }
          else
          {
              settingsManager->generalValue("Tema/sel_tema",QVariant()).toString();
          }
                  connessione *conn = new connessione();
+                 conn->traduzione();
                  QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
                  /*************************
                   *Impostazione del database
@@ -101,8 +109,8 @@ int main(int argc, char *argv[])
 
                  if(!db.open()){
                      QMessageBox MsgBox;
-                     MsgBox.setText(QString::fromUtf8("Errore di connessione al DB"));
-                     MsgBox.setInformativeText(QString::fromUtf8("Controllare di aver installato MySql e di aver creato il DB lylibrary"));
+                     MsgBox.setText(QObject::tr("Errore di connessione al DB"));
+                     MsgBox.setInformativeText(QObject::tr("Controllare di aver installato MySql e di aver creato il DB lylibrary"));
                      MsgBox.setIcon(QMessageBox::Warning);
                      MsgBox.exec();
                      conn->exec();

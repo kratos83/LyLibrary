@@ -102,7 +102,7 @@ void porto::filtro(){
         QMessageBox MsgBox;
         MsgBox.setWindowTitle("Lylibrary");
         MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8("Inserisci il testo nella casella cerca"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -117,7 +117,7 @@ void porto::filtro(){
 void porto::aggiorna(){
 
     if(ui->id->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
     QSqlQuery querys;
@@ -139,7 +139,7 @@ void porto::aggiorna(){
             ui->lineEdit->setText("");
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare...\n"+querys.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare...\n")+querys.lastError().text());
         }
     }
     else{
@@ -167,8 +167,8 @@ void porto::salva(){
     }
     else{
         QMessageBox MsgBox;
-        MsgBox.setText(QString::fromUtf8("Errore"));
-        MsgBox.setInformativeText("Inpossibile inserire...\n"+query.lastError().text());
+        MsgBox.setText(QString::fromUtf8(tr("Errore")));
+        MsgBox.setInformativeText(tr("Inpossibile inserire...\n")+query.lastError().text());
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -203,16 +203,16 @@ void porto::elimina(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8("Errore"));
-                MsgBox.setInformativeText("Inpossibile eliminare...\n"+query.lastError().text());
+                MsgBox.setText(QString::fromUtf8(tr("Errore")));
+                MsgBox.setInformativeText(tr("Inpossibile eliminare...\n")+query.lastError().text());
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText(QString::fromUtf8("Errore"));
-            MsgBox.setInformativeText(QString::fromUtf8("Seleziona una riga per eliminarla..."));
+            MsgBox.setText(QString::fromUtf8(tr("Errore")));
+            MsgBox.setInformativeText(QString::fromUtf8(tr("Seleziona una riga per eliminarla...")));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -256,8 +256,8 @@ void porto::lista(){
 
     mod_grid->setTable("categoria");
     mod_grid->select();
-    mod_grid->setHeaderData(0, Qt::Horizontal, "ID");
-    mod_grid->setHeaderData(1, Qt::Horizontal, "Tipo di categoria");
+    mod_grid->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    mod_grid->setHeaderData(1, Qt::Horizontal, tr("Tipo di categoria"));
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -334,19 +334,19 @@ void porto::Popup(const QPoint& pt){
     *  @author Angelo Scarnà
     *  Menu a tendina
     ************************************************************/
-    QAction* pAction1 = new QAction("Chiudi", this);
+    QAction* pAction1 = new QAction(tr("Chiudi"), this);
     pAction1->setIcon(icon);
     pAction1->setIconVisibleInMenu(true);
-    QAction* pAction2 = new QAction("Elimina", this);
+    QAction* pAction2 = new QAction(tr("Elimina"), this);
     pAction2->setIcon(icon1);
     pAction2->setIconVisibleInMenu(true);
-    QAction* nw = new QAction("Nuovo",this);
+    QAction* nw = new QAction(tr("Nuovo"),this);
     nw->setIcon(icon2);
     nw->setIconVisibleInMenu(true);
-    QAction* sa = new QAction("Salva",this);
+    QAction* sa = new QAction(tr("Salva"),this);
     sa->setIcon(icon3);
     sa->setIconVisibleInMenu(true);
-    QAction* md = new QAction("Aggiorna",this);
+    QAction* md = new QAction(tr("Aggiorna"),this);
     md->setIcon(icon4);
     md->setIconVisibleInMenu(true);
 

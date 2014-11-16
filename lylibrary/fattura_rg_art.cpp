@@ -225,7 +225,7 @@ void fattura_rg_art::cerca_codart(const QString &)
     query.exec();
     if(query.next()){
         found = true;
-        testo_show->setText("Articolo trovato...");
+        testo_show->setText(tr("Articolo trovato..."));
         list << query.value(0).toString();
         QImage img(query.value(14).toString());
         dir_image->setPixmap(QPixmap::fromImage(img));
@@ -263,7 +263,7 @@ void fattura_rg_art::cerca_codart(const QString &)
         query.exec();
         if(query.next()){
             found = true;
-            testo_show->setText("Prodotto trovato...");
+            testo_show->setText(tr("Prodotto trovato..."));
             list << query.value(0).toString();
             QImage img(query.value(14).toString());
             dir_image->setPixmap(QPixmap::fromImage(img));
@@ -397,7 +397,7 @@ void fattura_rg_art::prezzo_senza_iva()
             fatt->imponibile_2->setText(Query1.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile visualizzare il prezzo senza iva... "+Query1.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile visualizzare il prezzo senza iva... ")+Query1.lastError().text());
         }
     }
     else if(f_prod_dig->isChecked()){
@@ -408,7 +408,7 @@ void fattura_rg_art::prezzo_senza_iva()
             fatt->imponibile_2->setText(Query1.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile visualizzare il prezzo senza iva... "+Query1.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile visualizzare il prezzo senza iva... ")+Query1.lastError().text());
         }
     }
 }
@@ -423,7 +423,7 @@ void fattura_rg_art::iva_sum()
             fatt->iva_ft_2->setText(Query2.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile visualizzare il prezzo senza iva... "+Query2.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile visualizzare il prezzo senza iva... ")+Query2.lastError().text());
         }
     }
     else if(f_prod_dig->isChecked()){
@@ -434,7 +434,7 @@ void fattura_rg_art::iva_sum()
             fatt->iva_ft_2->setText(Query2.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile visualizzare il prezzo senza iva... "+Query2.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile visualizzare il prezzo senza iva... ")+Query2.lastError().text());
         }
     }
 }
@@ -449,7 +449,7 @@ void fattura_rg_art::prezzo_con_iva()
         fatt->totale_2->setText(Query3.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile visualizzare il prezzo senza iva... "+Query3.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile visualizzare il prezzo senza iva... ")+Query3.lastError().text());
         }
     }
     else if(f_prod_dig->isChecked()){
@@ -460,7 +460,7 @@ void fattura_rg_art::prezzo_con_iva()
         fatt->totale_2->setText(Query3.value(0).toString());
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile visualizzare il prezzo senza iva... "+Query3.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile visualizzare il prezzo senza iva... ")+Query3.lastError().text());
         }
     }
 }
@@ -567,8 +567,8 @@ void fattura_rg_art::inserisci()
                              // Scrivere codice per errore inserimento
 
                                  QMessageBox MsgBox;
-                                 MsgBox.setText("La voce suddetta non si puo inserire");
-                                 MsgBox.setInformativeText("Impossibile inserire "+Query.lastError().text());
+                                 MsgBox.setText(tr("La voce suddetta non si puo inserire"));
+                                 MsgBox.setInformativeText(tr("Impossibile inserire ")+Query.lastError().text());
                                  MsgBox.setIcon(QMessageBox::Warning);
                                  MsgBox.exec();
                           }
@@ -651,8 +651,8 @@ void fattura_rg_art::inserisci()
                          // Scrivere codice per errore inserimento
 
                              QMessageBox MsgBox;
-                             MsgBox.setText("La voce suddetta non si puo inserire");
-                             MsgBox.setInformativeText("Impossibile inserire "+Query.lastError().text());
+                             MsgBox.setText(tr("La voce suddetta non si puo inserire"));
+                             MsgBox.setInformativeText(tr("Impossibile inserire ")+Query.lastError().text());
                              MsgBox.setIcon(QMessageBox::Warning);
                              MsgBox.exec();
                       }
@@ -702,7 +702,7 @@ void fattura_rg_art::insert_scarico_libri()
     if(Query1.exec()){
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Errore nell'inserimento... "+Query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Errore nell'inserimento... ")+Query1.lastError().text());
     }
 }
 
@@ -736,7 +736,7 @@ void fattura_rg_art::insert_scarico_prod_dig()
     if(Query1.exec()){
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Errore nell'inserimento... "+Query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Errore nell'inserimento... ")+Query1.lastError().text());
 
     }
 }
@@ -809,8 +809,8 @@ void fattura_rg_art::aggiorna_riga()
         // scrivere codice per per gestione dell'errore
 
             QMessageBox MsgBox;
-            MsgBox.setText("Voce non aggiornabile");
-            MsgBox.setInformativeText("Impossibile aggiornare "+Query.lastError().text());
+            MsgBox.setText(tr("Voce non aggiornabile"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare ")+Query.lastError().text());
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
     }
@@ -883,8 +883,8 @@ void fattura_rg_art::aggiorna_riga()
             // scrivere codice per per gestione dell'errore
 
                 QMessageBox MsgBox;
-                MsgBox.setText("Voce non aggiornabile");
-                MsgBox.setInformativeText("Impossibile aggiornare "+Query.lastError().text());
+                MsgBox.setText(tr("Voce non aggiornabile"));
+                MsgBox.setInformativeText(tr("Impossibile aggiornare ")+Query.lastError().text());
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
         }
@@ -928,7 +928,7 @@ void fattura_rg_art::update_articoli(double qua){
 
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare... "+Query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare... ")+Query1.lastError().text());
     }
 }
 
@@ -957,7 +957,7 @@ void fattura_rg_art::update_prod_dig(double qad)
     if(Query2.exec()){
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare... "+Query2.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare... ")+Query2.lastError().text());
     }
 }
 
@@ -999,7 +999,7 @@ void fattura_rg_art::update_carico_libri(double ca, double _pr_u, double _p_siva
     if(Query2.exec()){
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare... "+Query2.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare... ")+Query2.lastError().text());
     }
 }
 
@@ -1041,7 +1041,7 @@ void fattura_rg_art::update_carico_prod_dig(double pro, double _pr_u, double _p_
     if(Query2.exec()){
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare... "+Query2.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare... ")+Query2.lastError().text());
     }
 }
 
@@ -1083,7 +1083,7 @@ void fattura_rg_art::update_scarico_libri(double ca, double _pr_u, double _p_siv
     if(Query2.exec()){
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare... "+Query2.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare... ")+Query2.lastError().text());
     }
 }
 
@@ -1125,7 +1125,7 @@ void fattura_rg_art::update_scarico_prod_dig(double pro, double _pr_u, double _p
     if(Query2.exec()){
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile aggiornare... "+Query2.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare... ")+Query2.lastError().text());
     }
 }
 

@@ -149,8 +149,8 @@ void causali::elimina(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8("Errore"));
-                MsgBox.setInformativeText(QString::fromUtf8("Inpossibile eliminare record poichè non hai selezionato nulla"));
+                MsgBox.setText(QString::fromUtf8(tr("Errore")));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -195,8 +195,8 @@ void causali::cerca(){
 void causali::lista(){
 
     mod_grid->setQuery("SELECT * FROM causali ORDER BY id");
-    mod_grid->setHeaderData(0,Qt::Horizontal,"ID");
-    mod_grid->setHeaderData(1,Qt::Horizontal,"Tipo di causale");
+    mod_grid->setHeaderData(0,Qt::Horizontal,tr("ID"));
+    mod_grid->setHeaderData(1,Qt::Horizontal,tr("Tipo di causale"));
     tableView->setModel(mod_grid);
 
     tableView->setColumnWidth(0,90);

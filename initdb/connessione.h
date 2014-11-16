@@ -41,6 +41,7 @@ public slots:
     bool isNull();
     QSqlDatabase connetti();
     void setdate(int year);
+    void traduzione();
 
 protected:
     void closeEvent(QCloseEvent *);

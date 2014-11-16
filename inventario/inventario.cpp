@@ -13,8 +13,8 @@ inventario::inventario(QWidget *parent) :
     /******************************************************
      * Menu stampa inventario
      ******************************************************/
-    QAction *st_inv_libri = new QAction("Stampa inventario libri",this);
-    QAction *st_inv_prod = new QAction("Stampa inventario prodotti digitali",this);
+    QAction *st_inv_libri = new QAction(tr("Stampa inventario libri"),this);
+    QAction *st_inv_prod = new QAction(tr("Stampa inventario prodotti digitali"),this);
 
     //Connetti pulsanti
     connect(st_inv_libri,SIGNAL(triggered()),this,SLOT(stampa_inv()));
@@ -35,8 +35,8 @@ inventario::inventario(QWidget *parent) :
     /*******************************************************
      * Azioni di esportazione pdf
      *******************************************************/
-    QAction *action_pdf_inv_libri = new QAction("Esporta inventario libri in pdf",this);
-    QAction *action_pdf_inv_prod = new QAction("Esporta inventario prodotti digitali in pdf",this);
+    QAction *action_pdf_inv_libri = new QAction(tr("Esporta inventario libri in pdf"),this);
+    QAction *action_pdf_inv_prod = new QAction(tr("Esporta inventario prodotti digitali in pdf"),this);
 
     //Connetti azioni
     connect(action_pdf_inv_libri,SIGNAL(triggered()),this,SLOT(esporta_pdf()));
@@ -63,15 +63,15 @@ void inventario::preview_prev(QPrinter *printer)
     QSqlQueryModel *model = new QSqlQueryModel(this);
     model->setQuery("select * from carico_libri,carico_prod_dig");
 
-    export_inv *inv = new export_inv();
+    export_inv *inv = new export_inv(this);
     inv->stampa_inventario(printer,model);
 
 }
 
 void inventario::esporta_pdf()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    tr("*.pdf"), tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -85,7 +85,7 @@ void inventario::esporta_pdf()
        printer->setOutputFileName(fileName);
        QSqlQueryModel *model = new QSqlQueryModel(this);
        model->setQuery("select * from carico_libri");
-       export_inv *in = new export_inv();
+       export_inv *in = new export_inv(this);
        in->stampa_inventario(printer,model);
 }
 
@@ -104,14 +104,14 @@ void inventario::ant_st_prod(QPrinter *printer)
     QSqlQueryModel *model = new QSqlQueryModel(this);
     model->setQuery("select * from carico_prod_dig");
 
-    export_inv *inv = new export_inv();
+    export_inv *inv = new export_inv(this);
     inv->st_inv_prod(printer,model);
 }
 
 void inventario::esporta_prod()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Esporta PDF",
-                                                    "*.pdf", "Pdf Files(*.pdf);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Esporta PDF"),
+                                                    tr("*.pdf"), tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
 
     if (fileName.length() != 0) {
             // Aggiunge estensione alla fine del file se non c'è
@@ -125,7 +125,7 @@ void inventario::esporta_prod()
        printer->setOutputFileName(fileName);
        QSqlQueryModel *model = new QSqlQueryModel(this);
        model->setQuery("select * from carico_prod_dig");
-       export_inv *in = new export_inv();
+       export_inv *in = new export_inv(this);
        in->st_inv_prod(printer,model);
 }
 

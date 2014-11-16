@@ -32,7 +32,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Esci da Luxury Library</string>
+   <string>Esci da LyLibrary</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../biblio.qrc">
@@ -82,7 +82,7 @@
       <string>Cancella</string>
      </property>
      <property name="icon">
-      <iconset resource="../biblio.qrc">
+      <iconset resource="../../log_man/license.qrc">
        <normaloff>:/images/dialog-ok-apply.png</normaloff>:/images/dialog-ok-apply.png</iconset>
      </property>
      <property name="autoDefault">
@@ -117,6 +117,7 @@
   </layout>
  </widget>
  <resources>
+  <include location="../../log_man/license.qrc"/>
   <include location="../biblio.qrc"/>
  </resources>
  <connections/>

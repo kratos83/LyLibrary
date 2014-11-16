@@ -6,9 +6,9 @@ inventario_plugin::inventario_plugin(QObject *parent) :
     QObject(parent)
 {
 #ifdef Q_WS_WIN
-    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
-    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
 
     if(!settingsDir->exists())
@@ -33,7 +33,7 @@ QString inventario_plugin::name_menu() const{
     return tr("Plugin");
 }
 QString inventario_plugin::nameplugin() const{
-    return tr("Inventario dei prodotti");
+    return tr("Product inventory");
 }
 
 QString inventario_plugin::version() const{
@@ -66,6 +66,14 @@ void inventario_plugin::pluginUnload(){
     inv = 0;
     if(inv)
         delete inv;
+}
+
+void inventario_plugin::pluginTranslator(){
+
+    QString locale = general->value("Language/language").toString();
+    QTranslator *translator = new QTranslator(this);
+    translator->load(":/language/inventario/"+locale+".qm");
+    qApp->installTranslator(translator);
 }
 
 QIcon inventario_plugin::icona(){

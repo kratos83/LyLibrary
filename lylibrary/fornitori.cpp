@@ -17,7 +17,7 @@ fornitori::fornitori(QWidget *parent) :
 {
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
-    setWindowTitle("Anagrafica fornitori");
+    setWindowTitle(tr("Anagrafica fornitori"));
     connect(esci,SIGNAL(clicked()),this,SLOT(close()));
     connect(nuovo_b,SIGNAL(clicked()),this,SLOT(nuovo()));
     connect(elimina_b,SIGNAL(clicked()),this,SLOT(elimina()));
@@ -64,7 +64,7 @@ void fornitori::nuovo(){
 void fornitori::salva(){
 
     if(id->text() == ""){
-        QMessageBox::warning(this,"LyLibrary","Inserisci correttamente i dati");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Inserisci correttamente i dati"));
     }
     else{
     QSqlQuery query;
@@ -176,7 +176,7 @@ void fornitori::elimina(){
     QString flag_controllo = "NO";
 
     if(!tableView->selectionModel()->currentIndex().isValid()){
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare..."));
     }
      else if (!id->text().isEmpty())
         {
@@ -221,8 +221,8 @@ void fornitori::elimina(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8("Errore"));
-                MsgBox.setInformativeText(QString::fromUtf8("Inpossibile eliminare record poichè non hai selezionato nulla"));
+                MsgBox.setText(QString::fromUtf8(tr("Errore")));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -303,18 +303,18 @@ void fornitori::lista(){
 
     mod_grid->setTable("fornitori");
     mod_grid->select();
-    mod_grid->setHeaderData(0,Qt::Horizontal,"ID");
-    mod_grid->setHeaderData(1,Qt::Horizontal,"Ragione sociale");
-    mod_grid->setHeaderData(2,Qt::Horizontal,"Partita IVA");
-    mod_grid->setHeaderData(3,Qt::Horizontal,"Codice Fiscale");
-    mod_grid->setHeaderData(4,Qt::Horizontal,"Indirizzo");
-    mod_grid->setHeaderData(5,Qt::Horizontal,"CAP");
-    mod_grid->setHeaderData(6,Qt::Horizontal,QString::fromUtf8(("Località")));
-    mod_grid->setHeaderData(7,Qt::Horizontal,"PROV");
-    mod_grid->setHeaderData(8,Qt::Horizontal,"Telefono");
-    mod_grid->setHeaderData(9,Qt::Horizontal,"FAX");
-    mod_grid->setHeaderData(10,Qt::Horizontal,"E-mail");
-    mod_grid->setHeaderData(11,Qt::Horizontal,"Sito web");
+    mod_grid->setHeaderData(0,Qt::Horizontal, tr("ID"));
+    mod_grid->setHeaderData(1,Qt::Horizontal, tr("Ragione sociale"));
+    mod_grid->setHeaderData(2,Qt::Horizontal, tr("Partita IVA"));
+    mod_grid->setHeaderData(3,Qt::Horizontal, tr("Codice Fiscale"));
+    mod_grid->setHeaderData(4,Qt::Horizontal, tr("Indirizzo"));
+    mod_grid->setHeaderData(5,Qt::Horizontal, tr("CAP"));
+    mod_grid->setHeaderData(6,Qt::Horizontal,QString::fromUtf8((tr("Località"))));
+    mod_grid->setHeaderData(7,Qt::Horizontal, tr("PROV"));
+    mod_grid->setHeaderData(8,Qt::Horizontal, tr("Telefono"));
+    mod_grid->setHeaderData(9,Qt::Horizontal, tr("FAX"));
+    mod_grid->setHeaderData(10,Qt::Horizontal, tr("E-mail"));
+    mod_grid->setHeaderData(11,Qt::Horizontal, tr("Sito web"));
 
 
     tableView->setModel(mod_grid);

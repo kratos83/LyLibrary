@@ -98,7 +98,7 @@ void cod_fisc::interfaccia_signal()
     today = ui->calendarWidget->date();
     ui->calendarWidget->setDate(QDate::currentDate());
     QStringList lista;
-    lista << "Comuni" << "Stati";
+    lista << tr("Comuni") << tr("Stati");
     ui->comboBox_sel->addItems(lista);
     img = QImage(":/images/codicefiscale.png");
 }
@@ -601,15 +601,15 @@ bool cod_fisc::checkInput(){
     QString errors = "";
 
             if (ui->lineEditCognome->displayText() == "")
-                    errors += "Inserisci il cognome\n";
+                    errors += tr("Inserisci il cognome\n");
             if (ui->lineEditNome->displayText() == "")
-                    errors += "Inserisci il nome\n";
+                    errors += tr("Inserisci il nome\n");
             if ((!ui->radioButtonM->isChecked()) && (!ui->radioButtonF->isChecked()))
-                    errors += "Inserisci il sesso\n";
+                    errors += tr("Inserisci il sesso\n");
 
             if (errors != "")
             {
-                    errors += "\nFinisci di inserire i dati correttamente";
+                    errors += tr("\nFinisci di inserire i dati correttamente");
                     QMessageBox::critical(this, tr("Errore"), errors);
                     return false;
             }
@@ -906,7 +906,7 @@ void cod_fisc::stampa_codice()
 
     QPrintPreviewDialog preview(&printer);
     preview.setWindowFlags(Qt::Window);
-    preview.setWindowTitle("Anteprima di stampa.");
+    preview.setWindowTitle(tr("Anteprima di stampa."));
     connect(&preview,SIGNAL(paintRequested(QPrinter*)),SLOT(anteprima(QPrinter*)));
     preview.exec();
 }
@@ -953,7 +953,7 @@ void cod_fisc::exp_img()
 
     QFileDialog dialog(this);
     dialog.setFileMode(QFileDialog::AnyFile);
-    dialog.setWindowTitle("Esporta immagine");
+    dialog.setWindowTitle(tr("Esporta immagine"));
     dialog.setNameFilter(tr("Images (*.png);;Tutti i file(*.*);;PNG(*.png)"));
     dialog.setViewMode(QFileDialog::Detail);
     dialog.setAcceptMode(QFileDialog::AcceptSave);
@@ -1013,8 +1013,8 @@ void cod_fisc::exp_pdf()
          */
         QFileDialog dialog(this);
         dialog.setFileMode(QFileDialog::AnyFile);
-        dialog.setWindowTitle("Esporta in PDF");
-        dialog.setNameFilter("Pdf Files(*.pdf);;Tutti i file(*.*)");
+        dialog.setWindowTitle(tr("Esporta in PDF"));
+        dialog.setNameFilter(tr("Pdf Files(*.pdf);;Tutti i file(*.*)"));
         dialog.setViewMode(QFileDialog::Detail);
         dialog.setAcceptMode(QFileDialog::AcceptSave);
         if(dialog.exec())

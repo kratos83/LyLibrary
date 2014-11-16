@@ -42,12 +42,13 @@ pref::pref(QWidget *parent) :
     graphicsView->setStyleSheet("background-color: transparent");
 
     QStringList lista;
-    lista << "Modern" << "Elegant" << "Nero";
+    lista << QObject::tr("Modern") << QObject::tr("Elegant") << QObject::tr("Nero");
     sel_tema->addItems(lista);
     menu_pref();
     interface();
     readsettings();
     visagg();
+    combolanguage();
 }
 
 
@@ -99,6 +100,8 @@ void pref::readsettings(){
     imagePixmapItem = imageScene->addPixmap(px);
     gridLayout_8->addWidget(alt_larg,1,0,1,1);
     alt_larg->show();
+
+    combo_language->setCurrentText(settings->generalValue("Language/language",QVariant()).toString());
 }
 
 void pref::menu_ex(){
@@ -165,6 +168,8 @@ void pref::applica(){
     settings->setGeneralValue("AGGIOR/auto_ds",ds_update->isChecked());
 
     settings->setGeneralValue("Tema/sel_tema",sel_tema->currentText());
+
+    settings->setGeneralValue("Language/language",combo_language->currentText());
 
     readsettings();
     emit load_plugins();
@@ -274,18 +279,18 @@ void pref::save_file(){
 void pref::label_file(){
 
         classe *cl = new classe(groupBox_5);
-        cl->setText("Ridimensiona immagine");
+        cl->setText(tr("Ridimensiona immagine"));
         cl->setCursor(QCursor(Qt::PointingHandCursor));
         cl->setAlignment(Qt::AlignCenter);
         cl->show();
         gridLayout_8->addWidget(cl, 0, 0, 1, 1);
         int altezza = images.getPixmap().height();
         int larghezza = images.getPixmap().width();
-        alt_larg->setText("Larghezza logo "+QString::number(larghezza)+" px\nAltezza logo     "+QString::number(altezza)+" px");
+        alt_larg->setText(tr("Larghezza logo ")+QString::number(larghezza)+tr(" px\nAltezza logo     ")+QString::number(altezza)+" px");
         alt_larg->show();
         gridLayout_8->addWidget(alt_larg,1,0,1,1);
         QPushButton *save = new QPushButton();
-        save->setText("Salva immagine");
+        save->setText(tr("Salva immagine"));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/images/document-save.png"));
         save->setIcon(icon1);
@@ -305,12 +310,12 @@ void pref::resizeSwitch(QSize size, int filter){
        case AVERAGE:
            images = images.resizeAverage(size.width(), size.height());
            images.getPixmap();
-           fType = tr("Average");
+           fType = tr("Media");
            break;
        case BILINEAR:
            images = images.resizeBilinear(size.width(), size.height());
            images.getPixmap();
-           fType = tr("Bilinear");
+           fType = tr("Bilineare");
            break;
        }
 
@@ -356,6 +361,10 @@ void pref::self_update(){
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
 #elif defined(_WIN32)
     QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-win32.xml");
+    manager->get(QNetworkRequest(QUrl(url)));
+    connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
+#elif defined(Q_OS_MACX)
+    QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-macx.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
 #endif
@@ -406,10 +415,10 @@ void pref::self_update_parse(QNetworkReply* reply){
                 QString txtt= "http://www.codelinsoft.it/package/";
 
                 QMessageBox *box= new QMessageBox(this);
-                box->setWindowTitle("CodiceFiscale");
-                box->setText("Backup");
-                box->setInformativeText("E' disponibile la nuova versione "+versione+ ",se vuoi aggiornare clicca per aggiornare.\n"
-                                        "Se clicchi ok si chiude il programma e si aggiorna il software alla nuova versione");
+                box->setWindowTitle(tr("LyLibrary"));
+                box->setText(tr("Aggiornamento"));
+                box->setInformativeText(tr("E' disponibile la nuova versione ")+versione+ tr(",se vuoi aggiornare clicca per aggiornare.\n"
+                                        "Se clicchi ok si chiude il programma e si aggiorna il software alla nuova versione"));
                 box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
                 box->setDefaultButton(QMessageBox::Ok);
                 int ret = box->exec();
@@ -427,7 +436,7 @@ void pref::self_update_parse(QNetworkReply* reply){
 
             }
             else if(reply->error()){
-                QMessageBox::warning(this,"LyLibrary",QString("Errore...\n").arg(reply->errorString()));
+                QMessageBox::warning(this,tr("LyLibrary"),QString(tr("Errore...\n")).arg(reply->errorString()));
             }
             else{
                     // Update success dialog
@@ -444,6 +453,8 @@ void pref::up_dw(QString package, QString url){
     process->start("./update -u "+url+" -p "+package);
 #elif defined(Q_OS_WIN)
     process->start("C:\\LyLibrary\\update -u "+url+" -p "+package);
+#elif defined(Q_OS_MACX)
+    process->start("./update.app/Contents/MacOS/update -u"+url+" -p"+package);
 #endif
 }
 
@@ -458,7 +469,7 @@ void pref::seleziona_tema(const QString &sheetName)
 }
 
 bool pref::dir_server(){
-    QString sgf = "Devi riavviare per rendere effettive le modifiche....";
+    QString sgf = tr("Devi riavviare per rendere effettive le modifiche....");
     txt1->setText(sgf);
     return sgf.toStdString().c_str();
 }
@@ -467,9 +478,9 @@ void pref::connetti_database()
 {
     if(ip->text().length() == 0 || db_rete->text().length() == 0 || utente->text().length() == 0 || pwd->text().length() == 0){
         QMessageBox MsgBox2;
-        MsgBox2.setText(QString::fromUtf8("Errore di connessione al DB"));
-        MsgBox2.setInformativeText(QString::fromUtf8("Verificare che i dati siano corretti"));
-        MsgBox2.setWindowTitle("LyLibrary");
+        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB")));
+        MsgBox2.setInformativeText(QString::fromUtf8(tr("Verificare che i dati siano corretti")));
+        MsgBox2.setWindowTitle(tr("LyLibrary"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/logo1.png"), QSize(), QIcon::Normal, QIcon::Off);
         MsgBox2.setWindowIcon(icon);
@@ -503,9 +514,9 @@ void pref::connetti_database()
     }
     else{
         QMessageBox MsgBox2;
-        MsgBox2.setText(QString::fromUtf8("Errore di connessione al DB"));
-        MsgBox2.setInformativeText(QString::fromUtf8("Impossibile connettersi al db.Controllare le impostazioni."));
-        MsgBox2.setWindowTitle("LyLibrary");
+        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB")));
+        MsgBox2.setInformativeText(QString::fromUtf8(tr("Impossibile connettersi al db.Controllare le impostazioni.")));
+        MsgBox2.setWindowTitle(tr("LyLibrary"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/logo1.png"), QSize(), QIcon::Normal, QIcon::Off);
         MsgBox2.setWindowIcon(icon);
@@ -518,9 +529,9 @@ void pref::connetti_database()
 void pref::messaggio()
 {
     QMessageBox *box= new QMessageBox(this);
-    box->setWindowTitle("Lylibrary");
-    box->setText("Database");
-    box->setInformativeText("Creazione db strutturata con successo....");
+    box->setWindowTitle(tr("Lylibrary"));
+    box->setText(tr("Database"));
+    box->setInformativeText(tr("Creazione db strutturata con successo...."));
     box->setStandardButtons(QMessageBox::Ok);
     box->setDefaultButton(QMessageBox::Ok);
     int ret = box->exec();
@@ -549,6 +560,25 @@ void pref::esci()
 {
     close();
     form->impo->setEnabled(true);
+}
+
+void pref::combolanguage()
+{
+    const QDir lang_dir(":/language/lylibrary/");
+        const QStringList files = lang_dir.entryList(QStringList() << "*.qm");
+        foreach (QString lang_file, files) {
+            lang_file = lang_file.split('.').first();
+            combo_language->addItem(lang_file);
+        }
+
+        default_language = set_language();
+        if(files.contains(default_language+".qm"))
+            default_language = "English";
+}
+
+QString pref::set_language()
+{
+    return QLocale::languageToString(QLocale().language());
 }
 
 void pref::changeEvent(QEvent *e)

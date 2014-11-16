@@ -6,24 +6,10 @@
 
 greaterThan(QT_MINOR_VERSION, 4){
  QT += core sql xml network svg gui qt3support
-unix{
-INCLUDEPATH  += /usr/include/poppler/qt4
-LIBS         += -lpoppler-qt4
-}
-
-windows{
-INCLUDEPATH  +=C:/Qt/qtcreator-2.0.1/mingw/include/poppler/qt4
-LIBS         += -lpoppler-qt4
-}
 }
 
 greaterThan(QT_MAJOR_VERSION, 4){
  QT += core sql xml network svg gui widgets printsupport webkitwidgets
-
-unix{
-INCLUDEPATH  += /usr/include/poppler/qt5
-LIBS         += -lpoppler-qt5
-}
 }
 
 TARGET = lylibrary
@@ -37,14 +23,18 @@ unix{
 LIBS += data/liblog_man-1.0.lux
 LIBS += data/libinitdb-1.0.lux
 LIBS += data/libanalogclock.lux
-LIBS += data/libpdf_read.lux
 }
 
+macx{
+LIBS += data/liblog_man-1.0.lyb
+LIBS += data/libinitdb-1.0.lyb
+LIBS += data/libanalogclock.lyb
+macx:ICON = images/logo4.icns
+}
 windows{
 LIBS += data/log_man-1.0.lyb
 LIBS += data/initdb-1.0.lyb
 LIBS += data/analogclock.lyb
-LIBS += data/pdf_read.lyb
 RC_FILE = winicon.rc
 }
 
@@ -202,7 +192,8 @@ target.path = /opt/lylibrary/
 
 INSTALLS += lylibrary_data lylibrary_plugin lylibrary_desktop_file lylibrary_logo target
 }
-RESOURCES = biblio.qrc
+RESOURCES = biblio.qrc \
+    lang.qrc
 
-TRANSLATIONS = language/biblio_it.ts \
-               language/biblio_en.ts
+TRANSLATIONS = language/Italian.ts \
+               language/English.ts

@@ -8,6 +8,7 @@ class QIcon;
 class QMenu;
 class QPushButton;
 class QAction;
+class QTranslator;
 
 class Interface_plugin {
 public:
@@ -23,7 +24,7 @@ public:
     virtual QString errorText() const = 0;
     virtual QIcon icona() = 0;
     virtual QString name_menu() const= 0;
-
+    virtual  void pluginTranslator() = 0;
 };
 
 Q_DECLARE_INTERFACE(Interface_plugin, "Luxury_library.Interface_plugin")

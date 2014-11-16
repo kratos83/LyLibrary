@@ -26,7 +26,7 @@ license::license(QWidget *parent) :
     connect(ui->refur,SIGNAL(clicked(bool)),this,SLOT(page_stack()));
     QIcon ico(":/images/icons32x32.png");
     setWindowIcon(ico);
-    setWindowTitle("Configurazione di avvio Lylibrary");
+    setWindowTitle(tr("Configurazione di avvio Lylibrary"));
     ui->next->setEnabled(false);
     ui->back->setEnabled(false);
     ui->canc->setEnabled(false);
@@ -139,4 +139,12 @@ void license::load_style(const QString &sheetName){
 license::~license()
 {
     delete ui;
+}
+
+void license::traduzione()
+{
+    QString locale = general->value("Language/language").toString();
+    QTranslator *translator = new QTranslator(this);
+    translator->load(":/language/license/"+locale+".qm");
+    qApp->installTranslator(translator);
 }

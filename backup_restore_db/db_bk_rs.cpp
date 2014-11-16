@@ -8,23 +8,27 @@
 #include <QLineEdit>
 #include <QtGui>
 #include <QTextStream>
+#include <QTranslator>
 #include <QtSql>
 
 db_bk_rs::db_bk_rs(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-    setAttribute(Qt::WA_DeleteOnClose);
-    connect(bak_but,SIGNAL(clicked()),this,SLOT(crea_backup()));
-    connect(ripr_but,SIGNAL(clicked()),this,SLOT(restore_db()));
-    connect(chiudi,SIGNAL(clicked()),this,SLOT(close()));
 #ifdef Q_WS_WIN
     settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
     settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
-    password->setEchoMode(QLineEdit::Password);
     general = new QSettings(settingsDir->path()+"/config.conf",QSettings::IniFormat);
+
+    setAttribute(Qt::WA_DeleteOnClose);
+    connect(bak_but,SIGNAL(clicked()),this,SLOT(crea_backup()));
+    connect(ripr_but,SIGNAL(clicked()),this,SLOT(restore_db()));
+    connect(chiudi,SIGNAL(clicked()),this,SLOT(close()));
+
+    password->setEchoMode(QLineEdit::Password);
+
 }
 
 db_bk_rs::~db_bk_rs()
@@ -34,11 +38,11 @@ db_bk_rs::~db_bk_rs()
 void db_bk_rs::crea_backup()
 {
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save file"), "*.bkp", "Database(*.bkp);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save file"), "*.bkp", tr("Database(*.bkp);;Tutti i file(*.*)"));
 
             // Aggiunge estensione alla fine del file se non c'è
             if (fileName.indexOf(".bkp") > 0) {
-                fileName += "_"+QDateTime::currentDateTime().toString("dd-MM-yyyy-hh-mm-ss")+".bkp";
+                fileName += "_"+QDateTime::currentDateTime().toString(tr("dd-MM-yyyy-hh-mm-ss"))+".bkp";
             }
 
 
@@ -72,17 +76,16 @@ void db_bk_rs::crea_backup()
         backup->start(comando,args);
 
         QMessageBox MsgBox;
-        MsgBox.setText(QString::fromUtf8("Backup database..."));
-        MsgBox.setInformativeText(QString::fromUtf8("Backup database effettuato correttamente..."));
+        MsgBox.setText(tr("Backup database..."));
+        MsgBox.setInformativeText(tr("Backup database effettuato correttamente..."));
         MsgBox.setIcon(QMessageBox::Information);
-        qDebug("Backup database effettuato correttamente");
         MsgBox.exec();
         this->close();
     }
     else{
         QMessageBox MsgBox;
-        MsgBox.setText(QString::fromUtf8("Backup database..."));
-        MsgBox.setInformativeText(QString::fromUtf8("Backup database non effettuato correttamente..."));
+        MsgBox.setText(tr("Backup database..."));
+        MsgBox.setInformativeText(tr("Backup database non effettuato correttamente..."));
         MsgBox.setIcon(QMessageBox::Information);
         MsgBox.exec();
         this->close();
@@ -94,7 +97,7 @@ void db_bk_rs::crea_backup()
 void db_bk_rs::restore_db()
 {
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), QString(), "Database(*.bkp);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), QString(), tr("Database(*.bkp);;Tutti i file(*.*)"));
     fileName = QDir::toNativeSeparators(fileName);
 
     if (!fileName.isNull()){
@@ -126,8 +129,8 @@ void db_bk_rs::restore_db()
         backup = new QProcess(this);
         backup->start(comando,args);
         QMessageBox MsgBox;
-        MsgBox.setText(QString::fromUtf8("Ripristino database..."));
-        MsgBox.setInformativeText(QString::fromUtf8("Ripristino del database effettuato correttamente..."));
+        MsgBox.setText(tr("Ripristino database..."));
+        MsgBox.setInformativeText(tr("Ripristino del database effettuato correttamente..."));
         MsgBox.setIcon(QMessageBox::Information);
         MsgBox.exec();
         this->close();
@@ -135,10 +138,9 @@ void db_bk_rs::restore_db()
     else
     {
         QMessageBox MsgBox;
-        MsgBox.setText(QString::fromUtf8("Ripristino database..."));
-        MsgBox.setInformativeText(QString::fromUtf8("Impossibile ripristinare il database..."));
+        MsgBox.setText(tr("Ripristino database..."));
+        MsgBox.setInformativeText(tr("Impossibile ripristinare il database..."));
         MsgBox.setIcon(QMessageBox::Information);
-        qDebug("Impossibile ripristinare il database...");
         MsgBox.exec();
         this->close();
     }

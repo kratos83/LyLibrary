@@ -1,13 +1,14 @@
 #include "dbbkrs_plugin.h"
 #include <qglobal.h>
+#include <QTranslator>
 
 dbbkrs_plugin::dbbkrs_plugin(QObject *parent) :
     QObject(parent)
 {
 #ifdef Q_WS_WIN
-    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
-    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
 
     if(!settingsDir->exists())
@@ -21,7 +22,7 @@ dbbkrs_plugin::dbbkrs_plugin(QObject *parent) :
 
     profDir = new QDir( settingsDir->path()+"/profiles/" );
 
-    general = new QSettings(settingsDir->path()+"/config.conf");
+    general = new QSettings(settingsDir->path()+"/config.conf",QSettings::IniFormat);
 }
 
 QWidget* dbbkrs_plugin::creaWidget(){
@@ -56,6 +57,7 @@ QString dbbkrs_plugin::displayName() const{
 }
 
 void dbbkrs_plugin::pluginLoad(){
+    pluginTranslator();
     creaWidget();
 }
 
@@ -65,6 +67,14 @@ void dbbkrs_plugin::pluginUnload(){
     db = 0;
     if(db)
         delete db;
+}
+
+void dbbkrs_plugin::pluginTranslator(){
+
+    QString locale = general->value("Language/language").toString();
+    QTranslator *translator = new QTranslator(this);
+    translator->load(":/language/backup/"+locale+".qm");
+    qApp->installTranslator(translator);
 }
 
 QIcon dbbkrs_plugin::icona(){

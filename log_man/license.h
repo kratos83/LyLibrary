@@ -27,6 +27,7 @@ public slots:
     void indietro();
     void avanti();
     void read_conf();
+    void traduzione();
 
 private:
     Ui::license *ui;

@@ -63,9 +63,9 @@ painter->begin(printer);
 
 barcode1->makePattern(barcodeStr);
 
-painter->drawText(50,30,"EAN13 Barcode test generator");
+painter->drawText(50,30,tr("EAN13 Barcode test generator"));
 
-painter->drawText(50,70,"Arbitrary size");
+painter->drawText(50,70,tr("Arbitrary size"));
 barcode1->draw(QRectF(50, 80, Wd - 100, Ht - 300), painter) ;
 
 painter->drawText(50, Ht - 160,"Nominal size (37.29mm x 25.93mm)");

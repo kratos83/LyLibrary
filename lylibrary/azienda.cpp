@@ -69,8 +69,8 @@ void azienda::clicca(){
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText("Errore");
-            MsgBox.setInformativeText("Impossibile aggiornare");
+            MsgBox.setText(tr("Errore"));
+            MsgBox.setInformativeText(tr("Impossibile aggiornare"));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -118,8 +118,8 @@ void azienda::inserisci(){
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText("Errore");
-            MsgBox.setInformativeText("Impossibile inserire\n "+query.lastError().text());
+            MsgBox.setText(tr("Errore"));
+            MsgBox.setInformativeText(tr("Impossibile inserire\n ")+query.lastError().text());
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -132,7 +132,6 @@ void azienda::elimina(){
 
         if (!rag_soc->text().isEmpty())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
 
             QSqlQuery qctrl;
             qctrl.prepare("SELECT * FROM azienda WHERE nome_azienda = :nome_azienda");
@@ -150,8 +149,8 @@ void azienda::elimina(){
 
 
                     QMessageBox MsgBox;
-                    MsgBox.setText("Voce non eliminabile");
-                    MsgBox.setInformativeText("E' una voce utilizzata in Nuova assistenza");
+                    MsgBox.setText(tr("Voce non eliminabile"));
+                    MsgBox.setInformativeText("E' una voce utilizzata in fornitori");
                     MsgBox.setIcon(QMessageBox::Warning);
                     MsgBox.exec();
 
@@ -185,8 +184,8 @@ void azienda::elimina(){
             {
                 //scrivere codice per gestione Errore cancellazione
                 QMessageBox MsgBox;
-                MsgBox.setText("Voce non eliminabile");
-                MsgBox.setInformativeText("Impossibile eliminare \n"+query.lastError().text());
+                MsgBox.setText(tr("Voce non eliminabile"));
+                MsgBox.setInformativeText(tr("Impossibile eliminare \n")+query.lastError().text());
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }

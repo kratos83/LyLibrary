@@ -1,7 +1,10 @@
 #include <QtGui/QApplication>
 #include <QStringList>
 #include <QtGui>
+#include <QTranslator>
+#include <QObject>
 #include "update.h"
+#include "settingsmanager.h"
 #include <stdio.h>
 
 static bool parseArguments(const QStringList &argomento)
@@ -18,23 +21,23 @@ static bool parseArguments(const QStringList &argomento)
             return true;
         }
         else if(a_arg == "-v" || a_arg == "--version"){
-            qDebug() << QString::fromUtf8("La versione del software installato è: ") << "2.0.2";
+            qDebug() << QString::fromUtf8(QObject::tr("La versione del software installato è: ")) << "2.0";
             return false;
         }
         else if(a_arg == "-h" || a_arg == "--help")
         {
-            qDebug() << "USA LA LINEA DI COMANDO:\t "<< "VISUALIZZA\n"
-                     << "-p or --package \t" << "Selezione del pacchetto da scaricare\n"
-                     << "-u or --url \t\t" << "Selezione dell'indirizzo internet:\n"
-                                            "\t\t\t ESEMPIO: http://\n\n\n"
-                     << "VISUALIZZA LA VERSIONE INSTALLATA DEL SOFTWARE:\n\n"
-                     << "-v or --version \t" << "Versione del software\n\n\n"
-                     << "VISUALIZZA LE INFORMAZIONI DEL PROGRAMMA:\n\n"
-                     << "-h or --help \t\t" << "Informazioni del software.";
+            qDebug() << QObject::tr("USA LA LINEA DI COMANDO:\t ") << QObject::tr("VISUALIZZA\n")
+                     << QObject::tr("-p or --package \t") << QObject::tr("Selezione del pacchetto da scaricare\n")
+                     << QObject::tr("-u or --url \t\t") << QObject::tr("Selezione dell'indirizzo internet:\n"
+                                            "\t\t\t ESEMPIO: http://\n\n\n")
+                     << QObject::tr("VISUALIZZA LA VERSIONE INSTALLATA DEL SOFTWARE:\n\n")
+                     << QObject::tr("-v or --version \t") << QObject::tr("Versione del software\n\n\n")
+                     << QObject::tr("VISUALIZZA LE INFORMAZIONI DEL PROGRAMMA:\n\n")
+                     << QObject::tr("-h or --help \t\t") << QObject::tr("Informazioni del software.");
             return false;
         }
         else{
-            qDebug() << "Comando non trovato: " << a_arg;
+            qDebug() << QObject::tr("Comando non trovato: ") << a_arg;
             return false;
         }
     }
@@ -44,6 +47,15 @@ static bool parseArguments(const QStringList &argomento)
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+    SettingsManager *manager = new SettingsManager;
+
+    /*
+     * Translate QDialog
+     */
+    QTranslator translator;
+    translator.load(":/language/"+manager->generalValue("Language/language",QVariant()).toString()+".qm");
+    app.installTranslator(&translator);
+
 
     if(!parseArguments(app.arguments()))
     {
@@ -65,5 +77,5 @@ int main(int argc, char **argv)
         exit(0);
     }
 
-    app.exec();
+    return app.exec();
 }

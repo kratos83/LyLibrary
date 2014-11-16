@@ -44,10 +44,10 @@ fattura_rg::fattura_rg(QWidget *parent) :
     connect(save_2,SIGNAL(clicked()),this,SLOT(fatt_inserisci()));
     connect(agg_fatt_2,SIGNAL(clicked()),this,SLOT(fatt_aggiorna()));
     connect(pagam,SIGNAL(currentIndexChanged(int)),this,SLOT(tipo_pagamento()));
-    cliente->setToolTip("Inserisci cliente");
-    fornit->setToolTip("Inserisci fornitore");
+    cliente->setToolTip(tr("Inserisci cliente"));
+    fornit->setToolTip(tr("Inserisci fornitore"));
     QStringList lis;
-    lis << "Cliente " << "Fornitore";
+    lis << tr("Cliente ") << tr("Fornitore");
     tipo_cliente->addItems(lis);
 
     //Setting data
@@ -358,7 +358,7 @@ void fattura_rg::lista_libri()
     mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8("Quantità"));
+    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantita'")));
     mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -384,7 +384,7 @@ void fattura_rg::lista_prod_dig()
     mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8("Quantità"));
+    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantita'")));
     mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -415,7 +415,7 @@ void fattura_rg::fattura_riga_open()
     if(f_libri_2->isChecked() == true){
     fattura_rg_art *ft = new fattura_rg_art;
     ft->setModal(true);
-    ft->setWindowTitle("Inserisci articoli fattura libri");
+    ft->setWindowTitle(tr("Inserisci articoli fattura libri"));
     connect(ft,SIGNAL(save_fatt()),this,SLOT(lista_libri()));
     connect(ft,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
     ft->id_fatt->setText(id1->text());
@@ -427,7 +427,7 @@ void fattura_rg::fattura_riga_open()
     if(f_prod_dig_2->isChecked() == true){
         fattura_rg_art *ft = new fattura_rg_art(this);
         ft->setModal(true);
-        ft->setWindowTitle("Inserisci articoli fattura prodotti digitali");
+        ft->setWindowTitle(tr("Inserisci articoli fattura prodotti digitali"));
         connect(ft,SIGNAL(save_fatt()),this,SLOT(lista_prod_dig()));
         connect(ft,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
         ft->id_fatt->setText(id1->text());
@@ -443,9 +443,9 @@ void fattura_rg::fatt_aggiorna()
     {
         if((pers->currentText()=="") ){
             QMessageBox MsgBox;
-            MsgBox.setWindowTitle("LyLibrary");
-            MsgBox.setText("Errore");
-            MsgBox.setInformativeText(QString::fromUtf8("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente..."));
+            MsgBox.setWindowTitle(tr("LyLibrary"));
+            MsgBox.setText(tr("Errore"));
+            MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
             pers->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -520,12 +520,12 @@ void fattura_rg::fatt_aggiorna()
             update_f_libri();
 
             if( query.exec()){
-                QMessageBox::information(this,"LyLibrary","Aggiornamento effettuato correttamente...");
+                QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
             }
             else{
                 QMessageBox MsgBox;
-                MsgBox.setText("La voce suddetta non si puo aggiornare");
-                MsgBox.setInformativeText("Impossibile aggiornare "+query.lastError().text());
+                MsgBox.setText(tr("La voce suddetta non si puo aggiornare"));
+                MsgBox.setInformativeText(tr("Impossibile aggiornare ")+query.lastError().text());
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
             }
@@ -539,9 +539,9 @@ void fattura_rg::fatt_aggiorna()
     {
         if((pers->currentText()=="") ){
             QMessageBox MsgBox;
-            MsgBox.setWindowTitle("LyLibrary");
-            MsgBox.setText("Errore");
-            MsgBox.setInformativeText(QString::fromUtf8("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente..."));
+            MsgBox.setWindowTitle(tr("LyLibrary"));
+            MsgBox.setText(tr("Errore"));
+            MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
             pers->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -616,12 +616,12 @@ void fattura_rg::fatt_aggiorna()
             update_f_prod_dig();
 
             if( query.exec()){
-                QMessageBox::information(this,"LyLibrary","Aggiornamento effettuato correttamente...");
+                QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
             }
             else{
                 QMessageBox MsgBox;
-                MsgBox.setText("La voce suddetta non si puo aggiornare");
-                MsgBox.setInformativeText("Impossibile aggiornare "+query.lastError().text());
+                MsgBox.setText(tr("La voce suddetta non si puo aggiornare"));
+                MsgBox.setInformativeText(tr("Impossibile aggiornare ")+query.lastError().text());
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
             }
@@ -639,9 +639,9 @@ void fattura_rg::fatt_inserisci()
     if(f_libri_2->isChecked()){
     if((pers->currentText()=="") ){
         QMessageBox MsgBox;
-        MsgBox.setWindowTitle("LyLibrary");
-        MsgBox.setText("Errore");
-        MsgBox.setInformativeText(QString::fromUtf8("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente..."));
+        MsgBox.setWindowTitle(tr("LyLibrary"));
+        MsgBox.setText(tr("Errore"));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
         pers->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -716,8 +716,8 @@ void fattura_rg::fatt_inserisci()
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText("La voce suddetta non si puo inserire");
-            MsgBox.setInformativeText("Impossibile inserire "+query.lastError().text());
+            MsgBox.setText(tr("La voce suddetta non si puo inserire"));
+            MsgBox.setInformativeText(tr("Impossibile inserire ")+query.lastError().text());
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -730,9 +730,9 @@ void fattura_rg::fatt_inserisci()
     else if(f_prod_dig_2->isChecked()){
         if((pers->currentText()=="") ){
             QMessageBox MsgBox;
-            MsgBox.setWindowTitle("LyLibrary");
-            MsgBox.setText("Errore");
-            MsgBox.setInformativeText(QString::fromUtf8("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente..."));
+            MsgBox.setWindowTitle(tr("LyLibrary"));
+            MsgBox.setText(tr("Errore"));
+            MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
             pers->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -806,8 +806,8 @@ void fattura_rg::fatt_inserisci()
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText("La voce suddetta non si puo inserire");
-            MsgBox.setInformativeText("Impossibile inserire "+query.lastError().text());
+            MsgBox.setText(tr("La voce suddetta non si puo inserire"));
+            MsgBox.setInformativeText(tr("Impossibile inserire ")+query.lastError().text());
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -834,10 +834,10 @@ void fattura_rg::insert_f_libri()
     query1.bindValue(":tipo_fattura","Vendita libri");
 
     if(query1.exec()){
-        QMessageBox::information(this,"LyLibrary","Inserimento effettuato correttamente...");
+        QMessageBox::information(this,tr("LyLibrary"),tr("Inserimento effettuato correttamente..."));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile inserire "+query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
     }
 }
 
@@ -854,10 +854,10 @@ void fattura_rg::insert_f_prod_dig()
     query1.bindValue(":totale",totale_2->text());
 
     if(query1.exec()){
-        QMessageBox::information(this,"LyLibrary","Inserimento effettuato correttamente...");
+        QMessageBox::information(this,tr("LyLibrary"),tr("Inserimento effettuato correttamente..."));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile inserire "+query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
     }
 }
 
@@ -874,10 +874,10 @@ void fattura_rg::update_f_libri()
     query1.bindValue(":tipo_fattura",txt);
 
     if(query1.exec()){
-        QMessageBox::information(this,"LyLibrary","Aggiornamento effettuato correttamente...");
+        QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile inserire "+query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
     }
 }
 /////////////////////////////////////////////////////////////////////////
@@ -893,10 +893,10 @@ void fattura_rg::update_f_prod_dig()
     query1.bindValue(":tipo_fattura",txt);
 
     if(query1.exec()){
-        QMessageBox::information(this,"LyLibrary","Aggiornamento effettuato correttamente...");
+        QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile inserire "+query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
     }
 }
 
@@ -911,7 +911,7 @@ void fattura_rg::modifica_riga()
     }
     else
     {
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da modificare...");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da modificare..."));
     }
 }
 
@@ -938,7 +938,7 @@ void fattura_rg::modifica_riga_one(QModelIndex index)
             query2.exec("select * from prodotti_dvd");
             query.exec();
             if(query.next()){
-                if(query.value(0).toString() == "Vendita libri"){
+                if(query.value(0).toString() == tr("Vendita libri")){
                     gt->f_libri->setChecked(true);
                     if(query1.next()){
                      gt->cod_barre->setText(query1.value(1).toString());
@@ -955,7 +955,7 @@ void fattura_rg::modifica_riga_one(QModelIndex index)
                      lista_libri();
                     }
                 }
-                else if(query.value(0).toString() == "Prodotti digitali"){
+                else if(query.value(0).toString() == tr("Prodotti digitali")){
                     gt->f_prod_dig->setChecked(true);
                 if(query2.next()){
                  gt->cod_barre->setText(query2.value(1).toString());
@@ -994,8 +994,8 @@ void fattura_rg::elimina()
 
 
                 QMessageBox *box= new QMessageBox(this);
-                box->setWindowTitle("Lylibrary");
-                box->setInformativeText("Vuoi eliminare veramente \n il record selezionato?....");
+                box->setWindowTitle(tr("Lylibrary"));
+                box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
                 box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
                 box->setDefaultButton(QMessageBox::Ok);
                 int ret = box->exec();
@@ -1020,8 +1020,8 @@ void fattura_rg::elimina()
 
 
                 QMessageBox *box= new QMessageBox(this);
-                box->setWindowTitle("Lylibrary");
-                box->setInformativeText("Vuoi eliminare veramente \n il record selezionato?....");
+                box->setWindowTitle(tr("Lylibrary"));
+                box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
                 box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
                 box->setDefaultButton(QMessageBox::Ok);
                 int ret = box->exec();
@@ -1039,7 +1039,7 @@ void fattura_rg::elimina()
         }
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Selezionare una riga da eliminare");
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare"));
     }
 
 }
@@ -1061,8 +1061,8 @@ void fattura_rg::elimina_riga()
         else
         {
             QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle("Lylibrary");
-            box->setInformativeText("Impossibile eliminare \n il record selezionato?....");
+            box->setWindowTitle(tr("Lylibrary"));
+            box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
             box->exec();
          }
         emit salvafattura();
@@ -1084,8 +1084,8 @@ void fattura_rg::elimina_riga()
         else
         {
             QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle("Lylibrary");
-            box->setInformativeText("Impossibile eliminare \n il record selezionato?....");
+            box->setWindowTitle(tr("Lylibrary"));
+            box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
             box->exec();
          }
         emit salvafattura();
@@ -1199,7 +1199,7 @@ void fattura_rg::tot_imp_iva()
         imponibile_2->setText(QString::number(Query1.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il prezzo senza iva... "+Query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
     }
 
     Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_righe_vendita_art where id='"+id1->text()+"'");
@@ -1208,7 +1208,7 @@ void fattura_rg::tot_imp_iva()
         iva_ft_2->setText(QString::number(Query2.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile instanziare l'iva... "+Query2.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
     }
 
 
@@ -1218,7 +1218,7 @@ void fattura_rg::tot_imp_iva()
         totale_2->setText(QString::number(Query3.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il totale... "+Query3.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
     }
     }
     }
@@ -1235,7 +1235,7 @@ void fattura_rg::tot_imp_iva()
             imponibile_2->setText(QString::number(Query1.value(0).toDouble()));
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il prezzo senza iva... "+Query1.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
         }
 
         Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_righe_vendita_prod_dig where id='"+id1->text()+"'");
@@ -1244,7 +1244,7 @@ void fattura_rg::tot_imp_iva()
             iva_ft_2->setText(QString::number(Query2.value(0).toDouble()));
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile instanziare l'iva... "+Query2.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
         }
 
 
@@ -1254,7 +1254,7 @@ void fattura_rg::tot_imp_iva()
             totale_2->setText(QString::number(Query3.value(0).toDouble()));
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il totale... "+Query3.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
         }
         }
     }
@@ -1265,8 +1265,8 @@ void fattura_rg::tot_imp_iva()
 
 void fattura_rg::chiudi(){
     QMessageBox *box= new QMessageBox(this);
-    box->setWindowTitle("Lylibrary");
-    box->setInformativeText("Sei sicuro di voler uscire dalla fattura?\n I dati non verranno salvati....");
+    box->setWindowTitle(tr("Lylibrary"));
+    box->setInformativeText(tr("Sei sicuro di voler uscire dalla fattura?\n I dati non verranno salvati...."));
     box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel | QMessageBox::Close);
     box->setDefaultButton(QMessageBox::Ok);
     int ret = box->exec();
@@ -1308,8 +1308,8 @@ void fattura_rg::eli_riga()
         else
         {
             QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle("Lylibrary");
-            box->setInformativeText("Impossibile eliminare \n il record selezionato?....");
+            box->setWindowTitle(tr("Lylibrary"));
+            box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
             box->exec();
          }
         emit salvafattura();
@@ -1333,8 +1333,8 @@ void fattura_rg::eli_riga()
         else
         {
             QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle("Lylibrary");
-            box->setInformativeText("Impossibile eliminare \n il record selezionato?....");
+            box->setWindowTitle(tr("Lylibrary"));
+            box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
             box->exec();
          }
         emit salvafattura();
@@ -1358,7 +1358,7 @@ void fattura_rg::tot_imp_iva_pr()
         imponibile_2->setText(QString::number(Query1.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il prezzo senza iva... "+Query1.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
     }
 
     Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_vendita_righe where id='"+id1->text()+"'");
@@ -1367,7 +1367,7 @@ void fattura_rg::tot_imp_iva_pr()
         iva_ft_2->setText(QString::number(Query2.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile instanziare l'iva... "+Query2.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
     }
 
 
@@ -1377,7 +1377,7 @@ void fattura_rg::tot_imp_iva_pr()
         totale_2->setText(QString::number(Query3.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il totale... "+Query3.lastError().text());
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
     }
     }
     }
@@ -1394,7 +1394,7 @@ void fattura_rg::tot_imp_iva_pr()
             imponibile_2->setText(QString::number(Query1.value(0).toDouble()));
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il prezzo senza iva... "+Query1.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
         }
 
         Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_vendita_righe_dig where id='"+id1->text()+"'");
@@ -1403,7 +1403,7 @@ void fattura_rg::tot_imp_iva_pr()
             iva_ft_2->setText(QString::number(Query2.value(0).toDouble()));
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile instanziare l'iva... "+Query2.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
         }
 
 
@@ -1413,7 +1413,7 @@ void fattura_rg::tot_imp_iva_pr()
             totale_2->setText(QString::number(Query3.value(0).toDouble()));
         }
         else{
-            QMessageBox::warning(this,"LyLibrary","Impossibile instanziare il totale... "+Query3.lastError().text());
+            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
         }
         }
     }

@@ -5,9 +5,9 @@ checkdatabase_plugin::checkdatabase_plugin(QObject *parent) :
     QObject(parent)
 {
 #ifdef Q_WS_WIN
-    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
-    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
 
     if(!settingsDir->exists())
@@ -21,7 +21,7 @@ checkdatabase_plugin::checkdatabase_plugin(QObject *parent) :
 
     profDir = new QDir( settingsDir->path()+"/profiles/" );
 
-    general = new QSettings(settingsDir->path()+"/config.conf");
+    general = new QSettings(settingsDir->path()+"/config.conf",QSettings::IniFormat);
 }
 
 QWidget* checkdatabase_plugin::creaWidget(){
@@ -32,7 +32,7 @@ QString checkdatabase_plugin::name_menu() const{
     return tr("Plugin");
 }
 QString checkdatabase_plugin::nameplugin() const{
-    return tr("Correggi database");
+    return tr("Fix database");
 }
 
 QString checkdatabase_plugin::version() const{
@@ -65,6 +65,14 @@ void checkdatabase_plugin::pluginUnload(){
     db = 0;
     if(db)
         delete db;
+}
+
+void checkdatabase_plugin::pluginTranslator(){
+
+    QString locale = general->value("Language/language").toString();
+    QTranslator *translator = new QTranslator(this);
+    translator->load(":/language/checkdb/"+locale+".qm");
+    qApp->installTranslator(translator);
 }
 
 QIcon checkdatabase_plugin::icona(){

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>708</width>
-    <height>445</height>
+    <height>457</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,7 @@
       </font>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="impostazioni">
       <layout class="QGridLayout" name="gridLayout_3">
@@ -65,6 +65,44 @@
           <string>Impostazioni generali</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
+          <item row="6" column="0" colspan="2">
+           <widget class="QGroupBox" name="groupBox_10">
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>Seleziona lingua</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_15">
+             <item row="0" column="1">
+              <widget class="QComboBox" name="combo_language"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_13">
+               <property name="font">
+                <font>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Seleziona la lingua</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="2">
+              <widget class="QLabel" name="label_14">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;La selezione della lingua richiede il riavvio...&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
           <item row="0" column="0" colspan="2">
            <widget class="QLabel" name="label">
             <property name="font">
@@ -631,7 +669,7 @@ p, li { white-space: pre-wrap; }
              <string>Apri</string>
             </property>
             <property name="icon">
-             <iconset resource="../../log_man/license.qrc">
+             <iconset resource="../biblio.qrc">
               <normaloff>:/images/dialog-ok-apply.png</normaloff>:/images/dialog-ok-apply.png</iconset>
             </property>
            </widget>
@@ -727,7 +765,7 @@ p, li { white-space: pre-wrap; }
         <string>Chiudi</string>
        </property>
        <property name="icon">
-        <iconset resource="../../backup_restore_db/images.qrc">
+        <iconset resource="../../initdb/images.qrc">
          <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
        </property>
       </widget>
@@ -768,7 +806,7 @@ p, li { white-space: pre-wrap; }
         <string>Applica</string>
        </property>
        <property name="icon">
-        <iconset resource="../../log_man/license.qrc">
+        <iconset resource="../biblio.qrc">
          <normaloff>:/images/dialog-ok-apply.png</normaloff>:/images/dialog-ok-apply.png</iconset>
        </property>
       </widget>
@@ -799,8 +837,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>ds_update</tabstop>
  </tabstops>
  <resources>
-  <include location="../../log_man/license.qrc"/>
-  <include location="../../backup_restore_db/images.qrc"/>
   <include location="../../initdb/images.qrc"/>
   <include location="../biblio.qrc"/>
  </resources>

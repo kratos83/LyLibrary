@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QDebug>
 #include <QSettings>
+#include <QTranslator>
 #include <QDir>
 #include "inventario.h"
 #include "../lylibrary/luxuryim.h"
@@ -31,7 +32,8 @@ public:
         QString name_menu() const;
         void pluginLoad();
         void pluginUnload();
-    
+        void pluginTranslator();
+
 signals:
     
 public slots:
