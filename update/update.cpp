@@ -109,16 +109,22 @@ void update::downloadFinished(){
                 QUrl url(txts);
                 QString filename = QFileInfo(url.path()).fileName();
                 QDir *direct = new QDir( QCoreApplication::applicationDirPath() );
-                QStringList fileNames=direct->entryList( QStringList("*.part"), QDir::Files, QDir::Name);
-                QString fl = fileNames.at(0);
+#if defined(Q_OS_LINUX)
+                QString fileNames=direct->currentDirPath()+"/"+filename+".part";
+#elif defined(Q_OS_MACX)
+                QString fileNames=direct->currentDirPath()+"/"+filename+".part";
+#elif defined(Q_OS_WIN)
+                QString fileNames=direct->currentDirPath()+"\\"+filename+".part";
+#endif
+                
 
                 if(currentDownload->error()){
                     QString ts = tr("Download fallito: ")+currentDownload->errorString();
                     textEdit->setText(ts);
-                    output->remove(fl);
+                    output->remove(fileNames);
                 }
                 else{
-                output->rename(fl,filename);
+                output->rename(fileNames,filename);
                 downloadReadyRead();
                 inst_agg->setEnabled(true);
                 ++downloadedCount;
@@ -178,15 +184,15 @@ void update::install_package(){
 #if defined(Q_OS_LINUX)
     lin_start = new QProcess(this);
     connect(lin_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
-    lin_start->start("pkexec unzip -o "+file_dir+" -d /opt/codicefiscale/");
+    lin_start->start("pkexec unzip -o "+file_dir+" -d /opt/lylibrary/");
 #elif defined(Q_OS_WIN)
     win_start = new QProcess(this);
     connect(win_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
-    win_start->start("C:\\CodiceFiscale\\windows\\unzip -o "+file_dir+" -d C:\\CodiceFiscale");
+    win_start->start("C:\\LyLibrary\\windows\\unzip -o "+file_dir+" -d C:\\LyLibrary");
 #elif defined(Q_OS_MAC64)
     mac_start = new QProcess(this);
     connect(mac_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
-    mac_start->start("unzip -o "+file_dir);
+    mac_start->start("unzip -o "+file_dir+" -d /Application/LyLibrary/");
 #endif
 }
 
