@@ -4,7 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xml network qt3support
+greaterThan(QT_MINOR_VERSION, 4){
+ QT += core sql xml network svg gui qt3support
+}
+
+greaterThan(QT_MAJOR_VERSION, 4){
+ QT += core sql xml network svg gui widgets printsupport webkitwidgets
+}
 
 TARGET = ../lylibrary/update
 TEMPLATE = app
