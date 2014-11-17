@@ -58,6 +58,4 @@ private:
 signals:
     void realodprodotti();
 };
-
-extern prodotti_dvd *digital;
 #endif // PRODOTTI_DVD_H

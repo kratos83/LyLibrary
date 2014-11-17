@@ -718,7 +718,7 @@ void MainWindow::gest_banca(){
 
 void MainWindow::prodotti_digitali(){
 
-    new prodotti_dvd(this);
+    digital = new prodotti_dvd(this);
 
     digital->setWindowModality(Qt::WindowModal);
     connect(digital,SIGNAL(realodprodotti()),this,SLOT(riavvia_data()));

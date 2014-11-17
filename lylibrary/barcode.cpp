@@ -21,10 +21,10 @@ void barcode::resizeEvent(QResizeEvent * /* event */)
 void barcode::paintEvent(QPaintEvent *event)
 {
 event = event;		// evade compiler warning
-QPainter *painter= new QPainter(this);
-painter->setRenderHint(QPainter::Antialiasing, true);
+QPainter painter(this);
+painter.setRenderHint(QPainter::Antialiasing, true);
 
-draw(painter);
+draw(&spainter);
 }
 
 /********************************************************************************/

@@ -1,5 +1,9 @@
 /***************************************************/
 			LyLibrary 2.0.3
+FIX crash on mac os x
+FIX launch update from mac os x
+FIX open Book and Digital product
+FIX barcode to mac os x
 Remove dependes poppler
 Fix translator
 Add Language to management 

@@ -13,11 +13,9 @@
 #include <QtSql/QtSql>
 #include "settingsmanager.h"
 
-prodotti_dvd *digital = 0;
-
 prodotti_dvd::prodotti_dvd(QWidget *parent) :QDialog(parent)
 {
-    digital = this;
+
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
     connect(exit_art,SIGNAL(clicked()),this,SLOT(close_art()));

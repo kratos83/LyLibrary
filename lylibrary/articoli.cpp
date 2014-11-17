@@ -20,7 +20,6 @@ articoli *prodotto = 0;
 articoli::articoli(QWidget *parent) : QDialog(parent)
 {
 
-    prodotto = this;
     setupUi(this);
     setWindowModality(Qt::WindowModal);
     setAttribute(Qt::WA_DeleteOnClose);

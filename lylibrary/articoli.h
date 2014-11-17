@@ -61,7 +61,5 @@ private:
 signals:
     void article_prod();
 };
-
-extern articoli *prodotto;
 #endif // ARTICOLI_H
 

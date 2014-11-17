@@ -90,7 +90,7 @@ public:
     QComboBox *box;
     QToolButton *p_art,*toolButton,*about_tool,*toolButton_9,*doc_fatt;
     QMenu *menu,*menu_p,*menu_d,*trayMenu,*menu_doc,*menu_ana,*menu_pr,*menu_sc,*menu_plugins,*menu_verifica;
-    prodotti_dvd *digitale;
+    prodotti_dvd *digital;
     prestito_app_dig *prestoapp;
     prestito_dig *dig_app;
     cod_fisc *fisc;
