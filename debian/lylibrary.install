@@ -1,7 +1,6 @@
 lylibrary/data/libanalogclock.lux /opt/lylibrary/data
 lylibrary/data/libinitdb-1.0.lux  /opt/lylibrary/data
 lylibrary/data/liblog_man-1.0.lux /opt/lylibrary/data
-lylibrary/data/libpdf_read.lux    /opt/lylibrary/data
 lylibrary/plugin/libbackup_restore_db.lux /opt/lylibrary/plugin
 lylibrary/plugin/libcheck_database.lux	  /opt/lylibrary/plugin
 lylibrary/plugin/libinventario.lux	 /opt/lylibrary/plugin

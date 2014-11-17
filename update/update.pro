@@ -36,7 +36,7 @@ RESOURCES += \
 
 unix{
 
-target.path = /opt/codicefiscale
+target.path = /opt/lylibrary
 
 INSTALLS += target
 }
