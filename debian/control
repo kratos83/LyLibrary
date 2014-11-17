@@ -3,7 +3,7 @@ Section: office
 Priority: optional
 Maintainer: Codelinsoft <info@codelinsoft.it>
 Build-Depends: debhelper (>= 8.0.0),libqt4-core, libqt4-gui,libqt4-sql, libqt4-xml, libqt4-svg,
-	libqt4-network, libqt4-webkit, libqt4-qt3support, libphonon4,libpoppler-qt4-3, libqt4-sql-mysql,
+	libqt4-network, libqt4-webkit, libqt4-qt3support, libphonon4, libqt4-sql-mysql,
 	mysql-common, mysql-server, mysql-client
 Standards-Version: 3.9.2
 
