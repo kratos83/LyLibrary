@@ -1133,7 +1133,7 @@ void MainWindow::installa_plugin()
 
 
 #elif defined (Q_OS_WIN)
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), QString(), tr("Plugin lylibrary(*.zip);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), QString(), tr("Plugin lylibrary(*.zip);;Tutti i file(*.*)"));
     fileName = QDir::toNativeSeparators(fileName);
     if(!fileName.isNull()){
         QProcess *proc = new QProcess(this);
@@ -1141,30 +1141,30 @@ void MainWindow::installa_plugin()
         proc->start(comando);
         if(proc->waitForFinished()){
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente..."),ts, 15*10000);
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente...")),ts, 15*10000));
         ag_tray->setVisible(false);
         }
     }
     else{
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non \E8 stato installato correttamente... "),ts, 15*10000);
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non \E8 stato installato correttamente... ")),ts, 15*10000);
         ag_tray->setVisible(false);
     }
 #elif defined (Q_OS_MACX)
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), QString(), tr("Plugin lylibrary(*.zip);;Tutti i file(*.*)");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), QString(), tr("Plugin lylibrary(*.zip);;Tutti i file(*.*)"));
     if(!fileName.isNull()){
 
             QProcess *proc = new QProcess(this);
             proc->start("unzip "+fileName+" -d ../plugin");
             if(proc->waitForFinished()){
             QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-            trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente..."),ts, 15*10000);
+            trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente...")),ts, 15*10000);
             ag_tray->setVisible(false);
             }
     }
     else{
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non \E8 stato installato correttamente... "),ts, 15*10000);
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non \E8 stato installato correttamente... ")),ts, 15*10000);
         ag_tray->setVisible(false);
     }
 #endif

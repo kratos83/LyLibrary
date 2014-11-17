@@ -24,7 +24,7 @@ event = event;		// evade compiler warning
 QPainter painter(this);
 painter.setRenderHint(QPainter::Antialiasing, true);
 
-draw(&spainter);
+draw(&painter);
 }
 
 /********************************************************************************/
