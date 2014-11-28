@@ -4,7 +4,11 @@
 #include <QtSql>
 #include <QMessageBox>
 #include "mainwindow.h"
+#if defined(Q_OS_UNIX)
+#include <sys/time.h>
+#elif defined(Q_OS_LINUX)
 #include <time.h>
+#endif
 #include "../initdb/connessione.h"
 #include <QProgressBar>
 #include <QObject>
@@ -117,7 +121,7 @@ int main(int argc, char *argv[])
                  }
                  else if(db.open()){
                  MainWindow *w = new MainWindow();
-                 w->leggi_posizione();
+                 //w->leggi_posizione();
                  w->show();
                  }
                  delete splash;

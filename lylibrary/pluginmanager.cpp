@@ -33,7 +33,7 @@ pluginmanager::pluginmanager(QWidget *parent) : QDialog(parent)
 }
 
 bool pluginmanager::readPlugins(){
-    #if defined Q_OS_LINUX
+    #if defined Q_OS_LINUX || defined Q_OS_UNIX
     QStringList fileNames=pluginDir->entryList( QStringList("*.lux"), QDir::Files, QDir::Name);
     QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
     #elif defined Q_OS_WIN
@@ -73,7 +73,7 @@ bool pluginmanager::readPlugins(){
 
 void pluginmanager::leggiplugin(){
 
-    #if defined Q_OS_LINUX
+    #if defined Q_OS_LINUX || defined Q_OS_UNIX
     QStringList fileNames=pluginDir->entryList( QStringList("*.lux"), QDir::Files, QDir::Name);
     QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
     #elif defined Q_OS_WIN

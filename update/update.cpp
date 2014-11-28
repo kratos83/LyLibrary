@@ -109,7 +109,7 @@ void update::downloadFinished(){
                 QUrl url(txts);
                 QString filename = QFileInfo(url.path()).fileName();
                 QDir *direct = new QDir( QCoreApplication::applicationDirPath() );
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
                 QString fileNames=direct->currentDirPath()+"/"+filename+".part";
 #elif defined(Q_OS_MACX)
                 QString fileNames=direct->currentDirPath()+"/"+filename+".part";
@@ -145,7 +145,7 @@ void update::downloadReadyRead(){
     QStringList fileNames=direct->entryList( QStringList("*.zip"), QDir::Files, QDir::Name);
     QProcess *lin_start = new QProcess(this);
     fileNames << filename;
-#if defined (Q_OS_LINUX)
+#if defined (Q_OS_LINUX) || defined (Q_OS_UNIX)
     lin_start->start("chmod 777 "+filename);
 #endif
 }
@@ -193,12 +193,16 @@ void update::install_package(){
     mac_start = new QProcess(this);
     connect(mac_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
     mac_start->start("unzip -o "+file_dir+" -d /Application/LyLibrary/");
+#elif defined (Q_OS_UNIX)
+   unix_start = new QProcess(this);
+   connect(unix_start,SIGNAL(readyReadStandardOutput()),this,SLOT(display_progress_bar()));
+   unix_start->start("kdesu unzip -o "+file_dir+" -d /opt/lylibrary/");
 #endif
 }
 
 void update::display_progress_bar()
 {
-#if defined (Q_OS_LINUX)
+#if defined (Q_OS_LINUX)  || defined (Q_OS_UNIX)
     int val = lin_start->readLine().toInt();
 #elif defined(Q_OS_WIN)
     int val = win_start->readLine().toInt();
@@ -212,7 +216,7 @@ void update::display_progress_bar()
 }
 
 void update::error(QNetworkReply::NetworkError code){
-    textEdit->setText(tr("Download fallito ")+code);
+    textEdit->setText(tr("Download fallito "));
 }
 
 update::~update()

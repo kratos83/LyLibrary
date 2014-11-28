@@ -16,7 +16,7 @@ TARGET = lylibrary
 TEMPLATE = app
 CONFIG += release
 
-INCLUDEPATH += ../analogclock ../log_man ../initdb
+INCLUDEPATH += ../analogclock ../log_man ../initdb /usr/include
 
 
 unix{

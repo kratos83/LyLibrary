@@ -19,12 +19,6 @@
 #include <QToolTip>
 #include <QFileDialog>
 
-/*******************************
-  Classi c++
- ******************************/
-#include <fstream>
-#include <iostream>
-
 /*********************************
   Classi Lylibrary
  ********************************/
@@ -451,13 +445,13 @@ void MainWindow::gestioneplugin(){
 }
 
 void MainWindow::readPlug(){
-    pluginmanager *manager=new pluginmanager(this);
+    new pluginmanager(this);
 
     connect(this,SIGNAL(pluginLoaded(const QString&, bool)),manager,SLOT(pluginLoaded(const QString&, bool)));
     connect(manager,SIGNAL(pluginLoad(QObject*,QTreeWidgetItem*)),this,SLOT(pluginLoad(QObject*,QTreeWidgetItem*)));
     connect(manager,SIGNAL(pluginUnload(QObject*,QTreeWidgetItem*)),this,SLOT(pluginUnload(QObject*,QTreeWidgetItem*)));
 
-    manager->readPlugins();
+    manager->leggiplugin();
 }
 
 void MainWindow::pluginLoad(QObject *plugin, QTreeWidgetItem *item){

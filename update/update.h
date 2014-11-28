@@ -32,7 +32,7 @@ private:
     QNetworkRequest mCurrentRequest;
     QFile *output;
     QTime downloadTime;
-    QProcess *lin_start,*win_start, *mac_start;
+    QProcess *lin_start,*win_start, *mac_start, *unix_start;
 
     int downloadedCount;
     int totalCount;

@@ -367,6 +367,10 @@ void pref::self_update(){
     QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-macx.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
+#elif defined(Q_OS_UNIX)
+    QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-unix.xml");
+    manager->get(QNetworkRequest(QUrl(url)));
+    connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
 #endif
 }
 
@@ -449,7 +453,7 @@ void pref::self_update_parse(QNetworkReply* reply){
 void pref::up_dw(QString package, QString url){
 
     process = new QProcess(this);
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
     process->start("./update -u "+url+" -p "+package);
 #elif defined(Q_OS_WIN)
     process->start("C:\\LyLibrary\\update -u "+url+" -p "+package);
