@@ -8,6 +8,8 @@
 #include <sys/time.h>
 #elif defined(Q_OS_LINUX)
 #include <time.h>
+#elif defined(Q_OS_WIN)
+#include <time.h>
 #endif
 #include "../initdb/connessione.h"
 #include <QProgressBar>
