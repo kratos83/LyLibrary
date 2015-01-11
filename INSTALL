@@ -5,9 +5,9 @@ http://www.codelinsoft.it/sito/2013-11-17-17-56-34/lylibrary.html
 
 Una volta scaricato aprire il terminale e dicitare i seguenti comandi
 
-tar -xvzf lylibrary-2.0.2.tar.gz
+tar -xvzf lylibrary-2.1.tar.gz
 
-cd lylibrary-2.0.2
-qmake
+cd lylibrary-2.1
+qmake-qt4
 make-j5
 sudo make install

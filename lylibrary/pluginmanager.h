@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QtGui>
 #include <QTreeWidgetItem>
+#include "details_plugin.h"
 #include "ui_pluginmanager.h"
 
 class QDir;
@@ -20,10 +21,8 @@ class pluginmanager : public QDialog, public Ui::pluginmanager
 public:
     explicit pluginmanager(QWidget *parent = 0);
     ~pluginmanager();
-    bool readPlugins();
 
-
-Q_SIGNALS:
+signals:
     void pluginLoad( QObject*, QTreeWidgetItem* );
     void pluginUnload( QObject*, QTreeWidgetItem* );
     void pluginLoader(const QString&, bool);
@@ -31,6 +30,7 @@ Q_SIGNALS:
 public slots:
     void pluginLoaded( const QString&, bool );
     void leggiplugin();
+    void add_details();
 
 protected slots:
     void readPluginInfo(QTreeWidgetItem*);
@@ -42,6 +42,7 @@ private:
     QStringList pluginList;
     QStringList loadedList;
     QList<QPluginLoader*> pluginLoaders;
+    details_plugin *dettagli;
 };
 
 extern pluginmanager *manager;

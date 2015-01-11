@@ -1,4 +1,4 @@
-LyLibrary 2.0.3
+LyLibrary 2.1
 =========
 
 Software per la gestione delle bibioteche

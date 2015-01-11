@@ -1181,7 +1181,7 @@ void MainWindow::scrivi_posizione()
 void MainWindow::leggi_posizione()
 {
     restoreGeometry(settingsManager->generalValue("main/geometria",saveGeometry()).toByteArray());
-    restoreState(settingsManager->generalValue("main/slavastato",saveState()).toByteArray());
+    restoreState(settingsManager->generalValue("main/salvastato",saveState()).toByteArray());
     move(settingsManager->generalValue("main/pos",pos()).toPoint());
     resize(settingsManager->generalValue("main/size",size()).toSize());
 

@@ -88,7 +88,8 @@ SOURCES += main.cpp\
         splashscreen.cpp \
         find_cap_italian.cpp \
         verify_piva.cpp \
-        verify_codicefiscale.cpp
+        verify_codicefiscale.cpp \
+        details_plugin.cpp
 
 
 
@@ -138,7 +139,8 @@ HEADERS  += mainwindow.h \
             splashscreen.h \
             find_cap_italian.h \
             verify_piva.h \
-            verify_codicefiscale.h
+            verify_codicefiscale.h \
+            details_plugin.h
 
 
 FORMS    += ui/mainwindow.ui \
@@ -172,7 +174,8 @@ FORMS    += ui/mainwindow.ui \
             ui/scarico_mag.ui \
             ui/find_cap_italian.ui \
             ui/verify_piva.ui \
-            ui/verify_codicefiscale.ui
+            ui/verify_codicefiscale.ui \
+            ui/details_plugin.ui
 
 unix{
 

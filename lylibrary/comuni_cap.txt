@@ -28,12 +28,12 @@ Acquafredda:25010
 Acqualagna:61041
 Acquanegra Cremonese:26020
 Acquanegra sul Chiese:46011
-Acquapendente:1021
+Acquapendente:01021
 Acquappesa:87020
 Acquarica del Capo:73040
 Acquaro:89832
 Acquasanta Terme:63095
-Acquasparta:5021
+Acquasparta:05021
 Acquaviva Collecroce:86030
 Acquaviva delle Fonti:70021
 Acquaviva d'Isernia:86080
@@ -42,7 +42,7 @@ Acquaviva Platani:93010
 Acquedolci:98070
 Acqui Terme:15011
 Acri:87041
-Acuto:3010
+Acuto:03010
 Adelfia:70010
 Adrano:95031
 Adrara San Martino:24060
@@ -50,24 +50,24 @@ Adrara San Rocco:24060
 Adria:45011
 Adro:25030
 Affi:37010
-Affile:21
+Affile:00021
 Afragola:80021
 Africo:89030
 Agazzano:29010
 Agerola:80051
-Aggius:7020
+Aggius:07020
 Agira:94011
 Agliana:51031
 Agliano Terme:14041
 Agliè:10011
-Aglientu:7020
+Aglientu:07020
 Agna:35021
 Agnadello:26020
 Agnana Calabra:89040
 Agnone:86081
 Agnosine:25071
 Agordo:32021
-Agosta:20
+Agosta:00020
 Agra:21010
 Agrate Brianza:20864
 Agrate Conturbia:28010
@@ -98,7 +98,7 @@ Alagna Valsesia:13021
 Alanno:65020
 Alano di Piave:32031
 Alassio:17021
-Alatri:3011
+Alatri:03011
 Alba:12051
 Alba Adriatica:64011
 Albagiara:9090
@@ -152,7 +152,7 @@ Alfedena:67030
 Alfianello:25020
 Alfiano Natta:15021
 Alfonsine:48011
-Alghero:7041
+Alghero:07041
 Algua:24010
 Alì:98020
 Alì Terme:98021
@@ -164,12 +164,12 @@ Alice Superiore:10010
 Alife:81011
 Alimena:90020
 Aliminusa:90020
-Allai:9080
+Allai:09080
 Alleghe:32022
 Allein:11010
-Allerona:5011
+Allerona:05011
 Alliste:73040
-Allumiere:51
+Allumiere:00051
 Alluvioni Cambiò:15040
 Almè:24011
 Almenno San Bartolomeo:24030
@@ -198,7 +198,7 @@ Altomonte:87042
 Altopascio:55011
 Alviano:5020
 Alvignano:81012
-Alvito:3041
+Alvito:03041
 Alzano Lombardo:24022
 Alzano Scrivia:15050
 Alzate Brianza:22040
@@ -207,22 +207,22 @@ Amandola:63857
 Amantea:87032
 Amaro:33020
 Amaroni:88050
-Amaseno:3021
+Amaseno:03021
 Amato:88040
-Amatrice:2012
+Amatrice:02012
 Ambivere:24030
 Amblar:38011
 Ameglia:19031
-Amelia:5022
+Amelia:05022
 Amendolara:87071
 Ameno:28010
 Amorosi:82031
 Ampezzo:33021
 Anacapri:80071
-Anagni:3012
+Anagni:03012
 Ancarano:64010
-Ancona_1:60121
-Ancona_2:60131
+Ancona:60121
+Ancona:60131
 Andali:88050
 Andalo:38010
 Andalo Valtellino:23014
@@ -235,7 +235,7 @@ Andreis:33080
 Andretta:83040
 Andria:76123
 Andriano:39010
-Anela:7010
+Anela:07010
 Anfo:25070
 Angera:21021
 Anghiari:52031
@@ -243,7 +243,7 @@ Angiari:37050
 Angolo Terme:25040
 Angri:84012
 Angrogna:10060
-Anguillara Sabazia:61
+Anguillara Sabazia:00061
 Anguillara Veneta:35022
 Annicco:26021
 Annone di Brianza:23841
@@ -252,7 +252,7 @@ Anoia:89020
 Antegnate:24051
 Anterivo:39040
 Antey-Saint-Andrè:11020
-Anticoli Corrado:22
+Anticoli Corrado:00022
 Antignano:14010
 Antillo:98030
 Antonimina:89040
@@ -262,7 +262,7 @@ Anversa degli Abruzzi:67030
 Anzano del Parco:22040
 Anzano di Puglia:71020
 Anzi:85010
-Anzio:42
+Anzio:00042
 Anzola dell'Emilia:40011
 Anzola d'Ossola:28877
 Aosta:11100
@@ -278,26 +278,26 @@ Aprica:23031
 Apricale:18035
 Apricena:71011
 Aprigliano:87051
-Aprilia:4011
+Aprilia:04011
 Aquara:84020
 Aquila d'Arroscia:18020
 Aquileia:33051
 Aquilonia:83041
-Aquino:3031
+Aquino:03031
 Aradeo:73040
 Aragona:92021
 Aramengo:14020
 Arba:33090
-Arborea:9092
+Arborea:09092
 Arborio:13031
-Arbus:9031
+Arbus:09031
 Arcade:31030
-Arce:3032
+Arce:03032
 Arcene:24040
 Arcevia:60011
 Archi:66044
 Arcidosso:58031
-Arcinazzo Romano:20
+Arcinazzo Romano:00020
 Arcisate:21051
 Arco:38062
 Arcola:19021
@@ -305,9 +305,9 @@ Arcole:37040
 Arconate:20020
 Arcore:20862
 Arcugnano:36057
-Ardara:7010
-Ardauli:9081
-Ardea:40
+Ardara:07010
+Ardauli:09081
+Ardea:00040
 Ardenno:23011
 Ardesio:24020
 Ardore:89031
@@ -325,7 +325,7 @@ Argusto:88060
 Ari:66010
 Ariano Irpino:83031
 Ariano nel Polesine:45012
-Ariccia:40
+Ariccia:00040
 Arielli:66030
 Arienzo:81021
 Arignano:10020
@@ -336,7 +336,7 @@ Arluno:20010
 Armeno:28011
 Armento:85010
 Armo:18026
-Armungia:9040
+Armungia:09040
 Arnad:11020
 Arnara:3020
 Arnasco:17032
@@ -346,26 +346,26 @@ Arona:28041
 Arosio:22060
 Arpaia:82011
 Arpaise:82010
-Arpino:3033
+Arpino:03033
 Arquà Petrarca:35032
 Arquà Polesine:45031
 Arquata del Tronto:63096
 Arquata Scrivia:15061
 Arre:35020
-Arrone:5031
+Arrone:05031
 Arsago Seprio:21010
 Arsiè:32030
 Arsiero:36011
 Arsita:64031
-Arsoli:23
+Arsoli:00023
 Arta Terme:33022
 Artegna:33011
-Artena:31
+Artena:00031
 Artogne:25040
 Arvier:11011
-Arzachena:7021
+Arzachena:07021
 Arzago d'Adda:24040
-Arzana:8040
+Arzana:08040
 Arzano:80022
 Arzene:33098
 Arzergrande:35020
@@ -374,31 +374,31 @@ Ascea:84046
 Asciano:53041
 Ascoli Piceno:63100
 Ascoli Satriano:71022
-Ascrea:2020
+Ascrea:02020
 Asiago:36012
 Asigliano Veneto:36020
 Asigliano Vercellese:13032
 Asola:46041
 Asolo:31011
 Assago:20090
-Assemini:9032
-Assisi:6081
+Assemini:09032
+Assisi:06081
 Asso:22033
-Assolo:9080
+Assolo:09080
 Assoro:94010
 Asti:14100
-Asuni:9080
+Asuni:09080
 Ateleta:67030
 Atella:85020
 Atena Lucana:84030
 Atessa:66041
-Atina:3042
+Atina:03042
 Atrani:84010
 Atri:64032
 Atripalda:83042
-Attigliano:5012
+Attigliano:05012
 Attimis:33040
-Atzara:8030
+Atzara:08030
 Auditore:61020
 Augusta:96011
 Auletta:84031
@@ -406,8 +406,8 @@ Aulla:54011
 Aurano:28812
 Aurigo:18020
 Auronzo di Cadore:32041
-Ausonia:3040
-Austis:8030
+Ausonia:03040
+Austis:08030
 Avegno:16030
 Avelengo:39010
 Avella:83021
@@ -420,7 +420,7 @@ Aviano:33081
 Aviatico:24020
 Avigliana:10051
 Avigliano:85021
-Avigliano Umbro:5020
+Avigliano Umbro:05020
 Avio:38063
 Avise:11010
 Avola:96012
@@ -439,7 +439,7 @@ Azzone:24020
 Baceno:28861
 Bacoli:80070
 Badalucco:18010
-Badesi:7030
+Badesi:07030
 Badia:39036
 Badia Calavena:37030
 Badia Pavese:27010
@@ -484,19 +484,19 @@ Baldissero Torinese:10020
 Balestrate:90041
 Balestrino:17020
 Ballabio:23811
-Ballao:9040
+Ballao:09040
 Balme:10070
 Balmuccia:13020
 Balocco:13040
 Balsorano:67052
 Balvano:85050
 Balzola:15031
-Banari:7040
+Banari:07040
 Banchette:10010
 Bannio Anzino:28871
 Banzi:85010
 Baone:35030
-Baradili:9090
+Baradili:09090
 Baragiano:85050
 Baranello:86011
 Barano d'Ischia:80070
@@ -505,7 +505,7 @@ Barasso:21020
 Baratili San Pietro:9070
 Barbania:10070
 Barbara:60010
-Barbarano Romano:1010
+Barbarano Romano:01010
 Barbarano Vicentino:36021
 Barbaresco:12050
 Barbariga:25030
@@ -526,15 +526,15 @@ Bardolino:37011
 Bardonecchia:10052
 Bareggio:20010
 Barengo:28010
-Baressa:9090
+Baressa:09090
 Barete:67010
 Barga:55051
 Bargagli:16021
 Barge:12032
 Barghe:25070
-Bari_1:70121
-Bari_2:70131
-Bari Sardo:8042
+Bari:70121
+Bari:70131
+Bari Sardo:08042
 Bariano:24050
 Baricella:40052
 Barile:85022
@@ -546,7 +546,7 @@ Barolo:12060
 Barone Canavese:10010
 Baronissi:84081
 Barrafranca:94012
-Barrali:9040
+Barrali:09040
 Barrea:67030
 Barumini:9021
 Barzago:23890
@@ -555,7 +555,7 @@ Barzanò:23891
 Barzio:23816
 Basaluzzo:15060
 Bascapè:27010
-Baschi:5023
+Baschi:05023
 Basciano:64030
 Baselga di Pinè:38042
 Baselice:82020
@@ -565,12 +565,12 @@ Basiglio:20080
 Basiliano:33031
 Bassano Bresciano:25020
 Bassano del Grappa:36061
-Bassano in Teverina:1030
-Bassano Romano:1030
-Bassiano:4010
+Bassano in Teverina:01030
+Bassano Romano:01030
+Bassiano:04010
 Bassignana:15042
 Bastia Mondovì:12060
-Bastia Umbra:6083
+Bastia Umbra:06083
 Bastida de' Dossi:27050
 Bastida Pancarana:27050
 Bastiglia:41030
@@ -579,8 +579,8 @@ Battifollo:12070
 Battipaglia:84091
 Battuda:27020
 Baucina:90020
-Bauladu:9070
-Baunei:8040
+Bauladu:09070
+Baunei:08040
 Baveno:28831
 Bazzano:40053
 Bedero Valcuvia:21039
@@ -603,7 +603,7 @@ Bellagio:22021
 Bellano:23822
 Bellante:64020
 Bellaria-Igea Marina:47814
-Bellegra:30
+Bellegra:00030
 Bellino:12020
 Bellinzago Lombardo:20060
 Bellinzago Novarese:28043
@@ -613,9 +613,9 @@ Bellosguardo:84020
 Belluno:32100
 Bellusco:20882
 Belmonte Calabro:87033
-Belmonte Castello:3040
+Belmonte Castello:03040
 Belmonte del Sannio:86080
-Belmonte in Sabina:2020
+Belmonte in Sabina:02020
 Belmonte Mezzagno:90031
 Belmonte Piceno:63838
 Belpasso:95032
@@ -625,12 +625,12 @@ Belvedere Langhe:12060
 Belvedere Marittimo:87021
 Belvedere Ostrense:60030
 Belveglio:14040
-Belvì:8030
+Belvì:08030
 Bema:23010
 Bene Lario:22010
 Bene Vagienna:12041
 Benestare:89030
-Benetutti:7010
+Benetutti:07010
 Benevello:12050
 Benevento:82100
 Benna:13871
@@ -638,12 +638,12 @@ Bentivoglio:40010
 Berbenno:24030
 Berbenno di Valtellina:23010
 Berceto:43042
-Berchidda:7022
+Berchidda:07022
 Beregazzo con Figliaro:22070
 Bereguardo:27021
 Bergamasco:15022
-Bergamo_1:24121
-Bergamo_2:24129
+Bergamo:24121
+Bergamo:24129
 Bergantino:45032
 Bergeggi:17028
 Bergolo:12074
@@ -671,9 +671,9 @@ Besnate:21010
 Besozzo:21023
 Bessude:7040
 Bettola:29021
-Bettona:6084
+Bettona:06084
 Beura-Cardezza:28851
-Bevagna:6031
+Bevagna:06031
 Beverino:19020
 Bevilacqua:37040
 Biancavilla:95033
@@ -691,7 +691,7 @@ Bibbona:57020
 Bibiana:10060
 Biccari:71032
 Bicinicco:33050
-Bidonì:9080
+Bidonì:09080
 Biella:13900
 Bienno:25040
 Bieno:38050
@@ -703,7 +703,7 @@ Binetto:70020
 Bioglio:13841
 Bionaz:11010
 Bione:25070
-Birori:8010
+Birori:08010
 Bisaccia:83044
 Bisacquino:90032
 Bisceglie:76011
@@ -715,13 +715,13 @@ Bisuschio:21050
 Bitetto:70020
 Bitonto:70032
 Bitritto:70020
-Bitti:8021
+Bitti:08021
 Bivona:92010
 Bivongi:89040
 Bizzarone:22020
 Bleggio Superiore:38071
 Blello:24010
-Blera:1010
+Blera:01010
 Blessagno:22028
 Blevio:22020
 Blufi:90020
@@ -745,23 +745,23 @@ Bolbeno:38079
 Bolgare:24060
 Bollate:20021
 Bollengo:10012
-Bologna_1:40121
-Bologna_2:40141
+Bologna:40121
+Bologna:40141
 Bolognano:65020
 Bolognetta:90030
 Bolognola:62035
-Bolotana:8011
-Bolsena:1023
+Bolotana:08011
+Bolsena:01023
 Boltiere:24040
 Bolzano:39100
 Bolzano Novarese:28010
 Bolzano Vicentino:36050
-Bomarzo:1020
+Bomarzo:01020
 Bomba:66042
 Bompensiere:93010
 Bompietro:90020
 Bomporto:41030
-Bonarcado:9070
+Bonarcado:09070
 Bonassola:19011
 Bonate Sopra:24040
 Bonate Sotto:24040
@@ -774,11 +774,11 @@ Bonefro:86041
 Bonemerse:26040
 Bonifati:87020
 Bonito:83032
-Bonnanaro:7043
-Bono:7011
-Bonorva:7012
+Bonnanaro:07043
+Bono:07011
+Bonorva:07012
 Bonvicino:12060
-Borbona:2010
+Borbona:02010
 Borca di Cadore:32040
 Bordano:33010
 Bordighera:18012
@@ -812,7 +812,7 @@ Borgo Ticino:28040
 Borgo Tossignano:40021
 Borgo Val di Taro:43043
 Borgo Valsugana:38051
-Borgo Velino:2010
+Borgo Velino:02010
 Borgo Vercelli:13012
 Borgoforte:46030
 Borgofranco d'Ivrea:10013
@@ -827,23 +827,23 @@ Borgonovo Val Tidone:29011
 Borgoratto Alessandrino:15013
 Borgoratto Mormorolo:27040
 Borgoricco:35010
-Borgorose:2021
+Borgorose:02021
 Borgosatollo:25010
 Borgosesia:13011
 Bormida:17045
 Bormio:23032
 Bornasco:27010
 Borno:25042
-Boroneddu:9080
-Borore:8016
+Boroneddu:09080
+Borore:08016
 Borrello:66040
 Borriana:13872
 Borso del Grappa:31030
-Bortigali:8012
-Bortigiadas:7030
-Borutta:7040
+Bortigali:08012
+Bortigiadas:07030
+Borutta:07040
 Borzonasca:16041
-Bosa:8013
+Bosa:08013
 Bosaro:45033
 Boschi Sant'Anna:37040
 Bosco Chiesanuova:37021
@@ -862,14 +862,14 @@ Botricello:88070
 Botrugno:73020
 Bottanuco:24040
 Botticino:25082
-Bottidda:7010
+Bottidda:07010
 Bova:89033
 Bova Marina:89035
 Bovalino:89034
 Bovegno:25061
 Boves:12012
 Bovezzo:25073
-Boville Ernica:3022
+Boville Ernica:03022
 Bovino:71023
 Bovisio-Masciago:20813
 Bovolenta:35024
@@ -878,7 +878,7 @@ Bozzole:15040
 Bozzolo:46012
 Bra:12042
 Bracca:24010
-Bracciano:62
+Bracciano:00062
 Bracigliano:84082
 Braies:39030
 Brallo di Pregola:27050
@@ -908,8 +908,8 @@ Brentino Belluno:37020
 Brentonico:38060
 Brenzone:37010
 Brescello:42041
-Brescia_1:25121
-Brescia_2:25136
+Brescia:25121
+Brescia:25136
 Bresimo:38020
 Bressana Bottarone:27042
 Bressanone:39042
@@ -938,7 +938,7 @@ Brissago-Valtravaglia:21030
 Brissogne:11020
 Brittoli:65010
 Brivio:23883
-Broccostella:3030
+Broccostella:03030
 Brogliano:36070
 Brognaturo:89822
 Brolo:98061
@@ -976,11 +976,11 @@ Bucciano:82010
 Buccinasco:20090
 Buccino:84021
 Bucine:52021
-Buddusò:7020
+Buddusò:07020
 Budoia:33070
-Budoni:8020
+Budoni:08020
 Budrio:40054
-Buggerru:9010
+Buggerru:09010
 Buggiano:51011
 Buglio in Monte:23010
 Bugnara:67030
@@ -988,8 +988,8 @@ Buguggiate:21020
 Buja:33030
 Bulciago:23892
 Bulgarograsso:22070
-Bultei:7010
-Bulzi:7030
+Bultei:07010
+Bulzi:07030
 Buonabitacolo:84032
 Buonalbergo:82020
 Buonconvento:53022
@@ -1027,7 +1027,7 @@ Buttrio:33042
 Ca' d'Andrea:26030
 Cabella Ligure:15060
 Cabiate:22060
-Cabras:9072
+Cabras:09072
 Caccamo:90012
 Caccuri:88833
 Cadegliano-Viconago:21031
@@ -1041,8 +1041,8 @@ Caerano di San Marco:31031
 Cafasse:10070
 Caggiano:84030
 Cagli:61043
-Cagliari_1:9134
-Cagliari_2:9121
+Cagliari:09134
+Cagliari:09121
 Caglio:22030
 Cagnano Amiterno:67012
 Cagnano Varano:71010
@@ -1061,16 +1061,16 @@ Calabritto:83040
 Calalzo di Cadore:32042
 Calamandrana:14042
 Calamonaci:92010
-Calangianus:7023
+Calangianus:07023
 Calanna:89050
 Calasca-Castiglione:28873
 Calascibetta:94010
 Calascio:67020
-Calasetta:9011
+Calasetta:09011
 Calatabiano:95011
 Calatafimi Segesta:91013
 Calavino:38072
-Calcata:1030
+Calcata:01030
 Calceranica al Lago:38050
 Calci:56011
 Calciano:75010
@@ -1118,7 +1118,7 @@ Calvene:36030
 Calvenzano:24040
 Calvera:85030
 Calvi:82018
-Calvi dell'Umbria:5032
+Calvi dell'Umbria:05032
 Calvi Risorta:81042
 Calvignano:27040
 Calvignasco:20080
@@ -1197,7 +1197,7 @@ Campoformido:33030
 Campofranco:93010
 Campogalliano:41011
 Campolattaro:82020
-Campoli Appennino:3030
+Campoli Appennino:03030
 Campoli del Monte Taburno:82030
 Campolieto:86040
 Campolongo Maggiore:30010
@@ -1222,7 +1222,7 @@ Camugnano:40032
 Canal San Bovo:38050
 Canale:12043
 Canale d'Agordo:32020
-Canale Monterano:60
+Canale Monterano:00060
 Canaro:45034
 Canazei:38032
 Cancellara:85010
@@ -1248,7 +1248,7 @@ Canischio:10080
 Canistro:67050
 Canna:87070
 Cannalonga:84040
-Cannara:6033
+Cannara:06033
 Cannero Riviera:28821
 Canneto Pavese:27044
 Canneto sull'Oglio:46013
@@ -1262,9 +1262,9 @@ Canosio:12020
 Canossa:42026
 Cansano:67030
 Cantagallo:59025
-Cantalice:2014
+Cantalice:02014
 Cantalupa:10060
-Cantalupo in Sabina:2040
+Cantalupo in Sabina:02040
 Cantalupo Ligure:15060
 Cantalupo nel Sannio:86092
 Cantarana:14010
@@ -1282,7 +1282,7 @@ Capaci:90040
 Capalbio:58011
 Capannoli:56033
 Capannori:55012
-Capena:60
+Capena:00060
 Capergnanica:26010
 Capestrano:67022
 Capiago Intimiano:22070
@@ -1293,14 +1293,14 @@ Capizzi:98031
 Capizzone:24030
 Capo di Ponte:25044
 Capo d'Orlando:98071
-Capodimonte:1010
+Capodimonte:01010
 Capodrise:81020
 Capoliveri:57031
 Capolona:52010
 Caponago:20867
 Caporciano:67020
 Caposele:83040
-Capoterra:9012
+Capoterra:09012
 Capovalle:25070
 Cappadocia:67060
 Cappella Cantone:26020
@@ -1311,10 +1311,10 @@ Capracotta:86082
 Capraia e Limite:50050
 Capraia Isola:57032
 Capralba:26010
-Capranica:1012
-Capranica Prenestina:30
+Capranica:01012
+Capranica Prenestina:00030
 Caprarica di Lecce:73010
-Caprarola:1032
+Caprarola:01032
 Caprauna:12070
 Caprese Michelangelo:52033
 Caprezzo:28815
@@ -1351,7 +1351,7 @@ Caravaggio:24043
 Caravate:21032
 Caravino:10010
 Caravonica:18020
-Carbognano:1030
+Carbognano:01030
 Carbonara al Ticino:27020
 Carbonara di Nola:80030
 Carbonara di Po:46020
@@ -1365,7 +1365,7 @@ Carceri:35040
 Carcoforo:13026
 Cardano al Campo:21010
 Cardè:12030
-Cardedu:8040
+Cardedu:08040
 Cardeto:89060
 Cardinale:88062
 Cardito:80024
@@ -1378,7 +1378,7 @@ Caresana:13010
 Caresanablot:13030
 Carezzano:15051
 Carfizzi:88817
-Cargeghe:7030
+Cargeghe:07030
 Cariati:87062
 Carife:83040
 Carignano:10041
@@ -1392,7 +1392,7 @@ Carlantino:71030
 Carlazzo:22010
 Carlentini:96013
 Carlino:33050
-Carloforte:9014
+Carloforte:09014
 Carlopoli:88040
 Carmagnola:10022
 Carmiano:73041
@@ -1451,7 +1451,7 @@ Casal Cermelli:15072
 Casal di Principe:81033
 Casal Velino:84040
 Casalanguida:66031
-Casalattico:3030
+Casalattico:03030
 Casalbeltrame:28060
 Casalbordino:66021
 Casalbore:83034
@@ -1495,7 +1495,7 @@ Casalserugo:35020
 Casaluce:81030
 Casalvecchio di Puglia:71030
 Casalvecchio Siculo:98032
-Casalvieri:3034
+Casalvieri:03034
 Casalvolone:28060
 Casalzuigno:21030
 Casamarciano:80032
@@ -1505,10 +1505,10 @@ Casandrino:80025
 Casanova Elvo:13030
 Casanova Lerrone:17033
 Casanova Lonati:27041
-Casape:10
+Casape:00010
 Casapesenna:81030
 Casapinta:13866
-Casaprota:2030
+Casaprota:02030
 Casapulla:81020
 Casarano:73042
 Casargo:23831
@@ -1521,7 +1521,7 @@ Casatenovo:23880
 Casatisma:27040
 Casavatore:80020
 Casazza:24060
-Cascia:6043
+Cascia:06043
 Casciago:21020
 Casciana Terme:56034
 Cascina:56021
@@ -1552,7 +1552,7 @@ Casorate Sempione:21011
 Casorezzo:20010
 Casoria:80026
 Casorzo:14032
-Casperia:2041
+Casperia:02041
 Caspoggio:23020
 Cassacco:33010
 Cassago Brianza:23893
@@ -1572,7 +1572,7 @@ Cassinasco:14050
 Cassine:15016
 Cassinelle:15070
 Cassinetta di Lugagnano:20081
-Cassino:3043
+Cassino:03043
 Cassola:36022
 Cassolnovo:27023
 Castagnaro:37043
@@ -1608,15 +1608,15 @@ Castel di Lama:63082
 Castel di Lucio:98070
 Castel di Sangro:67031
 Castel di Sasso:81040
-Castel di Tora:2020
+Castel di Tora:02020
 Castel Focognano:52016
 Castel Frentano:66032
 Castel Gabbiano:26010
-Castel Gandolfo:40
-Castel Giorgio:5013
+Castel Gandolfo:00040
+Castel Giorgio:05013
 Castel Goffredo:46042
 Castel Guelfo di Bologna:40023
-Castel Madama:24
+Castel Madama:00024
 Castel Maggiore:40013
 Castel Mella:25030
 Castel Morrone:81020
@@ -1627,12 +1627,12 @@ Castel San Giorgio:84083
 Castel San Giovanni:29015
 Castel San Lorenzo:84049
 Castel San Niccolò:52018
-Castel San Pietro Romano:30
+Castel San Pietro Romano:00030
 Castel San Pietro Terme:40024
 Castel San Vincenzo:86071
-Castel Sant'Angelo:2010
-Castel Sant'Elia:1030
-Castel Viscardo:5014
+Castel Sant'Angelo:02010
+Castel Sant'Elia:01030
+Castel Viscardo:05014
 Castel Vittorio:18030
 Castel Volturno:81030
 Castelbaldo:35040
@@ -1652,7 +1652,7 @@ Casteldidone:26030
 Castelfidardo:60022
 Castelfiorentino:50051
 Castelfondo:38020
-Castelforte:4021
+Castelforte:04021
 Castelfranci:83040
 Castelfranco di Sopra:52020
 Castelfranco di Sotto:56022
@@ -1704,7 +1704,7 @@ Castellina Marittima:56040
 Castellinaldo:12050
 Castellino del Biferno:86020
 Castellino Tanaro:12060
-Castelliri:3030
+Castelliri:03030
 Castello Cabiaglio:21030
 Castello d'Agogna:27030
 Castello d'Argile:40050
@@ -1748,12 +1748,12 @@ Castelnuovo di Ceva:12070
 Castelnuovo di Conza:84020
 Castelnuovo di Farfa:2031
 Castelnuovo di Garfagnana:55032
-Castelnuovo di Porto:60
+Castelnuovo di Porto:00060
 Castelnuovo di Val di Cecina:56041
 Castelnuovo Don Bosco:14022
 Castelnuovo Magra:19033
 Castelnuovo Nigra:10080
-Castelnuovo Parano:3040
+Castelnuovo Parano:03040
 Castelnuovo Rangone:41051
 Castelnuovo Scrivia:15053
 Castelpagano:82024
@@ -1765,7 +1765,7 @@ Castelraimondo:62022
 Castelrotto:39040
 Castelsantangelo sul Nera:62039
 Castelsaraceno:85031
-Castelsardo:7031
+Castelsardo:07031
 Castelseprio:21050
 Castelsilano:88834
 Castelspina:15070
@@ -1785,7 +1785,7 @@ Castelvetro Piacentino:29010
 Castelvisconti:26010
 Castenaso:40055
 Castenedolo:25014
-Castiadas:9040
+Castiadas:09040
 Castiglion Fibocchi:52029
 Castiglion Fiorentino:52043
 Castiglione a Casauria:65020
@@ -1794,7 +1794,7 @@ Castiglione Cosentino:87040
 Castiglione d'Adda:26823
 Castiglione dei Pepoli:40035
 Castiglione del Genovesi:84090
-Castiglione del Lago:6061
+Castiglione del Lago:06061
 Castiglione della Pescaia:58043
 Castiglione delle Stiviere:46043
 Castiglione di Garfagnana:55033
@@ -1823,9 +1823,9 @@ Castrignano de' Greci:73020
 Castrignano del Capo:73040
 Castro:24063
 Castro:73030
-Castro dei Volsci:3020
+Castro dei Volsci:03020
 Castrocaro Terme e Terra del Sole:47011
-Castrocielo:3030
+Castrocielo:03030
 Castrofilippo:92020
 Castrolibero:87040
 Castronno:21040
@@ -1835,8 +1835,8 @@ Castropignano:86010
 Castroreale:98053
 Castroregio:87070
 Castrovillari:87012
-Catania_1:95121
-Catania_2:95131
+Catania:95121
+Catania:95131
 Catanzaro:88100
 Catenanuova:94010
 Catignano:65011
@@ -1868,7 +1868,7 @@ Cavaso del Tomba:31034
 Cavasso Nuovo:33092
 Cavatore:15010
 Cavazzo Carnico:33020
-Cave:33
+Cave:00033
 Cavedago:38010
 Cavedine:38073
 Cavenago d'Adda:26824
@@ -1884,7 +1884,7 @@ Cazzago Brabbia:21020
 Cazzago San Martino:25046
 Cazzano di Tramigna:37030
 Cazzano Sant'Andrea:24026
-Ceccano:3023
+Ceccano:03023
 Cecima:27050
 Cecina:57023
 Cedegolo:25051
@@ -1908,8 +1908,8 @@ Celle di Macra:12020
 Celle di San Vito:71020
 Celle Enomondo:14010
 Celle Ligure:17015
-Celleno:1020
-Cellere:1010
+Celleno:01020
+Cellere:01010
 Cellino Attanasio:64036
 Cellino San Marco:72020
 Cellio:13024
@@ -1931,7 +1931,7 @@ Centuripe:94010
 Cepagatti:65012
 Ceppaloni:82010
 Ceppo Morelli:28875
-Ceprano:3024
+Ceprano:03024
 Cerami:94010
 Ceranesi:16014
 Cerano:28065
@@ -1976,7 +1976,7 @@ Cerreto d'Esi:60043
 Cerreto di Spoleto:6041
 Cerreto Grue:15050
 Cerreto Guidi:50050
-Cerreto Laziale:20
+Cerreto Laziale:00020
 Cerreto Sannita:82032
 Cerretto Langhe:12050
 Cerrina Monferrato:15020
@@ -1990,15 +1990,15 @@ Cersosimo:85030
 Certaldo:50052
 Certosa di Pavia:27012
 Cerva:88050
-Cervara di Roma:20
+Cervara di Roma:00020
 Cervarese Santa Croce:35030
-Cervaro:3044
+Cervaro:03044
 Cervasca:12010
 Cervatto:13025
 Cerveno:25040
 Cervere:12040
 Cervesina:27050
-Cerveteri:52
+Cerveteri:00052
 Cervia:48015
 Cervicati:87010
 Cervignano d'Adda:26832
@@ -2017,6 +2017,7 @@ Cesarò:98033
 Cesate:20020
 Cesena_1:47521
 Cesena_2:47522
+Cesena_3:47023
 Cesenatico:47042
 Cesinali:83020
 Cesio:18022
@@ -2090,14 +2091,14 @@ Chiusdino:53012
 Chiusi:53043
 Chiusi della Verna:52010
 Chivasso:10034
-Ciampino:43
+Ciampino:00043
 Cianciana:92012
 Cibiana di Cadore:32040
 Cicagna:16044
 Cicala:88040
 Cicciano:80033
 Cicerale:84053
-Ciciliano:20
+Ciciliano:00020
 Cicognolo:26030
 Ciconio:10080
 Cigliano:13043
@@ -2114,7 +2115,7 @@ Cimitile:80030
 Cimolais:33080
 Cimone:38060
 Cinaglio:14020
-Cineto Romano:20
+Cineto Romano:00020
 Cingia de' Botti:26042
 Cingoli:62011
 Cinigiano:58044
@@ -2147,14 +2148,14 @@ Cissone:12050
 Cisterna d'Asti:14010
 Cisterna di Latina:4012
 Cisternino:72014
-Citerna:6010
-Città della Pieve:6062
-Città di Castello:6012
+Citerna:06010
+Città della Pieve:06062
+Città di Castello:06012
 Città Sant'Angelo:65013
 Cittadella:35013
-Cittaducale:2015
+Cittaducale:02015
 Cittanova:89022
-Cittareale:2010
+Cittareale:02010
 Cittiglio:21033
 Civate:23862
 Civenna:22030
@@ -2165,24 +2166,24 @@ Cividale del Friuli:33043
 Cividate al Piano:24050
 Cividate Camuno:25040
 Civita:87010
-Civita Castellana:1033
+Civita Castellana:01033
 Civita d'Antino:67050
 Civitacampomarano:86030
 Civitaluparella:66040
 Civitanova del Sannio:86094
 Civitanova Marche:62012
 Civitaquana:65010
-Civitavecchia:53
+Civitavecchia:00053
 Civitella Alfedena:67030
 Civitella Casanova:65010
-Civitella d'Agliano:1020
+Civitella d'Agliano:01020
 Civitella del Tronto:64010
 Civitella di Romagna:47012
 Civitella in Val di Chiana:52041
 Civitella Messer Raimondo:66010
 Civitella Paganico:58045
 Civitella Roveto:67054
-Civitella San Paolo:60
+Civitella San Paolo:00060
 Civo:23010
 Claino con Osteno:22010
 Claut:33080
@@ -2207,7 +2208,7 @@ Codigoro:44021
 Codognè:31013
 Codogno:26845
 Codroipo:33033
-Codrongianos:7040
+Codrongianos:07040
 Coggiola:13863
 Cogliate:20815
 Cogne:11012
@@ -2217,18 +2218,18 @@ Cogorno:16030
 Colazza:28010
 Colbordolo:61022
 Colere:24020
-Colfelice:3030
+Colfelice:03030
 Coli:29020
 Colico:23823
 Collagna:42037
-Collalto Sabino:2022
+Collalto Sabino:02022
 Collarmele:67040
-Collazzone:6050
+Collazzone:06050
 Colle Brianza:23886
 Colle d'Anchise:86020
-Colle di Tora:2020
+Colle di Tora:02020
 Colle di Val d'Elsa:53034
-Colle San Magno:3030
+Colle San Magno:03030
 Colle Sannita:82024
 Colle Santa Lucia:32020
 Colle Umberto:31014
@@ -2238,7 +2239,7 @@ Collecorvino:65010
 Colledara:64042
 Colledimacine:66010
 Colledimezzo:66040
-Colleferro:34
+Colleferro:00034
 Collegiove:2020
 Collegno:10093
 Collelongo:67050
@@ -2253,7 +2254,7 @@ Colletorto:86044
 Collevecchio:2042
 Colli a Volturno:86073
 Colli del Tronto:63079
-Colli sul Velino:2010
+Colli sul Velino:02010
 Colliano:84020
 Collinas:9020
 Collio:25060
@@ -2266,7 +2267,7 @@ Cologne:25033
 Cologno al Serio:24055
 Cologno Monzese:20093
 Colognola ai Colli:37030
-Colonna:30
+Colonna:00030
 Colonnella:64010
 Colonno:22010
 Colorina:23010
@@ -2298,7 +2299,7 @@ Conca Casale:86070
 Conca dei Marini:84010
 Conca della Campania:81044
 Concamarise:37050
-Concerviano:2020
+Concerviano:02020
 Concesio:25062
 Conco:36062
 Concordia Sagittaria:30023
@@ -2310,7 +2311,7 @@ Condove:10055
 Condrò:98040
 Conegliano:31015
 Confienza:27030
-Configni:2040
+Configni:02040
 Conflenti:88040
 Coniolo:15030
 Conselice:48017
@@ -2332,8 +2333,8 @@ Corato:70033
 Corbara:84010
 Corbetta:20011
 Corbola:45015
-Corchiano:1030
-Corciano:6073
+Corchiano:01030
+Corciano:06073
 Cordenons:33084
 Cordignano:31016
 Cordovado:33075
@@ -2342,7 +2343,7 @@ Coreglia Antelminelli:55025
 Coreglia Ligure:16040
 Coreno Ausonio:3040
 Corfinio:67030
-Cori:4010
+Cori:04010
 Coriano:47853
 Corigliano Calabro:87064
 Corigliano d'Otranto:73022
@@ -2412,7 +2413,7 @@ Cossato:13836
 Cosseria:17017
 Cossignano:63067
 Cossogno:28801
-Cossoine:7010
+Cossoine:07010
 Cossombrato:14020
 Costa de' Nobili:27010
 Costa di Mezzate:24060
@@ -2431,7 +2432,7 @@ Costigliole d'Asti:14055
 Costigliole Saluzzo:12024
 Cotignola:48010
 Cotronei:88836
-Cottanello:2040
+Cottanello:02040
 Courmayeur:11013
 Covo:24050
 Cozzo:27030
@@ -2487,7 +2488,7 @@ Cucciago:22060
 Cuceglio:10090
 Cuggiono:20012
 Cugliate-Fabiasco:21030
-Cuglieri:9073
+Cuglieri:09073
 Cugnoli:65020
 Cumiana:10040
 Cumignano sul Naviglio:26020
@@ -2500,7 +2501,7 @@ Cupello:66051
 Cupra Marittima:63064
 Cupramontana:60034
 Cura Carpignano:27010
-Curcuris:9090
+Curcuris:09090
 Cureggio:28060
 Curiglia con Monteviasco:21010
 Curinga:88022
@@ -2536,8 +2537,8 @@ Davagna:16022
 Daverio:21020
 Davoli:88060
 Dazio:23010
-Decimomannu:9033
-Decimoputzu:9010
+Decimomannu:09033
+Decimoputzu:09010
 Decollatura:88041
 Dego:17058
 Deiva Marina:19013
@@ -2551,12 +2552,12 @@ Denice:15010
 Denno:38010
 Dernice:15056
 Derovere:26040
-Deruta:6053
+Deruta:06053
 Dervio:23824
 Desana:13034
 Desenzano del Garda:25015
 Desio:20832
-Desulo:8032
+Desulo:08032
 Diamante:87023
 Diano Arentino:18013
 Diano Castello:18013
@@ -2580,7 +2581,7 @@ Dolcè:37020
 Dolceacqua:18035
 Dolcedo:18020
 Dolegna del Collio:34070
-Dolianova:9041
+Dolianova:09041  
 Dolo:30031
 Dolzago:23843
 Domanico:87030
@@ -2588,14 +2589,14 @@ Domaso:22013
 Domegge di Cadore:32040
 Domicella:83020
 Domodossola:28845
-Domus De Maria:9010
-Domusnovas:9015
+Domus De Maria:09010
+Domusnovas:09015
 Don:38011
 Donato:13893
 Dongo:22014
 Donnas:11020
-Donori:9040
-Dorgali:8022
+Donori:09040
+Dorgali:08022
 Dorio:23824
 Dormelletto:28040
 Dorno:27020
@@ -2619,7 +2620,7 @@ Dro:38074
 Dronero:12025
 Druento:10040
 Druogno:28853
-Dualchi:8010
+Dualchi:08010
 Dubino:23015
 Due Carrare:35020
 Dueville:36031
@@ -2634,9 +2635,9 @@ Eboli:84025
 Edolo:25048
 Egna:39044
 Elice:65010
-Elini:8040
+Elini:08040
 Ello:23848
-Elmas:9030
+Elmas:09030
 Elva:12020
 Emarèse:11020
 Empoli:50053
@@ -2658,17 +2659,17 @@ Ercolano:80056
 Erice:91016
 Erli:17030
 Erto e Casso:33080
-Erula:7030
+Erula:07030
 Erve:23805
 Esanatoglia:62024
-Escalaplano:8043
-Escolca:8030
+Escalaplano:08043
+Escolca:08030
 Esine:25040
 Esino Lario:23825
-Esperia:3045
-Esporlatu:7010
+Esperia:03045
+Esporlatu:07010
 Este:35042
-Esterzili:8030
+Esterzili:08030
 Etroubles:11014
 Eupilio:22030
 Exilles:10050
@@ -2676,9 +2677,9 @@ Fabbrica Curone:15054
 Fabbriche di Vallico:55020
 Fabbrico:42042
 Fabriano:60044
-Fabrica di Roma:1034
+Fabrica di Roma:01034
 Fabrizia:89823
-Fabro:5015
+Fabro:05015
 Faedis:33040
 Faedo:38010
 Faedo Valtellino:23020
@@ -2697,13 +2698,13 @@ Falciano del Massico:81030
 Falconara Albanese:87030
 Falconara Marittima:60015
 Falcone:98060
-Faleria:1030
+Faleria:01030
 Falerna:88042
 Falerone:63837
 Fallo:66040
 Falmenta:28827
 Faloppio:22020
-Falvaterra:3020
+Falvaterra:03020
 Falzes:39030
 Fanano:41021
 Fanna:33092
@@ -2711,7 +2712,7 @@ Fano:61032
 Fano Adriano:64044
 Fara Filiorum Petri:66010
 Fara Gera d'Adda:24045
-Fara in Sabina:2032
+Fara in Sabina:02032
 Fara Novarese:28073
 Fara Olivana con Sola:24058
 Fara San Martino:66015
@@ -2720,7 +2721,7 @@ Fardella:85034
 Farigliano:12060
 Farindola:65010
 Farini:29023
-Farnese:1010
+Farnese:01010
 Farra d'Alpago:32016
 Farra di Soligo:31010
 Farra d'Isonzo:34072
@@ -2743,8 +2744,8 @@ Feltre:32032
 Fenegrò:22070
 Fenestrelle:10060
 Fènis:11020
-Ferentillo:5034
-Ferentino:3013
+Ferentillo:05034
+Ferentino:03013
 Ferla:96010
 Fermignano:61033
 Fermo:63900
@@ -2761,15 +2762,15 @@ Ferrera Erbognone:27032
 Ferrere:14012
 Ferriere:29024
 Ferruzzano:89030
-Fiamignano:2023
+Fiamignano:02023
 Fiano:10070
-Fiano Romano:65
+Fiano Romano:00065
 Fiastra:62035
 Fiavè:38075
 Ficarazzi:90010
 Ficarolo:45036
 Ficarra:98062
-Ficulle:5016
+Ficulle:05016
 Fidenza:43036
 Fiè allo Sciliar:39050
 Fiera di Primiero:38054
@@ -2782,7 +2783,7 @@ Fiesso Umbertiano:45024
 Figino Serenza:22060
 Figline Valdarno:50063
 Figline Vegliaturo:87050
-Filacciano:60
+Filacciano:00060
 Filadelfia:89814
 Filago:24040
 Filandari:89841
@@ -2816,7 +2817,7 @@ Fiumedinisi:98022
 Fiumefreddo Bruzio:87030
 Fiumefreddo di Sicilia:95013
 Fiumicello:33050
-Fiumicino:54
+Fiumicino:00054
 Fiuminata:62025
 Fivizzano:54013
 Flaibano:33030
@@ -2824,10 +2825,10 @@ Flavon:38010
 Flero:25020
 Floresta:98030
 Floridia:96014
-Florinas:7030
+Florinas:07030
 Flumeri:83040
-Fluminimaggiore:9010
-Flussio:8010
+Fluminimaggiore:09010
+Flussio:08010
 Fobello:13025
 Foggia_1:71121
 Foggia_2:71122
@@ -2838,17 +2839,17 @@ Foiano della Chiana:52045
 Foiano di Val Fortore:82020
 Folgaria:38064
 Folignano:63084
-Foligno:6034
+Foligno:06034
 Follina:31051
 Follo:19020
 Follonica:58022
 Fombio:26861
 Fondachelli-Fantina:98050
-Fondi:4022
+Fondi:04022
 Fondo:38013
-Fonni:8023
+Fonni:08023
 Fontainemore:11020
-Fontana Liri:3035
+Fontana Liri:03035
 Fontanafredda:33074
 Fontanarosa:83040
 Fontanelice:40025
@@ -2861,7 +2862,7 @@ Fontanigorda:16023
 Fontanile:14044
 Fontaniva:35014
 Fonte:31010
-Fonte Nuova:13
+Fonte Nuova:00013
 Fontecchio:67020
 Fontechiari:3030
 Fontegreca:81014
@@ -2869,11 +2870,11 @@ Fonteno:24060
 Fontevivo:43010
 Fonzaso:32030
 Foppolo:24010
-Forano:2044
+Forano:02044
 Force:63086
 Forchia:82011
 Forcola:23010
-Fordongianus:9083
+Fordongianus:09083
 Forenza:85023
 Foresto Sparso:24060
 Forgaria nel Friuli:33030
@@ -2884,8 +2885,8 @@ Forlì_2:47122
 Forlì del Sannio:86084
 Forlimpopoli:47034
 Formazza:28863
-Formello:60
-Formia:4023
+Formello:00060
+Formia:04023
 Formicola:81040
 Formigara:26020
 Formigine:41043
@@ -2900,7 +2901,7 @@ Forno Canavese:10084
 Forno di Zoldo:32012
 Fornovo di Taro:43045
 Fornovo San Giovanni:24040
-Forte dei Marmi:55042
+Forte dei Marmi:055042
 Fortezza:39045
 Fortunago:27040
 Forza d'Agrò:98030
@@ -2912,7 +2913,7 @@ Fossalta di Piave:30020
 Fossalta di Portogruaro:30025
 Fossalto:86020
 Fossano:12045
-Fossato di Vico:6022
+Fossato di Vico:06022
 Fossato Serralta:88050
 Fossò:30030
 Fossombrone:61034
@@ -2938,7 +2939,7 @@ Francofonte:96015
 Francolise:81050
 Frascaro:15010
 Frascarolo:27030
-Frascati:44
+Frascati:00044
 Frascineto:87010
 Frassilongo:38050
 Frassinelle Polesine:45030
@@ -2947,10 +2948,10 @@ Frassineto Po:15040
 Frassinetto:10080
 Frassino:12020
 Frassinoro:41044
-Frasso Sabino:2030
+Frasso Sabino:02030
 Frasso Telesino:82030
 Fratta Polesine:45025
-Fratta Todina:6054
+Fratta Todina:06054
 Frattamaggiore:80027
 Frattaminore:80020
 Fratte Rosa:61040
@@ -2980,7 +2981,7 @@ Furci:66050
 Furci Siculo:98023
 Furnari:98054
 Furore:84010
-Furtei:9040
+Furtei:09040
 Fuscaldo:87024
 Fusignano:48010
 Fusine:23010
@@ -2990,8 +2991,8 @@ Gabiano:15020
 Gabicce Mare:61011
 Gaby:11020
 Gadesco-Pieve Delmona:26030
-Gadoni:8030
-Gaeta:4024
+Gadoni:08030
+Gaeta:04024
 Gaggi:98030
 Gaggiano:20083
 Gaggio Montano:40041
@@ -3005,7 +3006,7 @@ Gaiarine:31018
 Gaiba:45030
 Gaiola:12010
 Gaiole in Chianti:53013
-Gairo:8040
+Gairo:08040
 Gais:39030
 Galati Mamertino:98070
 Galatina:73013
@@ -3015,22 +3016,22 @@ Galbiate:23851
 Galeata:47010
 Galgagnano:26832
 Gallarate:21013
-Gallese:1035
+Gallese:01035
 Galliate:28066
 Galliate Lombardo:21020
 Galliavola:27034
 Gallicano:55027
-Gallicano nel Lazio:10
+Gallicano nel Lazio:00010
 Gallicchio:85010
 Galliera:40015
 Galliera Veneta:35015
-Gallinaro:3040
+Gallinaro:03040
 Gallio:36032
 Gallipoli:73014
 Gallo Matese:81010
 Gallodoro:98030
 Galluccio:81044
-Galtellì:8020
+Galtellì:08020
 Galzignano Terme:35030
 Gamalero:15010
 Gambara:25020
@@ -3076,7 +3077,7 @@ Gavazzana:15063
 Gavello:45010
 Gaverina Terme:24060
 Gavi:15066
-Gavignano:30
+Gavignano:00030
 Gavirate:21026
 Gavoi:8020
 Gavorrano:58023
@@ -3091,11 +3092,11 @@ Gela:93012
 Gemmano:47855
 Gemona del Friuli:33013
 Gemonio:21036
-Genazzano:30
+Genazzano:00030
 Genga:60040
 Genivolta:26020
 Genola:12040
-Genoni:8030
+Genoni:08030
 Genova_1:16121
 Genova_2:16167
 Genuri:9020
@@ -3105,10 +3106,10 @@ Genzone:27014
 Gera Lario:22010
 Gerace:89040
 Geraci Siculo:90010
-Gerano:25
+Gerano:00025
 Gerenzago:27010
 Gerenzano:21040
-Gergei:8030
+Gergei:08030
 Germagnano:10070
 Germagno:28887
 Germignaga:21010
@@ -3116,15 +3117,15 @@ Gerocarne:89831
 Gerola Alta:23010
 Gerosa:24010
 Gerre de' Caprioli:26040
-Gesico:9040
+Gesico:09040
 Gessate:20060
 Gessopalena:66010
-Gesturi:9020
+Gesturi:09020
 Gesualdo:83040
 Ghedi:25016
 Ghemme:28074
 Ghiffa:28823
-Ghilarza:9074
+Ghilarza:09074
 Ghisalba:24050
 Ghislarengo:13030
 Giacciano con Baruchella:45020
@@ -3137,10 +3138,10 @@ Giardini-Naxos:98035
 Giarole:15036
 Giarratana:97010
 Giarre:95014
-Giave:7010
+Giave:07010
 Giaveno:10094
 Giavera del Montello:31040
-Giba:9010
+Giba:09010
 Gibellina:91024
 Gifflenga:13874
 Giffone:89020
@@ -3160,17 +3161,17 @@ Gioia Sannitica:81010
 Gioia Tauro:89013
 Gioiosa Ionica:89042
 Gioiosa Marea:98063
-Giove:5024
+Giove:05024
 Giovinazzo:70054
 Giovo:38030
-Girasole:8040
+Girasole:08040
 Girifalco:88024
 Gironico:22020
 Gissi:66052
 Giuggianello:73030
 Giugliano in Campania:80014
 Giuliana:90030
-Giuliano di Roma:3020
+Giuliano di Roma:03020
 Giuliano Teatino:66010
 Giulianova:64021
 Giuncugnano:55030
@@ -3193,15 +3194,15 @@ Golferenzo:27047
 Golfo Aranci:7020
 Gombito:26020
 Gonars:33050
-Goni:9040
-Gonnesa:9010
+Goni:09040
+Gonnesa:09010
 Gonnoscodina:9090
 Gonnosfanadiga:9035
-Gonnosnò:9090
+Gonnosnò:09090
 Gonnostramatza:9093
 Gonzaga:46023
 Gordona:23020
-Gorga:30
+Gorga:00030
 Gorgo al Monticano:31040
 Gorgoglione:75010
 Gorgonzola:20064
@@ -3225,9 +3226,9 @@ Gozzano:28024
 Gradara:61012
 Gradisca d'Isonzo:34072
 Grado:34073
-Gradoli:1010
+Gradoli:01010
 Graffignana:26813
-Graffignano:1020
+Graffignano:01020
 Graglia:13895
 Gragnano:80054
 Gragnano Trebbiense:29010
@@ -3255,7 +3256,7 @@ Gravina di Catania:95030
 Gravina in Puglia:70024
 Grazzanise:81046
 Grazzano Badoglio:14035
-Greccio:2045
+Greccio:02045
 Greci:83030
 Greggio:13030
 Gremiasco:15056
@@ -3287,7 +3288,7 @@ Grosio:23033
 Grosotto:23034
 Grosseto:58100
 Grosso:10070
-Grottaferrata:46
+Grottaferrata:00046
 Grottaglie:74023
 Grottaminarda:83035
 Grottammare:63066
@@ -3312,14 +3313,14 @@ Gualdo Cattaneo:6035
 Gualdo Tadino:6023
 Gualtieri:42044
 Gualtieri Sicaminò:98040
-Guamaggiore:9040
+Guamaggiore:09040
 Guanzate:22070
-Guarcino:3016
+Guarcino:03016
 Guarda Veneta:45030
 Guardabosone:13010
 Guardamiglio:26862
 Guardavalle:88065
-Guardea:5025
+Guardea:05025
 Guardia Lombardi:83040
 Guardia Perticara:85010
 Guardia Piemontese:87020
@@ -3329,27 +3330,27 @@ Guardialfiera:86030
 Guardiaregia:86014
 Guardistallo:56040
 Guarene:12050
-Guasila:9040
+Guasila:09040
 Guastalla:42016
 Guazzora:15050
-Gubbio:6024
+Gubbio:06024
 Gudo Visconti:20088
 Guglionesi:86034
 Guidizzolo:46040
-Guidonia Montecelio:12
+Guidonia Montecelio:00012
 Guiglia:41052
 Guilmi:66050
 Gurro:28828
-Guspini:9036
+Guspini:09036
 Gussago:25064
 Gussola:26040
 Hone:11020
 Idro:25074
-Iglesias:9016
+Iglesias:09016
 Igliano:12060
-Ilbono:8040
+Ilbono:08040
 Illasi:37031
-Illorai:7010
+Illorai:07010
 Imbersago:23898
 Imer:38050
 Imola:40026
@@ -3373,7 +3374,7 @@ Inveruno:20010
 Invorio:28045
 Inzago:20065
 Ionadi:89851
-Irgoli:8020
+Irgoli:08020
 Irma:25061
 Irsina:75022
 Isasca:12020
@@ -3384,13 +3385,13 @@ Ischitella:71010
 Iseo:25049
 Isera:38060
 Isernia:86170
-Isili:8033
+Isili:08033
 Isnello:90010
 Isola d'Asti:14057
 Isola del Cantone:16017
 Isola del Giglio:58012
 Isola del Gran Sasso d'Italia:64045
-Isola del Liri:3036
+Isola del Liri:03036
 Isola del Piano:61030
 Isola della Scala:37063
 Isola delle Femmine:90040
@@ -3413,17 +3414,17 @@ Isso:24040
 Issogne:11020
 Istrana:31036
 Itala:98025
-Itri:4020
-Ittireddu:7010
-Ittiri:7044
+Itri:04020
+Ittireddu:07010
+Ittiri:07044
 Ivano-Fracena:38059
 Ivrea:10015
 Izano:26010
 Jacurso:88020
 Jelsi:86015
-Jenne:20
+Jenne:00020
 Jerago con Orago:21040
-Jerzu:8044
+Jerzu:08044
 Jesi:60035
 Jesolo:30016
 Jolanda di Savoia:44037
@@ -3432,7 +3433,7 @@ Joppolo Giancaxio:92010
 Jovencan:11020
 La Cassa:10040
 La Loggia:10040
-La Maddalena:7024
+La Maddalena:07024
 La Magdeleine:11020
 La Morra:12064
 La Salle:11015
@@ -3441,15 +3442,15 @@ La Spezia_2:19137
 La Thuile:11016
 La Valle:39030
 La Valle Agordina:32020
-Labico:30
-Labro:2010
+Labico:00030
+Labro:02010
 Lacchiarella:20084
 Lacco Ameno:80076
 Lacedonia:83046
 Laces:39021
-Laconi:8034
-Ladispoli:55
-Laerru:7030
+Laconi:08034
+Ladispoli:00055
+Laerru:07030
 Laganadi:89050
 Laghi:36010
 Laglio:22010
@@ -3481,8 +3482,8 @@ Landiona:28064
 Landriano:27015
 Langhirano:43013
 Langosco:27030
-Lanusei:8045
-Lanuvio:40
+Lanusei:08045
+Lanuvio:00040
 Lanzada:23020
 Lanzo d'Intelvi:22024
 Lanzo Torinese:10074
@@ -3494,20 +3495,20 @@ Larciano:51036
 Lardaro:38087
 Lardirago:27016
 Lari:56035
-Lariano:40
+Lariano:00040
 Larino:86035
-Las Plassas:9020
+Las Plassas:09020
 Lasa:39023
 Lascari:90010
 Lasino:38076
 Lasnigo:22030
 Lastebasse:36040
 Lastra a Signa:50055
-Latera:1010
+Latera:01010
 Laterina:52020
 Laterza:74014
 Latiano:72022
-Latina:4100
+Latina:04100
 Latisana:33053
 Latronico:85043
 Lattarico:87010
@@ -3541,7 +3542,7 @@ Leggiuno:21038
 Legnago:37045
 Legnano:20025
 Legnaro:35020
-Lei:8010
+Lei:08010
 Leini:10040
 Leivi:16040
 Lemie:10070
@@ -3550,7 +3551,7 @@ Leni:98050
 Lenna:24010
 Lenno:22016
 Leno:25024
-Lenola:4025
+Lenola:04025
 Lenta:13035
 Lentate sul Seveso:20823
 Lentella:66050
@@ -3589,7 +3590,7 @@ Liberi:81040
 Librizzi:98064
 Licata:92027
 Licciana Nardi:54016
-Licenza:26
+Licenza:00026
 Licodia Eubea:95040
 Lierna:23827
 Lignana:13034
@@ -3615,7 +3616,7 @@ Lipomo:22030
 Lirio:27040
 Liscate:20060
 Liscia:66050
-Lisciano Niccone:6060
+Lisciano Niccone:06060
 Lisignago:38030
 Lisio:12070
 Lissone:20851
@@ -3637,18 +3638,18 @@ Locana:10080
 Locate di Triulzi:20085
 Locate Varesino:22070
 Locatello:24030
-Loceri:8040
+Loceri:08040
 Locorotondo:70010
 Locri:89044
 Loculi:8020
-Lodè:8020
+Lodè:08020
 Lodi:26900
 Lodi Vecchio:26855
-Lodine:8020
+Lodine:08020
 Lodrino:25060
 Lograto:25030
 Loiano:40050
-Loiri Porto San Paolo:7020
+Loiri Porto San Paolo:07020 
 Lomagna:23871
 Lomazzo:22074
 Lombardore:10040
@@ -3668,7 +3669,7 @@ Longiano:47020
 Longobardi:87030
 Longobucco:87066
 Longone al Segrino:22030
-Longone Sabino:2020
+Longone Sabino:02020
 Lonigo:36045
 Loranzè:10010
 Loreggia:35010
@@ -3683,7 +3684,7 @@ Loro Ciuffenna:52024
 Loro Piceno:62020
 Lorsica:16045
 Losine:25050
-Lotzorai:8040
+Lotzorai:08040
 Lovere:24065
 Lovero:23030
 Lozio:25040
@@ -3692,7 +3693,7 @@ Lozzo Atestino:35034
 Lozzo di Cadore:32040
 Lozzolo:13045
 Lu:15040
-Lubriano:1020
+Lubriano:01020
 Lucca:55100
 Lucca Sicula:92010
 Lucera:71036
@@ -3703,25 +3704,25 @@ Luco dei Marsi:67056
 Lucoli:67045
 Lugagnano Val D'Arda:29018
 Lugnacco:10080
-Lugnano in Teverina:5020
+Lugnano in Teverina:05020
 Lugo:48022
 Lugo di Vicenza:36030
 Luino:21016
 Luisago:22070
-Lula:8020
+Lula:08020
 Lumarzo:16024
 Lumezzane:25065
-Lunamatrona:9022
+Lunamatrona:09022
 Lunano:61026
 Lungavilla:27053
 Lungro:87010
 Luogosano:83040
-Luogosanto:7020
+Luogosanto:07020
 Lupara:86030
 Lurago d'Erba:22040
 Lurago Marinone:22070
 Lurano:24050
-Luras:7025
+Luras:07025
 Lurate Caccivio:22075
 Lusciano:81030
 Luserna:38040
@@ -3748,7 +3749,7 @@ Macerata Campania:81047
 Macerata Feltria:61023
 Macherio:20846
 Maclodio:25030
-Macomer:8015
+Macomer:08015
 Macra:12020
 Macugnaga:28876
 Maddaloni:81024
@@ -3756,21 +3757,21 @@ Madesimo:23024
 Madignano:26020
 Madone:24040
 Madonna del Sasso:28894
-Maenza:4010
+Maenza:04010
 Mafalda:86030
 Magasa:25080
 Magenta:20013
 Maggiora:28014
 Magherno:27010
-Magione:6063
+Magione:06063
 Magisano:88050
 Magliano Alfieri:12050
 Magliano Alpi:12060
 Magliano de' Marsi:67062
 Magliano di Tenna:63832
 Magliano in Toscana:58051
-Magliano Romano:60
-Magliano Sabina:2046
+Magliano Romano:00060
+Magliano Sabina:02046
 Magliano Vetere:84050
 Maglie:73024
 Magliolo:17020
@@ -3779,7 +3780,7 @@ Magnacavallo:46020
 Magnago:20020
 Magnano:13887
 Magnano in Riviera:33010
-Magomadas:8010
+Magomadas:08010
 Magrè sulla Strada del Vino:39040
 Magreglio:22030
 Maida:88025
@@ -3816,12 +3817,12 @@ Malvagna:98030
 Malvicino:15015
 Malvito:87010
 Mammola:89045
-Mamoiada:8024
+Mamoiada:08024
 Manciano:58014
 Mandanici:98020
-Mandas:9040
+Mandas:09040
 Mandatoriccio:87060
-Mandela:20
+Mandela:00020
 Mandello del Lario:23826
 Mandello Vitta:28060
 Manduria:74024
@@ -3839,14 +3840,14 @@ Manta:12030
 Mantello:23016
 Mantova:46100
 Manzano:33044
-Manziana:66
+Manziana:00066
 Mapello:24030
-Mara:7010
-Maracalagonis:9040
+Mara:07010
+Maracalagonis:09040
 Maranello:41053
 Marano di Napoli:80016
 Marano di Valpolicella:37020
-Marano Equo:20
+Marano Equo:00020
 Marano Lagunare:33050
 Marano Marchesato:87040
 Marano Principato:87040
@@ -3858,9 +3859,9 @@ Maratea:85046
 Marcallo con Casone:20010
 Marcaria:46010
 Marcedusa:88050
-Marcellina:10
+Marcellina:00010
 Marcellinara:88044
-Marcetelli:2020
+Marcetelli:02020
 Marcheno:25060
 Marchirolo:21030
 Marciana:57030
@@ -3885,7 +3886,7 @@ Mariglianella:80030
 Marigliano:80034
 Marina di Gioiosa Ionica:89046
 Marineo:90035
-Marino:47
+Marino:00047
 Marlengo:39020
 Marliana:51010
 Marmentino:25060
@@ -3896,13 +3897,13 @@ Marone:25054
 Maropati:89020
 Marostica:36063
 Marradi:50034
-Marrubiu:9094
+Marrubiu:09094
 Marsaglia:12060
 Marsala:91025
-Marsciano:6055
+Marsciano:06055
 Marsico Nuovo:85052
 Marsicovetere:85050
-Marta:1010
+Marta:01010
 Martano:73025
 Martellago:30030
 Martello:39020
@@ -3915,7 +3916,7 @@ Martiniana Po:12030
 Martinsicuro:64014
 Martirano:88040
 Martirano Lombardo:88040
-Martis:7030
+Martis:07030
 Martone:89040
 Marudo:26866
 Maruggio:74020
@@ -3925,7 +3926,7 @@ Marzano Appio:81035
 Marzano di Nola:83020
 Marzi:87050
 Marzio:21030
-Masainas:9010
+Masainas:09010
 Masate:20060
 Mascali:95016
 Mascalucia:95030
@@ -3950,7 +3951,7 @@ Massa Fiscaglia:44025
 Massa Lombarda:48024
 Massa Lubrense:80061
 Massa Marittima:58024
-Massa Martana:6056
+Massa Martana:06056
 Massafra:74016
 Massalengo:26815
 Massanzago:35010
@@ -3963,7 +3964,7 @@ Massimeno:38086
 Massimino:12071
 Massino Visconti:28040
 Massiola:28895
-Masullas:9090
+Masullas:09090
 Matelica:62024
 Matera:75100
 Mathi:10075
@@ -3973,7 +3974,7 @@ Mattie:10050
 Mattinata:71030
 Mazara del Vallo:91026
 Mazzano:25080
-Mazzano Romano:60
+Mazzano Romano:00060
 Mazzarino:93013
 Mazzarrà Sant'Andrea:98056
 Mazzarrone:95040
@@ -3981,7 +3982,7 @@ Mazzè:10035
 Mazzin:38030
 Mazzo di Valtellina:23030
 Meana di Susa:10050
-Meana Sardo:8030
+Meana Sardo:08030
 Meda:20821
 Mede:27035
 Medea:34076
@@ -4025,7 +4026,7 @@ Menconico:27050
 Mendatica:18025
 Mendicino:87040
 Menfi:92013
-Mentana:13
+Mentana:00013
 Meolo:30020
 Merana:15010
 Merano:39012
@@ -4076,7 +4077,7 @@ Miagliano:13816
 Miane:31050
 Miasino:28010
 Miazzina:28817
-Micigliano:2010
+Micigliano:02010
 Miggiano:73035
 Miglianico:66010
 Migliarino:44027
@@ -4090,7 +4091,7 @@ Milano_2:20162
 Milazzo:98057
 Milena:93010
 Mileto:89852
-Milis:9070
+Milis:09070
 Militello in Val di Catania:95043
 Militello Rosmarino:98070
 Millesimo:17017
@@ -4102,7 +4103,7 @@ Minerbio:40061
 Minervino di Lecce:73027
 Minervino Murge:76013
 Minori:84010
-Minturno:4026
+Minturno:04026
 Minucciano:55034
 Mioglia:17040
 Mira:30034
@@ -4130,7 +4131,7 @@ Modena_1:41121
 Modena_2:41126
 Modica:97015
 Modigliana:47015
-Modolo:8019
+Modolo:08019
 Modugno:70026
 Moena:38035
 Moggio:23817
@@ -4138,8 +4139,8 @@ Moggio Udinese:33015
 Moglia:46024
 Mogliano:62010
 Mogliano Veneto:31021
-Mogorella:9080
-Mogoro:9095
+Mogorella:09080 
+Mogoro:09095
 Moiano:82010
 Moimacco:33040
 Moio Alcantara:98030
@@ -4173,7 +4174,7 @@ Mombello Monferrato:15020
 Mombercelli:14047
 Momo:28015
 Mompantero:10059
-Mompeo:2040
+Mompeo:02040
 Momperone:15050
 Monacilioni:86040
 Monale:14013
@@ -4185,7 +4186,7 @@ Monasterolo Casotto:12080
 Monasterolo del Castello:24060
 Monasterolo di Savigliano:12030
 Monastier di Treviso:31050
-Monastir:9023
+Monastir:09023  
 Moncalieri:10024
 Moncalvo:14036
 Moncenisio:10050
@@ -4225,7 +4226,7 @@ Monsampietro Morico:63842
 Monsampolo del Tronto:63077
 Monsano:60030
 Monselice:35043
-Monserrato:9042
+Monserrato:09042
 Monsummano Terme:51015
 Montà:12046
 Montabone:14040
@@ -4252,7 +4253,7 @@ Montale:51037
 Montalenghe:10090
 Montallegro:92010
 Montalto delle Marche:63068
-Montalto di Castro:1014
+Montalto di Castro:01014
 Montalto Dora:10016
 Montalto Ligure:18010
 Montalto Pavese:27040
@@ -4264,7 +4265,7 @@ Montano Antilia:84060
 Montano Lucino:22070
 Montappone:63835
 Montaquila:86070
-Montasola:2040
+Montasola:02040
 Montauro:88060
 Montazzoli:66030
 Monte Argentario:58019
@@ -4272,7 +4273,7 @@ Monte Castello di Vibio:6057
 Monte Cavallo:62036
 Monte Cerignone:61010
 Monte Colombo:47854
-Monte Compatri:40
+Monte Compatri:00040
 Monte Cremasco:26010
 Monte di Malo:36030
 Monte di Procida:80070
@@ -4281,14 +4282,14 @@ Monte Grimano Terme:61010
 Monte Isola:25050
 Monte Marenzo:23804
 Monte Porzio:61040
-Monte Porzio Catone:40
+Monte Porzio Catone:00040
 Monte Rinaldo:63852
 Monte Roberto:60030
 Monte Romano:1010
-Monte San Biagio:4020
+Monte San Biagio:04020
 Monte San Giacomo:84030
-Monte San Giovanni Campano:3025
-Monte San Giovanni in Sabina:2040
+Monte San Giovanni Campano:03025
+Monte San Giovanni in Sabina:02040
 Monte San Giusto:62015
 Monte San Martino:62020
 Monte San Pietrangeli:63815
@@ -4307,7 +4308,7 @@ Montebello sul Sangro:66040
 Montebello Vicentino:36054
 Montebelluna:31044
 Montebruno:16025
-Montebuono:2040
+Montebuono:02040
 Montecalvo in Foglia:61020
 Montecalvo Irpino:83037
 Montecalvo Versiggia:27047
@@ -4315,11 +4316,11 @@ Montecarlo:55015
 Montecarotto:60036
 Montecassiano:62010
 Montecastello:15040
-Montecastrilli:5026
+Montecastrilli:05026
 Montecatini Val di Cecina:56040
 Montecatini-Terme:51016
 Montecchia di Crosara:37030
-Montecchio:5020
+Montecchio:05020
 Montecchio Emilia:42027
 Montecchio Maggiore:36075
 Montecchio Precalcino:36030
@@ -4338,27 +4339,27 @@ Montecreto:41025
 Montedinove:63069
 Montedoro:93010
 Montefalcione:83030
-Montefalco:6036
+Montefalco:06036
 Montefalcone Appennino:63855
 Montefalcone di Val Fortore:82025
 Montefalcone nel Sannio:86033
 Montefano:62010
 Montefelcino:61030
 Monteferrante:66040
-Montefiascone:1027
+Montefiascone:01027
 Montefino:64030
 Montefiore Conca:47834
 Montefiore dell'Aso:63062
 Montefiorino:41045
-Monteflavio:10
+Monteflavio:00010
 Monteforte Cilento:84060
 Monteforte d'Alpone:37032
 Monteforte Irpino:83024
 Montefortino:63858
-Montefranco:5030
+Montefranco:05030
 Montefredane:83030
 Montefusco:83030
-Montegabbione:5010
+Montegabbione:05010
 Montegalda:36047
 Montegaldella:36047
 Montegallo:63094
@@ -4373,16 +4374,16 @@ Montegrosso Pian Latte:18025
 Montegrotto Terme:35036
 Monteiasi:74020
 Montelabbate:61025
-Montelanico:30
+Montelanico:00030
 Montelapiano:66040
 Monteleone di Fermo:63841
 Monteleone di Puglia:71020
 Monteleone di Spoleto:6045
-Monteleone d'Orvieto:5017
-Monteleone Rocca Doria:7010
-Monteleone Sabino:2033
+Monteleone d'Orvieto:05017
+Monteleone Rocca Doria:07010
+Monteleone Sabino:02033
 Montelepre:90040
-Montelibretti:10
+Montelibretti:00010
 Montella:83048
 Montello:24060
 Montelongo:86040
@@ -4408,7 +4409,7 @@ Montemurlo:59013
 Montemurro:85053
 Montenars:33010
 Montenero di Bisaccia:86036
-Montenero Sabino:2040
+Montenero Sabino:02040
 Montenero Val Cocchiara:86080
 Montenerodomo:66010
 Monteodorisio:66050
@@ -4425,12 +4426,12 @@ Monteriggioni:53035
 Monteroduni:86075
 Monteroni d'Arbia:53014
 Monteroni di Lecce:73047
-Monterosi:1030
+Monterosi:01030
 Monterosso al Mare:19016
 Monterosso Almo:97010
 Monterosso Calabro:89819
 Monterosso Grana:12020
-Monterotondo:15
+Monterotondo:00015
 Monterotondo Marittimo:58025
 Monterubbiano:63825
 Montesano Salentino:73030
@@ -4455,7 +4456,7 @@ Monteverde:83049
 Monteverdi Marittimo:56040
 Monteviale:36050
 Montezemolo:12070
-Monti:7020
+Monti:07020
 Montiano:47020
 Monticelli Brusati:25040
 Monticelli d'Ongina:29010
@@ -4472,13 +4473,13 @@ Montirone:25010
 Montjovet:11020
 Montodine:26010
 Montoggio:16026
-Montone:6014
-Montopoli di Sabina:2034
+Montone:06014
+Montopoli di Sabina:02034
 Montopoli in Val d'Arno:56020
 Montorfano:22030
 Montorio al Vomano:64046
 Montorio nei Frentani:86040
-Montorio Romano:10
+Montorio Romano:00010
 Montoro Inferiore:83025
 Montoro Superiore:83026
 Montorso Vicentino:36050
@@ -4510,18 +4511,18 @@ Morgex:11017
 Morgongiori:9090
 Mori:38065
 Moriago della Battaglia:31010
-Moricone:10
+Moricone:00010
 Morigerati:84030
 Morimondo:20081
 Morino:67050
 Moriondo Torinese:10020
-Morlupo:67
+Morlupo:00067
 Mormanno:87026
 Mornago:21020
 Mornese:15075
 Mornico al Serio:24050
 Mornico Losana:27040
-Morolo:3017
+Morolo:03017
 Morozzo:12040
 Morra De Sanctis:83040
 Morro d'Alba:60030
@@ -4570,7 +4571,7 @@ Mugnano di Napoli:80018
 Mulazzano:26837
 Mulazzo:54026
 Mura:25070
-Muravera:9043
+Muravera:09043
 Murazzano:12060
 Murello:12030
 Murialdo:17013
@@ -4578,7 +4579,7 @@ Murisengo:15020
 Murlo:53016
 Muro Leccese:73036
 Muro Lucano:85054
-Muros:7030
+Muros:07030
 Muscoline:25080
 Musei:9010
 Musile di Piave:30024
@@ -4593,11 +4594,11 @@ Nanno:38010
 Nanto:36024
 Napoli_1:80121
 Napoli_2:80147
-Narbolia:9070
-Narcao:9010
+Narbolia:09070
+Narcao:09010
 Nardò:73048
 Nardodipace:89824
-Narni:5035
+Narni:05035
 Naro:92028
 Narzole:12068
 Nasino:17030
@@ -4607,25 +4608,25 @@ Nave:25075
 Nave San Rocco:38010
 Navelli:67020
 Naz-Sciaves:39040
-Nazzano:60
+Nazzano:00060
 Ne:16040
 Nebbiuno:28010
 Negrar:37024
 Neirone:16040
 Neive:12052
 Nembro:24027
-Nemi:40
+Nemi:00040
 Nemoli:85040
 Neoneli:9080
-Nepi:1036
+Nepi:01036
 Nereto:64015
-Nerola:17
+Nerola:00017
 Nervesa della Battaglia:31040
 Nerviano:20014
-Nespolo:2020
+Nespolo:02020
 Nesso:22020
 Netro:13896
-Nettuno:48
+Nettuno:00048
 Neviano:73040
 Neviano degli Arduini:43024
 Neviglie:12050
@@ -4670,10 +4671,10 @@ Nomi:38060
 Nonantola:41015
 None:10060
 Nonio:28891
-Noragugume:8010
-Norbello:9070
-Norcia:6046
-Norma:4010
+Noragugume:08010
+Norbello:09070
+Norcia:06046
+Norma:04010
 Nosate:20020
 Notaresco:64024
 Noto:96017
@@ -4701,23 +4702,23 @@ Novi Velia:84060
 Noviglio:20082
 Novoli:73051
 Nucetto:12070
-Nughedu San Nicolò:7010
-Nughedu Santa Vittoria:9080
-Nule:7010
-Nulvi:7032
+Nughedu San Nicolò:07010
+Nughedu Santa Vittoria:09080
+Nule:07010
+Nulvi:07032
 Numana:60026
-Nuoro:8100
-Nurachi:9070
-Nuragus:8030
-Nurallao:8030
-Nuraminis:9024
-Nureci:9080
-Nurri:8035
+Nuoro:08100
+Nurachi:09070
+Nuragus:08030
+Nurallao:08030
+Nuraminis:09024
+Nureci:09080
+Nurri:08035
 Nus:11020
 Nusco:83051
 Nuvolento:25080
 Nuvolera:25080
-Nuxis:9010
+Nuxis:09010
 Occhieppo Inferiore:13897
 Occhieppo Superiore:13898
 Occhiobello:45030
@@ -4737,19 +4738,19 @@ Oggiona con Santo Stefano:21040
 Oggiono:23848
 Oglianico:10080
 Ogliastro Cilento:84061
-Olbia:7026
+Olbia:07026
 Olcenengo:13047
 Oldenico:13030
 Oleggio:28047
 Oleggio Castello:28040
 Olevano di Lomellina:27020
-Olevano Romano:35
+Olevano Romano:00035
 Olevano sul Tusciano:84062
 Olgiate Comasco:22077
 Olgiate Molgora:23887
 Olgiate Olona:21057
 Olginate:23854
-Oliena:8025
+Oliena:08025
 Oliva Gessi:27050
 Olivadi:88067
 Oliveri:98060
@@ -4759,25 +4760,25 @@ Oliveto Lucano:75010
 Olivetta San Michele:18030
 Olivola:15030
 Ollastra:9088
-Ollolai:8020
+Ollolai:08020
 Ollomont:11010
-Olmedo:7040
+Olmedo:07040
 Olmeneta:26010
 Olmo al Brembo:24010
 Olmo Gentile:14050
 Oltre il Colle:24013
 Oltressenda Alta:24020
 Oltrona di San Mamette:22070
-Olzai:8020
+Olzai:08020
 Ome:25050
 Omegna:28887
 Omignano:84060
-Onanì:8020
-Onano:1010
+Onanì:08020
+Onano:01010
 Oncino:12030
 Oneta:24020
-Onifai:8020
-Oniferi:8020
+Onifai:08020
+Oniferi:08020
 Ono San Pietro:25040
 Onore:24020
 Onzo:17037
@@ -4787,7 +4788,7 @@ Oppeano:37050
 Oppido Lucano:85015
 Oppido Mamertina:89014
 Ora:39040
-Orani:8026
+Orani:08026
 Oratino:86010
 Orbassano:10043
 Orbetello:58015
@@ -4797,7 +4798,7 @@ Orco Feglino:17024
 Ordona:71040
 Orero:16040
 Orgiano:36040
-Orgosolo:8027
+Orgosolo:08027
 Oria:72024
 Oricola:67063
 Origgio:21040
@@ -4806,17 +4807,17 @@ Orio al Serio:24050
 Orio Canavese:10010
 Orio Litta:26863
 Oriolo:87073
-Oriolo Romano:1010
-Oristano:9170
+Oriolo Romano:01010
+Oristano:09170
 Ormea:12078
 Ormelle:31024
 Ornago:20876
 Ornavasso:28877
 Ornica:24010
-Orosei:8028
-Orotelli:8020
+Orosei:08028
+Orotelli:08020
 Orria:84060
-Orroli:8030
+Orroli:08030
 Orsago:31010
 Orsara Bormida:15010
 Orsara di Puglia:71027
@@ -4826,7 +4827,7 @@ Orsomarso:87020
 Orta di Atella:81030
 Orta Nova:71045
 Orta San Giulio:28016
-Ortacesus:9040
+Ortacesus:09040
 Orte:1028
 Ortelle:73030
 Ortezzano:63851
@@ -4837,20 +4838,20 @@ Ortona dei Marsi:67050
 Ortonovo:19034
 Ortovero:17037
 Ortucchio:67050
-Ortueri:8036
-Orune:8020
-Orvieto:5018
-Orvinio:2035
+Ortueri:08036
+Orune:08020
+Orvieto:05018
+Orvinio:02035
 Orzinuovi:25034
 Orzivecchi:25030
 Osasco:10060
 Osasio:10040
-Oschiri:7027
-Osidda:8020
+Oschiri:07027
+Osidda:08020
 Osiglia:17010
-Osilo:7033
+Osilo:07033
 Osimo:60027
-Osini:8040
+Osini:08040
 Osio Sopra:24040
 Osio Sotto:24046
 Osmate:21018
@@ -4865,7 +4866,7 @@ Ospitale di Cadore:32010
 Ospitaletto:25035
 Ossago Lodigiano:26816
 Ossana:38026
-Ossi:7045
+Ossi:07045
 Ossimo:25050
 Ossona:20010
 Ossuccio:22010
@@ -4877,8 +4878,8 @@ Ostra:60010
 Ostra Vetere:60010
 Ostuni:72017
 Otranto:73028
-Otricoli:5030
-Ottana:8020
+Otricoli:05030
+Ottana:08020
 Ottati:84020
 Ottaviano:80044
 Ottiglio:15038
@@ -4889,19 +4890,19 @@ Ovada:15076
 Ovaro:33025
 Oviglio:15026
 Ovindoli:67046
-Ovodda:8020
+Ovodda:08020
 Oyace:11010
 Ozegna:10080
-Ozieri:7014
+Ozieri:07014
 Ozzano dell'Emilia:40064
 Ozzano Monferrato:15039
 Ozzero:20080
-Pabillonis:9030
+Pabillonis:09030
 Pace del Mela:98042
 Paceco:91027
 Pacentro:67030
 Pachino:96018
-Paciano:6060
+Paciano:06060
 Padenghe sul Garda:25080
 Padergnone:38070
 Paderna:15050
@@ -4912,14 +4913,14 @@ Paderno Franciacorta:25050
 Paderno Ponchielli:26024
 Padova_1:35121
 Padova_2:35143
-Padria:7015
-Padru:7020
+Padria:07015
+Padru:07020
 Padula:84034
 Paduli:82020
 Paesana:12034
 Paese:31038
 Pagani:84016
-Paganico Sabino:2020
+Paganico Sabino:02020
 Pagazzano:24040
 Pagliara:98020
 Paglieta:66020
@@ -4938,7 +4939,7 @@ Palagonia:95046
 Palaia:56036
 Palanzano:43025
 Palata:86037
-Palau:7020
+Palau:07020
 Palazzago:24030
 Palazzo Adriano:90030
 Palazzo Canavese:10010
@@ -4953,9 +4954,9 @@ Palena:66017
 Palermiti:88050
 Palermo_1:90121
 Palermo_2:90151
-Palestrina:36
+Palestrina:00036
 Palestro:27030
-Paliano:3018
+Paliano:03018
 Palizzi:89038
 Pallagorio:88818
 Pallanzeno:28884
@@ -4964,12 +4965,12 @@ Palma Campania:80036
 Palma di Montechiaro:92020
 Palmanova:33057
 Palmariggi:73020
-Palmas Arborea:9090
+Palmas Arborea:09090
 Palmi:89015
 Palmiano:63092
 Palmoli:66050
 Palo del Colle:70027
-Palombara Sabina:18
+Palombara Sabina:00018
 Palombaro:66010
 Palomonte:84020
 Palosco:24050
@@ -4983,7 +4984,7 @@ Pancarana:27050
 Panchià:38030
 Pandino:26025
 Panettieri:87050
-Panicale:6064
+Panicale:06064
 Pannarano:82017
 Panni:71020
 Pantelleria:91017
@@ -5009,7 +5010,7 @@ Parodi Ligure:15060
 Paroldo:12070
 Parolise:83050
 Parona:27020
-Parrano:5010
+Parrano:05010
 Parre:24020
 Partanna:91028
 Partinico:90047
@@ -5021,7 +5022,7 @@ Paspardo:25050
 Passerano Marmorito:14020
 Passignano sul Trasimeno:6065
 Passirano:25050
-Pastena:3020
+Pastena:03020
 Pastorano:81050
 Pastrengo:37010
 Pasturana:15060
@@ -5030,14 +5031,14 @@ Paterno:85050
 Paternò:95047
 Paterno Calabro:87040
 Paternopoli:83052
-Patrica:3010
-Pattada:7016
+Patrica:03010
+Pattada:07016
 Patti:98066
 Patù:73053
-Pau:9090
+Pau:09090
 Paularo:33027
-Pauli Arbarei:9020
-Paulilatino:9070
+Pauli Arbarei:09020
+Paulilatino:09070
 Paullo:20067
 Paupisi:82030
 Pavarolo:10020
@@ -5074,7 +5075,7 @@ Pellio Intelvi:22020
 Pellizzano:38020
 Pelugo:38079
 Penango:14030
-Penna in Teverina:5028
+Penna in Teverina:05028
 Penna San Giovanni:62020
 Penna Sant'Andrea:64039
 Pennabilli:47864
@@ -5085,13 +5086,13 @@ Pentone:88050
 Perano:66040
 Perarolo di Cadore:32010
 Perca:39030
-Percile:20
-Perdasdefogu:8046
-Perdaxius:9010
+Percile:00020
+Perdasdefogu:08046
+Perdaxius:09010
 Perdifumo:84060
 Perego:23888
 Pereto:67064
-Perfugas:7034
+Perfugas:07034
 Pergine Valdarno:52020
 Pergine Valsugana:38057
 Pergola:61045
@@ -5134,9 +5135,9 @@ Pescocostanzo:67033
 Pescolanciano:86097
 Pescopagano:85020
 Pescopennataro:86080
-Pescorocchiano:2024
+Pescorocchiano:02024
 Pescosansonesco:65020
-Pescosolido:3030
+Pescosolido:03030
 Pessano con Bornago:20060
 Pessina Cremonese:26030
 Pessinetto:10070
@@ -5191,13 +5192,13 @@ Pianiga:30030
 Piano di Sorrento:80063
 Pianopoli:88040
 Pianoro:40065
-Piansano:1010
+Piansano:01010
 Piantedo:23010
 Piario:24020
 Piasco:12026
 Piateda:23020
 Piatto:13844
-Piazza al Serchio:55035
+Piazza al Serchio:55035 
 Piazza Armerina:94015
 Piazza Brembana:24014
 Piazzatorre:24010
@@ -5205,13 +5206,13 @@ Piazzola sul Brenta:35016
 Piazzolo:24010
 Picciano:65010
 Picerno:85055
-Picinisco:3040
-Pico:3020
+Picinisco:03040
+Pico:03020
 Piea:14020
 Piedicavallo:13812
 Piedimonte Etneo:95017
 Piedimonte Matese:81016
-Piedimonte San Germano:3030
+Piedimonte San Germano:03030
 Piedimulera:28885
 Piegaro:6066
 Pienza:53026
@@ -5265,15 +5266,15 @@ Pieve Torina:62036
 Pieve Vergonte:28886
 Pievebovigliana:62035
 Pievepelago:41027
-Piglio:3010
+Piglio:03010
 Pigna:18037
-Pignataro Interamna:3040
+Pignataro Interamna:03040
 Pignataro Maggiore:81052
 Pignola:85010
 Pignone:19020
 Pigra:22020
 Pila:13020
-Pimentel:9020
+Pimentel:09020
 Pimonte:80050
 Pinarolo Po:27040
 Pinasca:10060
@@ -5305,10 +5306,10 @@ Pisa_1:56121
 Pisa_2:56128
 Pisano:28010
 Piscina:10060
-Piscinas:9010
+Piscinas:09010
 Pisciotta:84066
 Pisogne:25055
-Pisoniano:20
+Pisoniano:00020
 Pisticci:75015
 Pistoia:51100
 Piteglio:51020
@@ -5329,31 +5330,31 @@ Platania:88040
 Platì:89039
 Plaus:39025
 Plesio:22010
-Ploaghe:7017
+Ploaghe:07017
 Plodio:17043
 Pocapaglia:12060
 Pocenia:33050
 Podenzana:54010
 Podenzano:29027
-Pofi:3026
+Pofi:03026
 Poggiardo:73037
 Poggibonsi:53036
 Poggio a Caiano:59016
 Poggio Berni:47824
-Poggio Bustone:2018
-Poggio Catino:2040
+Poggio Bustone:02018
+Poggio Catino:02040
 Poggio Imperiale:71010
-Poggio Mirteto:2047
-Poggio Moiano:2037
-Poggio Nativo:2030
+Poggio Mirteto:02047
+Poggio Moiano:02037
+Poggio Nativo:02030
 Poggio Picenze:67026
 Poggio Renatico:44028
 Poggio Rusco:46025
-Poggio San Lorenzo:2030
+Poggio San Lorenzo:02030
 Poggio San Marcello:60030
 Poggio San Vicino:62021
 Poggio Sannita:86086
-Poggiodomo:6040
+Poggiodomo:06040
 Poggiofiorito:66030
 Poggiomarino:80040
 Poggioreale:91020
@@ -5369,12 +5370,12 @@ Polaveno:25060
 Polcenigo:33070
 Polesella:45038
 Polesine Parmense:43010
-Poli:10
+Poli:00010
 Polia:89813
 Policoro:75025
 Polignano a Mare:70044
 Polinago:41040
-Polino:5030
+Polino:05030
 Polistena:89024
 Polizzi Generosa:90028
 Polla:84035
@@ -5395,13 +5396,13 @@ Pomarico:75016
 Pomaro Monferrato:15040
 Pomarolo:38060
 Pombia:28050
-Pomezia:40
+Pomezia:00040
 Pomigliano d'Arco:80038
 Pompei:80045
 Pompeiana:18015
 Pompiano:25030
 Pomponesco:46030
-Pompu:9093
+Pompu:09093
 Poncarale:25020
 Ponderano:13875
 Ponna:22020
@@ -5427,7 +5428,7 @@ Pontebba:33016
 Pontecagnano Faiano:84098
 Pontecchio Polesine:45030
 Pontechianale:12020
-Pontecorvo:3037
+Pontecorvo:03037
 Pontecurone:15055
 Pontedassio:18027
 Pontedera:56025
@@ -5442,21 +5443,21 @@ Pontey:11024
 Ponti:15010
 Ponti sul Mincio:46040
 Pontida:24030
-Pontinia:4014
+Pontinia:04014
 Pontinvrea:17042
 Pontirolo Nuovo:24040
 Pontoglio:25037
 Pontremoli:54027
 Pont-Saint-Martin:11026
-Ponza:4027
+Ponza:04027
 Ponzano di Fermo:63845
 Ponzano Monferrato:15020
-Ponzano Romano:60
+Ponzano Romano:00060
 Ponzano Veneto:31050
 Ponzone:15010
 Popoli:65026
 Poppi:52014
-Porano:5010
+Porano:05010
 Porcari:55016
 Porcia:33080
 Pordenone:33170
@@ -5480,7 +5481,7 @@ Porto Recanati:62017
 Porto San Giorgio:63822
 Porto Sant'Elpidio:63821
 Porto Tolle:45018
-Porto Torres:7046
+Porto Torres:07046
 Porto Valtravaglia:21010
 Porto Viro:45014
 Portobuffolè:31040
@@ -5497,8 +5498,8 @@ Posada:8020
 Posina:36010
 Positano:84017
 Possagno:31054
-Posta:2019
-Posta Fibreno:3030
+Posta:02019
+Posta Fibreno:03030
 Postal:39014
 Postalesio:23010
 Postiglione:84026
@@ -5511,7 +5512,7 @@ Povegliano Veronese:37064
 Poviglio:42028
 Povoletto:33040
 Pozza di Fassa:38036
-Pozzaglia Sabina:2030
+Pozzaglia Sabina:02030
 Pozzaglio ed Uniti:26010
 Pozzallo:97016
 Pozzilli:86077
@@ -5520,7 +5521,7 @@ Pozzol Groppo:15050
 Pozzolengo:25010
 Pozzoleone:36050
 Pozzolo Formigaro:15068
-Pozzomaggiore:7018
+Pozzomaggiore:07018
 Pozzonovo:35020
 Pozzuoli:80078
 Pozzuolo del Friuli:33050
@@ -5560,7 +5561,7 @@ Pravisdomini:33076
 Pray:13867
 Prazzo:12028
 Precenicco:33050
-Preci:6047
+Preci:06047
 Predappio:47016
 Predazzo:38037
 Predoi:39030
@@ -5597,13 +5598,13 @@ Primaluna:23819
 Priocca:12040
 Priola:12070
 Priolo Gargallo:96010
-Priverno:4015
+Priverno:04015
 Prizzi:90038
-Proceno:1020
+Proceno:01020
 Procida:80079
 Propata:16027
 Proserpio:22030
-Prossedi:4010
+Prossedi:04010
 Provaglio d'Iseo:25050
 Provaglio Val Sabbia:25070
 Proves:39040
@@ -5611,13 +5612,13 @@ Provvidenti:86040
 Prunetto:12077
 Puegnago sul Garda:25080
 Puglianello:82030
-Pula:9010
+Pula:09010
 Pulfero:33046
 Pulsano:74026
 Pumenengo:24050
 Puos d'Alpago:32015
 Pusiano:22030
-Putifigari:7040
+Putifigari:07040
 Putignano:70017
 Quadrelle:83020
 Quadri:66040
@@ -5633,8 +5634,8 @@ Quarrata:51039
 Quart:11020
 Quarto:80010
 Quarto d'Altino:30020
-Quartu Sant'Elena:9045
-Quartucciu:9044
+Quartu Sant'Elena:09045
+Quartucciu:09044
 Quassolo:10010
 Quattordio:15028
 Quattro Castella:42020
@@ -5740,7 +5741,7 @@ Rhemes-Saint-Georges:11010
 Rho:20017
 Riace:89040
 Rialto:17020
-Riano:60
+Riano:00060
 Riardo:81053
 Ribera:92016
 Ribordone:10080
@@ -5753,10 +5754,10 @@ Ricengo:26010
 Ricigliano:84020
 Riese Pio X:31039
 Riesi:93016
-Rieti:2100
+Rieti:02100
 Rifiano:39010
 Rifreddo:12030
-Rignano Flaminio:68
+Rignano Flaminio:00068
 Rignano Garganico:71010
 Rignano sull'Arno:50067
 Rigolato:33020
@@ -5769,8 +5770,8 @@ Rio di Pusteria:39037
 Rio Marina:57038
 Rio nell'Elba:57039
 Rio Saliceto:42010
-Riofreddo:20
-Riola Sardo:9070
+Riofreddo:00020
+Riola Sardo:09070
 Riolo Terme:48025
 Riolunato:41020
 Riomaggiore:19017
@@ -5787,7 +5788,7 @@ Riparbella:56046
 Ripatransone:63065
 Ripe:60010
 Ripe San Ginesio:62020
-Ripi:3027
+Ripi:03027
 Riposto:95018
 Rittana:12010
 Riva del Garda:38066
@@ -5812,7 +5813,7 @@ Rivello:85040
 Rivergaro:29029
 Rivignano:33050
 Rivisondoli:67036
-Rivodutri:2010
+Rivodutri:02010
 Rivoli:10098
 Rivoli Veronese:37010
 Rivolta d'Adda:26027
@@ -5834,7 +5835,7 @@ Robella:14020
 Robilante:12017
 Roburent:12080
 Rocca Canavese:10070
-Rocca Canterano:20
+Rocca Canterano:00020
 Rocca Cigliè:12060
 Rocca d'Arazzo:14030
 Rocca d'Arce:3030
@@ -5843,22 +5844,22 @@ Rocca de' Giorgi:27040
 Rocca D'Evandro:81040
 Rocca di Botte:67066
 Rocca di Cambio:67047
-Rocca di Cave:30
+Rocca di Cave:00030
 Rocca di Mezzo:67048
 Rocca di Neto:88821
-Rocca di Papa:40
+Rocca di Papa:00040
 Rocca Grimalda:15078
 Rocca Imperiale:87074
-Rocca Massima:4010
+Rocca Massima:04010
 Rocca Pia:67030
 Rocca Pietore:32020
-Rocca Priora:40
+Rocca Priora:00040
 Rocca San Casciano:47017
 Rocca San Felice:83050
 Rocca San Giovanni:66020
 Rocca Santa Maria:64010
-Rocca Santo Stefano:30
-Rocca Sinibalda:2026
+Rocca Santo Stefano:00030
+Rocca Sinibalda:02026
 Rocca Susella:27052
 Roccabascerana:83016
 Roccabernarda:88835
@@ -5873,9 +5874,9 @@ Roccaforte Ligure:15060
 Roccaforte Mondovì:12088
 Roccaforzata:74020
 Roccafranca:25030
-Roccagiovine:20
+Roccagiovine:00020
 Roccagloriosa:84060
-Roccagorga:4010
+Roccagorga:04010
 Roccalbegna:58053
 Roccalumera:98027
 Roccamandolfi:86092
@@ -5892,7 +5893,7 @@ Roccaraso:67037
 Roccaromana:81051
 Roccascalegna:66040
 Roccasecca:3038
-Roccasecca dei Volsci:4010
+Roccasecca dei Volsci:04010
 Roccasicura:86080
 Roccasparvera:12010
 Roccaspinalveti:66050
@@ -5932,18 +5933,18 @@ Rogliano:87054
 Rognano:27010
 Rogno:24060
 Rogolo:23010
-Roiate:30
+Roiate:00030
 Roio del Sangro:66040
 Roisan:11010
 Roletto:10060
 Rolo:42047
-Roma_1:118
-Roma_2:199
+Roma_1:00118
+Roma_2:00199
 Romagnano al Monte:84020
 Romagnano Sesia:28078
 Romagnese:27050
 Romallo:38028
-Romana:7010
+Romana:07010
 Romanengo:26014
 Romano Canavese:10090
 Romano d'Ezzelino:36060
@@ -5963,7 +5964,7 @@ Roncello:20877
 Ronchi dei Legionari:34077
 Ronchi Valsugana:38050
 Ronchis:33050
-Ronciglione:1037
+Ronciglione:01037
 Ronco all'Adige:37055
 Ronco Biellese:13845
 Ronco Briantino:20885
@@ -6010,7 +6011,7 @@ Rotella:63071
 Rotello:86040
 Rotonda:85048
 Rotondella:75026
-Rotondi:83017
+Rotondi:83017 
 Rottofreno:29010
 Rotzo:36010
 Roure:10060
@@ -6029,7 +6030,7 @@ Roveredo in Piano:33080
 Rovereto:38068
 Rovescala:27040
 Rovetta:24020
-Roviano:27
+Roviano:00027
 Rovigo:45100
 Rovito:87050
 Rovolon:35030
@@ -6054,16 +6055,16 @@ Rutino:84070
 Ruviano:81010
 Ruvo del Monte:85020
 Ruvo di Puglia:70037
-Sabaudia:4016
+Sabaudia:04016
 Sabbia:13020
 Sabbio Chiese:25070
 Sabbioneta:46018
 Sacco:84070
 Saccolongo:35030
 Sacile:33077
-Sacrofano:60
-Sadali:8030
-Sagama:8010
+Sacrofano:00060
+Sadali:08030
+Sagama:08010
 Sagliano Micca:13816
 Sagrado:34078
 Sagron Mis:38050
@@ -6104,7 +6105,7 @@ Salgareda:31040
 Sali Vercellese:13040
 Salice Salentino:73015
 Saliceto:12079
-Salisano:2040
+Salisano:02040
 Salizzole:37056
 Salle:65020
 Salmour:12040
@@ -6124,11 +6125,11 @@ Salza di Pinerolo:10060
 Salza Irpina:83050
 Salzano:30030
 Samarate:21017
-Samassi:9030
-Samatzai:9020
+Samassi:09030
+Samatzai:09020
 Sambuca di Sicilia:92017
 Sambuca Pistoiese:51020
-Sambuci:20
+Sambuci:00020
 Sambuco:12010
 Sammichele di Bari:70010
 Samo:89030
@@ -6136,12 +6137,12 @@ Samolaco:23027
 Samone:10010
 Samone:38059
 Sampeyre:12020
-Samugheo:9086
+Samugheo:09086
 San Bartolomeo al Mare:18016
 San Bartolomeo in Galdo:82028
 San Bartolomeo Val Cavargna:22010
 San Basile:87010
-San Basilio:9040
+San Basilio:09040
 San Bassano:26020
 San Bellino:45020
 San Benedetto Belbo:12050
@@ -6156,7 +6157,7 @@ San Bernardino Verbano:28804
 San Biagio della Cima:18036
 San Biagio di Callalta:31048
 San Biagio Platani:92020
-San Biagio Saracinisco:3040
+San Biagio Saracinisco:03040
 San Biase:86020
 San Bonifacio:37047
 San Buono:66050
@@ -6200,12 +6201,12 @@ San Donaci:72025
 San Donato di Lecce:73010
 San Donato di Ninea:87010
 San Donato Milanese:20097
-San Donato Val di Comino:3046
+San Donato Val di Comino:03046
 San Dorligo della Valle - Dolina:34018
 San Fedele Intelvi:22028
 San Fele:85020
 San Felice a Cancello:81027
-San Felice Circeo:4017
+San Felice Circeo:04017
 San Felice del Benaco:25010
 San Felice del Molise:86030
 San Felice sul Panaro:41038
@@ -6220,8 +6221,8 @@ San Floriano del Collio:34070
 San Floro:88021
 San Francesco al Campo:10070
 San Fratello:98075
-San Gavino Monreale:9037
-San Gemini:5029
+San Gavino Monreale:09037
+San Gemini:05029
 San Genesio Atesino:39050
 San Genesio ed Uniti:27010
 San Gennaro Vesuviano:80040
@@ -6237,7 +6238,7 @@ San Gillio:10040
 San Gimignano:53037
 San Ginesio:62026
 San Giorgio a Cremano:80046
-San Giorgio a Liri:3047
+San Giorgio a Liri:03047
 San Giorgio Albanese:87060
 San Giorgio Canavese:10090
 San Giorgio del Sannio:82018
@@ -6271,12 +6272,12 @@ San Giovanni in Fiore:87055
 San Giovanni in Galdo:86010
 San Giovanni in Marignano:47842
 San Giovanni in Persiceto:40017
-San Giovanni Incarico:3028
+San Giovanni Incarico:03028
 San Giovanni la Punta:95037
 San Giovanni Lipioni:66050
 San Giovanni Lupatoto:37057
 San Giovanni Rotondo:71013
-San Giovanni Suergiu:9010
+San Giovanni Suergiu:09010
 San Giovanni Teatino:66020
 San Giovanni Valdarno:52027
 San Giuliano del Sannio:86010
@@ -6285,10 +6286,10 @@ San Giuliano Milanese:20098
 San Giuliano Terme:56017
 San Giuseppe Jato:90048
 San Giuseppe Vesuviano:80047
-San Giustino:6016
+San Giustino:06016
 San Giusto Canavese:10090
 San Godenzo:50060
-San Gregorio da Sassola:10
+San Gregorio da Sassola:00010
 San Gregorio di Catania:95027
 San Gregorio d'Ippona:89853
 San Gregorio Magno:84020
@@ -6309,7 +6310,7 @@ San Lorenzo in Banale:38078
 San Lorenzo in Campo:61047
 San Lorenzo Isontino:34070
 San Lorenzo Maggiore:82034
-San Lorenzo Nuovo:1020
+San Lorenzo Nuovo:01020
 San Luca:89030
 San Lucido:87038
 San Lupo:82034
@@ -6376,9 +6377,9 @@ San Nicola da Crissa:89821
 San Nicola dell'Alto:88817
 San Nicola la Strada:81020
 San Nicola Manfredi:82010
-San Nicolò d'Arcidano:9097
+San Nicolò d'Arcidano:09097
 San Nicolò di Comelico:32040
-San Nicolò Gerrei:9040
+San Nicolò Gerrei:09040
 San Pancrazio:39010
 San Pancrazio Salentino:72026
 San Paolo:25020
@@ -6418,7 +6419,7 @@ San Pietro Val Lemina:10060
 San Pietro Vernotico:72027
 San Pietro Viminario:35020
 San Pio delle Camere:67020
-San Polo dei Cavalieri:10
+San Polo dei Cavalieri:00010
 San Polo d'Enza:42020
 San Polo di Piave:31020
 San Polo Matese:86020
@@ -6452,21 +6453,21 @@ San Siro:22010
 San Sossio Baronia:83050
 San Sostene:88060
 San Sosti:87010
-San Sperate:9026
+San Sperate:09026
 San Tammaro:81050
 San Teodoro:98030
-San Teodoro:8020
+San Teodoro:08020
 San Tomaso Agordino:32020
 San Valentino in Abruzzo Citeriore:65020
 San Valentino Torio:84010
-San Venanzo:5010
+San Venanzo:05010
 San Vendemiano:31020
-San Vero Milis:9070
+San Vero Milis:09070
 San Vincenzo:57027
 San Vincenzo la Costa:87030
 San Vincenzo Valle Roveto:67050
 San Vitaliano:80030
-San Vito:9040
+San Vito:09040
 San Vito al Tagliamento:33078
 San Vito al Torre:33050
 San Vito Chietino:66038
@@ -6475,9 +6476,9 @@ San Vito di Cadore:32046
 San Vito di Fagagna:33030
 San Vito di Leguzzano:36030
 San Vito Lo Capo:91010
-San Vito Romano:30
+San Vito Romano:00030
 San Vito sullo Ionio:88067
-San Vittore del Lazio:3040
+San Vittore del Lazio:03040
 San Vittore Olona:20028
 San Zeno di Montagna:37010
 San Zeno Naviglio:25010
@@ -6493,7 +6494,7 @@ Sangano:10090
 Sangiano:21038
 Sangineto:87020
 Sanguinetto:37058
-Sanluri:9025
+Sanluri:09025
 Sannazzaro de' Burgondi:27039
 Sannicandro di Bari:70028
 Sannicola:73017
@@ -6547,7 +6548,7 @@ Santa Maria Maggiore:28857
 Santa Maria Nuova:60030
 Santa Marina:84070
 Santa Marina Salina:98050
-Santa Marinella:58
+Santa Marinella:00058
 Santa Ninfa:91029
 Santa Paolina:83030
 Santa Severina:88832
@@ -6558,7 +6559,7 @@ Santa Teresa Gallura:7028
 Santa Venerina:95010
 Santa Vittoria d'Alba:12069
 Santa Vittoria in Matenano:63854
-Santadi:9010
+Santadi:09010
 Sant'Agapito:86070
 Sant'Agata Bolognese:40019
 Sant'Agata De' Goti:82019
@@ -6579,13 +6580,13 @@ Sant'Alessio Siculo:98030
 Sant'Alfio:95010
 Sant'Ambrogio di Torino:10057
 Sant'Ambrogio di Valpolicella:37015
-Sant'Ambrogio sul Garigliano:3040
+Sant'Ambrogio sul Garigliano:03040
 Sant'Anastasia:80048
-Sant'Anatolia di Narco:6040
+Sant'Anatolia di Narco:06040
 Sant'Andrea Apostolo dello Ionio:88060
-Sant'Andrea del Garigliano:3040
+Sant'Andrea del Garigliano:03040
 Sant'Andrea di Conza:83053
-Sant'Andrea Frius:9040
+Sant'Andrea Frius:09040
 Sant'Angelo a Cupolo:82010
 Sant'Angelo a Fasanella:84027
 Sant'Angelo a Scala:83010
@@ -6603,15 +6604,15 @@ Sant'Angelo Limosano:86020
 Sant'Angelo Lodigiano:26866
 Sant'Angelo Lomellina:27030
 Sant'Angelo Muxaro:92020
-Sant'Angelo Romano:10
-Sant'Anna Arresi:9010
+Sant'Angelo Romano:00010
+Sant'Anna Arresi:09010
 Sant'Anna d'Alfaedo:37020
 Sant'Antimo:80029
-Sant'Antioco:9017
+Sant'Antioco:09017
 Sant'Antonino di Susa:10050
 Sant'Antonio Abate:80057
-Sant'Antonio di Gallura:7030
-Sant'Apollinare:3048
+Sant'Antonio di Gallura:07030
+Sant'Apollinare:03048
 Sant'Arcangelo:85037
 Santarcangelo di Romagna:47822
 Sant'Arcangelo Trimonte:82021
@@ -6632,7 +6633,7 @@ Sant'Eufemia d'Aspromonte:89027
 Sant'Eusanio del Sangro:66037
 Sant'Eusanio Forconese:67020
 Santhià:13048
-Santi Cosma e Damiano:4020
+Santi Cosma e Damiano:04020
 Sant'Ilario dello Ionio:89040
 Sant'Ilario d'Enza:42049
 Sant'Ippolito:61040
@@ -6656,11 +6657,11 @@ Santomenna:84020
 Sant'Omero:64027
 Sant'Omobono Terme:24038
 Sant'Onofrio:89843
-Santopadre:3030
-Sant'Oreste:60
+Santopadre:03030
+Sant'Oreste:00060
 Santorso:36014
 Sant'Orsola Terme:38050
-Santu Lussurgiu:9075
+Santu Lussurgiu:09075
 Sant'Urbano:35040
 Sanza:84030
 Sanzeno:38010
@@ -6669,10 +6670,10 @@ Saponara:98047
 Sappada:32047
 Sapri:84073
 Saracena:87010
-Saracinesco:20
+Saracinesco:00020
 Sarcedo:36030
 Sarconi:85050
-Sardara:9030
+Sardara:09030
 Sardigliano:15060
 Sarego:36040
 Sarentino:39058
@@ -6686,14 +6687,14 @@ Sarno:84087
 Sarnonico:38011
 Saronno:21047
 Sarre:11010
-Sarroch:9018
+Sarroch:09018
 Sarsina:47027
 Sarteano:53047
 Sartirana Lomellina:27020
-Sarule:8020
+Sarule:08020
 Sarzana:19038
 Sassano:84038
-Sassari:7100
+Sassari:07100
 Sassello:17046
 Sassetta:57020
 Sassinoro:82026
@@ -6738,9 +6739,9 @@ Scandiano:42019
 Scandicci:50018
 Scandolara Ravara:26040
 Scandolara Ripa d'Oglio:26047
-Scandriglia:2038
+Scandriglia:02038
 Scanno:67038
-Scano di Montiferro:9078
+Scano di Montiferro:09078
 Scansano:58054
 Scanzano Jonico:75020
 Scanzorosciate:24020
@@ -6751,8 +6752,8 @@ Scarnafigi:12030
 Scarperia:50038
 Scena:39017
 Scerni:66020
-Scheggia e Pascelupo:6027
-Scheggino:6040
+Scheggia e Pascelupo:06027
+Scheggino:06040
 Schiavi di Abruzzo:66045
 Schiavon:36060
 Schignano:22020
@@ -6785,21 +6786,21 @@ Seclì:73050
 Secugnago:26826
 Sedegliano:33039
 Sedico:32036
-Sedilo:9076
-Sedini:7035
+Sedilo:09076
+Sedini:07035
 Sedriano:20018
 Sedrina:24010
 Sefro:62025
-Segariu:9040
+Segariu:09040
 Seggiano:58038
-Segni:37
+Segni:00037
 Segonzano:38047
 Segrate:20090
 Segusino:31040
-Selargius:9047
-Selci:2040
-Selegas:9040
-Sellano:6030
+Selargius:09047
+Selci:02040
+Selegas:09040
+Sellano:06030
 Sellero:25050
 Sellia:88050
 Sellia Marina:88050
@@ -6810,29 +6811,29 @@ Selva di Val Gardena:39048
 Selvazzano Dentro:35030
 Selve Marcone:13841
 Selvino:24020
-Semestene:7010
+Semestene:07010
 Semiana:27020
 Seminara:89028
 Semproniano:58055
 Senago:20030
 Senales:39020
 Senale-San Felice:39010
-Seneghe:9070
+Seneghe:09070
 Senerchia:83050
 Seniga:25020
 Senigallia:60019
-Senis:9080
+Senis:09080
 Senise:85038
 Senna Comasco:22070
 Senna Lodigiana:26856
-Sennariolo:9078
-Sennori:7036
-Senorbì:9040
+Sennariolo:09078
+Sennori:07036
+Senorbì:09040
 Sepino:86017
 Seppiana:28843
 Sequals:33090
 Seravezza:55047
-Serdiana:9040
+Serdiana:09040
 Seregno:20831
 Seren del Grappa:32030
 Sergnano:26010
@@ -6841,7 +6842,7 @@ Serina:24017
 Serino:83028
 Serle:25080
 Sermide:46028
-Sermoneta:4013
+Sermoneta:04013
 Sernaglia della Battaglia:31020
 Sernio:23030
 Serole:14050
@@ -6856,7 +6857,7 @@ Serracapriola:71010
 Serradifalco:93010
 Serralunga d'Alba:12050
 Serralunga di Crea:15020
-Serramanna:9038
+Serramanna:09038
 Serramazzoni:41028
 Serramezzana:84070
 Serramonacesca:65025
@@ -6871,9 +6872,9 @@ Serravalle Pistoiese:51030
 Serravalle Scrivia:15069
 Serravalle Sesia:13037
 Serre:84028
-Serrenti:9027
-Serri:8030
-Serrone:3010
+Serrenti:09027
+Serri:08030
+Serrone:03010
 Serrungarina:61030
 Sersale:88054
 Servigliano:63839
@@ -6893,9 +6894,9 @@ Sesto San Giovanni:20099
 Sestola:41029
 Sestri Levante:16039
 Sestriere:10058
-Sestu:9028
+Sestu:09028
 Settala:20090
-Settefrati:3040
+Settefrati:03040
 Settime:14020
 Settimo Milanese:20019
 Settimo Rottaro:10010
@@ -6903,59 +6904,59 @@ Settimo San Pietro:9040
 Settimo Torinese:10036
 Settimo Vittone:10010
 Settingiano:88040
-Setzu:9029
-Seui:8037
-Seulo:8030
+Setzu:09029
+Seui:08037
+Seulo:08030
 Seveso:20822
 Sezzadio:15079
-Sezze:4018
+Sezze:04018
 Sfruz:38010
 Sgonico:34010
-Sgurgola:3010
-Siamaggiore:9070
-Siamanna:9080
+Sgurgola:03010
+Siamaggiore:09070
+Siamanna:09080
 Siano:84088
-Siapiccia:9080
+Siapiccia:09080
 Sicignano degli Alburni:84029
 Siculiana:92010
 Siddi:9020
 Siderno:89048
 Siena:53100
-Sigillo:6028
+Sigillo:06028
 Signa:50058
 Silandro:39028
-Silanus:8017
+Silanus:08017
 Silea:31057
-Siligo:7040
-Siliqua:9010
-Silius:9040
+Siligo:07040
+Siliqua:09010
+Silius:09040
 Sillano:55030
 Sillavengo:28064
 Silvano d'Orba:15060
 Silvano Pietra:27050
 Silvi:64028
-Simala:9090
-Simaxis:9088
+Simala:09090
+Simaxis:09088
 Simbario:89822
 Simeri Crichi:88050
 Sinagra:98069
 Sinalunga:53048
-Sindia:8018
-Sini:9090
+Sindia:08018
+Sini:09090
 Sinio:12050
-Siniscola:8029
-Sinnai:9048
+Siniscola:08029
+Sinnai:09048
 Sinopoli:89020
 Siracusa:96100
 Sirignano:83020
-Siris:9090
+Siris:09090
 Sirmione:25019
 Sirolo:60020
 Sirone:23844
 Siror:38054
 Sirtori:23896
 Sissa:43018
-Siurgus Donigala:9040
+Siurgus Donigala:09040
 Siziano:27010
 Sizzano:28070
 Sluderno:39020
@@ -6963,7 +6964,7 @@ Smarano:38010
 Smerillo:63856
 Soave:37038
 Socchieve:33020
-Soddì:9080
+Soddì:09080
 Sogliano al Rubicone:47030
 Sogliano Cavour:73010
 Soglio:14020
@@ -6973,12 +6974,12 @@ Solarino:96010
 Solaro:20020
 Solarolo:48027
 Solarolo Rainerio:26030
-Solarussa:9077
+Solarussa:09077
 Solbiate:22070
 Solbiate Arno:21048
 Solbiate Olona:21058
 Soldano:18036
-Soleminis:9040
+Soleminis:09040
 Solero:15029
 Solesino:35047
 Soleto:73010
@@ -7005,9 +7006,9 @@ Sondalo:23035
 Sondrio:23100
 Songavazzo:24020
 Sonico:25048
-Sonnino:4010
+Sonnino:04010
 Soprana:13834
-Sora:3039
+Sora:03039
 Soraga:38030
 Soragna:43019
 Sorano:58010
@@ -7018,18 +7019,18 @@ Sordevolo:13817
 Sordio:26858
 Soresina:26015
 Sorgà:37060
-Sorgono:8038
+Sorgono:08038
 Sori:16030
 Sorianello:89831
 Soriano Calabro:89831
-Soriano nel Cimino:1038
+Soriano nel Cimino:01038
 Sorico:22010
 Soriso:28010
 Sorisole:24010
 Sormano:22030
-Sorradile:9080
+Sorradile:09080
 Sorrento:80067
-Sorso:7037
+Sorso:07037
 Sortino:96010
 Sospiro:26048
 Sospirolo:32037
@@ -7052,10 +7053,10 @@ Spadola:89822
 Sparanise:81056
 Sparone:10080
 Specchia:73040
-Spello:6038
+Spello:06038
 Spera:38059
 Sperlinga:94010
-Sperlonga:4029
+Sperlonga:04029
 Sperone:83020
 Spessa:27010
 Spezzano Albanese:87019
@@ -7078,7 +7079,7 @@ Spino d'Adda:26016
 Spinone al Lago:24060
 Spinoso:85039
 Spirano:24050
-Spoleto:6049
+Spoleto:06049
 Spoltore:65010
 Spongano:73038
 Spormaggiore:38010
@@ -7111,8 +7112,8 @@ Stienta:45039
 Stigliano:75018
 Stignano:89040
 Stilo:89049
-Stimigliano:2048
-Stintino:7040
+Stimigliano:02048
+Stintino:07040
 Stio:84075
 Stornara:71047
 Stornarella:71048
@@ -7129,7 +7130,7 @@ Strevi:15019
 Striano:80040
 Strigno:38059
 Strona:13823
-Stroncone:5039
+Stroncone:05039
 Strongoli:88816
 Stroppiana:13010
 Stroppo:12020
@@ -7137,10 +7138,10 @@ Strozza:24030
 Sturno:83055
 Suardi:27030
 Subbiano:52010
-Subiaco:28
+Subiaco:00028
 Succivo:81030
 Sueglio:23835
-Suelli:9040
+Suelli:09040
 Suello:23867
 Suisio:24040
 Sulbiate:20884
@@ -7148,22 +7149,22 @@ Sulmona:67039
 Sulzano:25058
 Sumirago:21040
 Summonte:83010
-Suni:8010
+Suni:08010
 Suno:28019
 Supersano:73040
-Supino:3019
+Supino:03019
 Surano:73030
 Surbo:73010
 Susa:10059
 Susegana:31058
 Sustinente:46030
 Sutera:93010
-Sutri:1015
+Sutri:01015
 Sutrio:33020
 Suvereto:57028
 Suzzara:46029
 Taceno:23837
-Tadasuni:9080
+Tadasuni:09080
 Taggia:18018
 Tagliacozzo:67069
 Taglio di Po:45019
@@ -7174,19 +7175,19 @@ Taio:38012
 Taipana:33040
 Talamello:47867
 Talamona:23018
-Talana:8040
+Talana:08040
 Taleggio:24010
 Talla:52010
 Talmassons:33030
 Tambre:32010
 Taormina:98039
-Tarano:2040
+Tarano:02040
 Taranta Peligna:66018
 Tarantasca:12020
 Taranto_1:74121
 Taranto_2:74123
 Tarcento:33017
-Tarquinia:1016
+Tarquinia:01016
 Tarsia:87040
 Tartano:23010
 Tarvisio:33018
@@ -7217,10 +7218,10 @@ Teglio:23036
 Teglio Veneto:30025
 Telese Terme:82037
 Telgate:24060
-Telti:7020
+Telti:07020
 Telve:38050
 Telve di Sopra:38050
-Tempio Pausania:7029
+Tempio Pausania:07029
 Temù:25050
 Tenna:38050
 Tenno:38060
@@ -7229,10 +7230,10 @@ Teor:33050
 Teora:83056
 Teramo:64100
 Terdobbiate:28070
-Terelle:3040
+Terelle:03040
 Terento:39030
 Terenzo:43040
-Tergu:7030
+Tergu:07030
 Terlago:38070
 Terlano:39018
 Terlizzi:70038
@@ -7242,11 +7243,11 @@ Termini Imerese:90018
 Termoli:86039
 Ternate:21020
 Ternengo:13844
-Terni:5100
+Terni:05100
 Terno d'Isola:24030
-Terracina:4019
+Terracina:04019
 Terragnolo:38060
-Terralba:9098
+Terralba:09098
 Terranova da Sibari:87010
 Terranova dei Passerini:26827
 Terranova di Pollino:85030
@@ -7259,7 +7260,7 @@ Terrazzo:37040
 Terres:38010
 Terricciola:56030
 Terruggia:15030
-Tertenia:8047
+Tertenia:08047
 Terzigno:80040
 Terzo:15010
 Terzo d'Aquileia:33050
@@ -7267,41 +7268,41 @@ Terzolas:38027
 Terzorio:18010
 Tesero:38038
 Tesimo:39010
-Tessennano:1010
+Tessennano:01010
 Testico:17020
-Teti:8030
+Teti:08030
 Teulada:9019
 Teverola:81030
 Tezze sul Brenta:36056
 Thiene:36016
-Thiesi:7047
-Tiana:8020
+Thiesi:07047
+Tiana:08020
 Ticengo:26020
 Ticineto:15040
 Tiggiano:73030
 Tiglieto:16010
 Tigliole:14016
 Tignale:25080
-Tinnura:8010
+Tinnura:08010
 Tione degli Abruzzi:67020
 Tione di Trento:38079
 Tirano:23037
 Tires:39050
 Tiriolo:88056
 Tirolo:39019
-Tissi:7040
+Tissi:07040
 Tito:85050
-Tivoli:19
+Tivoli:00019
 Tizzano Val Parma:43028
 Toano:42010
 Tocco Caudio:82030
 Tocco da Casauria:65028
 Toceno:28858
-Todi:6059
-Toffia:2039
+Todi:06059
+Toffia:02039
 Toirano:17055
 Tolentino:62029
-Tolfa:59
+Tolfa:00059
 Tollegno:13818
 Tollo:66010
 Tolmezzo:33028
@@ -7309,7 +7310,7 @@ Tolve:85017
 Tombolo:35019
 Ton:38010
 Tonadico:38054
-Tonara:8039
+Tonara:08039
 Tonco:14039
 Tonengo:14023
 Tonezza del Cimone:36040
@@ -7322,7 +7323,7 @@ Torchiara:84076
 Torchiarolo:72020
 Torella dei Lombardi:83057
 Torella del Sannio:86028
-Torgiano:6089
+Torgiano:06089
 Torgnon:11020
 Torino_1:10121
 Torino_2:10156
@@ -7336,9 +7337,9 @@ Tornimparte:67049
 Torno:22020
 Tornolo:43059
 Toro:86018
-Torpè:8020
+Torpè:08020
 Torraca:84030
-Torralba:7048
+Torralba:07048
 Torrazza Coste:27050
 Torrazza Piemonte:10037
 Torrazzo:13884
@@ -7346,7 +7347,7 @@ Torre Annunziata:80058
 Torre Beretti e Castellaro:27030
 Torre Boldone:24020
 Torre Bormida:12050
-Torre Cajetani:3010
+Torre Cajetani:03010
 Torre Canavese:10010
 Torre d'Arese:27010
 Torre de' Busi:23806
@@ -7381,9 +7382,9 @@ Torrevecchia Pia:27010
 Torrevecchia Teatina:66010
 Torri del Benaco:37010
 Torri di Quartesolo:36040
-Torri in Sabina:2049
+Torri in Sabina:02049
 Torriana:47825
-Torrice:3020
+Torrice:03020
 Torricella:74020
 Torricella del Pizzo:26040
 Torricella in Sabina:2030
@@ -7394,8 +7395,8 @@ Torriglia:16029
 Torrile:43056
 Torrioni:83010
 Torrita di Siena:53049
-Torrita Tiberina:60
-Tortolì:8048
+Torrita Tiberina:00060
+Tortolì:08048
 Tortona:15057
 Tortora:87020
 Tortorella:84030
@@ -7424,7 +7425,7 @@ Trarego Viggiona:28826
 Trasacco:67059
 Trasaghis:33010
 Trasquera:28868
-Tratalias:9010
+Tratalias:09010 
 Trausella:10080
 Travacò Siccomario:27020
 Travagliato:25039
@@ -7467,14 +7468,14 @@ Trescore Balneario:24069
 Trescore Cremasco:26017
 Tresigallo:44039
 Tresivio:23020
-Tresnuraghes:9079
+Tresnuraghes:09079
 Trevenzuolo:37060
-Trevi:6039
-Trevi nel Lazio:3010
+Trevi:06039
+Trevi nel Lazio:03010
 Trevico:83058
 Treviglio:24047
 Trevignano:31040
-Trevignano Romano:69
+Trevignano Romano:00069
 Treville:15030
 Treviolo:24048
 Treviso:31100
@@ -7492,13 +7493,13 @@ Tricase:73039
 Tricerro:13038
 Tricesimo:33019
 Trichiana:32028
-Triei:8040
+Triei:08040
 Trieste_1:34121
 Trieste_2:34151
 Triggiano:70019
 Trigolo:26018
 Trinità:12049
-Trinità d'Agultu e Vignola:7038
+Trinità d'Agultu e Vignola:07038
 Trinitapoli:76015
 Trino:13039
 Triora:18010
@@ -7508,7 +7509,7 @@ Trissino:36070
 Triuggio:20844
 Trivento:86029
 Trivero:13835
-Trivigliano:3010
+Trivigliano:03010
 Trivignano Udinese:33050
 Trivigno:85018
 Trivolzio:27020
@@ -7530,20 +7531,20 @@ Tufillo:66050
 Tufino:80030
 Tufo:83010
 Tuglie:73058
-Tuili:9029
-Tula:7010
-Tuoro sul Trasimeno:6069
-Turania:2020
+Tuili:09029
+Tula:07010
+Tuoro sul Trasimeno:06069
+Turania:02020
 Turano Lodigiano:26828
 Turate:22078
 Turbigo:20029
 Turi:70010
-Turri:9020
+Turri:09020
 Turriaco:34070
 Turrivalignani:65020
 Tursi:75028
 Tusa:98079
-Tuscania:1017
+Tuscania:01017
 Ubiale Clanezzo:24010
 Uboldo:21040
 Ucria:98060
@@ -7551,37 +7552,37 @@ Udine:33100
 Ugento:73059
 Uggiano La Chiesa:73020
 Uggiate-Trevano:22029
-Ulà Tirso:9080
-Ulassai:8040
+Ulà Tirso:09080
+Ulassai:08040
 Ultimo:39016
-Umbertide:6019
+Umbertide:06019
 Umbriatico:88823
 Urago d'Oglio:25030
-Uras:9099
+Uras:09099
 Urbana:35040
 Urbania:61049
 Urbe:17048
 Urbino:61029
 Urbisaglia:62010
 Urgnano:24059
-Uri:7040
+Uri:07040
 Ururi:86049
-Urzulei:8040
+Urzulei:08040
 Uscio:16030
-Usellus:9090
-Usini:7049
+Usellus:09090
+Usini:07049
 Usmate Velate:20865
-Ussana:9020
-Ussaramanna:9020
-Ussassai:8040
+Ussana:09020
+Ussaramanna:09020
+Ussassai:08040
 Usseaux:10060
 Usseglio:10070
 Ussita:62039
 Ustica:90010
-Uta:9010
+Uta:09010
 Uzzano:51010
 Vaccarizzo Albanese:87060
-Vacone:2040
+Vacone:02040
 Vacri:66010
 Vadena:39051
 Vado Ligure:17047
@@ -7618,11 +7619,11 @@ Valdobbiadene:31049
 Valduggia:13018
 Valeggio:27020
 Valeggio sul Mincio:37067
-Valentano:1018
+Valentano:01018
 Valenza:15048
 Valenzano:70010
 Valera Fratta:26859
-Valfabbrica:6029
+Valfabbrica:06029
 Valfenera:14017
 Valfloriana:38040
 Valfurva:23030
@@ -7649,31 +7650,31 @@ Valle Mosso:13825
 Valle Salimbene:27010
 Valle San Nicolao:13847
 Vallebona:18012
-Vallecorsa:3020
+Vallecorsa:03020
 Vallecrosia:18019
 Valledolmo:90029
-Valledoria:7039
+Valledoria:07039
 Vallefiorita:88050
 Vallelonga:89821
 Vallelunga Pratameno:93010
-Vallemaio:3040
-Vallepietra:20
-Vallerano:1030
-Vallermosa:9010
-Vallerotonda:3040
+Vallemaio:03040
+Vallepietra:00020
+Vallerano:01030
+Vallermosa:09010
+Vallerotonda:03040
 Vallesaccarda:83050
 Valleve:24010
 Valli del Pasubio:36030
-Vallinfreda:20
+Vallinfreda:00020
 Vallio Terme:25080
 Vallo della Lucania:84078
-Vallo di Nera:6040
+Vallo di Nera:06040
 Vallo Torinese:10070
 Valloriate:12010
 Valmacca:15040
 Valmadrera:23868
 Valmala:12020
-Valmontone:38
+Valmontone:00038
 Valmorea:22070
 Valmozzola:43050
 Valnegra:24010
@@ -7686,7 +7687,7 @@ Valsinni:75029
 Valsolda:22010
 Valstagna:36020
 Valstrona:28897
-Valtopina:6030
+Valtopina:06030
 Valtorta:24010
 Valtournenche:11028
 Valva:84020
@@ -7706,7 +7707,7 @@ Varano Borghi:21020
 Varano de' Melegari:43040
 Varapodio:89010
 Varazze:17019
-Varco Sabino:2020
+Varco Sabino:02020
 Varedo:20814
 Varena:38030
 Varenna:23829
@@ -7719,7 +7720,7 @@ Varsi:43049
 Varzi:27057
 Varzo:28868
 Vas:32030
-Vasanello:1030
+Vasanello:01030
 Vasia:18020
 Vasto:66054
 Vastogirardi:86089
@@ -7737,10 +7738,10 @@ Veduggio con Colzano:20837
 Veggiano:35030
 Veglie:73010
 Veglio:13824
-Vejano:1010
+Vejano:01010
 Veleso:22020
 Velezzo Lomellina:27020
-Velletri:49
+Velletri:00049
 Vellezzo Bellini:27010
 Velo d'Astico:36010
 Velo Veronese:37030
@@ -7793,7 +7794,7 @@ Vernole:73029
 Verolanuova:25028
 Verolavecchia:25029
 Verolengo:10038
-Veroli:3029
+Veroli:03029
 Verona_1:37121
 Verona_2:37142
 Veronella:37040
@@ -7821,7 +7822,7 @@ Vestenanova:37030
 Vestignè:10030
 Vestone:25078
 Vestreno:23822
-Vetralla:1019
+Vetralla:01019
 Vetto:42020
 Vezza d'Alba:12040
 Vezza d'Oglio:25059
@@ -7846,13 +7847,13 @@ Vicenza:36100
 Vico Canavese:10080
 Vico del Gargano:71018
 Vico Equense:80069
-Vico nel Lazio:3010
+Vico nel Lazio:03010
 Vicoforte:12080
 Vicoli:65010
 Vicolungo:28060
 Vicopisano:56010
-Vicovaro:29
-Viddalba:7030
+Vicovaro:00029
+Viddalba:07030
 Vidigulfo:27018
 Vidor:31020
 Vidracco:10080
@@ -7872,7 +7873,7 @@ Vighizzolo d'Este:35040
 Vigliano Biellese:13856
 Vigliano d'Asti:14040
 Vignale Monferrato:15049
-Vignanello:1039
+Vignanello:01039
 Vignate:20060
 Vignola:41058
 Vignola-Falesina:38057
@@ -7912,28 +7913,28 @@ Villa Estense:35040
 Villa Faraldi:18010
 Villa Guardia:22079
 Villa Lagarina:38060
-Villa Latina:3040
+Villa Latina:03040
 Villa Literno:81039
 Villa Minozzo:42030
 Villa Poma:46020
 Villa Rendena:38080
 Villa San Giovanni:89018
-Villa San Giovanni in Tuscia:1010
-Villa San Pietro:9010
+Villa San Giovanni in Tuscia:01010
+Villa San Pietro:09010
 Villa San Secondo:14020
-Villa Santa Lucia:3030
+Villa Santa Lucia:03030
 Villa Santa Lucia degli Abruzzi:67020
 Villa Santa Maria:66047
 Villa Sant'Angelo:67020
-Villa Sant'Antonio:9080
+Villa Sant'Antonio:09080
 Villa Santina:33029
-Villa Santo Stefano:3020
-Villa Verde:9090
+Villa Santo Stefano:03020
+Villa Verde:09090
 Villa Vicentina:33059
 Villabassa:39039
 Villabate:90039
 Villachiara:25030
-Villacidro:9039
+Villacidro:09039
 Villadeati:15020
 Villadose:45010
 Villadossola:28844
@@ -7947,16 +7948,16 @@ Villafranca Sicula:92020
 Villafranca Tirrena:98049
 Villafrati:90030
 Villaga:36021
-Villagrande Strisaili:8049
+Villagrande Strisaili:08049
 Villalago:67030
 Villalba:93010
 Villalfonsina:66020
 Villalvernia:15050
 Villamagna:66010
 Villamaina:83050
-Villamar:9020
+Villamar:09020
 Villamarzana:45030
-Villamassargia:9010
+Villamassargia:09010
 Villamiroglio:15020
 Villandro:39040
 Villanova Biellese:13877
@@ -7971,18 +7972,18 @@ Villanova di Camposampiero:35010
 Villanova Marchesana:45030
 Villanova Mondovì:12089
 Villanova Monferrato:15030
-Villanova Monteleone:7019
+Villanova Monteleone:07019
 Villanova Solaro:12030
 Villanova sull'Arda:29010
-Villanova Truschedu:9084
-Villanova Tulo:8030
-Villanovaforru:9020
-Villanovafranca:9020
+Villanova Truschedu:09084
+Villanova Tulo:08030
+Villanovaforru:09020
+Villanovafranca:09020
 Villanterio:27019
 Villanuova sul Clisi:25089
-Villaperuccio:9010
+Villaperuccio:09010
 Villapiana:87076
-Villaputzu:9040
+Villaputzu:09040
 Villar Dora:10040
 Villar Focchiardo:10050
 Villar Pellice:10060
@@ -7994,14 +7995,14 @@ Villareggia:10030
 Villaricca:80010
 Villaromagnano:15050
 Villarosa:94010
-Villasalto:9040
+Villasalto:09040
 Villasanta:20852
-Villasimius:9049
-Villasor:9034
-Villaspeciosa:9010
+Villasimius:09049
+Villasor:09034
+Villaspeciosa:09010
 Villastellone:10029
 Villata:13010
-Villaurbana:9080
+Villaurbana:09080
 Villavallelonga:67050
 Villaverla:36030
 Villeneuve:11018
@@ -8034,10 +8035,10 @@ Visso:62039
 Vistarino:27010
 Vistrorio:10080
 Vita:91010
-Viterbo:1100
-Viticuso:3040
+Viterbo:01100
+Viticuso:03040
 Vito d'Asio:33090
-Vitorchiano:1030
+Vitorchiano:01030
 Vittoria:97019
 Vittorio Veneto:31029
 Vittorito:67030
@@ -8046,7 +8047,7 @@ Vitulano:82038
 Vitulazio:81041
 Viù:10070
 Vivaro:33099
-Vivaro Romano:20
+Vivaro Romano:00020
 Viverone:13886
 Vizzini:95049
 Vizzola Ticino:21010
@@ -8080,7 +8081,7 @@ Vottignasco:12020
 Zaccanopoli:89867
 Zafferana Etnea:95019
 Zagarise:88050
-Zagarolo:39
+Zagarolo:00039
 Zambana:38010
 Zambrone:89868
 Zandobbio:24060
@@ -8089,7 +8090,7 @@ Zanica:24050
 Zapponeta:71030
 Zavattarello:27059
 Zeccone:27010
-Zeddiani:9070
+Zeddiani:09070
 Zelbio:22020
 Zelo Buon Persico:26839
 Zelo Surrigone:20080

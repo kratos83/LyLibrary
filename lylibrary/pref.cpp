@@ -431,6 +431,7 @@ void pref::self_update_parse(QNetworkReply* reply){
                        //Open update
                        up_dw(QString::fromLatin1(filelist.data()->toStdString().c_str()),txtt);
                        box->close();
+                       exit(0);
                        break;
                       case QMessageBox::Cancel:
                        //Close
@@ -458,7 +459,7 @@ void pref::up_dw(QString package, QString url){
 #elif defined(Q_OS_WIN)
     process->start("C:\\LyLibrary\\update -u "+url+" -p "+package);
 #elif defined(Q_OS_MACX)
-    process->start("./update.app/Contents/MacOS/update -u"+url+" -p"+package);
+    process->start("./update.app/Contents/MacOS/update -u "+url+" -p "+package);
 #endif
 }
 

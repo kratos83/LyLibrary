@@ -22,7 +22,8 @@ pluginmanager::pluginmanager(QWidget *parent) : QDialog(parent)
     //Clicca due volte per abilitare o disabilitare un plugin
     connect(treeWidget,SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),this,SLOT(pluginDoubleClicked(QTreeWidgetItem*)));
 
-    connect(treeWidget,SIGNAL(itemClicked(QTreeWidgetItem*,int)),this,SLOT(leggiplugin()));
+    //Clicca per abilitare i dettagli dei plugin
+    connect(dett_plugin,SIGNAL(clicked()),this,SLOT(add_details()));
 
     //Chiudi plugin loader
     connect(chiudi,SIGNAL(clicked()),this,SLOT(close()));
@@ -30,59 +31,21 @@ pluginmanager::pluginmanager(QWidget *parent) : QDialog(parent)
     pluginDir = new QDir( QCoreApplication::applicationDirPath()+"/plugin/" );
     loader = new QPluginLoader;
 
-}
-
-bool pluginmanager::readPlugins(){
-    #if defined Q_OS_LINUX || defined Q_OS_UNIX
-    QStringList fileNames=pluginDir->entryList( QStringList("*.lux"), QDir::Files, QDir::Name);
-    QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
-    #elif defined Q_OS_WIN
-    QStringList fileNames=pluginDir->entryList( QStringList("*.lyb"), QDir::Files, QDir::Name);
-    QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
-    #elif defined Q_OS_MACX
-    QStringList fileNames=pluginDir->entryList( QStringList("*.lap"), QDir::Files, QDir::Name);
-    QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
-    #endif
-    QTreeWidgetItem *item;
-    QString cname;
-
-
-
-    foreach( QString fileName, fileNames ) {
-        loader->setFileName( pluginDir->absoluteFilePath(fileName) );
-        QObject *plugin=loader->instance();
-        if ( plugin ) {
-            cname=QString::fromLatin1( plugin->metaObject()->className() );
-            if ( !pluginList.contains( cname ) ) {
-                Interface_plugin *plif=qobject_cast<Interface_plugin*>( plugin );
-                if(plif) {
-                    pluginList.append( cname );
-                    QStringList values;
-                    values<< fileName << "" << plif->version() << plif->vendor();
-                    item=new QTreeWidgetItem( treeWidget, values );
-                    if(toLoad.contains(cname)){
-                          emit pluginLoad( plugin, item );
-                    }
-                    else
-                          emit pluginUnload( plugin, item );
-                }
-            }
-        }
-    }
+    dett_plugin->setEnabled(false);
 }
 
 void pluginmanager::leggiplugin(){
 
-    #if defined Q_OS_LINUX || defined Q_OS_UNIX
-    QStringList fileNames=pluginDir->entryList( QStringList("*.lux"), QDir::Files, QDir::Name);
-    QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
-    #elif defined Q_OS_WIN
-    QStringList fileNames=pluginDir->entryList( QStringList("*.lyb"), QDir::Files, QDir::Name);
-    QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
-    #elif defined Q_OS_MACX
-    QStringList fileNames=pluginDir->entryList( QStringList("*.lap"), QDir::Files, QDir::Name);
-    QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
-    #endif
+#if defined (Q_OS_LINUX) || defined (Q_OS_UNIX)
+QStringList fileNames=pluginDir->entryList( QStringList("*.lux"), QDir::Files, QDir::Name);
+QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
+#elif defined Q_OS_WIN
+QStringList fileNames=pluginDir->entryList( QStringList("*.lyb"), QDir::Files, QDir::Name);
+QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
+#elif defined (Q_OS_MACX)
+QStringList fileNames=pluginDir->entryList( QStringList("*.lap"), QDir::Files, QDir::Name);
+QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
+#endif
 
     QTreeWidgetItem *item;
     QString cname;
@@ -91,7 +54,7 @@ void pluginmanager::leggiplugin(){
         loader->setFileName( pluginDir->absoluteFilePath(fileName) );
         QObject *plugin=loader->instance();
         if ( plugin ) {
-            cname=QString::fromLatin1( plugin->metaObject()->className() );
+            cname=QString::fromAscii( plugin->metaObject()->className() );
             if ( !pluginList.contains( cname ) ) {
                 Interface_plugin *plif=qobject_cast<Interface_plugin*>( plugin );
                 if(plif) {
@@ -138,8 +101,29 @@ void pluginmanager::readPluginInfo(QTreeWidgetItem *item){
         versione->setText(pi->version());
         descrizione->setText(pi->description());
 
-       if( !loadedList.contains( plugin->metaObject()->className() ) )
-           delete plugin;
+        dett_plugin->setEnabled(true);
+    }
+}
+
+void pluginmanager::add_details()
+{
+
+    if(!treeWidget->currentItem())
+        return;
+
+    loader->setFileName( pluginDir->absoluteFilePath( treeWidget->currentItem()->text(0) ) );
+    QObject *plugin=loader->instance();
+    if(plugin) {
+        Interface_plugin *pi=qobject_cast<Interface_plugin*>( plugin );
+
+        if(!pi)
+            return;
+
+        dettagli = new details_plugin(this,pi->nameplugin(),treeWidget->currentItem()->text(1),pi->vendor(),
+                                      pi->version(),pi->description(),pi->name_menu(),pi->displayName(),
+                                      pi->icona().pixmap());
+        dettagli->exec();
+
     }
 }
 
@@ -154,9 +138,9 @@ void pluginmanager::pluginDoubleClicked(QTreeWidgetItem *item){
         QString name=plugin->metaObject()->className();
 
         if( loadedList.contains(name) )
-            Q_EMIT pluginUnload(plugin,item);
+            emit pluginUnload(plugin,item);
         else
-            Q_EMIT pluginLoad(plugin,item);
+            emit pluginLoad(plugin,item);
     }
 }
 

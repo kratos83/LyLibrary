@@ -1,4 +1,13 @@
 /***************************************************/
+			LyLibrary 2.1
+
+Fix cap comuni
+Fix dettagli plugin
+Add details plugin
+Fix install update
+Fix launch update on mac os x
+
+/***************************************************/
 			LyLibrary 2.0.3
 FIX crash on mac os x
 FIX launch update from mac os x
