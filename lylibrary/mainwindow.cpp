@@ -1135,7 +1135,7 @@ void MainWindow::installa_plugin()
         proc->start(comando);
         if(proc->waitForFinished()){
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente...")),ts, 15*10000));
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente...")),ts, 15*10000);
         ag_tray->setVisible(false);
         }
     }
