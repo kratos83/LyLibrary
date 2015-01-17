@@ -50,10 +50,10 @@ int main(int argc, char *argv[])
     }
 
     if(settings->generalValue("Version/version",QVariant()).toString().length() == 0){
-        settings->setGeneralValue("Version/version","2.1");
+        settings->setGeneralValue("Version/version","2.1.1");
     }
-    else if(settings->generalValue("Version/version",QVariant()).toString() <= "2.0.3"){
-        settings->setGeneralValue("Version/version","2.1");
+    else if(settings->generalValue("Version/version",QVariant()).toString() <= "2.1"){
+        settings->setGeneralValue("Version/version","2.1.1");
     }
     else{
         settings->generalValue("Version/version",QVariant()).toString();
