@@ -116,7 +116,7 @@ void update::downloadFinished(){
                 QUrl url(txts);
                 QString filename = QFileInfo(url.path()).fileName();
                 QDir *direct = new QDir( QCoreApplication::applicationDirPath() );
-#if defined(Q_OS_LINUX))
+#if defined(Q_OS_LINUX)
                 QString fileNames=direct->currentDirPath()+"/"+filename+".part";
 #elif defined(Q_OS_MACX)
                 QString fileNames=direct->currentDirPath()+"/"+filename+".part";
