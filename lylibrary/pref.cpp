@@ -355,11 +355,11 @@ void pref::self_update(){
     QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-lin32.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
-#elif defined(_WIN64)
+#elif defined(Q_OS_WIN64)
     QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-win64.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
-#elif defined(_WIN32)
+#elif defined(Q_OS_WIN32)
     QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-win32.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
@@ -367,7 +367,7 @@ void pref::self_update(){
     QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-macx.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
-#elif defined(Q_OS_UNIX)
+#elif defined(Q_OS_FREEBSD)
     QUrl url("http://www.codelinsoft.it/package/lylibrary/lylibrary-unix.xml");
     manager->get(QNetworkRequest(QUrl(url)));
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
@@ -454,12 +454,14 @@ void pref::self_update_parse(QNetworkReply* reply){
 void pref::up_dw(QString package, QString url){
 
     process = new QProcess(this);
-#if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+#if defined(Q_OS_LINUX)
     process->start("./update -u "+url+" -p "+package);
 #elif defined(Q_OS_WIN)
-    process->start("C:\\LyLibrary\\update -u "+url+" -p "+package);
+    process->start("runas /TrustLevel:0x40000 C:\\LyLibrary\\update.exe -u "+url+" -p "+package);
 #elif defined(Q_OS_MACX)
     process->start("./update.app/Contents/MacOS/update -u "+url+" -p "+package);
+#elif defined (Q_OS_FREEBSD)
+    process->start("./update -u "+url+" -p "+package);
 #endif
 }
 
@@ -554,6 +556,10 @@ void pref::messaggio()
         #ifdef Q_OS_MAC
         QProcess *proc = new QProcess();
         proc->start("/Applications/lylibrary.app");
+        #endif
+        #ifdef Q_OS_FREEBSD
+        QProcess *proc = new QProcess();
+        proc->start("/opt/lylibrary/lylibrary");
         #endif
          box->close();
          exit(0);

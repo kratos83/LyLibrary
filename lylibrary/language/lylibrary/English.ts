@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en" sourcelanguage="it_IT">
+<TS version="2.1" language="en" sourcelanguage="it_IT">
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../../ui/mainwindow.ui" line="68"/>
         <location filename="../../ui/mainwindow.ui" line="827"/>
-        <location filename="../../mainwindow.cpp" line="164"/>
-        <location filename="../../mainwindow.cpp" line="521"/>
+        <location filename="../../mainwindow.cpp" line="158"/>
+        <location filename="../../mainwindow.cpp" line="515"/>
         <source>Strumenti</source>
         <translation>Tools</translation>
     </message>
@@ -37,8 +37,8 @@
     <message>
         <location filename="../../ui/mainwindow.ui" line="301"/>
         <location filename="../../ui/mainwindow.ui" line="813"/>
-        <location filename="../../mainwindow.cpp" line="224"/>
-        <location filename="../../mainwindow.cpp" line="537"/>
+        <location filename="../../mainwindow.cpp" line="218"/>
+        <location filename="../../mainwindow.cpp" line="531"/>
         <source>Scadenze</source>
         <translation>Deadlines</translation>
     </message>
@@ -56,8 +56,8 @@
     <message>
         <location filename="../../ui/mainwindow.ui" line="448"/>
         <location filename="../../ui/mainwindow.ui" line="852"/>
-        <location filename="../../mainwindow.cpp" line="203"/>
-        <location filename="../../mainwindow.cpp" line="204"/>
+        <location filename="../../mainwindow.cpp" line="197"/>
+        <location filename="../../mainwindow.cpp" line="198"/>
         <source>Informazioni</source>
         <translation>Information</translation>
     </message>
@@ -80,8 +80,8 @@
     </message>
     <message>
         <location filename="../../ui/mainwindow.ui" line="588"/>
-        <location filename="../../mainwindow.cpp" line="172"/>
-        <location filename="../../mainwindow.cpp" line="525"/>
+        <location filename="../../mainwindow.cpp" line="166"/>
+        <location filename="../../mainwindow.cpp" line="519"/>
         <source>Anagrafica</source>
         <translation>Master</translation>
     </message>
@@ -116,27 +116,27 @@
     </message>
     <message>
         <location filename="../../ui/mainwindow.ui" line="781"/>
-        <location filename="../../mainwindow.cpp" line="222"/>
+        <location filename="../../mainwindow.cpp" line="216"/>
         <source>Gestione</source>
         <translation>Manage</translation>
     </message>
     <message>
         <location filename="../../ui/mainwindow.ui" line="805"/>
-        <location filename="../../mainwindow.cpp" line="223"/>
-        <location filename="../../mainwindow.cpp" line="533"/>
+        <location filename="../../mainwindow.cpp" line="217"/>
+        <location filename="../../mainwindow.cpp" line="527"/>
         <source>Prestiti</source>
         <translation>Loans</translation>
     </message>
     <message>
         <location filename="../../ui/mainwindow.ui" line="831"/>
-        <location filename="../../mainwindow.cpp" line="260"/>
+        <location filename="../../mainwindow.cpp" line="254"/>
         <source>Plugins</source>
         <translation>Plugins</translation>
     </message>
     <message>
         <location filename="../../ui/mainwindow.ui" line="861"/>
-        <location filename="../../mainwindow.cpp" line="192"/>
-        <location filename="../../mainwindow.cpp" line="541"/>
+        <location filename="../../mainwindow.cpp" line="186"/>
+        <location filename="../../mainwindow.cpp" line="535"/>
         <source>Documenti</source>
         <translation>Papers</translation>
     </message>
@@ -147,7 +147,7 @@
     </message>
     <message>
         <location filename="../../ui/mainwindow.ui" line="919"/>
-        <location filename="../../mainwindow.cpp" line="183"/>
+        <location filename="../../mainwindow.cpp" line="177"/>
         <source>Esci</source>
         <translation>Exit</translation>
     </message>
@@ -333,192 +333,192 @@ Anagrafica azienda</extracomment>
         <translation>Check tax code</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="72"/>
+        <location filename="../../mainwindow.cpp" line="66"/>
         <source>Mi&amp;nimiza</source>
         <translation>Mi&amp;nimize</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="75"/>
+        <location filename="../../mainwindow.cpp" line="69"/>
         <source>Ma&amp;ssimiza</source>
         <translation>Max&amp;mize</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="78"/>
+        <location filename="../../mainwindow.cpp" line="72"/>
         <source>&amp;Ripristina</source>
         <translation>&amp;Restore</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="81"/>
+        <location filename="../../mainwindow.cpp" line="75"/>
         <source>&amp;Esci</source>
         <translation>&amp;Exit</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="84"/>
+        <location filename="../../mainwindow.cpp" line="78"/>
         <source>Aggiorna</source>
         <translation>Update</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="86"/>
+        <location filename="../../mainwindow.cpp" line="80"/>
         <source>Impostazioni</source>
         <translation>Settings</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="165"/>
+        <location filename="../../mainwindow.cpp" line="159"/>
         <source>Strumenti di amministrazione 
  di Lylibrary</source>
         <translation>Administrative Tools
  of Lylibrary</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="173"/>
+        <location filename="../../mainwindow.cpp" line="167"/>
         <source>Anagrafica di Lylibrary</source>
         <translation>Master of Lylibrary</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="184"/>
+        <location filename="../../mainwindow.cpp" line="178"/>
         <source>Esci da Lylibrary</source>
         <translation>Exit to LyLibrary</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="193"/>
+        <location filename="../../mainwindow.cpp" line="187"/>
         <source>Visualizza documenti 
  da utilizzare</source>
         <translation>Documents display</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="261"/>
+        <location filename="../../mainwindow.cpp" line="255"/>
         <source>Calcola e verifica</source>
         <translation>Calculate and Verification</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="294"/>
+        <location filename="../../mainwindow.cpp" line="288"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="297"/>
+        <location filename="../../mainwindow.cpp" line="291"/>
         <source>Ctrl+ESC</source>
         <translation>Ctrl+ESC</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="301"/>
+        <location filename="../../mainwindow.cpp" line="295"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="305"/>
+        <location filename="../../mainwindow.cpp" line="299"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="385"/>
-        <location filename="../../mainwindow.cpp" line="420"/>
+        <location filename="../../mainwindow.cpp" line="379"/>
+        <location filename="../../mainwindow.cpp" line="414"/>
         <source>Vi sono </source>
         <translation>There are </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="385"/>
-        <location filename="../../mainwindow.cpp" line="420"/>
+        <location filename="../../mainwindow.cpp" line="379"/>
+        <location filename="../../mainwindow.cpp" line="414"/>
         <source> scadenze</source>
         <translation> deadlines</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="392"/>
-        <location filename="../../mainwindow.cpp" line="427"/>
+        <location filename="../../mainwindow.cpp" line="386"/>
+        <location filename="../../mainwindow.cpp" line="421"/>
         <source>Mancano </source>
         <translation>There are </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="392"/>
-        <location filename="../../mainwindow.cpp" line="427"/>
+        <location filename="../../mainwindow.cpp" line="386"/>
+        <location filename="../../mainwindow.cpp" line="421"/>
         <source> giorni alla scadenza del prestito</source>
         <translation> days to maturity of the loan</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="471"/>
+        <location filename="../../mainwindow.cpp" line="465"/>
         <source>Avviato...</source>
         <translation>Start...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="488"/>
+        <location filename="../../mainwindow.cpp" line="482"/>
         <source>Disattivato...</source>
         <translation>Stop...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="529"/>
+        <location filename="../../mainwindow.cpp" line="523"/>
         <source>Plugin</source>
         <translation>Plugin</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="603"/>
+        <location filename="../../mainwindow.cpp" line="597"/>
         <source>Backup</source>
         <translation>Backup</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="604"/>
+        <location filename="../../mainwindow.cpp" line="598"/>
         <source>Sono passati 15 giorni senza eseguire un backup.
 Vuoi eseguirlo adesso?</source>
         <translation>It&apos;s been 15 days without performing a backup.
 Do you want to run it now?</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="642"/>
+        <location filename="../../mainwindow.cpp" line="636"/>
         <source>LyLibrary</source>
         <translation>LyLibrary</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="643"/>
+        <location filename="../../mainwindow.cpp" line="637"/>
         <source>Errore</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="644"/>
+        <location filename="../../mainwindow.cpp" line="638"/>
         <source>Inserire i campi dell&apos;azienda</source>
         <translation>Add the entries of the company</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="661"/>
+        <location filename="../../mainwindow.cpp" line="655"/>
         <source>Apertura anagrafica azienda....</source>
         <translation>Opening registry company ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="675"/>
+        <location filename="../../mainwindow.cpp" line="669"/>
         <source>Apertura carico magazzino....</source>
         <translation>Opening cargo warehouse ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="689"/>
+        <location filename="../../mainwindow.cpp" line="683"/>
         <source>Apertura scarico magazzino....</source>
         <translation>Opening stock exhaust ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="701"/>
+        <location filename="../../mainwindow.cpp" line="695"/>
         <source>Apertura fattura di vendita....</source>
         <translation>Opening the bill of sale ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="716"/>
+        <location filename="../../mainwindow.cpp" line="710"/>
         <source>Apertura anagrafica banca....</source>
         <translation>Opening registry database ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="732"/>
+        <location filename="../../mainwindow.cpp" line="726"/>
         <source>Apertura anagrafica prodotti digitali....</source>
         <translation>Opening registry digital products ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="748"/>
-        <location filename="../../mainwindow.cpp" line="763"/>
+        <location filename="../../mainwindow.cpp" line="742"/>
+        <location filename="../../mainwindow.cpp" line="757"/>
         <source>Apertura anagrafica prestiti prodotti digitali....</source>
         <translation>Opening registry loans digital products ...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="786"/>
+        <location filename="../../mainwindow.cpp" line="780"/>
         <source>open source</source>
         <translation>open source</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="829"/>
+        <location filename="../../mainwindow.cpp" line="823"/>
         <source>Apertura preferenze....</source>
         <translation>Opening preferences ....</translation>
     </message>
@@ -527,154 +527,154 @@ Do you want to run it now?</translation>
         <translation type="obsolete">Automatic Update enabled</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="864"/>
+        <location filename="../../mainwindow.cpp" line="858"/>
         <source>Lylibrary </source>
         <translation>Lylibrary </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="865"/>
+        <location filename="../../mainwindow.cpp" line="859"/>
         <source>rilasciato in licenza a </source>
         <translation>released on license </translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="883"/>
+        <location filename="../../mainwindow.cpp" line="877"/>
         <source>Apertura Prestito libri....</source>
         <translation>Opening Loan books ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="899"/>
+        <location filename="../../mainwindow.cpp" line="893"/>
         <source>Apertura categorie....</source>
         <translation>Opening categories ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="907"/>
+        <location filename="../../mainwindow.cpp" line="901"/>
         <source>Chiudi Lylibrary....</source>
         <translation>Close Lylibrary ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="921"/>
+        <location filename="../../mainwindow.cpp" line="915"/>
         <source>Apertura about....</source>
         <translation>Apertura about....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="934"/>
+        <location filename="../../mainwindow.cpp" line="928"/>
         <source>Apertura causali di trasporto....</source>
         <translation>Opening causal transport ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="943"/>
+        <location filename="../../mainwindow.cpp" line="937"/>
         <source>Apertura calcolo codice fiscale italiano....</source>
         <translation>Opening calculation Italian tax code ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="958"/>
+        <location filename="../../mainwindow.cpp" line="952"/>
         <source>Apertura anagrafica pagamento....</source>
         <translation>Opening registry fee ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="972"/>
+        <location filename="../../mainwindow.cpp" line="966"/>
         <source>Apertura anagrafica iva...</source>
         <translation>Opening registry tax ...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="986"/>
+        <location filename="../../mainwindow.cpp" line="980"/>
         <source>Apertura fattura d&apos;acquisto....</source>
         <translation>Opening the purchase invoice ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1219"/>
+        <location filename="../../mainwindow.cpp" line="1213"/>
         <source>Apertura finestra per verificare il codice fiscale...</source>
         <translation>Opening the window to check the tax code ...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1033"/>
+        <location filename="../../mainwindow.cpp" line="1027"/>
         <source>Apertura anagrafica libri....</source>
         <translation>Opening registry books ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="602"/>
-        <location filename="../../mainwindow.cpp" line="834"/>
-        <location filename="../../mainwindow.cpp" line="842"/>
-        <location filename="../../mainwindow.cpp" line="1048"/>
+        <location filename="../../mainwindow.cpp" line="596"/>
+        <location filename="../../mainwindow.cpp" line="828"/>
+        <location filename="../../mainwindow.cpp" line="836"/>
+        <location filename="../../mainwindow.cpp" line="1042"/>
+        <location filename="../../mainwindow.cpp" line="1118"/>
         <location filename="../../mainwindow.cpp" line="1124"/>
-        <location filename="../../mainwindow.cpp" line="1130"/>
+        <location filename="../../mainwindow.cpp" line="1138"/>
         <location filename="../../mainwindow.cpp" line="1144"/>
-        <location filename="../../mainwindow.cpp" line="1150"/>
+        <location filename="../../mainwindow.cpp" line="1155"/>
         <location filename="../../mainwindow.cpp" line="1161"/>
-        <location filename="../../mainwindow.cpp" line="1167"/>
         <source>Lylibrary</source>
         <translation>Lylibrary</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="834"/>
+        <location filename="../../mainwindow.cpp" line="828"/>
         <source>Aggiornamento automatico attivato</source>
         <translation>Automatic Update enabled</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="842"/>
+        <location filename="../../mainwindow.cpp" line="836"/>
         <source>Aggiornamento automatico disattivato</source>
         <translation>Automatic update disabled</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1000"/>
+        <location filename="../../mainwindow.cpp" line="994"/>
         <source>Apertura anagrafica fornitori...</source>
         <translation>Opening registry providers ...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1016"/>
+        <location filename="../../mainwindow.cpp" line="1010"/>
         <source>Apertura anagrafica utenti....</source>
         <translation>Opening user details ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1049"/>
+        <location filename="../../mainwindow.cpp" line="1043"/>
         <source>Il programma continuerE0  a funzionare nella barra delle applicazioni. Per terminare il programma scegliere &lt;b&gt; Esci &lt;/b&gt; nel menu contestuale del vassoio di sistema... </source>
         <translation>The program will continue to run in the system tray . To end the program, choose &lt;b&gt; Quit &lt;/b&gt; in the context menu of the system tray ...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1068"/>
+        <location filename="../../mainwindow.cpp" line="1062"/>
         <source>Database inizializzato correttamente</source>
         <translation>Databases initialized correctly</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1085"/>
+        <location filename="../../mainwindow.cpp" line="1079"/>
         <source>Apertura anagrafica prestiti libri....</source>
         <translation>Opening registry loans books ....</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1117"/>
-        <location filename="../../mainwindow.cpp" line="1136"/>
-        <location filename="../../mainwindow.cpp" line="1154"/>
+        <location filename="../../mainwindow.cpp" line="1111"/>
+        <location filename="../../mainwindow.cpp" line="1130"/>
+        <location filename="../../mainwindow.cpp" line="1148"/>
         <source>Open file</source>
         <translation>Open file</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1117"/>
-        <location filename="../../mainwindow.cpp" line="1136"/>
-        <location filename="../../mainwindow.cpp" line="1154"/>
+        <location filename="../../mainwindow.cpp" line="1111"/>
+        <location filename="../../mainwindow.cpp" line="1130"/>
+        <location filename="../../mainwindow.cpp" line="1148"/>
         <source>Plugin lylibrary(*.zip);;Tutti i file(*.*)</source>
         <translation>Plugin lylibrary(*.zip);;All file(*.*)</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="1118"/>
+        <location filename="../../mainwindow.cpp" line="1138"/>
+        <location filename="../../mainwindow.cpp" line="1155"/>
+        <source>Il plugin E8 stato installato correttamente...</source>
+        <translation>The plugin was successfully installed ...</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="1124"/>
         <location filename="../../mainwindow.cpp" line="1144"/>
         <location filename="../../mainwindow.cpp" line="1161"/>
-        <source>Il plugin E8 stato installato correttamente...</source>
-        <translation>The plugin was successfully installed ...</translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="1130"/>
-        <location filename="../../mainwindow.cpp" line="1150"/>
-        <location filename="../../mainwindow.cpp" line="1167"/>
         <source>Il plugin non E8 stato installato correttamente... </source>
         <translation>The plugin is not installed properly ...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1203"/>
+        <location filename="../../mainwindow.cpp" line="1197"/>
         <source>Apertura finestra per cercare il cap...</source>
         <translation>Opening the window to look for the cap ...</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1211"/>
+        <location filename="../../mainwindow.cpp" line="1205"/>
         <source>Apertura finestra per verificare la partita iva...</source>
         <translation>Opening the window to check the VAT ...</translation>
     </message>
@@ -682,161 +682,161 @@ Do you want to run it now?</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../main.cpp" line="35"/>
+        <location filename="../../main.cpp" line="41"/>
         <source>Avvio applicazione...</source>
         <translation>Application start-up ...</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="71"/>
+        <location filename="../../main.cpp" line="77"/>
         <source>Avvio database...</source>
         <translation>Starting database ...</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="112"/>
+        <location filename="../../main.cpp" line="118"/>
         <source>Errore di connessione al DB</source>
         <translation>Error connecting to DB</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="113"/>
+        <location filename="../../main.cpp" line="119"/>
         <source>Controllare di aver installato MySql e di aver creato il DB lylibrary</source>
         <translation>Check that you have installed MySQL and created the DB lylibrary</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="481"/>
+        <location filename="../../articoli.cpp" line="480"/>
         <source>Cod. Art.: </source>
         <translation>Cod. Prod.: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="482"/>
+        <location filename="../../articoli.cpp" line="481"/>
         <source>Codice a barre: </source>
         <translation>Barcode: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="483"/>
+        <location filename="../../articoli.cpp" line="482"/>
         <source>Titolo: </source>
         <translation>Title: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="484"/>
+        <location filename="../../articoli.cpp" line="483"/>
         <source>Descrizione: </source>
         <translation>Description: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="485"/>
+        <location filename="../../articoli.cpp" line="484"/>
         <source>Autore: </source>
         <translation>Author: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="486"/>
+        <location filename="../../articoli.cpp" line="485"/>
         <source>Lingua: </source>
         <translation>Language: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="487"/>
+        <location filename="../../articoli.cpp" line="486"/>
         <source>Categoria libro: </source>
         <translation>Category Book: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="488"/>
+        <location filename="../../articoli.cpp" line="487"/>
         <source>Info editore: </source>
         <translation>Info Editor: </translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="489"/>
+        <location filename="../../articoli.cpp" line="488"/>
         <source>Collocazione: </source>
         <translation>Location:</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="490"/>
+        <location filename="../../articoli.cpp" line="489"/>
         <source>QuantitÃ : </source>
         <translation>Quantity:</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="518"/>
+        <location filename="../../articoli.cpp" line="517"/>
         <source>Open File</source>
         <translation>Open File</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="522"/>
+        <location filename="../../articoli.cpp" line="521"/>
         <source>Lylibrary</source>
         <translation>Lylibrary</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="522"/>
+        <location filename="../../articoli.cpp" line="521"/>
         <source>Impossibile aprire %1.</source>
         <translation>Unable to open %1.</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="535"/>
+        <location filename="../../articoli.cpp" line="534"/>
         <source>Anteprima di stampa.</source>
         <translation>Printer preview.</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="553"/>
+        <location filename="../../articoli.cpp" line="552"/>
         <source>Esporta PDF</source>
         <translation>Export PDF</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="554"/>
+        <location filename="../../articoli.cpp" line="553"/>
         <source>Pdf Files(*.pdf);;Tutti i file(*.*)</source>
         <translation>Pdf Files(*.pdf);;All file(*.*)</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="572"/>
+        <location filename="../../articoli.cpp" line="571"/>
         <source>Esporta CSV</source>
         <translation>Export CSV</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="573"/>
+        <location filename="../../articoli.cpp" line="572"/>
         <source>CSV(*.csv);;Tutti i file(*.*)</source>
         <translation>CSV(*.csv);;All file(*.*)</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="691"/>
-        <location filename="../../articoli.cpp" line="708"/>
-        <location filename="../../articoli.cpp" line="723"/>
+        <location filename="../../articoli.cpp" line="690"/>
+        <location filename="../../articoli.cpp" line="707"/>
+        <location filename="../../articoli.cpp" line="722"/>
         <source>LyLibrary</source>
         <translation>LyLibrary</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="691"/>
-        <location filename="../../articoli.cpp" line="708"/>
+        <location filename="../../articoli.cpp" line="690"/>
+        <location filename="../../articoli.cpp" line="707"/>
         <source>Impossibile ottenere il barcode....
 </source>
         <translation>Unable to get the barcode ....</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="723"/>
+        <location filename="../../articoli.cpp" line="722"/>
         <source>Seleziona una riga per stampare l&apos;etichetta....</source>
         <translation>Select a line to print the label ....</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="837"/>
+        <location filename="../../articoli.cpp" line="836"/>
         <source>Chiudi</source>
         <translation>Close</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="840"/>
+        <location filename="../../articoli.cpp" line="839"/>
         <source>Elimina</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="843"/>
+        <location filename="../../articoli.cpp" line="842"/>
         <source>Nuovo</source>
         <translation>New</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="846"/>
+        <location filename="../../articoli.cpp" line="845"/>
         <source>Salva</source>
         <translation>Save</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="849"/>
+        <location filename="../../articoli.cpp" line="848"/>
         <source>Aggiorna</source>
         <translation>Update</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="852"/>
+        <location filename="../../articoli.cpp" line="851"/>
         <source>Stampa</source>
         <translation>Print</translation>
     </message>
@@ -856,17 +856,17 @@ Do you want to run it now?</translation>
         <translation>Nero</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="67"/>
+        <location filename="../../prodotti_dvd.cpp" line="65"/>
         <source>Cerca per codice a barre</source>
         <translation>Find to barcode</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="67"/>
+        <location filename="../../prodotti_dvd.cpp" line="65"/>
         <source>Cerca per prodotto</source>
         <translation>Find to product</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="67"/>
+        <location filename="../../prodotti_dvd.cpp" line="65"/>
         <source>Cerca per autore</source>
         <translation>Find to author</translation>
     </message>
@@ -957,7 +957,7 @@ p, li { white-space: pre-wrap; }
         <source>Chiudi</source>
         <translation>Close</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/about.ui" line="194"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1048,13 +1048,13 @@ or on our forum:</translation>
     </message>
     <message>
         <location filename="../../ui/articoli.ui" line="349"/>
-        <location filename="../../articoli.cpp" line="443"/>
+        <location filename="../../articoli.cpp" line="442"/>
         <source>Info editore</source>
         <translation>Info editor</translation>
     </message>
     <message>
         <location filename="../../ui/articoli.ui" line="356"/>
-        <location filename="../../articoli.cpp" line="441"/>
+        <location filename="../../articoli.cpp" line="440"/>
         <source>Collocazione</source>
         <translation>Location</translation>
     </message>
@@ -1065,7 +1065,7 @@ or on our forum:</translation>
     </message>
     <message>
         <location filename="../../ui/articoli.ui" line="370"/>
-        <location filename="../../articoli.cpp" line="438"/>
+        <location filename="../../articoli.cpp" line="437"/>
         <source>Autore</source>
         <translation>Author</translation>
     </message>
@@ -1081,11 +1081,11 @@ or on our forum:</translation>
     </message>
     <message>
         <location filename="../../ui/articoli.ui" line="440"/>
-        <location filename="../../articoli.cpp" line="439"/>
+        <location filename="../../articoli.cpp" line="438"/>
         <source>Lingua</source>
         <translation>Language</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/articoli.ui" line="447"/>
         <source>Quantità</source>
         <translation>Amount</translation>
@@ -1133,155 +1133,155 @@ libri.</source>
 books .</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="28"/>
+        <location filename="../../articoli.cpp" line="27"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="31"/>
+        <location filename="../../articoli.cpp" line="30"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="34"/>
+        <location filename="../../articoli.cpp" line="33"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="39"/>
+        <location filename="../../articoli.cpp" line="38"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="42"/>
+        <location filename="../../articoli.cpp" line="41"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="45"/>
+        <location filename="../../articoli.cpp" line="44"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="48"/>
+        <location filename="../../articoli.cpp" line="47"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="71"/>
+        <location filename="../../articoli.cpp" line="70"/>
         <source>Cerca per codice a barre</source>
         <translation>Find for barcode</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="71"/>
+        <location filename="../../articoli.cpp" line="70"/>
         <source>Cerca per libro</source>
         <translation>Find for paper</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="71"/>
+        <location filename="../../articoli.cpp" line="70"/>
         <source>Cerca per autore</source>
         <translation>Find for author</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="142"/>
+        <location filename="../../articoli.cpp" line="141"/>
         <source>Lylibrary</source>
         <translation>Lylibrary</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="143"/>
+        <location filename="../../articoli.cpp" line="142"/>
         <source>Avviso</source>
         <translation>Notice</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="144"/>
+        <location filename="../../articoli.cpp" line="143"/>
         <source>Inserisci il testo nella casella cerca</source>
         <translation>Enter the text in the search box</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="210"/>
-        <location filename="../../articoli.cpp" line="303"/>
-        <location filename="../../articoli.cpp" line="373"/>
+        <location filename="../../articoli.cpp" line="209"/>
+        <location filename="../../articoli.cpp" line="302"/>
+        <location filename="../../articoli.cpp" line="372"/>
         <source>LyLibrary</source>
         <translation>LyLibrary</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="210"/>
+        <location filename="../../articoli.cpp" line="209"/>
         <source>Selezionare una riga da eliminare...</source>
         <translation>Select a row to be deleted ...</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="232"/>
-        <location filename="../../articoli.cpp" line="266"/>
+        <location filename="../../articoli.cpp" line="231"/>
+        <location filename="../../articoli.cpp" line="265"/>
         <source>Voce non eliminabile</source>
         <translation>Item can not be eliminated</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="233"/>
+        <location filename="../../articoli.cpp" line="232"/>
         <source>E&apos; una voce utilizzata in anagrafica clienti</source>
         <translation>It &apos; a voice used in customer master</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="267"/>
+        <location filename="../../articoli.cpp" line="266"/>
         <source>Impossibile eliminare...</source>
         <translation>Can not delete ...</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="303"/>
+        <location filename="../../articoli.cpp" line="302"/>
         <source>Selezionare una riga da modificare...</source>
         <translation>Select a row to edit ...</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="357"/>
+        <location filename="../../articoli.cpp" line="356"/>
         <source>Voce non aggiornabile</source>
         <translation>This item is not updatable</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="358"/>
+        <location filename="../../articoli.cpp" line="357"/>
         <source>Impossibile aggiornare</source>
         <translation>Could not update</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="373"/>
+        <location filename="../../articoli.cpp" line="372"/>
         <source>Inserisci prima i dati correttamente</source>
         <translation>Insert before the data correctly</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="419"/>
+        <location filename="../../articoli.cpp" line="418"/>
         <source>Non puoi inserire</source>
         <translation>You may not post</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="420"/>
+        <location filename="../../articoli.cpp" line="419"/>
         <source>Impossibile inserire</source>
         <translation>Can not insert</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="434"/>
+        <location filename="../../articoli.cpp" line="433"/>
         <source>ID</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="435"/>
+        <location filename="../../articoli.cpp" line="434"/>
         <source>Codice a barre.</source>
         <translation>Barcode.</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="436"/>
+        <location filename="../../articoli.cpp" line="435"/>
         <source>Titolo.</source>
         <translation>Title.</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="437"/>
+        <location filename="../../articoli.cpp" line="436"/>
         <source>Descrizione.</source>
         <translation>Description.</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="440"/>
+        <location filename="../../articoli.cpp" line="439"/>
         <source>Categoria</source>
         <translation>Category</translation>
     </message>
     <message>
-        <location filename="../../articoli.cpp" line="444"/>
+        <location filename="../../articoli.cpp" line="443"/>
         <source>Image</source>
         <translation>Image</translation>
     </message>
@@ -1308,7 +1308,7 @@ books .</translation>
         <source>Partita IVA</source>
         <translation>VAT</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/azienda.ui" line="68"/>
         <source>Località</source>
         <translation>Resort</translation>
@@ -1552,7 +1552,7 @@ the bank.</translation>
         <source>Visualizza lista carico prodotti digitali</source>
         <translation>Display List cargo digital products</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/carico_mag.ui" line="69"/>
         <source>Quantità residua in magazzino</source>
         <translation>Amount remaining in stock</translation>
@@ -1615,6 +1615,10 @@ the bank.</translation>
         <location filename="../../carico_mag.cpp" line="100"/>
         <source>QuantitÃ </source>
         <translation>Amount</translation>
+    </message>
+    <message>
+        <source>Quantità</source>
+        <translation type="obsolete">Amount</translation>
     </message>
     <message>
         <location filename="../../carico_mag.cpp" line="68"/>
@@ -2059,6 +2063,74 @@ Finisci di inserire i dati correttamente</source>
     </message>
 </context>
 <context>
+    <name>details_plugin</name>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="14"/>
+        <location filename="../../ui/details_plugin.ui" line="48"/>
+        <source>Dettagli plugin</source>
+        <translation>Plugin details</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="24"/>
+        <source>Chiudi</source>
+        <translation>Close</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="54"/>
+        <source>Nome plugin</source>
+        <translation>Plugin name</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="61"/>
+        <source>Avvio/Start</source>
+        <translation>Start/Stop</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="68"/>
+        <source>Menu impostato</source>
+        <translation>Set menu</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="75"/>
+        <source>Nome visualizato del plugin</source>
+        <translation>Option displays the name of the plugin</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="89"/>
+        <source>Versione</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="96"/>
+        <source>Autore</source>
+        <translation>Author</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="103"/>
+        <source>Licenza</source>
+        <translation>License</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="110"/>
+        <source>Descrizione</source>
+        <translation>Description</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="117"/>
+        <source>Icona</source>
+        <translation>Icon</translation>
+    </message>
+    <message>
+        <location filename="../../ui/details_plugin.ui" line="188"/>
+        <source>GNU Lesser General Public License Usage
+
+Alternatively, this plugin may be used under the terms of the GNU Lesser General Public License version 2.1 as published by the Free Software Foundation.  Please review the following information to ensure the GNU Lesser General Public License version 2.1 requirements will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.</source>
+        <translation>GNU Lesser General Public License Usage
+
+Alternatively, this plugin may be used under the terms of the GNU Lesser General Public License version 2.1 as published by the Free Software Foundation.  Please review the following information to ensure the GNU Lesser General Public License version 2.1 requirements will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.</translation>
+    </message>
+</context>
+<context>
     <name>esci</name>
     <message>
         <location filename="../../ui/esci.ui" line="35"/>
@@ -2271,7 +2343,7 @@ Finisci di inserire i dati correttamente</source>
         <source>Prezzo con iva</source>
         <translation>Price with VAT</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/fatt_acq_art.ui" line="119"/>
         <source>Quantità</source>
         <translation>Amount</translation>
@@ -3133,7 +3205,7 @@ digital</translation>
         <source>CAP</source>
         <translation>Zip code</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/fattura_rg.ui" line="123"/>
         <source>Località</source>
         <translation>Resort</translation>
@@ -3601,7 +3673,7 @@ digital</translation>
         <source>Prezzo con iva</source>
         <translation>Price with VAT</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/fattura_rg_art.ui" line="104"/>
         <source>Quantità</source>
         <translation>Amount</translation>
@@ -3905,7 +3977,7 @@ digital</translation>
         <source>CAP</source>
         <translation>Zip code</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/fornitori.ui" line="100"/>
         <source>Località</source>
         <translation>Resort</translation>
@@ -4141,32 +4213,37 @@ digital</translation>
         <translation>Manage plugin</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="52"/>
+        <location filename="../../ui/pluginmanager.ui" line="205"/>
+        <source>Dettagli plugin</source>
+        <translation>Plugin details</translation>
+    </message>
+    <message>
+        <location filename="../../ui/pluginmanager.ui" line="245"/>
         <source>Nome plugin</source>
         <translation>Plugin name</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="57"/>
+        <location filename="../../ui/pluginmanager.ui" line="250"/>
         <source>Avvia/Disattiva</source>
         <translation>Start/Stop</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="62"/>
+        <location filename="../../ui/pluginmanager.ui" line="255"/>
         <source>Versione</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="67"/>
+        <location filename="../../ui/pluginmanager.ui" line="260"/>
         <source>Produttore</source>
         <translation>Company</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="84"/>
+        <location filename="../../ui/pluginmanager.ui" line="45"/>
         <source>Descrizione plugin</source>
         <translation>Plugin description</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="101"/>
+        <location filename="../../ui/pluginmanager.ui" line="164"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -4179,7 +4256,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Name:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="123"/>
+        <location filename="../../ui/pluginmanager.ui" line="62"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -4192,7 +4269,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Author:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="152"/>
+        <location filename="../../ui/pluginmanager.ui" line="91"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -4205,7 +4282,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Version:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="174"/>
+        <location filename="../../ui/pluginmanager.ui" line="113"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -4218,17 +4295,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Description:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../ui/pluginmanager.ui" line="231"/>
+        <location filename="../../ui/pluginmanager.ui" line="136"/>
         <source>Chiudi</source>
         <translation>Close</translation>
     </message>
     <message>
-        <location filename="../../pluginmanager.cpp" line="104"/>
+        <location filename="../../pluginmanager.cpp" line="67"/>
         <source>Avviato...</source>
         <translation>Start...</translation>
     </message>
     <message>
-        <location filename="../../pluginmanager.cpp" line="111"/>
+        <location filename="../../pluginmanager.cpp" line="74"/>
         <source>Disattivato...</source>
         <translation>Stop...</translation>
     </message>
@@ -4472,7 +4549,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../../ui/pref.ui" line="406"/>
         <location filename="../../pref.cpp" line="188"/>
-        <location filename="../../pref.cpp" line="533"/>
+        <location filename="../../pref.cpp" line="538"/>
         <source>Database</source>
         <translation>Database</translation>
     </message>
@@ -4494,7 +4571,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../../ui/pref.ui" line="513"/>
         <location filename="../../pref.cpp" line="194"/>
-        <location filename="../../pref.cpp" line="419"/>
+        <location filename="../../pref.cpp" line="423"/>
         <source>Aggiornamento</source>
         <translation>Upgrade</translation>
     </message>
@@ -4573,10 +4650,10 @@ fattura</source>
     <message>
         <location filename="../../pref.cpp" line="220"/>
         <location filename="../../pref.cpp" line="260"/>
-        <location filename="../../pref.cpp" line="418"/>
-        <location filename="../../pref.cpp" line="439"/>
-        <location filename="../../pref.cpp" line="483"/>
-        <location filename="../../pref.cpp" line="519"/>
+        <location filename="../../pref.cpp" line="422"/>
+        <location filename="../../pref.cpp" line="444"/>
+        <location filename="../../pref.cpp" line="488"/>
+        <location filename="../../pref.cpp" line="524"/>
         <source>LyLibrary</source>
         <translation>LyLibrary</translation>
     </message>
@@ -4633,57 +4710,57 @@ Height logo</translation>
         <translation>Bilinear</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="420"/>
+        <location filename="../../pref.cpp" line="424"/>
         <source>E&apos; disponibile la nuova versione </source>
         <translation>There is a new version </translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="420"/>
+        <location filename="../../pref.cpp" line="424"/>
         <source>,se vuoi aggiornare clicca per aggiornare.
 Se clicchi ok si chiude il programma e si aggiorna il software alla nuova versione</source>
         <translation>,if you want to update , click to update.
 If you click OK to close the program and updating the software to the new version</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="439"/>
+        <location filename="../../pref.cpp" line="444"/>
         <source>Errore...
 </source>
         <translation>Error...
 </translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="472"/>
+        <location filename="../../pref.cpp" line="477"/>
         <source>Devi riavviare per rendere effettive le modifiche....</source>
         <translation>You must restart for changes to take effect ....</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="481"/>
-        <location filename="../../pref.cpp" line="517"/>
+        <location filename="../../pref.cpp" line="486"/>
+        <location filename="../../pref.cpp" line="522"/>
         <source>Errore di connessione al DB</source>
         <translation>Error connecting to DB</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="482"/>
+        <location filename="../../pref.cpp" line="487"/>
         <source>Verificare che i dati siano corretti</source>
         <translation>Check that the details are correct</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="518"/>
+        <location filename="../../pref.cpp" line="523"/>
         <source>Impossibile connettersi al db.Controllare le impostazioni.</source>
         <translation>Unable to connect to the db. Check the settings.</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="532"/>
+        <location filename="../../pref.cpp" line="537"/>
         <source>Lylibrary</source>
         <translation>Lylibrary</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="534"/>
+        <location filename="../../pref.cpp" line="539"/>
         <source>Creazione db strutturata con successo....</source>
         <translation>Creating structured db successfully ....</translation>
     </message>
     <message>
-        <location filename="../../pref.cpp" line="444"/>
+        <location filename="../../pref.cpp" line="449"/>
         <source>Stai usando la nuova versione</source>
         <translation>Are you using the new version</translation>
     </message>
@@ -5431,13 +5508,13 @@ If you click OK to close the program and updating the software to the new versio
     </message>
     <message>
         <location filename="../../ui/prodotti_dvd.ui" line="330"/>
-        <location filename="../../prodotti_dvd.cpp" line="454"/>
+        <location filename="../../prodotti_dvd.cpp" line="452"/>
         <source>Info editore</source>
         <translation>Info editor</translation>
     </message>
     <message>
         <location filename="../../ui/prodotti_dvd.ui" line="337"/>
-        <location filename="../../prodotti_dvd.cpp" line="452"/>
+        <location filename="../../prodotti_dvd.cpp" line="450"/>
         <source>Scaffale</source>
         <translation>Shelf</translation>
     </message>
@@ -5448,7 +5525,7 @@ If you click OK to close the program and updating the software to the new versio
     </message>
     <message>
         <location filename="../../ui/prodotti_dvd.ui" line="351"/>
-        <location filename="../../prodotti_dvd.cpp" line="449"/>
+        <location filename="../../prodotti_dvd.cpp" line="447"/>
         <source>Autore</source>
         <translation>Author</translation>
     </message>
@@ -5464,11 +5541,11 @@ If you click OK to close the program and updating the software to the new versio
     </message>
     <message>
         <location filename="../../ui/prodotti_dvd.ui" line="421"/>
-        <location filename="../../prodotti_dvd.cpp" line="450"/>
+        <location filename="../../prodotti_dvd.cpp" line="448"/>
         <source>Lingua</source>
         <translation>Language</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/prodotti_dvd.ui" line="428"/>
         <source>Quantità</source>
         <translation>Amount</translation>
@@ -5520,240 +5597,240 @@ If you click OK to close the program and updating the software to the new versio
         <translation>Print to barcode</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="24"/>
+        <location filename="../../prodotti_dvd.cpp" line="22"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="27"/>
+        <location filename="../../prodotti_dvd.cpp" line="25"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="30"/>
+        <location filename="../../prodotti_dvd.cpp" line="28"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="35"/>
+        <location filename="../../prodotti_dvd.cpp" line="33"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="38"/>
+        <location filename="../../prodotti_dvd.cpp" line="36"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="41"/>
+        <location filename="../../prodotti_dvd.cpp" line="39"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="44"/>
+        <location filename="../../prodotti_dvd.cpp" line="42"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="142"/>
-        <location filename="../../prodotti_dvd.cpp" line="208"/>
-        <location filename="../../prodotti_dvd.cpp" line="311"/>
-        <location filename="../../prodotti_dvd.cpp" line="383"/>
-        <location filename="../../prodotti_dvd.cpp" line="536"/>
-        <location filename="../../prodotti_dvd.cpp" line="598"/>
-        <location filename="../../prodotti_dvd.cpp" line="605"/>
+        <location filename="../../prodotti_dvd.cpp" line="140"/>
+        <location filename="../../prodotti_dvd.cpp" line="206"/>
+        <location filename="../../prodotti_dvd.cpp" line="309"/>
+        <location filename="../../prodotti_dvd.cpp" line="381"/>
+        <location filename="../../prodotti_dvd.cpp" line="534"/>
+        <location filename="../../prodotti_dvd.cpp" line="596"/>
+        <location filename="../../prodotti_dvd.cpp" line="603"/>
         <source>LyLibrary</source>
         <translation>LyLibrary</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="143"/>
+        <location filename="../../prodotti_dvd.cpp" line="141"/>
         <source>Avviso</source>
         <translation>Notice</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="144"/>
+        <location filename="../../prodotti_dvd.cpp" line="142"/>
         <source>Inserisci il testo nella casella cerca</source>
         <translation>Enter the text in the search box</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="208"/>
+        <location filename="../../prodotti_dvd.cpp" line="206"/>
         <source>Selezionare una riga da eliminare...</source>
         <translation>Select a row to be deleted ...</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="230"/>
-        <location filename="../../prodotti_dvd.cpp" line="264"/>
+        <location filename="../../prodotti_dvd.cpp" line="228"/>
+        <location filename="../../prodotti_dvd.cpp" line="262"/>
         <source>Voce non eliminabile</source>
         <translation>Item can not be eliminated</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="231"/>
+        <location filename="../../prodotti_dvd.cpp" line="229"/>
         <source>E&apos; una voce utilizzata in anagrafica clienti</source>
         <translation>It &apos; a voice used in customer master</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="265"/>
+        <location filename="../../prodotti_dvd.cpp" line="263"/>
         <source>Impossibile eliminare...</source>
         <translation>Can not delete ...</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="311"/>
+        <location filename="../../prodotti_dvd.cpp" line="309"/>
         <source>Selezionare una riga da modificare...</source>
         <translation>Select a row to edit ...</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="365"/>
+        <location filename="../../prodotti_dvd.cpp" line="363"/>
         <source>Voce non aggiornabile</source>
         <translation>This item is not updatable</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="366"/>
+        <location filename="../../prodotti_dvd.cpp" line="364"/>
         <source>Impossibile aggiornare</source>
         <translation>Could not update</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="383"/>
+        <location filename="../../prodotti_dvd.cpp" line="381"/>
         <source>Inserisci prima i dati correttamente</source>
         <translation>Insert before the data correctly</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="429"/>
+        <location filename="../../prodotti_dvd.cpp" line="427"/>
         <source>Non puoi inserire</source>
         <translation>You may not post</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="430"/>
+        <location filename="../../prodotti_dvd.cpp" line="428"/>
         <source>Impossibile inserire</source>
         <translation>Can not insert</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="550"/>
+        <location filename="../../prodotti_dvd.cpp" line="548"/>
         <source>Anteprima di stampa.</source>
         <translation>Printer preview.</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="598"/>
+        <location filename="../../prodotti_dvd.cpp" line="596"/>
         <source>Impossibile ottenere il barcode...
 </source>
         <translation>Unable to get the barcode ....</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="605"/>
+        <location filename="../../prodotti_dvd.cpp" line="603"/>
         <source>Seleziona una riga per stampare l&apos;etichetta....</source>
         <translation>Select a line to print the label ....</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="637"/>
+        <location filename="../../prodotti_dvd.cpp" line="635"/>
         <source>Esporta PDF</source>
         <translation>Export to PDF</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="638"/>
+        <location filename="../../prodotti_dvd.cpp" line="636"/>
         <source>Pdf Files(*.pdf);;Tutti i file(*.*)</source>
         <translation>Pdf Files(*.pdf);;All file(*.*)</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="656"/>
+        <location filename="../../prodotti_dvd.cpp" line="654"/>
         <source>Esporta CSV</source>
         <translation>Export CSV</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="657"/>
+        <location filename="../../prodotti_dvd.cpp" line="655"/>
         <source>CSV(*.csv);;Tutti i file(*.*)</source>
         <translation>CSV(*.csv);;All file(*.*)</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="445"/>
+        <location filename="../../prodotti_dvd.cpp" line="443"/>
         <source>ID</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="446"/>
+        <location filename="../../prodotti_dvd.cpp" line="444"/>
         <source>Codice a barre.</source>
         <translation>Barcode.</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="447"/>
+        <location filename="../../prodotti_dvd.cpp" line="445"/>
         <source>Prodotto.</source>
         <translation>Product.</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="448"/>
+        <location filename="../../prodotti_dvd.cpp" line="446"/>
         <source>Descrizione.</source>
         <translation>Description.</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="451"/>
+        <location filename="../../prodotti_dvd.cpp" line="449"/>
         <source>Categoria</source>
         <translation>Category</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="453"/>
+        <location filename="../../prodotti_dvd.cpp" line="451"/>
         <source>QuantitÃ </source>
         <translation>Amount</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="455"/>
+        <location filename="../../prodotti_dvd.cpp" line="453"/>
         <source>Image</source>
         <translation>Image</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="494"/>
+        <location filename="../../prodotti_dvd.cpp" line="492"/>
         <source>Cod. Art.: </source>
         <translation>Cod. Prod.: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="495"/>
+        <location filename="../../prodotti_dvd.cpp" line="493"/>
         <source>Codice a barre: </source>
         <translation>Barcode: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="496"/>
+        <location filename="../../prodotti_dvd.cpp" line="494"/>
         <source>Nome prodotto: </source>
         <translation>Product name: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="497"/>
+        <location filename="../../prodotti_dvd.cpp" line="495"/>
         <source>Descrizione: </source>
         <translation>Description: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="498"/>
+        <location filename="../../prodotti_dvd.cpp" line="496"/>
         <source>Autore: </source>
         <translation>Author: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="499"/>
+        <location filename="../../prodotti_dvd.cpp" line="497"/>
         <source>Lingua: </source>
         <translation>Language: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="500"/>
+        <location filename="../../prodotti_dvd.cpp" line="498"/>
         <source>Categoria prodotto: </source>
         <translation>Product category: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="501"/>
+        <location filename="../../prodotti_dvd.cpp" line="499"/>
         <source>Info editore: </source>
         <translation>Info Editor: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="502"/>
+        <location filename="../../prodotti_dvd.cpp" line="500"/>
         <source>Scaffale: </source>
         <translation>Shelf: </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="503"/>
+        <location filename="../../prodotti_dvd.cpp" line="501"/>
         <source>QuantitÃ : </source>
         <translation>Amount : </translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="532"/>
+        <location filename="../../prodotti_dvd.cpp" line="530"/>
         <source>Open File</source>
         <translation>Open File</translation>
     </message>
     <message>
-        <location filename="../../prodotti_dvd.cpp" line="537"/>
+        <location filename="../../prodotti_dvd.cpp" line="535"/>
         <source>Impossibile aprire %1.</source>
         <translation>Unable to open %1.</translation>
     </message>
@@ -5780,7 +5857,7 @@ If you click OK to close the program and updating the software to the new versio
         <source>Informazioni dettagliate</source>
         <translation>Detailed information</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../ui/scarico_mag.ui" line="71"/>
         <source>Quantità venduta</source>
         <translation>Quantity sold</translation>
@@ -6048,6 +6125,10 @@ If you click OK to close the program and updating the software to the new versio
         <location filename="../../scarico_mag.cpp" line="482"/>
         <source>Selezionare una riga da eliminare...</source>
         <translation>Select a row to be deleted ...</translation>
+    </message>
+    <message>
+        <source>Quantità</source>
+        <translation type="obsolete">Amount</translation>
     </message>
     <message>
         <location filename="../../scarico_mag.cpp" line="514"/>

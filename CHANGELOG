@@ -1,4 +1,11 @@
 /***************************************************/
+			LyLibrary 2.1.1
+Fix comuni di nascita codicefiscale
+Fix install update in Linux, FreeBSD and Windows
+Add translation details plugin
+Fix main loop
+
+/***************************************************/
 			LyLibrary 2.1
 
 Fix cap comuni

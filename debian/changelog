@@ -1,5 +1,65 @@
+lylibrary (2.1.1) stable; urgency=low
+
+  * Fix comuni di nascita codicefiscale
+  * Fix install update in Linux, FreeBSD and Windows
+  * Add translation details plugin
+  * Fix main loop
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 17 Gen 2015 23:52:38 +0200
+
 lylibrary (2.1) stable; urgency=low
 
-  * Initial Release.
+  * Fix cap comuni
+  * Fix dettagli plugin
+  * Add details plugin
+  * Fix install update
+  * Fix launch update on mac os x
 
- -- Codelinsoft <info@codelinsoft.it>  Sat, 27 Sep 2014 23:52:38 +0200
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 10 Gen 2015 23:52:38 +0200
+
+lylibrary (2.0.3) stable; urgency=low
+
+  * FIX crash on mac os x
+  * FIX launch update from mac os x
+  * FIX open Book and Digital product
+  * FIX barcode to mac os x
+  * Remove dependes poppler
+  * Fix translator
+  * Add Language to management 
+  * FIX VAT 
+  * FIX tax code
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 07 Dec 2014 23:52:38 +0200
+
+lylibrary (2.0.2) stable; urgency=low
+
+  * Fix gestore plugin
+  * Fix upgrade and new gestore aggiornamenti
+  * Fix cap comuni
+  * Fix intensive cpu
+  * Add verifica codice fiscale
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 15 Nov 2014 23:52:38 +0200
+
+lylibrary (2.0.1) stable; urgency=low
+
+  * FIX dump and restore database
+  * FIX check and repair database
+  * ADD codice fiscale old state
+  * FIX connection database
+  * FIX QWidget::setTabOrder()
+  * FIX QLayout:: Attempting  to add QLayout
+  * ADD image codice fiscale
+  * ADD print codice fiscale
+  * ADD find italian cap
+  * ADD check partita IVA italian
+  * FIX create database
+  * FIX check partita iva italian
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 1 Nov 2014 23:52:38 +0200
+
+lylibrary (2.0) stable; urgency=low
+
+  * Stable release
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 11 Oct 2014 23:52:38 +0200

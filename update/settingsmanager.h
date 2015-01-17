@@ -5,7 +5,7 @@
 **          Calogero Scarnà (calogero.scarna@codelinsoft.it)
 **          Team Codelinsoft (info@codelinsoft.it)
 **
-** This file is part of the project LuxuryLibrary
+** This file is part of the project LyLibrary
 **
 ** LGPLv3 License
 **
