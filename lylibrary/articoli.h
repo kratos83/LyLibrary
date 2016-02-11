@@ -52,6 +52,7 @@ public slots:
     void reload_list();
     void esporta_pdf();
     void esporta_cvs();
+    void clear_lin_text();
 
 private:
     QSqlRelationalTableModel *mod_grid;

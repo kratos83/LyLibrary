@@ -74,24 +74,6 @@
      </item>
     </layout>
    </item>
-   <item row="2" column="1">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="car_pr">
-       <property name="text">
-        <string>Visualizza lista scarico prodotti digitali</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QCheckBox" name="car_lb">
-       <property name="text">
-        <string>Visualizza lista scarico libri</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
    <item row="2" column="2">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="2" column="0">
@@ -172,8 +154,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>car_lb</tabstop>
-  <tabstop>car_pr</tabstop>
   <tabstop>ex_pdf</tabstop>
   <tabstop>pr_st</tabstop>
   <tabstop>ex_csv</tabstop>

@@ -50,28 +50,13 @@ fatt_new::~fatt_new()
 
 void fatt_new::fattura_riga_open(){
 
-    if(f_libri->isChecked()){
-    fatt_acq_art *ft = new fatt_acq_art(this);
+    fatt_acq_art *ft = new fatt_acq_art(id->text(),this);
     ft->setModal(true);
-    ft->setWindowTitle(tr("Inserisci articoli fattura libri"));
+    ft->setWindowTitle(tr("Inserisci articoli fattura"));
     connect(ft,SIGNAL(save_fatt()),this,SLOT(lista()));
     connect(ft,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-    ft->id_fatt->setText(id->text());
-    ft->f_libri->setChecked(true);
     ft->exec();
     lista();
-    }
-    else if(f_prod_dig->isChecked()){
-        fatt_acq_art *ft = new fatt_acq_art(this);
-        ft->setModal(true);
-        ft->setWindowTitle(tr("Inserisci articoli fattura prodotti digitali"));
-        connect(ft,SIGNAL(save_fatt()),this,SLOT(lista()));
-        connect(ft,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-        ft->id_fatt->setText(id->text());
-        ft->f_prod_dig->setChecked(true);
-        ft->exec();
-        lista();
-    }
 }
 
 double fatt_new::s_iva(double psiva){
@@ -91,6 +76,26 @@ double fatt_new::iva_tot(double ivatot){
     cn = ivatot;
     return ivatot;
 }
+
+void fatt_new::clear_testo()
+{
+    id->setText("");
+    data_fat->clear();
+    forn->clear();
+    sconto_1->setText("");
+    sconto_2->setText("");
+    sconto_3->setText("");
+    sp_in->setText("");
+    sp_tr->setText("");
+    t_pagam->clear();
+    n_fatt->setText("");
+    dateEdit->clear();
+    textEdit->setText("");
+    imponibile->setText("");
+    iva_ft->setText("");
+    totale->setText("");
+}
+
 
 void fatt_new::formatta_num(){
 
@@ -114,19 +119,19 @@ void fatt_new::formatta_num(){
 void fatt_new::fatt_inserisci(){
 
     if((n_fatt->text() =="") & (forn->currentText()=="") || (n_fatt->text() =="") ){
-        QMessageBox MsgBox;
-        MsgBox.setWindowTitle(tr("LyLibrary"));
-        MsgBox.setText(tr("Errore"));
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
-        MsgBox.setIcon(QMessageBox::Warning);
-        MsgBox.exec();
-        n_fatt->setStyleSheet("background-color: rgb(249, 22, 5)");
-        forn->setStyleSheet("background-color: rgb(249, 22, 5)");
+    QMessageBox MsgBox;
+    MsgBox.setWindowTitle(tr("LyLibrary"));
+    MsgBox.setText(tr("Errore"));
+    MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...").toStdString().c_str()));
+    MsgBox.setIcon(QMessageBox::Warning);
+    MsgBox.exec();
+    n_fatt->setStyleSheet("background-color: rgb(249, 22, 5)");
+    forn->setStyleSheet("background-color: rgb(249, 22, 5)");
     }
     else{
     QSqlQuery query;
     query.prepare("INSERT INTO fatture_acq_righe (id,data,fornitore,sconto_1,sconto_2,sconto_3,spese_trasporto,spese_incasso,tipo_pagamento,numero_fattura,data_fattura,note_fattura,prezzo_s_iva,iva,totale)"
-                  " VALUES(:id,:data,:fornitore,:sconto_1,:sconto_2,:sconto_3,:spese_trasporto,:spese_incasso,:tipo_pagamento,:numero_fattura,:data_fattura,:note_fattura,:prezzo_s_iva,:iva,:totale)");
+          " VALUES(:id,:data,:fornitore,:sconto_1,:sconto_2,:sconto_3,:spese_trasporto,:spese_incasso,:tipo_pagamento,:numero_fattura,:data_fattura,:note_fattura,:prezzo_s_iva,:iva,:totale)");
 
     query.bindValue(":id",id->text());
     query.bindValue(":data",data_fat->date());
@@ -144,40 +149,18 @@ void fatt_new::fatt_inserisci(){
     query.bindValue(":iva",iva_ft->text());
     query.bindValue(":totale",totale->text());
 
-    if(f_libri->isChecked()== true){
-        insert_f_libri();
-    }
-    else if(f_prod_dig->isChecked() == true){
-        insert_f_prod_dig();
-    }
+    insert_f_libri();
 
     if(query.exec()){
-        id->setText("");
-        data_fat->clear();
-        forn->clear();
-        sconto_1->setText("");
-        sconto_2->setText("");
-        sconto_3->setText("");
-        sp_in->setText("");
-        sp_tr->setText("");
-        t_pagam->clear();
-        n_fatt->setText("");
-        dateEdit->clear();
-        textEdit->setText("");
-        imponibile->setText("");
-        iva_ft->setText("");
-        totale->setText("");
+      clear_testo();
     }
     else{
-        QMessageBox MsgBox;
-        MsgBox.setText(tr("La voce suddetta non si puo inserire"));
-        MsgBox.setInformativeText(tr("Impossibile inserire ")+query.lastError().text());
-        MsgBox.setIcon(QMessageBox::Warning);
-        MsgBox.exec();
+    QMessageBox MsgBox;
+    MsgBox.setText(tr("La voce suddetta non si puo inserire"));
+    MsgBox.setInformativeText(tr("Impossibile inserire ")+query.lastError().text());
+    MsgBox.setIcon(QMessageBox::Warning);
+    MsgBox.exec();
     }
-
-
-
     emit salvafatturanew();
     tot_imp_iva();
     close();
@@ -187,58 +170,39 @@ void fatt_new::fatt_inserisci(){
 void fatt_new::insert_f_libri(){
     QSqlQuery query1;
     query1.prepare("INSERT INTO fatture_acq (id,data,fornitore,totale,tipo_fattura)"
-                   " VALUES(:id,:data,:fornitore,:totale,:tipo_fattura)");
+           " VALUES(:id,:data,:fornitore,:totale,:tipo_fattura)");
 
     query1.bindValue(":id",id->text());
     query1.bindValue(":data",data_fat->date());
     query1.bindValue(":fornitore",forn->currentText());
     query1.bindValue(":totale",totale->text());
-    query1.bindValue(":tipo_fattura",tr("Acquisto libri"));
+    query1.bindValue(":tipo_fattura",tr("Acquisti"));
 
     if(query1.exec()){
-        QMessageBox::information(this,tr("LyLibrary"),tr("Inserimento effettuato correttamente..."));
+	QMessageBox::information(this,tr("LyLibrary"),tr("Inserimento effettuato correttamente..."));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
-    }
-}
-
-void fatt_new::insert_f_prod_dig(){
-    QSqlQuery query1;
-    query1.prepare("INSERT INTO fatture_acq (id,data,fornitore,totale,tipo_fattura)"
-                   " VALUES(:id,:data,:fornitore,:totale,:tipo_fattura)");
-
-    query1.bindValue(":id",id->text());
-    query1.bindValue(":data",data_fat->date());
-    query1.bindValue(":fornitore",forn->currentText());
-    query1.bindValue(":totale",totale->text());
-    query1.bindValue(":tipo_fattura",tr("Prodotti digitali"));
-
-    if(query1.exec()){
-        QMessageBox::information(this,tr("LyLibrary"),tr("Inserimento effettuato correttamente..."));
-    }
-    else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
+	QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
     }
 }
 
 void fatt_new::fatt_aggiorna(){
 
     if((n_fatt->text() =="") & (forn->currentText()=="") || (n_fatt->text() =="") ){
-        QMessageBox MsgBox;
-        MsgBox.setText("Errore");
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile aggiornare la fattura,\n poichè non hai inserito i dati correttamente...")));
-        MsgBox.setIcon(QMessageBox::Warning);
-        MsgBox.exec();
-        n_fatt->setStyleSheet("background-color: rgb(249, 22, 5)");
-        forn->setStyleSheet("background-color: rgb(249, 22, 5)");
+    QMessageBox MsgBox;
+    MsgBox.setText("Errore");
+    MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile aggiornare la fattura,\n poichè non hai inserito i dati correttamente...").toStdString().c_str()));
+    MsgBox.setIcon(QMessageBox::Warning);
+    MsgBox.exec();
+    n_fatt->setStyleSheet("background-color: rgb(249, 22, 5)");
+    forn->setStyleSheet("background-color: rgb(249, 22, 5)");
     }
     else{
     QSqlQuery query;
     query.prepare("UPDATE fatture_acq_righe SET data=:data,fornitore=:fornitore,sconto_1=:sconto_1, "
-               " sconto_2=:sconto_2,sconto_3=:sconto_3,spese_trasporto=:spese_trasporto,spese_incasso=:spese_incasso,tipo_pagamento=:tipo_pagamento, "
-               "numero_fattura=:numero_fattura,data_fattura=:data_fattura,note_fattura=:note_fattura,prezzo_s_iva=:prezzo_s_iva,iva=:iva,totale=:totale "
-               " WHERE id =:id");
+           " sconto_2=:sconto_2,sconto_3=:sconto_3,spese_trasporto=:spese_trasporto,spese_incasso=:spese_incasso,tipo_pagamento=:tipo_pagamento, "
+           "numero_fattura=:numero_fattura,data_fattura=:data_fattura,note_fattura=:note_fattura,prezzo_s_iva=:prezzo_s_iva,iva=:iva,totale=:totale "
+           " WHERE id =:id");
     query.bindValue(":id",id->text());
     query.bindValue(":data",data_fat->date());
     query.bindValue(":fornitore",forn->currentText());
@@ -255,39 +219,18 @@ void fatt_new::fatt_aggiorna(){
     query.bindValue(":iva",iva_ft->text());
     query.bindValue(":totale",totale->text());
 
-    if(f_libri->isChecked() == true){
-        update_f_libri();
-    }
-    else if(f_prod_dig->isChecked() == true){
-        update_f_prod_dig();
-    }
+    update_f_libri();
 
     if( query.exec()){
-        id->setText("");
-        data_fat->clear();
-        forn->clear();
-        sconto_1->setText("");
-        sconto_2->setText("");
-        sconto_3->setText("");
-        sp_in->setText("");
-        sp_tr->setText("");
-        t_pagam->clear();
-        n_fatt->setText("");
-        dateEdit->clear();
-        textEdit->setText("");
-        imponibile->setText("");
-        iva_ft->setText("");
-        totale->setText("");
+	clear_testo();
     }
     else{
-        QMessageBox MsgBox;
-        MsgBox.setText(tr("La voce suddetta non si puo aggiornare"));
-        MsgBox.setInformativeText(tr("Impossibile aggiornare ")+query.lastError().text());
-        MsgBox.setIcon(QMessageBox::Warning);
-        MsgBox.exec();
+    QMessageBox MsgBox;
+    MsgBox.setText(tr("La voce suddetta non si puo aggiornare"));
+    MsgBox.setInformativeText(tr("Impossibile aggiornare ")+query.lastError().text());
+    MsgBox.setIcon(QMessageBox::Warning);
+    MsgBox.exec();
     }
-
-
     emit salvafatturanew();
     close();
     }
@@ -300,35 +243,15 @@ void fatt_new::update_f_libri(){
     query1.bindValue(":id",id->text());
     query1.bindValue(":data",data_fat->date());
     query1.bindValue(":fornitore",forn->currentText());
-    QString txt = tr("Acquisto libri");
+    QString txt = tr("Acquisti");
     query1.bindValue(":tipo_fattura",txt);
     query1.bindValue(":totale",totale->text());
 
     if(query1.exec()){
-        QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
+    QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
-    }
-}
-
-void fatt_new::update_f_prod_dig(){
-
-    QSqlQuery query1;
-    query1.prepare("UPDATE fatture_acq SET data=:data,fornitore=:fornitore,tipo_fattura=:tipo_fattura,totale=:totale "
-                   " WHERE id=:id");
-    query1.bindValue(":id",id->text());
-    query1.bindValue(":data",data_fat->date());
-    query1.bindValue(":fornitore",forn->currentText());
-    QString txt = tr("Prodotti digitali");
-    query1.bindValue(":tipo_fattura",txt);
-    query1.bindValue(":totale",totale->text());
-
-    if(query1.exec()){
-        QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
-    }
-    else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
     }
 }
 
@@ -343,58 +266,54 @@ void fatt_new::open_fornitore(){
 
 void fatt_new::elimina(){
     if(tab_view->selectionModel()->currentIndex().isValid()){
-        if (!id->text().isEmpty())
-        {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
+    if (!id->text().isEmpty())
+    {
+        QSqlQuery qctrl;
+        qctrl.prepare("SELECT * FROM fatture_righe_acq_art WHERE id='"+id->text()+"'");
+        qctrl.exec();
 
-            QSqlQuery qctrl;
-            qctrl.prepare("SELECT * FROM fatture_righe_acq_art WHERE id = :id LIMIT 1");
-            qctrl.bindValue(":id",id->text());
-            qctrl.exec();
-
-
-                QMessageBox *box= new QMessageBox(this);
-                box->setWindowTitle(tr("Lylibrary"));
-                box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
-                box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-                box->setDefaultButton(QMessageBox::Ok);
-                int ret = box->exec();
-                switch(ret){
-                case QMessageBox::Ok:
-                     //Close
-                     elimina_riga();
-                     box->close();
-                     break;
-                case QMessageBox::Cancel:
-                    //return
-                    box->close();
-                    break;
-                }
-            }
+        QMessageBox *box= new QMessageBox(this);
+        box->setWindowTitle(tr("Lylibrary"));
+        box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
+        box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        box->setDefaultButton(QMessageBox::Ok);
+        int ret = box->exec();
+        switch(ret){
+        case QMessageBox::Ok:
+             //Close
+             elimina_riga();
+             box->close();
+             break;
+        case QMessageBox::Cancel:
+            //return
+            box->close();
+            break;
+        }
+        }
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare"));
+	QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare"));
     }
 }
 
 void fatt_new::elimina_riga(){
 
     QSqlQuery query,query1;
-    query.prepare("DELETE FROM fatture_righe_acq_art WHERE id = :id LIMIT 1");
-    query1.prepare("DELETE FROM fatture_acq_righe WHERE id = :id LIMIT 1");
+    query.prepare("DELETE FROM fatture_righe_acq_art WHERE id='"+id->text()+"'");
+    query1.prepare("DELETE FROM fatture_acq_righe WHERE id='"+id->text()+"'");
     query.bindValue(":id",id->text());
     query1.bindValue(":id",id->text());
 
     if (query.exec() && query1.exec()) //Se esito OK Eliminato da DB
     {
-        lista();
+    lista();
     }
     else
     {
-        QMessageBox *box= new QMessageBox(this);
-        box->setWindowTitle(tr("Lylibrary"));
-        box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
-        box->exec();
+    QMessageBox *box= new QMessageBox(this);
+    box->setWindowTitle(tr("Lylibrary"));
+    box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
+    box->exec();
      }
     emit salvafatturanew();
     lista();
@@ -416,8 +335,6 @@ void fatt_new::salva_fattura_ric(){
     lista();
 }
 
-
-
 void fatt_new::modifica_riga(){
 
     if(tab_view->selectionModel()->currentIndex().isValid()){
@@ -429,67 +346,49 @@ void fatt_new::modifica_riga(){
     }
     else
     {
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da modificare..."));
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da modificare..."));
     }
 }
 
 void fatt_new::modifica_riga_one(QModelIndex index){
     //Tentativo di aggiornamento del record perché trovato
     if(index.row() < mod_grid->rowCount()){
-        fatt_acq_art *gt = new fatt_acq_art(this);
-        gt->setModal(true);
-        QSqlRecord record = mod_grid->record(index.row());
-        if(!record.isEmpty()){
-            gt->id_fatt->setText(id->text());
-            gt->cod_art->setText(record.value("cod_art").toString());
-            gt->art_nom->setText(record.value("nome_articolo").toString());
-            gt->descrizione->setText(record.value("descrizione").toString());
-            gt->pr_unit->setText(record.value("prezzo_unit").toString());
-            gt->p_s_iva->setText(record.value("prezzo_s_iva").toString());
-            gt->p_c_iva->setText(record.value("prezzo_c_iva").toString());
-            gt->quant->setText(record.value("quantita").toString());
-            gt->totale->setText(record.value("totale").toString());
-            QSqlQuery query,query1,query2;
-            query.prepare("select tipo_fattura from fatture_acq");
-            query1.exec("select * from articoli");
-            query2.exec("select * from prodotti_dvd");
-            query.exec();
-            if(query.next()){
-                if(query.value(0).toString() == tr("Acquisto libri")){
-                    gt->f_libri->setChecked(true);
-                    if(query1.next()){
-                     gt->cod_barre->setText(query1.value(1).toString());
-                     gt->autore->setText(query1.value(4).toString());
-                     gt->comboBox_2->setCurrentText(query1.value(6).toString());
-                     gt->scaffale->setText(query1.value(7).toString());
-                     gt->lingua->setText(query1.value(5).toString());
-                     gt->textEdit->setText(query1.value(9).toString());
-                     gt->image_dir->setText(query1.value(10).toString());
-                     QImage img(query1.value(10).toString());
-                     gt->dir_image->setPixmap(QPixmap::fromImage(img));
-                     connect(gt,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-                    }
-                }
-                else if(query.value(0).toString() == tr("Prodotti digitali")){
-                    gt->f_prod_dig->setChecked(true);
-                if(query2.next()){
-                 gt->cod_barre->setText(query2.value(1).toString());
-                 gt->autore->setText(query2.value(4).toString());
-                 gt->comboBox_2->setCurrentText(query2.value(6).toString());
-                 gt->scaffale->setText(query2.value(7).toString());
-                 gt->lingua->setText(query2.value(5).toString());
-                 gt->textEdit->setText(query2.value(9).toString());
-                 gt->image_dir->setText(query2.value(10).toString());
-                 QImage image(query2.value(10).toString());
-                 gt->dir_image->setPixmap(QPixmap::fromImage(image));
-                 connect(gt,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-                }
-                }
+    fatt_acq_art *gt = new fatt_acq_art(id->text(),this);
+    gt->setModal(true);
+    QSqlRecord record = mod_grid->record(index.row());
+    if(!record.isEmpty()){
+        gt->cod_art->setText(record.value("cod_art").toString());
+        gt->art_nom->setText(record.value("nome_articolo").toString());
+        gt->descrizione->setText(record.value("descrizione").toString());
+        gt->pr_unit->setText(record.value("prezzo_unit").toString());
+        gt->p_s_iva->setText(record.value("prezzo_s_iva").toString());
+        gt->p_c_iva->setText(record.value("prezzo_c_iva").toString());
+        gt->quant->setText(record.value("quantita").toString());
+        gt->totale->setText(record.value("totale").toString());
+        QSqlQuery query,query1,query2;
+        query.prepare("select tipo_fattura from fatture_acq");
+        query1.exec("select * from articoli");
+        query.exec();
+        if(query.next()){
+        if(query.value(0).toString() == tr("Acquisti")){
+            if(query1.next()){
+             gt->cod_barre->setText(query1.value(1).toString());
+             gt->autore->setText(query1.value(4).toString());
+             gt->comboBox_2->setCurrentText(query1.value(6).toString());
+             gt->scaffale->setText(query1.value(7).toString());
+             gt->lingua->setText(query1.value(5).toString());
+             gt->textEdit->setText(query1.value(9).toString());
+             gt->image_dir->setText(query1.value(10).toString());
+             QImage img(query1.value(10).toString());
+             gt->dir_image->setPixmap(QPixmap::fromImage(img));
+             connect(gt,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
             }
         }
-        connect(gt,SIGNAL(save_fatt()),this,SLOT(lista()));
-        connect(gt,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-        gt->exec();
+        }
+    }
+    connect(gt,SIGNAL(save_fatt()),this,SLOT(lista()));
+    connect(gt,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
+    gt->exec();
     }
     lista();
 }
@@ -508,8 +407,8 @@ void fatt_new::sconto_1t(const QString &){
     totale->setText(QString::number(sp2));
 
     if(sconto_1->text().length() == 0){
-        sconto_1->setText("0.00");
-        tot_imp_iva();
+    sconto_1->setText("0.00");
+    tot_imp_iva();
     }
 }
 
@@ -526,8 +425,8 @@ void fatt_new::sconto_2t(const QString &){
     totale->setText(QString::number(sp2));
 
     if(sconto_2->text().length() == 0){
-        sconto_2->setText("0.00");
-        tot_imp_iva();
+    sconto_2->setText("0.00");
+    tot_imp_iva();
     }
 }
 
@@ -544,8 +443,8 @@ void fatt_new::sconto_3t(const QString &){
     totale->setText(QString::number(sp2));
 
     if(sconto_3->text().length() == 0){
-        sconto_3->setText("0.00");
-        tot_imp_iva();
+    sconto_3->setText("0.00");
+    tot_imp_iva();
     }
 }
 
@@ -556,7 +455,7 @@ void fatt_new::combo_fornitori(){
     QSqlQuery query("select ragione_sociale from fornitori");
     if(query.exec()){
     while(query.next()){
-        list << query.value(0).toString();
+    list << query.value(0).toString();
     }
     }
     QCompleter *complete = new QCompleter(list,this);
@@ -574,7 +473,7 @@ void fatt_new::combo_pagamenti(){
     QSqlQuery query("select codice from pagam");
     if(query.exec()){
     while(query.next()){
-        list << query.value(0).toString();
+    list << query.value(0).toString();
     }
     }
     QCompleter *complete = new QCompleter(list,this);
@@ -598,8 +497,8 @@ void fatt_new::spesa_trasp(const QString &){
     totale->setText(QString::number(sp2));
 
     if(sp_tr->text().length()==0){
-        tot_imp_iva();
-        sp_tr->setText("0.00");
+    tot_imp_iva();
+    sp_tr->setText("0.00");
     }
 }
 
@@ -616,8 +515,8 @@ void fatt_new::spesa_in(const QString &){
     totale->setText(QString::number(sp2));
 
     if(sp_in->text().length()==0){
-        tot_imp_iva();
-        sp_in->setText("0.00");
+    tot_imp_iva();
+    sp_in->setText("0.00");
     }
 }
 
@@ -631,7 +530,7 @@ void fatt_new::lista(){
     mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantita'")));
+    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantita'").toStdString().c_str()));
     mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -648,26 +547,6 @@ void fatt_new::lista(){
 
 }
 
-QTableWidgetItem *fatt_new::inserisciRiga(const char *str, int alig)
- {
-        QTableWidgetItem *item;
-
-        item = new QTableWidgetItem();
-        item->setText(str);
-        item->setTextAlignment(alig);
-        return item;
- }
-
-QTableWidgetItem *fatt_new::inserisciRiga(QString str, int alig)
- {
-        QTableWidgetItem *item;
-
-        item = new QTableWidgetItem();
-        item->setText(str);
-        item->setTextAlignment(alig);
-        return item;
- }
-
 void fatt_new::tot_imp_iva(){
 
     QSqlQuery Query1,Query2,Query3;
@@ -676,32 +555,32 @@ void fatt_new::tot_imp_iva(){
     query.exec();
     if(query.next()){
 
-        Query1.prepare("select sum(prezzo_s_iva) from fatture_righe_acq_art where id='"+id->text()+"'");
+    Query1.prepare("select sum(prezzo_s_iva) from fatture_righe_acq_art where id='"+id->text()+"'");
     Query1.exec();
     if(Query1.next()){
-        imponibile->setText(QString::number(Query1.value(0).toDouble()));
+    imponibile->setText(QString::number(Query1.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
     }
 
     Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_righe_acq_art where id='"+id->text()+"'");
     Query2.exec();
     if(Query2.next()){
-        iva_ft->setText(QString::number(Query2.value(0).toDouble()));
+    iva_ft->setText(QString::number(Query2.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
     }
 
 
     Query3.prepare("select sum(totale) from fatture_righe_acq_art where id ='"+id->text()+"'");
     Query3.exec();
     if(Query3.next()){
-        totale->setText(QString::number(Query3.value(0).toDouble()));
+    totale->setText(QString::number(Query3.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
     }
     }
     emit salvafatturanew();
@@ -715,32 +594,32 @@ void fatt_new::tot_imp_iva_rg()
     query.exec();
     if(query.next()){
 
-        Query1.prepare("select sum(prezzo_s_iva) from fatture_acq_righe where id='"+id->text()+"'");
+    Query1.prepare("select sum(prezzo_s_iva) from fatture_acq_righe where id='"+id->text()+"'");
     Query1.exec();
     if(Query1.next()){
-        imponibile->setText(QString::number(Query1.value(0).toDouble()));
+    imponibile->setText(QString::number(Query1.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
     }
 
     Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_acq_righe where id='"+id->text()+"'");
     Query2.exec();
     if(Query2.next()){
-        iva_ft->setText(QString::number(Query2.value(0).toDouble()));
+    iva_ft->setText(QString::number(Query2.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
     }
 
 
     Query3.prepare("select sum(totale) from fatture_acq_righe where id ='"+id->text()+"'");
     Query3.exec();
     if(Query3.next()){
-        totale->setText(QString::number(Query3.value(0).toDouble()));
+    totale->setText(QString::number(Query3.value(0).toDouble()));
     }
     else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
+    QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
     }
     }
     emit salvafatturanew();
@@ -756,43 +635,40 @@ void fatt_new::chiudi()
     int ret = box->exec();
     switch(ret){
     case QMessageBox::Ok:
-         //Close
-         save->setChecked(true);
-         save->setStyleSheet("background-color: rgb(249, 22, 5)");
-         eli_riga();
-         box->close();
-         close();
-         break;
+     //Close
+     save->setChecked(true);
+     save->setStyleSheet("background-color: rgb(249, 22, 5)");
+     eli_riga();
+     box->close();
+     close();
+     break;
     case QMessageBox::Cancel:
-        //return
-        box->close();
-        break;
+    //return
+    box->close();
+    break;
     case QMessageBox::Close:
-        box->close();
-        close();
+    box->close();
+    close();
     }
 }
 
 void fatt_new::eli_riga()
 {
     QSqlQuery query,query1,query2;
-    query.prepare("DELETE FROM fatture_righe_acq_art WHERE id = :id");
-    query1.prepare("DELETE FROM fatture_acq_righe WHERE id = :id");
-    query2.prepare("SELECT * from fatture_acq WHERE id=:id");
-    query.bindValue(":id",id->text());
-    query1.bindValue(":id",id->text());
-    query2.bindValue(":id",id->text());
+    query.prepare("DELETE FROM fatture_righe_acq_art WHERE id='"+id->text()+"'");
+    query1.prepare("DELETE FROM fatture_acq_righe WHERE id='"+id->text()+"'");
+    query2.prepare("SELECT * from fatture_acq WHERE id='"+id->text()+"'");
 
     if (query.exec() && query1.exec() && query2.exec()) //Se esito OK Eliminato da DB
     {
-        lista();
+    lista();
     }
     else
     {
-        QMessageBox *box= new QMessageBox(this);
-        box->setWindowTitle(tr("Lylibrary"));
-        box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
-        box->exec();
+    QMessageBox *box= new QMessageBox(this);
+    box->setWindowTitle(tr("Lylibrary"));
+    box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
+    box->exec();
      }
     emit salvafatturanew();
     lista();

@@ -35,9 +35,9 @@ export_inv::export_inv(QObject *parent) :
              painter = new QPainter();
 
 #ifdef Q_WS_WIN
-    settingsDir = new QDir(QDir::homePath()+"/luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/lylibrary/");
 #else
-    settingsDir = new QDir(QDir::homePath()+"/.luxury/");
+    settingsDir = new QDir(QDir::homePath()+"/.lylibrary/");
 #endif
 
     if(!settingsDir->exists())
@@ -162,7 +162,7 @@ void export_inv::pagina_inventario(int pagNo)
                    tr("Titolo"));
   painter->drawText(600,200,600,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   QString::fromUtf8(tr("Quantità")));
+                   QString::fromUtf8(tr("Quantità").toStdString().c_str()));
   painter->drawText(1000,200,800,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
                     tr("Prezzo unitario"));
@@ -206,175 +206,6 @@ void export_inv::pagina_inventario(int pagNo)
       painter->drawText(1615,2695,310,100,
                         Qt::AlignJustify|Qt::AlignJustify,
                         QString::fromUtf8("\u20AC")+ "   " +QString::number(sum_totale));
-  }
-  else{
-      qDebug() << "Query" << query.lastError().text();
-  }
-
-  painter->drawText(0,2770,2000,100,
-                    Qt::AlignVCenter|Qt::AlignRight,
-                    tr("Pagina: ")+QString("%1").arg(pagNo)+"   ");
-  painter->drawText(5,2770,2770,100,
-                    Qt::AlignVCenter|Qt::AlignLeft,
-                    tr("Lylibrary - versione ")+general->value("Version/version",QVariant()).toString());
-  painter->drawLine(0,2760,2000,2760);
-}
-
-void export_inv::st_inv_prod(QPrinter *printer, QSqlQueryModel *dataset)
-{
-    // la funzione stampa_inventario accoglie come parametro un oggetto puntatore
-        // che rappresenta il dataset da mandare in stampa e che quindi
-        // contiene i dati del report
-        printer->setResolution(254);
-         printer->setPageMargins(5.0,5.0,5.0,5.0,QPrinter::Millimeter);
-          printer->setOrientation(QPrinter::Portrait);
-        // inizio fase di stampa. Si attiva il painter sulla printer
-        // impostata in precedenza
-      painter->begin(printer);
-
-
-
-      // si richiama la sotto funzione che "disegna" il modulo di stampa
-      int pagNo = 0;
-      ++pagNo;
-      this->pg_inv(pagNo);
-
-
-      int recNo = 0;
-
-      // per ogni record del data set si effettua la stampa del dettaglio
-
-      while (recNo < dataset->rowCount())
-      {
-
-            // Occorre gestire a mano il controllo di quante righe è possibile stampare
-            // per prova si è impostato un massimo di 4 righe di dettaglio per pagina
-            // Adeguare il numero di righe in base all'altezza del carattere di stampa
-
-          for (int secRow = 0; secRow < 24; ++secRow)
-          {
-              QSqlRecord record = dataset->record(recNo);
-
-              if (!record.isEmpty())
-              {
-                 // in realtà  il tentativo di controllare se in record è vuoto
-                 // non funziona nel presente esempio. Non ho capito perchè.
-
-                  int verticalPos = 200+100*(secRow+1);
-
-                  painter->setPen(QPen(Qt::black,1));
-                  painter->drawText(0,verticalPos,200,100,
-                                    Qt::AlignVCenter | Qt::AlignHCenter,
-                               record.value("codbarre").toString());
-                  painter->drawText(200,verticalPos,400,100,
-                                    Qt::AlignVCenter|Qt::AlignHCenter,
-                               record.value("nome_articolo").toString());
-                  painter->drawText(600,verticalPos,600,100,
-                               Qt::AlignVCenter|Qt::AlignHCenter,
-                               record.value("quantita").toString());
-                  painter->drawText(1000,verticalPos,800,100,
-                                    Qt::AlignVCenter|Qt::AlignHCenter,
-                                    record.value("pr_unit").toString());
-                  painter->drawText(1300,verticalPos,1000,100,
-                                    Qt::AlignVCenter|Qt::AlignHCenter,
-                                    record.value("totale").toString());
-
-
-                  ++recNo;
-              }
-
-          }
-
-          // onde evitare di generare una pagina vuota si controlla a mano
-          // se si Ã¨ reggiunto l'ultimo record
-
-          if(recNo < dataset->rowCount())
-          {
-              printer->newPage();
-              pg_inv(pagNo);
-              ++pagNo;
-          }
-       }
-
-       // chiusura della fase di inserimento dati. Richiamando end()
-       // il file viene fisicamente prodotto o mandato in stampa
-
-      painter->end();
-}
-
-void export_inv::pg_inv(int pagNo)
-{
-    // La funzione disegna gli oggetti "Statici" presenti su ogni pagina
-    // di fatto prepara il modulo di stampa per accogliere poi i dati
-
-  painter->setFont(QFont("Arial",12,75));
-  painter->setPen(QPen(Qt::blue,1));
-  painter->drawRect(0,0,2000,2870);
-
-  painter->setPen(QPen(Qt::blue,1));
-  painter->drawRect(0,0,2000,120);
-  painter->drawText(0,0,2000,120,
-                   Qt::AlignVCenter|Qt::AlignHCenter,
-                   tr("Inventario magazzino"));
-
-  //Valorizzazione header box intestazione colonne
-
-  painter->drawRect(0,120,2000,200);
-  painter->drawText(0,200,200,100,
-                   Qt::AlignVCenter|Qt::AlignHCenter,
-                   tr("Barcode"));
-  painter->drawText(200,200,400,100,
-                   Qt::AlignVCenter|Qt::AlignHCenter,
-                   tr("Titolo"));
-  painter->drawText(600,200,600,100,
-                   Qt::AlignVCenter|Qt::AlignHCenter,
-                   QString::fromUtf8(tr("Quantità")));
-  painter->drawText(1000,200,800,100,
-                    Qt::AlignVCenter|Qt::AlignHCenter,
-                    tr("Prezzo unitario"));
-  painter->drawText(1300,200,1000,100,
-                    Qt::AlignVCenter|Qt::AlignHCenter,
-                    tr("Totale"));
-
-  painter->drawRect(0,2660,2000,100);
-  painter->drawRect(320,2660,320,100);
-  painter->drawRect(640,2660,320,100);
-  painter->drawRect(960,2660,320,100);
-  painter->drawRect(1280,2660,320,100);
-
-
-  painter->setFont(QFont("Arial",8,50));
-  painter->drawText(10,2665,320,100,
-                    Qt::AlignVCenter|Qt::AlignLeft,
-                    tr("Imponibile"));
-  painter->drawText(650,2665,320,100,
-                    Qt::AlignVCenter|Qt::AlignLeft,
-                    tr("Iva"));
-  painter->drawText(1290,2665,320,100,
-                    Qt::AlignVCenter|Qt::AlignLeft,
-                    tr("Totale"));
-
-  QSqlQuery query;
-  query.exec("select sum(pr_s_iva),sum(totale) from carico_prod_dig");
-  if(query.next()){
-      double num1 = query.value(0).toDouble();
-      double sum_prs_iva = num1;
-      painter->drawText(335,2695,310,100,
-                        Qt::AlignJustify|Qt::AlignJustify,
-                        QString::fromUtf8("\u20AC")+ "   " +QString::number(sum_prs_iva));
-      double num_totale1 = query.value(1).toDouble();
-      double sum_totale = num_totale1;
-      double iva = sum_totale-sum_prs_iva;
-      painter->drawText(975,2695,310,100,
-                        Qt::AlignJustify|Qt::AlignJustify,
-                        QString::fromUtf8("\u20AC")+ "   " +QString::number(iva));
-
-      painter->drawText(1615,2695,310,100,
-                        Qt::AlignJustify|Qt::AlignJustify,
-                        QString::fromUtf8("\u20AC")+ "   " +QString::number(sum_totale));
-  }
-  else{
-      qDebug() << "Query" << query.lastError().text();
   }
 
   painter->drawText(0,2770,2000,100,

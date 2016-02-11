@@ -29,7 +29,7 @@ private slots:
     void elimina();
     void nuovo();
     void esporta_pdf();
-
+    void clear_lin_text();
 signals:
    void  banca_add();
 };

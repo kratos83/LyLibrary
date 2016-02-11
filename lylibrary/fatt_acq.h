@@ -21,7 +21,6 @@ public:
 
 public slots:
     void nuova_fattura_libri();
-    void nuova_fattura_prodotti_dig();
     void salva_fattura();
     void aggiorna_fattura();
     void agg_fatt(QModelIndex index);
@@ -37,10 +36,6 @@ public slots:
 private:
     QSqlRelationalTableModel *mod_grid;
     QSortFilterProxyModel *model;
-    QMenu *menu;
-    QAction * agg_fattura_libri;
-    QAction * agg_fattura_prod_dig;
-
 };
 
 #endif // FATT_ACQ_H

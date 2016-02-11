@@ -221,8 +221,8 @@ void fornitori::elimina(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8(tr("Errore")));
-                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
+                MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile eliminare record poichè non hai selezionato nulla").toStdString().c_str()));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -309,7 +309,7 @@ void fornitori::lista(){
     mod_grid->setHeaderData(3,Qt::Horizontal, tr("Codice Fiscale"));
     mod_grid->setHeaderData(4,Qt::Horizontal, tr("Indirizzo"));
     mod_grid->setHeaderData(5,Qt::Horizontal, tr("CAP"));
-    mod_grid->setHeaderData(6,Qt::Horizontal,QString::fromUtf8((tr("Località"))));
+    mod_grid->setHeaderData(6,Qt::Horizontal,QString::fromUtf8((tr("Località").toStdString().c_str())));
     mod_grid->setHeaderData(7,Qt::Horizontal, tr("PROV"));
     mod_grid->setHeaderData(8,Qt::Horizontal, tr("Telefono"));
     mod_grid->setHeaderData(9,Qt::Horizontal, tr("FAX"));

@@ -32,8 +32,9 @@ private:
     QSettings *general;
 
 public slots:
-    void creadb(QSqlDatabase db, QString db_lylibrary);
+    void creadb(QSqlDatabase db, QString db_lylibrary, int year);
     void barra_progresso();
+    void crea_tabelle(const QString &sql) const;
     void connettidatabase();
     void confread();
     bool add_vis_groupbox(bool vis);
@@ -45,6 +46,7 @@ public slots:
 
 protected:
     void closeEvent(QCloseEvent *);
+    QString Base64ToAscii(QString String);
 };
 
 #endif // CONNESSIONE_H

@@ -123,7 +123,7 @@
          <item row="0" column="0">
           <widget class="QLabel" name="image_file">
            <property name="frameShape">
-            <enum>QFrame::Panel</enum>
+            <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="frameShadow">
             <enum>QFrame::Plain</enum>
@@ -546,6 +546,9 @@
         <layout class="QGridLayout" name="gridLayout_6">
          <item row="6" column="0">
           <widget class="QPushButton" name="st_pdf">
+           <property name="toolTip">
+            <string>Esporta in pdf</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -655,6 +658,10 @@ libri.</string>
          </item>
          <item row="5" column="0">
           <widget class="QPushButton" name="pr_bar">
+           <property name="toolTip">
+            <string>Stampa lista
+codice a barre</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -666,6 +673,9 @@ libri.</string>
          </item>
          <item row="7" column="0">
           <widget class="QPushButton" name="st_cvs">
+           <property name="toolTip">
+            <string>Esporta in excel</string>
+           </property>
            <property name="text">
             <string/>
            </property>

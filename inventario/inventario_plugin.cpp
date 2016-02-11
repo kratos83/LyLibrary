@@ -72,14 +72,10 @@ void inventario_plugin::pluginTranslator(){
 
     QString locale = general->value("Language/language").toString();
     QTranslator *translator = new QTranslator(this);
-    translator->load(":/language/inventario/"+locale+".qm");
+    translator->load(":/language/"+locale+".qm");
     qApp->installTranslator(translator);
 }
 
 QIcon inventario_plugin::icona(){
     return QIcon(":/images/documentation.png");
 }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(importinventario_plugin, inventario_plugin)
-#endif // QT_VERSION < 0x050000

@@ -40,7 +40,7 @@ private slots:
     void cerca_libri(const QString &);
     void mousePressEvent(QMouseEvent *event);
     void Popup(const QPoint& pt);
-
+    void clear_lin_text();
 };
 
 #endif // PORTO_H

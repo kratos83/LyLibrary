@@ -65,14 +65,6 @@ fattura_rg::fattura_rg(QWidget *parent) :
     filtro();
     pagamento_fatt();
     lista_libri();
-    if(f_libri_2->isChecked()){
-    lista_libri();
-    }
-    else if(f_prod_dig_2->isChecked()){
-        lista_prod_dig();
-        f_prod_dig_2->setChecked(true);
-    }
-
     visual_scadenze();
 }
 
@@ -133,7 +125,6 @@ void fattura_rg::bank(){
 }
 
 void fattura_rg::add_banca(){
-
 
     vis_banca->clear();
     QStringList list;
@@ -358,33 +349,7 @@ void fattura_rg::lista_libri()
     mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantita'")));
-    mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
-
-    tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tab_view->setSelectionMode(QAbstractItemView::SingleSelection);
-    tab_view->setSortingEnabled(true);
-    tab_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    tab_view->verticalHeader()->hide();
-    tab_view->setModel(mod_grid);
-
-    tab_view->setAlternatingRowColors(true);
-
-    tab_view->setItemDelegateForColumn(7, new coldxdelegato(this));
-}
-
-void fattura_rg::lista_prod_dig()
-{
-    mod_grid->setQuery("select cod_art,nome_articolo,descrizione,prezzo_unit,prezzo_s_iva,iva,prezzo_c_iva,quantita,totale from fatture_righe_vendita_prod_dig where id='"+id1->text()+"'");
-    mod_grid->setHeaderData(0, Qt::Horizontal, tr("Codice"));
-    mod_grid->setHeaderData(1, Qt::Horizontal, tr("Prodotto"));
-    mod_grid->setHeaderData(2, Qt::Horizontal, tr("Descrizione"));
-    mod_grid->setHeaderData(3, Qt::Horizontal, tr("Prezzo unitario"));
-    mod_grid->setHeaderData(4, Qt::Horizontal, tr("Prezzo S. IVA"));
-    mod_grid->setHeaderData(5, Qt::Horizontal, tr("IVA"));
-    mod_grid->setHeaderData(6, Qt::Horizontal, tr("Prezzo C. IVA"));
-    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantita'")));
+    mod_grid->setHeaderData(7, Qt::Horizontal, QString::fromUtf8(tr("Quantita'").toStdString().c_str()));
     mod_grid->setHeaderData(8,Qt::Horizontal,tr("Totale"));
 
     tab_view->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -412,40 +377,22 @@ void fattura_rg::clickgrid()
 void fattura_rg::fattura_riga_open()
 {
 
-    if(f_libri_2->isChecked() == true){
-    fattura_rg_art *ft = new fattura_rg_art;
+    fattura_rg_art *ft = new fattura_rg_art(id1->text(),this);
     ft->setModal(true);
     ft->setWindowTitle(tr("Inserisci articoli fattura libri"));
     connect(ft,SIGNAL(save_fatt()),this,SLOT(lista_libri()));
     connect(ft,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-    ft->id_fatt->setText(id1->text());
-    ft->f_libri->setChecked(true);
     ft->exec();
     lista_libri();
-    }
-
-    if(f_prod_dig_2->isChecked() == true){
-        fattura_rg_art *ft = new fattura_rg_art(this);
-        ft->setModal(true);
-        ft->setWindowTitle(tr("Inserisci articoli fattura prodotti digitali"));
-        connect(ft,SIGNAL(save_fatt()),this,SLOT(lista_prod_dig()));
-        connect(ft,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-        ft->id_fatt->setText(id1->text());
-        ft->f_prod_dig->setChecked(true);
-        ft->exec();
-        lista_prod_dig();
-    }
 }
 
 void fattura_rg::fatt_aggiorna()
 {
-    if(f_libri_2->isChecked())
-    {
         if((pers->currentText()=="") ){
             QMessageBox MsgBox;
             MsgBox.setWindowTitle(tr("LyLibrary"));
             MsgBox.setText(tr("Errore"));
-            MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
+            MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...").toStdString().c_str()));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
             pers->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -534,114 +481,15 @@ void fattura_rg::fatt_aggiorna()
             emit salvafattura();
             close();
             }
-    }
-    else if(f_prod_dig_2->isChecked())
-    {
-        if((pers->currentText()=="") ){
-            QMessageBox MsgBox;
-            MsgBox.setWindowTitle(tr("LyLibrary"));
-            MsgBox.setText(tr("Errore"));
-            MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
-            MsgBox.setIcon(QMessageBox::Warning);
-            MsgBox.exec();
-            pers->setStyleSheet("background-color: rgb(249, 22, 5)");
-        }
-        else{
-            QSqlQuery query;
-            query.prepare("UPDATE fatture_vendita_righe_dig SET data=:data,fornitore=:fornitore,tipo_cliente=:tipo_cliente,sconto_1=:sconto_1,"
-                          " sconto_2=:sconto_2,sconto_3=:sconto_3,spese_trasporto=:spese_trasporto,spese_incasso=:spese_incasso,annotazioni=:annotazioni,vs_ordine=:vs_ordine,tipo_pagamento=:tipo_pagamento,"
-                          " note_pagamento=:note_pagamento,rag_soc=:rag_soc,indirizzo=:indirizzo,cap=:cap,localita=:localita,prov=:prov,telefono=:telefono,"
-                          " fax=:fax, piva_cfis=:piva_cfis,banca=:banca,iban=:iban,agente=:agente,provvigione=:provvigione,prezzo_s_iva=:prezzo_s_iva,"
-                          " iva=:iva,totale=:totale,scadenza_1=:scadenza_1,scadenza_2=:scadenza_2,scadenza_3=:scadenza_3,importo_1=:importo_1,importo_2=:importo_2,importo_3=:importo_3 "
-                          " WHERE id =:id");
-
-            query.bindValue(":id",id1->text());
-            query.bindValue(":data",data_fatt->date());
-            query.bindValue(":fornitore",pers->currentText());
-            query.bindValue(":tipo_cliente",tipo_cliente->currentIndex());
-            query.bindValue(":sconto_1",sconto1->text());
-            query.bindValue(":sconto_2",sconto2->text());
-            query.bindValue(":sconto_3",sconto3->text());
-            query.bindValue(":spese_trasporto",spes_tr->text());
-            query.bindValue(":spese_incasso",spes_in->text());
-            query.bindValue(":annotazioni",ann->toPlainText());
-            query.bindValue(":vs_ordine",ordine->text());
-            query.bindValue(":tipo_pagamento",pagam->currentText());
-            query.bindValue(":note_pagamento",lineEdit->text());
-            query.bindValue(":rag_soc",rag_soc->text());
-            query.bindValue(":indirizzo",indirizzo->text());
-            query.bindValue(":cap",cap->text());
-            query.bindValue(":localita",local->text());
-            query.bindValue(":prov",prov->text());
-            query.bindValue(":telefono",tel->text());
-            query.bindValue(":fax",cell->text());
-            query.bindValue(":piva_cfis",paese->text());
-            query.bindValue(":banca",vis_banca->currentText());
-            query.bindValue(":iban",iban->text());
-            query.bindValue(":agente",lineEdit_2->text());
-            query.bindValue(":provvigione",lineEdit_3->text());
-            query.bindValue(":prezzo_s_iva",imponibile_2->text());
-            query.bindValue(":iva",iva_ft_2->text());
-            query.bindValue(":totale",totale_2->text());
-
-            if(scadenza_1->isVisible() && !scadenza_2->isVisible() && !scadenza_3->isVisible()){
-            query.bindValue(":scadenza_1",scadenza_1->date());
-            query.bindValue(":importo_1",totale_2->text());
-            }
-            else if(scadenza_1->isVisible() && scadenza_2->isVisible() && !scadenza_3->isVisible()){
-                query.bindValue(":scadenza_1",scadenza_1->date());
-                query.bindValue(":scadenza_2",scadenza_2->date());
-                double div = totale_2->text().toDouble()/2;
-                query.bindValue(":importo_1",div);
-                query.bindValue(":importo_2",div);
-            }
-            else if(scadenza_1->isVisible() && scadenza_2->isVisible() && scadenza_3->isVisible()){
-                query.bindValue(":scadenza_1",scadenza_1->date());
-                query.bindValue(":scadenza_2",scadenza_2->date());
-                query.bindValue(":scadenza_3",scadenza_3->date());
-                double div = totale_2->text().toDouble()/3;
-                query.bindValue(":importo_1",div);
-                query.bindValue(":importo_2",div);
-                query.bindValue(":importo_3",div);
-            }
-            else if(!scadenza_1->isVisible() && !scadenza_2->isVisible() && !scadenza_3->isVisible()){
-                query.bindValue(":scadenza_1","");
-                query.bindValue(":scadenza_2","");
-                query.bindValue(":scadenza_3","");
-                query.bindValue(":importo_1","");
-                query.bindValue(":importo_2","");
-                query.bindValue(":importo_3","");
-            }
-
-            update_f_prod_dig();
-
-            if( query.exec()){
-                QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
-            }
-            else{
-                QMessageBox MsgBox;
-                MsgBox.setText(tr("La voce suddetta non si puo aggiornare"));
-                MsgBox.setInformativeText(tr("Impossibile aggiornare ")+query.lastError().text());
-                MsgBox.setIcon(QMessageBox::Warning);
-                MsgBox.exec();
-            }
-
-            lista_prod_dig();
-            emit salvafattura();
-            close();
-        }
-    }
 }
 
 void fattura_rg::fatt_inserisci()
 {
-
-    if(f_libri_2->isChecked()){
     if((pers->currentText()=="") ){
         QMessageBox MsgBox;
         MsgBox.setWindowTitle(tr("LyLibrary"));
         MsgBox.setText(tr("Errore"));
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...").toStdString().c_str()));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
         pers->setStyleSheet("background-color: rgb(249, 22, 5)");
@@ -708,8 +556,6 @@ void fattura_rg::fatt_inserisci()
         query.bindValue("importo_2","");
         query.bindValue("importo_3","");
     }
-
-
         insert_f_libri();
         if(query.exec()){
 
@@ -725,100 +571,6 @@ void fattura_rg::fatt_inserisci()
         tot_imp_iva();
         close();
         }
-
-    }
-    else if(f_prod_dig_2->isChecked()){
-        if((pers->currentText()=="") ){
-            QMessageBox MsgBox;
-            MsgBox.setWindowTitle(tr("LyLibrary"));
-            MsgBox.setText(tr("Errore"));
-            MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile inserire la fattura,\n poichè non hai inserito i dati correttamente...")));
-            MsgBox.setIcon(QMessageBox::Warning);
-            MsgBox.exec();
-            pers->setStyleSheet("background-color: rgb(249, 22, 5)");
-        }
-        else{
-        QSqlQuery query;
-        query.prepare("INSERT INTO fatture_vendita_righe_dig (id,data,fornitore,tipo_cliente,sconto_1,sconto_2,sconto_3,spese_trasporto,spese_incasso,annotazioni,vs_ordine,tipo_pagamento,note_pagamento,rag_soc,indirizzo,cap,localita,prov,telefono,fax,piva_cfis,banca,iban,agente,provvigione,prezzo_s_iva,iva,totale,scadenza_1,scadenza_2,scadenza_3,importo_1,importo_2,importo_3)"
-                      " VALUES(:id,:data,:fornitore,:tipo_cliente,:sconto_1,:sconto_2,:sconto_3,:spese_trasporto,:spese_incasso,:annotazioni,:vs_ordine,:tipo_pagamento,:note_pagamento,:rag_soc,:indirizzo,:cap,:localita,:prov,:telefono,:fax,:piva_cfis,:banca,:iban,:agente,:provvigione,:prezzo_s_iva,:iva,:totale,:scadenza_1,:scadenza_2,:scadenza_3,:importo_1,:importo_2,:importo_3) ");
-
-        query.bindValue(":id",id1->text());
-        query.bindValue(":data",data_fatt->date());
-        query.bindValue(":fornitore",pers->currentText());
-        query.bindValue(":tipo_cliente",tipo_cliente->currentIndex());
-        query.bindValue(":sconto_1",sconto1->text());
-        query.bindValue(":sconto_2",sconto2->text());
-        query.bindValue(":sconto_3",sconto3->text());
-        query.bindValue(":spese_trasporto",spes_tr->text());
-        query.bindValue(":spese_incasso",spes_in->text());
-        query.bindValue(":annotazioni",ann->toPlainText());
-        query.bindValue(":vs_ordine",ordine->text());
-        query.bindValue(":tipo_pagamento",pagam->currentText());
-        query.bindValue(":note_pagamento",lineEdit->text());
-        query.bindValue(":rag_soc",rag_soc->text());
-        query.bindValue(":indirizzo",indirizzo->text());
-        query.bindValue(":cap",cap->text());
-        query.bindValue(":localita",local->text());
-        query.bindValue(":prov",prov->text());
-        query.bindValue(":telefono",tel->text());
-        query.bindValue(":fax",cell->text());
-        query.bindValue(":piva_cfis",paese->text());
-        query.bindValue(":banca",vis_banca->currentText());
-        query.bindValue(":iban",iban->text());
-        query.bindValue(":agente",lineEdit_2->text());
-        query.bindValue(":provvigione",lineEdit_3->text());
-        query.bindValue(":prezzo_s_iva",imponibile_2->text());
-        query.bindValue(":iva",iva_ft_2->text());
-        query.bindValue(":totale",totale_2->text());
-
-        if(scadenza_1->isVisible() && !scadenza_2->isVisible() && !scadenza_3->isVisible()){
-        query.bindValue(":scadenza_1",scadenza_1->date());
-        query.bindValue(":importo_1",totale_2->text());
-        }
-        else if(scadenza_1->isVisible() && scadenza_2->isVisible() && !scadenza_3->isVisible()){
-            query.bindValue(":scadenza_1",scadenza_1->date());
-            query.bindValue(":scadenza_2",scadenza_2->date());
-            double div = totale_2->text().toDouble()/2;
-            query.bindValue(":importo_1",div);
-            query.bindValue(":importo_2",div);
-        }
-        else if(scadenza_1->isVisible() && scadenza_2->isVisible() && scadenza_3->isVisible()){
-            query.bindValue(":scadenza_1",scadenza_1->date());
-            query.bindValue(":scadenza_2",scadenza_2->date());
-            query.bindValue(":scadenza_3",scadenza_3->date());
-            double div = totale_2->text().toDouble()/3;
-            query.bindValue(":importo_1",div);
-            query.bindValue(":importo_2",div);
-            query.bindValue(":importo_3",div);
-        }
-        else if(!scadenza_1->isVisible() && !scadenza_2->isVisible() && !scadenza_3->isVisible()){
-            query.bindValue(":scadenza_1","");
-            query.bindValue(":scadenza_2","");
-            query.bindValue(":scadenza_3","");
-            query.bindValue("importo_1","");
-            query.bindValue("importo_2","");
-            query.bindValue("importo_3","");
-
-    }
-        insert_f_prod_dig();
-        if(query.exec()){
-
-        }
-        else{
-            QMessageBox MsgBox;
-            MsgBox.setText(tr("La voce suddetta non si puo inserire"));
-            MsgBox.setInformativeText(tr("Impossibile inserire ")+query.lastError().text());
-            MsgBox.setIcon(QMessageBox::Warning);
-            MsgBox.exec();
-        }
-        emit salvafattura();
-        tot_imp_iva();
-        close();
-        }
-        }
-
-
-
 }
 
 void fattura_rg::insert_f_libri()
@@ -841,26 +593,6 @@ void fattura_rg::insert_f_libri()
     }
 }
 
-void fattura_rg::insert_f_prod_dig()
-{
-    QSqlQuery query1;
-    query1.prepare("INSERT INTO fattura_vendita (id,data,fornitore,totale,tipo_fattura)"
-                   " VALUES(:id,:data,:fornitore,:totale,:tipo_fattura)");
-
-    query1.bindValue(":id",id1->text());
-    query1.bindValue(":data",data_fatt->date());
-    query1.bindValue(":fornitore",pers->currentText());
-    query1.bindValue(":tipo_fattura","Prodotti digitali");
-    query1.bindValue(":totale",totale_2->text());
-
-    if(query1.exec()){
-        QMessageBox::information(this,tr("LyLibrary"),tr("Inserimento effettuato correttamente..."));
-    }
-    else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
-    }
-}
-
 ////////////////////////////////////////////////////////////////////////
 void fattura_rg::update_f_libri()
 {
@@ -870,26 +602,7 @@ void fattura_rg::update_f_libri()
     query1.bindValue(":data",data_fatt->date());
     query1.bindValue(":fornitore",pers->currentText());
     query1.bindValue(":totale",totale_2->text());
-    QString txt = tr("Vendita libri");
-    query1.bindValue(":tipo_fattura",txt);
-
-    if(query1.exec()){
-        QMessageBox::information(this,tr("LyLibrary"),tr("Aggiornamento effettuato correttamente..."));
-    }
-    else{
-        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire ")+query1.lastError().text());
-    }
-}
-/////////////////////////////////////////////////////////////////////////
-void fattura_rg::update_f_prod_dig()
-{
-    QSqlQuery query1;
-    query1.prepare("UPDATE fattura_vendita SET data=:data,fornitore=:fornitore,totale=:totale,tipo_fattura=:tipo_fattura WHERE id=:id");
-    query1.bindValue(":id",id1->text());
-    query1.bindValue(":data",data_fatt->date());
-    query1.bindValue(":fornitore",pers->currentText());
-    query1.bindValue(":totale",totale_2->text());
-    QString txt = tr("Prodotti digitali");
+    QString txt = tr("Vendita");
     query1.bindValue(":tipo_fattura",txt);
 
     if(query1.exec()){
@@ -919,11 +632,10 @@ void fattura_rg::modifica_riga_one(QModelIndex index)
 {
     //Tentativo di aggiornamento del record perché trovato
     if(index.row() < mod_grid->rowCount()){
-        fattura_rg_art *gt = new fattura_rg_art(this);
+        fattura_rg_art *gt = new fattura_rg_art(id1->text(),this);
         gt->setModal(true);
         QSqlRecord record = mod_grid->record(index.row());
         if(!record.isEmpty()){
-            gt->id_fatt->setText(id1->text());
             gt->cod_art->setText(record.value("cod_art").toString());
             gt->art_nom->setText(record.value("nome_articolo").toString());
             gt->descrizione->setText(record.value("descrizione").toString());
@@ -938,8 +650,7 @@ void fattura_rg::modifica_riga_one(QModelIndex index)
             query2.exec("select * from prodotti_dvd");
             query.exec();
             if(query.next()){
-                if(query.value(0).toString() == tr("Vendita libri")){
-                    gt->f_libri->setChecked(true);
+                if(query.value(0).toString() == tr("Vendita")){
                     if(query1.next()){
                      gt->cod_barre->setText(query1.value(1).toString());
                      gt->autore->setText(query1.value(4).toString());
@@ -955,23 +666,6 @@ void fattura_rg::modifica_riga_one(QModelIndex index)
                      lista_libri();
                     }
                 }
-                else if(query.value(0).toString() == tr("Prodotti digitali")){
-                    gt->f_prod_dig->setChecked(true);
-                if(query2.next()){
-                 gt->cod_barre->setText(query2.value(1).toString());
-                 gt->autore->setText(query2.value(4).toString());
-                 gt->comboBox_2->setCurrentText(query2.value(6).toString());
-                 gt->scaffale->setText(query2.value(7).toString());
-                 gt->lingua->setText(query2.value(5).toString());
-                 gt->textEdit->setText(query2.value(9).toString());
-                 gt->image_dir->setText(query2.value(10).toString());
-                 QImage image(query2.value(10).toString());
-                 gt->dir_image->setPixmap(QPixmap::fromImage(image));
-                 connect(gt,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
-                 connect(gt,SIGNAL(save_fatt()),this,SLOT(lista_prod_dig()));
-                 lista_prod_dig();
-                }
-                }
             }
         }
         connect(gt,SIGNAL(save_fatt()),this,SLOT(tot_imp_iva()));
@@ -982,11 +676,8 @@ void fattura_rg::modifica_riga_one(QModelIndex index)
 void fattura_rg::elimina()
 {
     if(tab_view->selectionModel()->currentIndex().isValid()){
-        if(f_libri_2->isChecked()){
         if (!id1->text().isEmpty())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
-
             QSqlQuery qctrl;
             qctrl.prepare("SELECT * FROM fatture_righe_vendita_art WHERE id = :id");
             qctrl.bindValue(":id",id1->text());
@@ -1011,32 +702,6 @@ void fattura_rg::elimina()
                     break;
                 }
             }
-        }
-        else if(f_prod_dig_2->isChecked()){
-            QSqlQuery qctrl;
-            qctrl.prepare("SELECT * FROM fatture_righe_vendita_prod_dig WHERE id = :id");
-            qctrl.bindValue(":id",id1->text());
-            qctrl.exec();
-
-
-                QMessageBox *box= new QMessageBox(this);
-                box->setWindowTitle(tr("Lylibrary"));
-                box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
-                box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-                box->setDefaultButton(QMessageBox::Ok);
-                int ret = box->exec();
-                switch(ret){
-                case QMessageBox::Ok:
-                     //Close
-                     elimina_riga();
-                     box->close();
-                     break;
-                case QMessageBox::Cancel:
-                    //return
-                    box->close();
-                    break;
-                }
-        }
     }
     else{
         QMessageBox::warning(this,tr("LyLibrary"),tr("Selezionare una riga da eliminare"));
@@ -1046,8 +711,6 @@ void fattura_rg::elimina()
 
 void fattura_rg::elimina_riga()
 {
-    if(f_libri_2->isChecked())
-    {
         QSqlQuery query,query1;
         query.prepare("DELETE FROM fatture_righe_vendita_art WHERE id = :id ");
         query1.prepare("DELETE FROM fatture_vendita_righe WHERE id = :id ");
@@ -1068,30 +731,6 @@ void fattura_rg::elimina_riga()
         emit salvafattura();
         lista_libri();
         tot_imp_iva();
-    }
-    else if(f_prod_dig_2->isChecked())
-    {
-        QSqlQuery query,query1;
-        query.prepare("DELETE FROM fatture_righe_vendita_prod_dig WHERE id = :id ");
-        query1.prepare("DELETE FROM fatture_vendita_righe_dig WHERE id = :id ");
-        query.bindValue(":id",id1->text());
-        query1.bindValue(":id",id1->text());
-
-        if (query.exec() && query1.exec()) //Se esito OK Eliminato da DB
-        {
-            lista_prod_dig();
-        }
-        else
-        {
-            QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle(tr("Lylibrary"));
-            box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
-            box->exec();
-         }
-        emit salvafattura();
-        lista_prod_dig();
-        tot_imp_iva();
-    }
 }
 
 void fattura_rg::sconto_1t(const QString &)
@@ -1186,7 +825,6 @@ void fattura_rg::spesa_in(const QString &)
 
 void fattura_rg::tot_imp_iva()
 {
-    if(f_libri_2->isChecked()){
     QSqlQuery Query1,Query2,Query3;
     QSqlQuery query;
     query.prepare("select id from fatture_righe_vendita_art where id= '"+id1->text()+"'");
@@ -1221,43 +859,6 @@ void fattura_rg::tot_imp_iva()
         QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
     }
     }
-    }
-    else if(f_prod_dig_2->isChecked()){
-        QSqlQuery Query1,Query2,Query3;
-        QSqlQuery query;
-        query.prepare("select id from fatture_righe_vendita_prod_dig where id= '"+id1->text()+"'");
-        query.exec();
-        if(query.next()){
-
-            Query1.prepare("select sum(prezzo_s_iva) from fatture_righe_vendita_prod_dig where id='"+id1->text()+"'");
-        Query1.exec();
-        if(Query1.next()){
-            imponibile_2->setText(QString::number(Query1.value(0).toDouble()));
-        }
-        else{
-            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
-        }
-
-        Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_righe_vendita_prod_dig where id='"+id1->text()+"'");
-        Query2.exec();
-        if(Query2.next()){
-            iva_ft_2->setText(QString::number(Query2.value(0).toDouble()));
-        }
-        else{
-            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
-        }
-
-
-        Query3.prepare("select sum(totale) from fatture_righe_vendita_prod_dig where id ='"+id1->text()+"'");
-        Query3.exec();
-        if(Query3.next()){
-            totale_2->setText(QString::number(Query3.value(0).toDouble()));
-        }
-        else{
-            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
-        }
-        }
-    }
     emit salvafattura();
 }
 
@@ -1291,8 +892,6 @@ void fattura_rg::chiudi(){
 
 void fattura_rg::eli_riga()
 {
-    if(f_libri_2->isChecked())
-    {
         QSqlQuery query,query1,query2;
         query.prepare("DELETE FROM fatture_righe_vendita_art WHERE id = :id");
         query1.prepare("DELETE FROM fatture_vendita_righe WHERE id = :id");
@@ -1315,37 +914,10 @@ void fattura_rg::eli_riga()
         emit salvafattura();
         lista_libri();
         tot_imp_iva();
-    }
-    else if(f_prod_dig_2->isChecked())
-    {
-        QSqlQuery query,query1,query2;
-        query.prepare("DELETE FROM fatture_righe_vendita_prod_dig WHERE id = :id");
-        query1.prepare("DELETE FROM fatture_vendita_righe_dig WHERE id = :id");
-        query2.prepare("DELETE FROM fatture_vendita_pr_dg where id=:id");
-        query.bindValue(":id",id1->text());
-        query1.bindValue(":id",id1->text());
-        query2.bindValue(":id",id1->text());
-
-        if (query.exec() && query1.exec() && query2.exec()) //Se esito OK Eliminato da DB
-        {
-            lista_prod_dig();
-        }
-        else
-        {
-            QMessageBox *box= new QMessageBox(this);
-            box->setWindowTitle(tr("Lylibrary"));
-            box->setInformativeText(tr("Impossibile eliminare \n il record selezionato?...."));
-            box->exec();
-         }
-        emit salvafattura();
-        lista_prod_dig();
-        tot_imp_iva();
-    }
 }
 
 void fattura_rg::tot_imp_iva_pr()
 {
-    if(f_libri_2->isChecked()){
     QSqlQuery Query1,Query2,Query3;
     QSqlQuery query;
     query.prepare("select id from fatture_vendita_righe where id= '"+id1->text()+"'");
@@ -1379,43 +951,6 @@ void fattura_rg::tot_imp_iva_pr()
     else{
         QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
     }
-    }
-    }
-    else if(f_prod_dig_2->isChecked()){
-        QSqlQuery Query1,Query2,Query3;
-        QSqlQuery query;
-        query.prepare("select id from fatture_vendita_righe_dig where id= '"+id1->text()+"'");
-        query.exec();
-        if(query.next()){
-
-            Query1.prepare("select sum(prezzo_s_iva) from fatture_vendita_righe_dig where id='"+id1->text()+"'");
-        Query1.exec();
-        if(Query1.next()){
-            imponibile_2->setText(QString::number(Query1.value(0).toDouble()));
-        }
-        else{
-            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il prezzo senza iva... ")+Query1.lastError().text());
-        }
-
-        Query2.prepare("select sum(totale-prezzo_s_iva) from fatture_vendita_righe_dig where id='"+id1->text()+"'");
-        Query2.exec();
-        if(Query2.next()){
-            iva_ft_2->setText(QString::number(Query2.value(0).toDouble()));
-        }
-        else{
-            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare l'iva... ")+Query2.lastError().text());
-        }
-
-
-        Query3.prepare("select sum(totale) from fatture_vendita_righe_dig where id ='"+id1->text()+"'");
-        Query3.exec();
-        if(Query3.next()){
-            totale_2->setText(QString::number(Query3.value(0).toDouble()));
-        }
-        else{
-            QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile instanziare il totale... ")+Query3.lastError().text());
-        }
-        }
     }
     emit salvafattura();
 }

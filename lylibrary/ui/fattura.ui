@@ -195,17 +195,10 @@
       <string/>
      </property>
      <layout class="QGridLayout" name="gridLayout_6">
-      <item row="4" column="0" colspan="2">
-       <widget class="QCheckBox" name="ck_lb">
-        <property name="text">
-         <string>Visualizza lista fatture libri</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0" colspan="2">
        <widget class="QTextEdit" name="textEdit"/>
       </item>
-      <item row="8" column="1">
+      <item row="5" column="1">
        <widget class="QLineEdit" name="id"/>
       </item>
       <item row="1" column="0">
@@ -250,6 +243,9 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="cerca1"/>
+      </item>
       <item row="2" column="1">
        <widget class="QComboBox" name="cerca_txt">
         <property name="editable">
@@ -257,32 +253,8 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="cerca1"/>
-      </item>
-      <item row="5" column="0" colspan="2">
-       <widget class="QCheckBox" name="ck_pr">
-        <property name="text">
-         <string>Visualizza lista fattura prodotti 
-digitali</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
       <item row="3" column="0">
-       <spacer name="verticalSpacer_2">
+       <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -345,8 +317,6 @@ digitali</string>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>ck_lb</tabstop>
-  <tabstop>ck_pr</tabstop>
   <tabstop>cerca1</tabstop>
   <tabstop>find_cer</tabstop>
   <tabstop>cerca_txt</tabstop>

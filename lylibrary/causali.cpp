@@ -22,10 +22,8 @@ causali::causali(QWidget *parent) :
     connect(elimina_b,SIGNAL(clicked()),this,SLOT(elimina()));
     //Disabilita qlineedit id:
     id->setEnabled(false);
-
     //Query mod_grid per riempire la tabella:
     mod_grid = new  QSqlQueryModel;
-
     //Visualizza i dati nella tabella:
     lista();
 }
@@ -46,14 +44,18 @@ void causali::nuovo(){
     tipo->setText("");
 }
 
+void causali::clear_lin_text()
+{
+    id->setText("");;
+    tipo->setText("");
+}
+
 void causali::salva(){
 
     if(!id->text().isEmpty())
     {
         QSqlQuery qctrl;
-        qctrl.prepare("select * from causali where id=:id");
-
-        qctrl.bindValue(":id",id->text());
+        qctrl.prepare("select * from causali where id='"+id->text()+"'");
         qctrl.exec();
 
         if(qctrl.next())
@@ -63,7 +65,6 @@ void causali::salva(){
         else{
             inserisci();
         }
-
     }
     else
     {
@@ -75,18 +76,14 @@ void causali::salva(){
 void causali::inserisci(){
 
     QSqlQuery query;
-    query.prepare("INSERT INTO causali (id,nome_causale)"
-                  "VALUES(:id,:nome_causale)");
-
-    query.bindValue(":id",id->text());
-    query.bindValue(":nome_causale",tipo->text());
+    query.prepare("INSERT INTO causali "
+                  "VALUES('"+id->text()+"','"+tipo->text()+"')");
 
     if(query.exec()){
-        id->setText("");;
-        tipo->setText("");
+        clear_lin_text();
     }
     else{
-        qWarning() << query.lastError();
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile inserire...\n")+query.lastError().text());
     }
     lista();
 
@@ -95,51 +92,31 @@ void causali::inserisci(){
 void causali::aggiorna(){
 
     QSqlQuery query;
-    query.prepare("UPDATE causali SET nome_causale=:nome_causale "
-                  "where id=:id");
-
-    query.bindValue(":id",id->text());
-    query.bindValue(":nome_causale",tipo->text());
+    query.prepare("UPDATE causali SET nome_causale='"+tipo->text()+"' "
+                  "where id='"+id->text()+"'");
 
     if(query.exec()){
-        id->setText("");;
-        tipo->setText("");
+        clear_lin_text();
     }
     else{
-        qWarning() << query.lastError();
+        QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare...\n")+query.lastError().text());
     }
     lista();
 }
 
 void causali::elimina(){
 
-    QString flag_controllo = "NO";
-
         if (!id->text().isEmpty())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
-
             QSqlQuery qctrl;
-            qctrl.prepare("SELECT * FROM causali WHERE id = :id");
-            qctrl.bindValue(":id",id->text());
+            qctrl.prepare("SELECT * FROM causali WHERE id='"+id->text()+"'");
             qctrl.exec();
-
-            if (qctrl.next()) //Se esito OK inserimento DB
-            {
-                flag_controllo = "SI";
-             }
-
-            if (qctrl.next()) //Se esito OK inserimento DB
-            {
-                flag_controllo = "SI";
-             }
 
             // Se si passano i controlli di cui sopra si procede all'eliminazione
 
             QSqlQuery query;
 
-            query.prepare("DELETE FROM causali WHERE id=:id LIMIT 1");
-            query.bindValue(":id",id->text());
+            query.prepare("DELETE FROM causali WHERE id='"+id->text()+"'");
 
             if (query.exec()) //Se esito OK Eliminato da DB
             {
@@ -149,8 +126,8 @@ void causali::elimina(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8(tr("Errore")));
-                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
+                MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile eliminare il record.").toStdString().c_str()));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -178,8 +155,7 @@ void causali::clickgrid(){
 void causali::cerca(){
 
     QSqlQuery query;
-    query.prepare("select * from causali where id=:id");
-    query.bindValue(":id",id->text());
+    query.prepare("select * from causali where id='"+id->text()+"'");
     query.exec();
 
     if(query.next()){
@@ -187,8 +163,7 @@ void causali::cerca(){
         tipo->setText(query.value(1).toString());
     }
     else{
-        id->setText("");
-        tipo->setText("");
+        clear_lin_text();
     }
 }
 

@@ -27,9 +27,9 @@ void update::download(){
 
     QProcess *lin_start = new QProcess(this);
 #if defined (Q_OS_LINUX)
-    lin_start->start("pkexec chmod 777 /opt/codicefiscale");
+    lin_start->start("pkexec chmod 777 /opt/lylibrary");
 #elif defined (Q_OS_FREEBSD)
-    lin_start->start("pkexec chmod 777 /opt/codicefiscale");
+    lin_start->start("pkexec chmod 777 /opt/lylibrary");
 #endif
 
     dw_ps->setEnabled(true);
@@ -107,7 +107,7 @@ void update::downloadProgress(qint64 bytesReceived, qint64 bytesTotal){
 
         QString ts = QString::fromLatin1("%1 %2").arg(speed, 3, 'f', 1).arg(unit);
         QString ts1 = QString::fromLatin1("%1 %2").arg(peso,3,'f',1).arg(dt);
-        test_agg->setText(QString::fromUtf8(tr("Velocità di scaricamento: "))+ts+tr("  Dimensione: ")+ts1+tr(" Tempo stimato: ")+QString("%1:%2:%3").arg(hours,2,10, QLatin1Char('0')).arg(mins,2,10, QLatin1Char('0')).arg(secs,2,10, QLatin1Char('0')));
+        test_agg->setText(QString::fromUtf8(tr("Velocità di scaricamento: ").toStdString().c_str())+ts+tr("  Dimensione: ")+ts1+tr(" Tempo stimato: ")+QString("%1:%2:%3").arg(hours,2,10, QLatin1Char('0')).arg(mins,2,10, QLatin1Char('0')).arg(secs,2,10, QLatin1Char('0')));
         progressBar->update();
 }
 
@@ -117,13 +117,13 @@ void update::downloadFinished(){
                 QString filename = QFileInfo(url.path()).fileName();
                 QDir *direct = new QDir( QCoreApplication::applicationDirPath() );
 #if defined(Q_OS_LINUX)
-                QString fileNames=direct->currentDirPath()+"/"+filename+".part";
+                QString fileNames=direct->currentPath()+"/"+filename+".part";
 #elif defined(Q_OS_MACX)
-                QString fileNames=direct->currentDirPath()+"/"+filename+".part";
+                QString fileNames=direct->currentPath()+"/"+filename+".part";
 #elif defined(Q_OS_WIN)
-                QString fileNames=direct->currentDirPath()+"\\"+filename+".part";
+                QString fileNames=direct->currentPath()+"\\"+filename+".part";
 #elif defined (Q_OS_FREEBSD)
-                QString fileNames=direct->currentDirPath()+"/"+filename+".part";
+                QString fileNames=direct->currentPath()+"/"+filename+".part";
 #endif
                 
 
@@ -177,7 +177,7 @@ void update::install_package(){
    QString filename = QFileInfo(url.path()).fileName();
 
    QDir *direct = new QDir( QCoreApplication::applicationDirPath() );
-   QString file_dir=direct->currentDirPath()+"/"+filename;
+   QString file_dir=direct->currentPath()+"/"+filename;
    QStringList fileNames=direct->entryList( QStringList("*.zip"), QDir::Files, QDir::Name);
    fileNames << filename;
 #if defined(Q_OS_LINUX)

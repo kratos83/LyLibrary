@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1125</width>
-    <height>574</height>
+    <width>1013</width>
+    <height>714</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -68,6 +68,101 @@
      </property>
      <widget class="QWidget" name="dockWidgetContents">
       <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="minimumSize">
+          <size>
+           <width>251</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>251</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="cerca"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="cerca_user">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../biblio.qrc">
+              <normaloff>:/images/edit-find.png</normaloff>:/images/edit-find.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="2">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>174</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Totale clienti</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2" colspan="2">
+           <widget class="QLineEdit" name="totale_list"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QComboBox" name="combo_pref">
+            <item>
+             <property name="text">
+              <string>Cerca per nome</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cerca per cognome</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Cerca</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Informazioni</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QTextEdit" name="dettagli">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="0" column="0" colspan="3">
         <widget class="QGroupBox" name="groupBox">
          <property name="sizePolicy">
@@ -224,117 +319,22 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QGroupBox" name="groupBox_2">
-         <property name="minimumSize">
-          <size>
-           <width>251</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>251</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="title">
-          <string/>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_3">
-          <item row="0" column="2">
-           <widget class="QLineEdit" name="cerca"/>
-          </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="cerca_user">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../biblio.qrc">
-              <normaloff>:/images/edit-find.png</normaloff>:/images/edit-find.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1" colspan="2">
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>174</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="3" column="0" colspan="2">
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string>Totale clienti</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2" colspan="2">
-           <widget class="QLineEdit" name="totale_list"/>
-          </item>
-          <item row="1" column="2">
-           <widget class="QComboBox" name="combo_pref">
-            <item>
-             <property name="text">
-              <string>Cerca per nome</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Cerca per cognome</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_8">
-            <property name="text">
-             <string>Cerca</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>49</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="0">
-        <widget class="QGroupBox" name="groupBox_3">
-         <property name="title">
-          <string>Informazioni</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="0">
-           <widget class="QTextEdit" name="dettagli">
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
        <item row="2" column="1">
-        <layout class="QFormLayout" name="formLayout">
-         <item row="4" column="0">
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="3" column="1">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="1">
           <widget class="QPushButton" name="preview">
            <property name="toolTip">
             <string>Anteprima di stampa</string>
@@ -348,35 +348,7 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QPushButton" name="salva">
-           <property name="toolTip">
-            <string>Salva</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../biblio.qrc">
-             <normaloff>:/images/document-save.png</normaloff>:/images/document-save.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QPushButton" name="pushButton">
-           <property name="toolTip">
-            <string>Nuovo</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../biblio.qrc">
-             <normaloff>:/images/documentation.png</normaloff>:/images/documentation.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="0">
+         <item row="0" column="2">
           <widget class="QPushButton" name="esci">
            <property name="toolTip">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Chiudi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -390,21 +362,7 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
-          <widget class="QPushButton" name="elimina">
-           <property name="toolTip">
-            <string>Elimina</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../biblio.qrc">
-             <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
+         <item row="2" column="1">
           <widget class="QPushButton" name="pdf_p">
            <property name="toolTip">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Esporta in pdf&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -418,7 +376,35 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="0">
+         <item row="2" column="0">
+          <widget class="QPushButton" name="elimina">
+           <property name="toolTip">
+            <string>Elimina</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../biblio.qrc">
+             <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="salva">
+           <property name="toolTip">
+            <string>Salva</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../biblio.qrc">
+             <normaloff>:/images/document-save.png</normaloff>:/images/document-save.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
           <widget class="QPushButton" name="cvs">
            <property name="toolTip">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Esporta in csv&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -432,20 +418,21 @@
            </property>
           </widget>
          </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="pushButton">
+           <property name="toolTip">
+            <string>Nuovo</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../biblio.qrc">
+             <normaloff>:/images/documentation.png</normaloff>:/images/documentation.png</iconset>
+           </property>
+          </widget>
+         </item>
         </layout>
-       </item>
-       <item row="2" column="2">
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>44</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>
@@ -468,12 +455,6 @@
   <tabstop>cerca_user</tabstop>
   <tabstop>totale_list</tabstop>
   <tabstop>pushButton</tabstop>
-  <tabstop>salva</tabstop>
-  <tabstop>elimina</tabstop>
-  <tabstop>preview</tabstop>
-  <tabstop>pdf_p</tabstop>
-  <tabstop>cvs</tabstop>
-  <tabstop>esci</tabstop>
   <tabstop>dettagli</tabstop>
   <tabstop>g_lista</tabstop>
  </tabstops>

@@ -18,7 +18,7 @@ class fattura_rg_art : public QDialog, public Ui::fattura_rg_art
     Q_OBJECT
     
 public:
-    explicit fattura_rg_art(QWidget *parent = 0);
+    explicit fattura_rg_art(QString id,QWidget *parent = 0);
     ~fattura_rg_art();
     
 private:
@@ -26,6 +26,7 @@ private:
     QLocale *local_settings;
     fattura_rg *fatt;
     bool found;
+    QString id_fatt_ven;
 
 public slots:
     void clear_Testo();
@@ -49,14 +50,10 @@ public slots:
     void inserisci_riga_art();
     void inserisci();
     void insert_scarico_libri();
-    void insert_scarico_prod_dig();
     void aggiorna_riga();
     void update_articoli(double qua);
-    void update_prod_dig(double qad);
     void update_carico_libri( double ca, double _pr_u, double _p_siva, double _p_civa, double _tot  );
-    void update_carico_prod_dig( double pro, double _pr_u, double _p_siva, double _p_civa, double _tot);
     void update_scarico_libri( double ca, double _pr_u, double _p_siva, double _p_civa, double _tot  );
-    void update_scarico_prod_dig( double pro, double _pr_u, double _p_siva, double _p_civa, double _tot);
 
 signals:
     void save_fatt();

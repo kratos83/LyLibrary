@@ -17,9 +17,7 @@ banche::banche(QWidget *parent) :
     connect(elimina_b,SIGNAL(clicked()),this,SLOT(elimina()));
     connect(tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(clickgrid()));
     connect(pdf_ex,SIGNAL(clicked()),this,SLOT(esporta_pdf()));
-
     model = new QSqlRelationalTableModel();
-
     lista();
 }
 
@@ -52,28 +50,17 @@ void banche::clicca(){
     QSqlQuery querys;
     if(!iban->text().isEmpty()){
 
-    querys.prepare("select iban from banca where iban=:iban");
-    querys.bindValue(":iban",iban->text());
+    querys.prepare("select iban from banca where id='"+id->text()+"'");
     querys.exec();
 
     if(querys.next()){
         QSqlQuery query;
-        query.prepare("UPDATE banca SET iban=:iban, nome_banca = :nome_banca, cap=:cap, comune=:comune, indirizzo=:indirizzo "
-                      " where id=:id");
-        query.bindValue(":id",id->text());
-        query.bindValue(":iban",iban->text());
-        query.bindValue(":nome_banca",banca->text());
-        query.bindValue(":cap",cap->text());
-        query.bindValue(":comune",citta->text());
-        query.bindValue(":indirizzo",indirizzo->text());
+        query.prepare("UPDATE banca SET iban='"+iban->text()+"', nome_banca = '"+banca->text()+"', "
+		      "cap='"+cap->text()+"', comune='"+citta->text()+"', indirizzo='"+indirizzo->text()+"' "
+                      " where id='"+id->text()+"'");
 
         if(query.exec()){
-            id->setText("");
-            iban->setText("");
-            banca->setText("");
-            cap->setText("");
-            citta->setText("");
-            indirizzo->setText("");
+            clear_lin_text();
         }
         else{
             QMessageBox MsgBox;
@@ -97,23 +84,12 @@ void banche::clicca(){
 void banche::inserisci(){
 
     QSqlQuery query;
-    query.prepare("INSERT INTO banca (id,iban,nome_banca,cap,indirizzo,comune)"
-                  "VALUES(:id, :iban, :nome_banca, :cap, :indirizzo, :comune)");
-
-    query.bindValue(":id",id->text());
-    query.bindValue(":iban",iban->text());
-    query.bindValue(":nome_banca",banca->text());
-    query.bindValue(":cap",cap->text());
-    query.bindValue(":comune",citta->text());
-    query.bindValue(":indirizzo",indirizzo->text());
+    query.prepare("INSERT INTO banca "
+                  "VALUES('"+id->text()+"', '"+iban->text()+"', '"+banca->text()+"', "
+		  "'"+cap->text()+"', '"+indirizzo->text()+"', '"+citta->text()+"')");
 
     if(query.exec()){
-        id->setText("");
-        iban->setText("");
-        banca->setText("");
-        cap->setText("");
-        citta->setText("");
-        indirizzo->setText("");
+        clear_lin_text();
     }
     else{
         QMessageBox MsgBox;
@@ -129,15 +105,12 @@ void banche::inserisci(){
 
 void banche::elimina(){
 
-    QString flag_controllo = "NO";
+	QString flag_controllo = "NO";
 
         if (!iban->text().isEmpty())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
-
             QSqlQuery qctrl;
-            qctrl.prepare("SELECT * FROM banca WHERE id = :id");
-            qctrl.bindValue(":id",id->text());
+            qctrl.prepare("SELECT * FROM banca WHERE id='"+id->text()+"'");
             qctrl.exec();
 
             if (qctrl.next()) //Se esito OK inserimento DB
@@ -151,31 +124,22 @@ void banche::elimina(){
              }
 
             // Se si passano i controlli di cui sopra si procede all'eliminazione
-
             QSqlQuery query;
 
-            query.prepare("DELETE FROM banca WHERE id = :id LIMIT 1");
-            query.bindValue(":iban",iban->text());
+            query.prepare("DELETE FROM banca WHERE id='"+id->text()+"'");
 
             if (query.exec()) //Se esito OK Eliminato da DB
             {
-                id->setText("");
-                iban->setText("");
-                banca->setText("");
-                cap->setText("");
-                citta->setText("");
-                indirizzo->setText("");
+                clear_lin_text();
             }
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8(tr("Errore")));
-                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
+                MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile eliminare").toStdString().c_str()));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
-
-
         }
 
        lista();
@@ -189,7 +153,7 @@ void banche::clickgrid(){
     QModelIndex index = model->index(riga,0,QModelIndex());
 
     id_new = model->data(index).toString();
-    iban->setText(id_new);
+    id->setText(id_new);
 
     cerca();
 }
@@ -206,25 +170,20 @@ void banche::lista(){
     model->setHeaderData(5, Qt::Horizontal, tr("Citta"));
 
     tableView->setModel(model);
-
     tableView->setColumnWidth(0, 200);
     tableView->setColumnWidth(1, 200);
     tableView->setColumnWidth(2, 50);
     tableView->setColumnWidth(3, 100);
     tableView->setColumnWidth(4, 100);
     tableView->setColumnWidth(5,200);
-
     tableView->setAlternatingRowColors(true);
-
     tableView->setItemDelegateForColumn(6, new coldxdelegato(this));
-
 }
 
 void banche::cerca(){
 
     QSqlQuery query;
-    query.prepare("select * from banca where id=:id");
-    query.bindValue(":id",id->text());
+    query.prepare("select * from banca where id='"+id->text()+"'");
     query.exec();
 
     if(query.next()){
@@ -235,13 +194,8 @@ void banche::cerca(){
         indirizzo->setText(query.value(5).toString());
     }
     else{
-        iban->setText("");
-        banca->setText("");
-        cap->setText("");
-        citta->setText("");
-        indirizzo->setText("");
+        clear_lin_text();
     }
-
 }
 
 void banche::esporta_pdf()
@@ -261,6 +215,16 @@ void banche::esporta_pdf()
        printer->setOutputFileName(fileName);
        pdf_export *ex_pdf = new pdf_export();
        ex_pdf->stampa_banca(printer,model);
+}
+
+void banche::clear_lin_text()
+{
+    id->setText("");
+    iban->setText("");
+    banca->setText("");
+    cap->setText("");
+    citta->setText("");
+    indirizzo->setText("");
 }
 
 banche::~banche()

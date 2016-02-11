@@ -1,16 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>language/backup/English.qm</file>
-        <file>language/backup/Italian.qm</file>
-        <file>language/checkdb/Italian.qm</file>
-        <file>language/initdb/English.qm</file>
-        <file>language/initdb/Italian.qm</file>
-        <file>language/inventario/English.qm</file>
-        <file>language/inventario/Italian.qm</file>
-        <file>language/license/English.qm</file>
-        <file>language/license/Italian.qm</file>
-        <file>language/checkdb/English.qm</file>
-        <file>language/lylibrary/Italian.qm</file>
-        <file>language/lylibrary/English.qm</file>
+        <file>language/Italian.qm</file>
+        <file>language/English.qm</file>
     </qresource>
 </RCC>

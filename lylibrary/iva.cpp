@@ -169,7 +169,7 @@ void iva::inserisci(){
         // Scrivere codice per errore inserimento
 
         QMessageBox box;
-        box.setText(QString::fromUtf8(tr("Impossibile inserire")));
+        box.setText(QString::fromUtf8(tr("Impossibile inserire").toStdString().c_str()));
         box.setIcon(QMessageBox::Information);
         box.exec();
      }

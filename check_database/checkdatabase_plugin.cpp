@@ -71,7 +71,7 @@ void checkdatabase_plugin::pluginTranslator(){
 
     QString locale = general->value("Language/language").toString();
     QTranslator *translator = new QTranslator(this);
-    translator->load(":/language/checkdb/"+locale+".qm");
+    translator->load(":/language/"+locale+".qm");
     qApp->installTranslator(translator);
 }
 

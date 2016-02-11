@@ -11,7 +11,6 @@
 #include <QMessageBox>
 #include <QDate>
 #include <QSettings>
-#include <QtWebKit/QtWebKit>
 #include <QDesktopWidget>
 #include <QMenu>
 #include <QWidget>
@@ -53,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     QString st = "";
     titolo(st);
-    interface();
+    interfaccia();
     read();
     core();
     orologio();
@@ -121,183 +120,27 @@ void MainWindow::setVisible(bool visible){
     QMainWindow::setVisible(visible);
 }
 
-void MainWindow::interface(){
+void MainWindow::interfaccia(){
     mdiArea = new QMdiArea(this);
     mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     mdiArea->dumpObjectTree();
     setCentralWidget(mdiArea);
-
+    
     cl1 = new classe(this);
-    cl2 = new classe(this);
-    dock = new QDockWidget(this);
-    dock->setObjectName("Top");
-    dock->setFloating(false);
-    dock->setTitleBarWidget(new QWidget);
-    dockWidget->setObjectName("Top");
-    dockWidget->setFloating(false);
-    dockWidget->setTitleBarWidget(new QWidget);
-    topHeader *topw = new topHeader;
-    dock->setWidget(topw);
-    addDockWidget(Qt::TopDockWidgetArea, dock);
 
-    QIcon icon1;
-    icon1.addFile(QString::fromUtf8(":/images/application-exit.png"));
-    QIcon icon3;
-    icon3.addFile(QString::fromUtf8(":/images/accessories-dictionary.png"));
-    QIcon icon6;
-    icon6.addFile(QString::fromUtf8(":/images/svn_status.png"));
-    QIcon icon4;
-    icon4.addFile(QString::fromUtf8(":/images/documentation.png"));
-    toolButton_9 = new QToolButton(topw);
-    toolButton_9->setObjectName(QString::fromUtf8("toolButton_9"));
-    toolButton_9->setProperty("kind","toolbar");
-    QIcon icon14;
-    icon14.addFile(QString::fromUtf8(":/images/preferences-system.png"));
-    toolButton_9->setIcon(icon14);
-    toolButton_9->setText(tr("Strumenti"));
-    toolButton_9->setToolTip(tr("Strumenti di amministrazione \n di Lylibrary"));
-    toolButton_9->setIconSize(QSize(80, 80));
-    toolButton_9->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    toolButton_9->move(650,30);
-    toolButton_9->show();
-    p_art = new QToolButton(topw);
-    p_art->setObjectName(QString::fromUtf8("p_art"));
-    p_art->setText(tr("Anagrafica"));
-    p_art->setToolTip(tr("Anagrafica di Lylibrary"));
-    p_art->move(430,30);;
-    p_art->setIcon(icon3);
-    p_art->setIconSize(QSize(80, 80));
-    p_art->setProperty("kind","toolbar");
-    p_art->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    p_art->show();
-    toolButton = new QToolButton(topw);
-    toolButton->setObjectName(QString::fromUtf8("toolButton"));
-    toolButton->move(870,30);
-    toolButton->setText(tr("Esci"));
-    toolButton->setToolTip(tr("Esci da Lylibrary"));
-    toolButton->setIcon(icon1);
-    toolButton->setIconSize(QSize(80, 80));
-    toolButton->setProperty("kind","toolbar");
-    toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    toolButton->show();
-    doc_fatt = new QToolButton(topw);
-    doc_fatt->setObjectName(QString::fromUtf8("doc_fatt"));
-    doc_fatt->setText(tr("Documenti"));
-    doc_fatt->setToolTip(tr("Visualizza documenti \n da utilizzare"));
-    doc_fatt->setIcon(icon4);
-    doc_fatt->setIconSize(QSize(80,80));
-    doc_fatt->setProperty("kind","toolbar");
-    doc_fatt->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    doc_fatt->move(540,30);
-    doc_fatt->show();
-    about_tool = new QToolButton(topw);
-    about_tool->setObjectName(QString::fromUtf8("about_tool"));
-    about_tool->move(760,30);
-    about_tool->setText(tr("Informazioni"));
-    about_tool->setToolTip(tr("Informazioni"));
-    about_tool->setIcon(icon6);
-    about_tool->setProperty("kind","toolbar");
-    about_tool->setIconSize(QSize(80, 80));
-    about_tool->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    about_tool->show();
-    //Menu toolbar about
-    menu = new QMenu(this);
-    menu->addAction(actionAbout_2);
-    menu->addSeparator();
-    menu->addAction(actionAbout_Qt);
-    menu->addSeparator();
-    menu->addAction(actionRicerca_aggiornamento);
-    about_tool->setMenu(menu);
-    about_tool->setPopupMode(QToolButton::InstantPopup);
-
-    //Menu toolbar anagrafica
-    menu_p = new QMenu(this);
-    menu_ana = new QMenu(tr("Gestione"),this);
-    menu_pr = new QMenu(tr("Prestiti"),this);
-    menu_sc = new QMenu(tr("Scadenze"),this);
-    menu_p->addMenu(menu_ana);
-    menu_p->addMenu(menu_pr);
-    menu_p->addMenu(menu_sc);
-    menu_ana->addAction(action_articoli);
-    menu_ana->addSeparator();
-    menu_ana->addSeparator();
-    menu_ana->addAction(actionAnagrafica_prodotti_digitali);
-    menu_ana->addSeparator();
-    menu_ana->addAction(clienti);
-    menu_ana->addSeparator();
-    menu_ana->addAction(actionCaterorie_libri);
-    menu_ana->addSeparator();
-    menu_ana->addAction(this->actionCausali_di_trasporto);
-    menu_ana->addSeparator();
-    menu_ana->addAction(this->actionAnagrafica_pagamenti);
-    menu_ana->addSeparator();
-    menu_ana->addAction(this->actionAnagrafica_iva);
-    menu_ana->addSeparator();
-    menu_ana->addAction(this->actionAnagrafica_azienda);
-    menu_ana->addSeparator();
-    menu_ana->addAction(this->actionAnagrafica_banche);
-    menu_ana->addSeparator();
-    menu_ana->addAction(this->actionAnagraficafornitori);
-    menu_sc->addAction(actionLibri_prestati);
-    menu_pr->addSeparator();
-    menu_pr->addAction(actionPrestito_libri);
-    menu_pr->addSeparator();
-    menu_pr->addAction(actionPrestito_prodotti_digitali);
-    menu_sc->addSeparator();
-    menu_sc->addAction(this->actionScadenze_prodotti_digitali);
-    menu_sc->addSeparator();
-    p_art->setMenu(menu_p);
-    p_art->setPopupMode(QToolButton::InstantPopup);
-
-    menu_d = new QMenu(this);
-    menu_plugins = new QMenu(tr("Plugins"),this);
-    menu_verifica = new QMenu(tr("Calcola e verifica"),this);
-    menu_d->addMenu(menu_verifica);
-    menu_d->addMenu(menu_plugins);
-    menu_d->addAction(actionPreferenze);
-    menu_d->addSeparator();
-    menu_d->addAction(actionGestione_plugin);
-    menu_d->addSeparator();
-    menu_verifica->addAction(actionCalcola_codicefiscale);
-    menu_verifica->addSeparator();
-    menu_verifica->addAction(actionVerifica_codice_fiscale_2);
-    menu_verifica->addSeparator();
-    menu_verifica->addAction(actionVerifica_patrtita_iva);
-    menu_verifica->addSeparator();
-    menu_verifica->addAction(actionCerca_CAP);
-    menu_plugins->addAction(actionInstalla_plugin);
-    menu_plugins->addSeparator();
-    toolButton_9->setMenu(menu_d);
-    toolButton_9->setPopupMode(QToolButton::InstantPopup);
-
-    menu_doc = new QMenu(this);
-    menu_doc->addAction(this->actionFattura_d_aquisto);
-    menu_doc->addSeparator();
-    menu_doc->addAction(this->actionFattura_di_vendita_2);
-    menu_doc->addSeparator();
-    menu_doc->addAction(this->actionCarico_magazzino);
-    menu_doc->addSeparator();
-    menu_doc->addAction(this->actionScarico_magazzino);
-    doc_fatt->setMenu(menu_doc);
-    doc_fatt->setPopupMode(QToolButton::InstantPopup);
-
-    connect(about_tool,SIGNAL(clicked()),this,SLOT(onactionAbout()));
     connect(actionAbout_2,SIGNAL(triggered()),this,SLOT(onactionAbout()));
     actionAbout_2->setIconVisibleInMenu(true);
     actionAbout_2->setShortcut(tr("Ctrl+H"));
     connect(close_ac,SIGNAL(triggered()),this,SLOT(onclose()));
     close_ac->setIconVisibleInMenu(true);
     close_ac->setShortcut(tr("Ctrl+ESC"));
-    connect(toolButton,SIGNAL(clicked()),this,SLOT(onclose()));
     connect(action_articoli,SIGNAL(triggered()),this,SLOT(onarticoli()));
     action_articoli->setIconVisibleInMenu(true);
     action_articoli->setShortcut(tr("Ctrl+A"));
-    connect(p_art,SIGNAL(clicked()),this,SLOT(onarticoli()));
     connect(clienti,SIGNAL(triggered()),this,SLOT(onclienti()));
     clienti->setIconVisibleInMenu(true);
     clienti->setShortcut(tr("Ctrl+G"));
-    connect(toolButton_9,SIGNAL(clicked()),this,SLOT(onactiondatabasetriggered()));
     connect(actionCaterorie_libri,SIGNAL(triggered()),this,SLOT(categorie()));;
     actionCaterorie_libri->setIconVisibleInMenu(true);
     connect(actionPrestito_libri,SIGNAL(triggered()),this,SLOT(presta_libri()));
@@ -308,8 +151,6 @@ void MainWindow::interface(){
     actionPreferenze->setIconVisibleInMenu(true);
     connect(actionLibri_prestati,SIGNAL(triggered()),this,SLOT(libri_pr()));
     actionLibri_prestati->setIconVisibleInMenu(true);
-    connect(actionScadenze_prodotti_digitali,SIGNAL(triggered()),this,SLOT(prestiti_digitali_app()));
-    actionScadenze_prodotti_digitali->setIconVisibleInMenu(true);
     connect(preferenze_2,SIGNAL(clicked()),this,SLOT(settings()));
     connect(about_luxury_2,SIGNAL(clicked()),this,SLOT(onactionAbout()));
     connect(about_qt_2,SIGNAL(clicked()),this,SLOT(onactiondatabasetriggered()));
@@ -318,8 +159,6 @@ void MainWindow::interface(){
     connect(scadenze_2,SIGNAL(clicked()),this,SLOT(libri_pr()));
     connect(clienti_3,SIGNAL(clicked()),this,SLOT(onclienti()));
     connect(libri_2,SIGNAL(clicked()),this,SLOT(onarticoli()));
-    connect(actionAnagrafica_prodotti_digitali,SIGNAL(triggered()),this,SLOT(prodotti_digitali()));
-    connect(actionPrestito_prodotti_digitali,SIGNAL(triggered()),this,SLOT(prestiti_digitali()));
     connect(gest_plugin,SIGNAL(clicked()),this,SLOT(gestioneplugin()));
     connect(actionGestione_plugin,SIGNAL(triggered()),this,SLOT(gestioneplugin()));
     connect(actionCalcola_codicefiscale,SIGNAL(triggered()),this,SLOT(gest_codfisc()));
@@ -339,18 +178,25 @@ void MainWindow::interface(){
     connect(actionVerifica_patrtita_iva,SIGNAL(triggered()),this,SLOT(verifica_part_iva()));
     connect(actionRicerca_aggiornamento,SIGNAL(triggered()),this,SLOT(gest_update()));
     connect(actionVerifica_codice_fiscale_2,SIGNAL(triggered()),this,SLOT(verifica_cod_fisc()));
+    connect(donazione,SIGNAL(clicked()),this,SLOT(dona()));
     onwid();
     azienda_ok();
     reload_data();
-    riavvia_data();
     createActions();
     createTrayIcon();
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(messageClicked(QSystemTrayIcon::ActivationReason)));
 }
 
 void MainWindow::orologio(){
-    cl = new AnalogClock(dockWidget);
+    cl = new AnalogClock(m_orologio);
+    gridLayout_3->addWidget(cl);
     cl->show();
+}
+
+void MainWindow::dona()
+{
+    QString apri_link = "http://www.codelinsoft.it/sito/2015-02-18-23-59-25/donate.html";
+    QDesktopServices::openUrl(QUrl(apri_link));
 }
 
 void MainWindow::onwid(){
@@ -397,42 +243,6 @@ void MainWindow::reload_data(){
     gridLayout_15->addWidget(cl1,6, 0, 1, 8);
 }
 
-void MainWindow::riavvia_data(){
-
-    QString str,str2, st1,st;
-    QSqlQuery query;
-    connect(cl2,SIGNAL(clicked()),this,SLOT(prestiti_digitali_app()));
-    cl2->clear();
-    query.prepare("select count(id),(data_rientro-now()) from prestiti_dvd where rientro='Non rientrato'");
-    if(query.exec()){
-      while(query.next()){
-
-        if(query.value(1).toInt() == 0){
-            cl2->clear();
-            st.clear();
-            str = query.value(0).toString();
-            st = tr("Vi sono ")+str+ tr(" scadenze");
-            cl2->setText(st);
-        }
-        else{
-            cl2->setText("");
-            st1.clear();
-            str2 = query.value(1).toString();
-            st1 = tr("Mancano ")+str2+tr(" giorni alla scadenza del prestito");
-            cl2->setText(st1);
-            }
-    }
-    }
-    cl2->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-    QFont font("Arial",14,75);
-    font.setUnderline(true);
-    cl2->setFont(font);
-    cl2->setCursor(QCursor(Qt::PointingHandCursor));
-    cl2->show();
-    gridLayout_4->addWidget(cl2,6, 0, 1, 8);
-}
-
-
 void MainWindow::gestioneplugin(){
     new pluginmanager(this);
 
@@ -471,7 +281,6 @@ void MainWindow::pluginLoad(QObject *plugin, QTreeWidgetItem *item){
     } else {
        pluginUnload( plugin, item );
     }
-
 }
 
 void MainWindow::pluginUnload(QObject *plugin, QTreeWidgetItem *item){
@@ -493,51 +302,64 @@ bool MainWindow::unloadImPlugin(QObject *pl){
     QString cname = pl->metaObject()->className();
     Interface_plugin *in = qobject_cast<Interface_plugin*>(pl);
     //Disabilito plugin
+    removePopulateMenus(pl);
     in->pluginUnload();
-
-    return true;
+    return false;
 }
 
 bool MainWindow::loadImPlugin(QObject *plug){
     QString cname = plug->metaObject()->className();
     Interface_plugin *inter = qobject_cast<Interface_plugin*>(plug);
     //Avvio plugin
-    if(plug->objectName().utf16()){
-        populateMenus(plug);
-    }
+    populateMenus(plug);
     inter->pluginLoad();
-
     return true;
 }
 
 void MainWindow::populateMenus(QObject *plugin){
     Interface_plugin *in =  qobject_cast<Interface_plugin*>(plugin);
     if(in->name_menu() == tr("Strumenti")){
-        addToMenu(plugin,in->icona(),in->nameplugin(),menu_d,SLOT(avvia_widget()));
         addToMenu(plugin,in->icona(),in->nameplugin(),menuStrumenti_2,SLOT(avvia_widget()));
     }
     else if(in->name_menu() == tr("Anagrafica")){
-        addToMenu(plugin,in->icona(),in->nameplugin(),menu_ana,SLOT(avvia_widget()));
         addToMenu(plugin,in->icona(),in->nameplugin(),menuAnagrafica_2,SLOT(avvia_widget()));
     }
     else if(in->name_menu() == tr("Plugin")){
-        addToMenu(plugin,in->icona(),in->nameplugin(),menu_plugins,SLOT(avvia_widget()));
         addToMenu(plugin,in->icona(),in->nameplugin(),menuPlugins_2,SLOT(avvia_widget()));
     }
     else if(in->name_menu() == tr("Prestiti")){
-        addToMenu(plugin,in->icona(),in->nameplugin(),menu_pr,SLOT(avvia_widget()));
         addToMenu(plugin,in->icona(),in->nameplugin(),menuPrestiti,SLOT(avvia_widget()));
     }
     else if(in->name_menu() == tr("Scadenze")){
-        addToMenu(plugin,in->icona(),in->nameplugin(),menu_sc,SLOT(avvia_widget()));
         addToMenu(plugin,in->icona(),in->nameplugin(),menuScadenze,SLOT(avvia_widget()));
     }
     else if(in->name_menu() == tr("Documenti")){
-        addToMenu(plugin,in->icona(),in->nameplugin(),menu_doc,SLOT(avvia_widget()));
         addToMenu(plugin,in->icona(),in->nameplugin(),menuDocumenti,SLOT(avvia_widget()));
     }
 }
 
+void MainWindow::removePopulateMenus(QObject *plugin)
+{
+    Interface_plugin *in =  qobject_cast<Interface_plugin*>(plugin);
+    if(in->name_menu() == tr("Strumenti")){
+        addToMenu(plugin,in->icona(),in->nameplugin(),menuStrumenti_2,SLOT(avvia_widget()));
+    }
+    else if(in->name_menu() == tr("Anagrafica")){
+        addToMenu(plugin,in->icona(),in->nameplugin(),menuAnagrafica_2,SLOT(avvia_widget()));
+    }
+    else if(in->name_menu() == tr("Plugin")){
+        addToMenu(plugin,in->icona(),in->nameplugin(),menuPlugins_2,SLOT(avvia_widget()));
+    }
+    else if(in->name_menu() == tr("Prestiti")){
+        addToMenu(plugin,in->icona(),in->nameplugin(),menuPrestiti,SLOT(avvia_widget()));
+    }
+    else if(in->name_menu() == tr("Scadenze")){
+        addToMenu(plugin,in->icona(),in->nameplugin(),menuScadenze,SLOT(avvia_widget()));
+    }
+    else if(in->name_menu() == tr("Documenti")){
+        addToMenu(plugin,in->icona(),in->nameplugin(),menuDocumenti,SLOT(avvia_widget()));
+    }
+}
 void MainWindow::addToMenu(QObject *plugin, QIcon ico, const QString &name, QMenu *menu_add, const char *member){
 
         QAction *action = new QAction(ico,name, plugin);
@@ -558,7 +380,7 @@ void MainWindow::avvia_widget(){
 
 void MainWindow::avvia_backup(){
     #ifdef Q_OS_LINUX
-    QString fileName = "libbackup_restore_db.lux";
+    QString fileName = "libbackup_restore_db.so";
     loader->setFileName( pluginDir->absoluteFilePath(fileName) );
     QObject *plugin=loader->instance();
     if(plugin){
@@ -568,7 +390,7 @@ void MainWindow::avvia_backup(){
             plif->creaWidget()->show();
     }
     #elif defined Q_OS_WIN
-    QString fileName = "backup_restore_db.lyb";
+    QString fileName = "backup_restore_db.dll";
     loader->setFileName( pluginDir->absoluteFilePath(fileName) );
     QObject *plugin=loader->instance();
     if(plugin){
@@ -578,7 +400,7 @@ void MainWindow::avvia_backup(){
             plif->creaWidget()->show();
     }
     #elif defined Q_OS_MACX
-    QString fileName = "backup_restore_db.lap";
+    QString fileName = "backup_restore_db.dylib";
     loader->setFileName( pluginDir->absoluteFilePath(fileName) );
     QObject *plugin=loader->instance();
     if(plugin){
@@ -710,66 +532,13 @@ void MainWindow::gest_banca(){
         QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica banca...."));
 }
 
-void MainWindow::prodotti_digitali(){
-
-    digital = new prodotti_dvd(this);
-
-    digital->setWindowModality(Qt::WindowModal);
-    connect(digital,SIGNAL(realodprodotti()),this,SLOT(riavvia_data()));
-    QMdiSubWindow *dig_sub = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    dig_sub->setWidget(digital);
-    mdiArea->addSubWindow(dig_sub);
-
-    connect(digital,SIGNAL(destroyed()),dig_sub,SLOT(deleteLater()));
-    digital->exec();
-
-    QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica prodotti digitali...."));
-}
-
-void MainWindow::prestiti_digitali_app(){
-
-    dig_app = new prestito_dig(this);
-
-    dig_app->setWindowModality(Qt::WindowModal);
-    connect(dig_app,SIGNAL(riavvia()),this,SLOT(riavvia_data()));
-    QMdiSubWindow *sub_app = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    sub_app->setWidget(dig_app);
-    mdiArea->addSubWindow(sub_app);
-
-    connect(dig_app,SIGNAL(destroyed()),sub_app,SLOT(deleteLater()));
-    dig_app->exec();
-
-    QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica prestiti prodotti digitali...."));
-}
-
-void MainWindow::prestiti_digitali(){
-    prestoapp = new prestito_app_dig(this);
-
-    prestoapp->setModal(true);
-    connect(prestoapp,SIGNAL(prestitodvd()),this,SLOT(reload_data()));
-    QMdiSubWindow *pro = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    pro->setWidget(prestoapp);
-    mdiArea->addSubWindow(pro);
-
-    connect(prestoapp,SIGNAL(destroyed()),pro,SLOT(deleteLater()));
-    prestoapp->exec();
-
-    QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica prestiti prodotti digitali...."));
-}
-
 void MainWindow::read(){
 
-    if(settingsManager->generalValue("MainWindow/menu",QVariant()).toBool() == true){
-        enable_menu();
-    }
-    else{
-        disable_menu();
-    }
     /***********************************************************
      * Impostazione font mainWindow
      ***********************************************************/
     QFont appfnt;
-    appfnt.fromString(settingsManager->generalValue("Application/applicationFont","Verdana,-1,11,5,50,0,0,0,0,0").toString());
+    appfnt.fromString(settingsManager->generalValue("Application/applicationFont",QVariant()).toString());
     QApplication::setFont(appfnt);
 
     settingsManager->generalValue("Version/version",QVariant()).toString();
@@ -792,19 +561,6 @@ void MainWindow::read(){
    if(settingsManager->generalValue("main/option1",QVariant()).toString().length() == 0){
        avvio_licenza();
    }
-}
-
-void MainWindow::enable_menu(){
-    QMainWindow::menuBar()->setVisible(true);
-    dock->setVisible(false);
-    retranslateUi(this);
-}
-
-void MainWindow::disable_menu(){
-    QMainWindow::menuBar()->setVisible(false);
-    groupBox->setVisible(true);
-    dock->setVisible(true);
-    retranslateUi(this);
 }
 
 void MainWindow::settings(){
@@ -856,7 +612,7 @@ void MainWindow::titolo(QString testo){
     if(query.next()){
     QString str,title;
         title = tr("Lylibrary ");
-        str = tr("rilasciato in licenza a ")+query.value(0).toString()+"  v. "+settingsManager->generalValue("Version/version",QVariant()).toString()+"  ";
+        str = tr("rilasciato in licenza a ")+query.value(1).toString()+"  v. "+settingsManager->generalValue("Version/version",QVariant()).toString()+"  ";
     setWindowTitle(title+str+testo);
     }
 }
@@ -1043,7 +799,7 @@ void MainWindow::closeEvent(QCloseEvent *event){
                                  (QString::fromUtf8(tr("Il programma continuer\E0  a funzionare nella "
                                     "barra delle applicazioni. Per terminare il programma"
                                     " scegliere <b> Esci </b> nel menu contestuale"
-                                    " del vassoio di sistema... "))),icon,15 * 1000);
+                                    " del vassoio di sistema... ").toStdString().c_str())),icon,15 * 1000);
         hide();
     }
     QMainWindow::closeEvent(event);
@@ -1115,13 +871,13 @@ void MainWindow::installa_plugin()
             proc->start("pkexec unzip "+fileName+" -d /opt/lylibrary/plugin");
             if(proc->waitForFinished()){
             QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-            trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente...")),ts, 15*10000);
+            trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin è stato installato correttamente...").toStdString().c_str()),ts, 15*10000);
             ag_tray->setVisible(false);
             }
     }
     else{
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non \E8 stato installato correttamente... ")),ts, 15*10000);
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non è stato installato correttamente... ").toStdString().c_str()),ts, 15*10000);
         ag_tray->setVisible(false);
     }
 
@@ -1135,13 +891,13 @@ void MainWindow::installa_plugin()
         proc->start(comando);
         if(proc->waitForFinished()){
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente...")),ts, 15*10000);
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin è stato installato correttamente...").toStdString().c_str()),ts, 15*10000);
         ag_tray->setVisible(false);
         }
     }
     else{
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non \E8 stato installato correttamente... ")),ts, 15*10000);
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non è stato installato correttamente... ").toStdString().c_str()),ts, 15*10000);
         ag_tray->setVisible(false);
     }
 #elif defined (Q_OS_MACX)
@@ -1152,13 +908,13 @@ void MainWindow::installa_plugin()
             proc->start("unzip "+fileName+" -d ../plugin");
             if(proc->waitForFinished()){
             QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-            trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin \E8 stato installato correttamente...")),ts, 15*10000);
+            trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin è stato installato correttamente...").toStdString().c_str()),ts, 15*10000);
             ag_tray->setVisible(false);
             }
     }
     else{
         QSystemTrayIcon::MessageIcon ts = QSystemTrayIcon::Information;
-        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non \E8 stato installato correttamente... ")),ts, 15*10000);
+        trayIcon->showMessage(tr("Lylibrary"), QString::fromUtf8(tr("Il plugin non è stato installato correttamente... ").toStdString().c_str()),ts, 15*10000);
         ag_tray->setVisible(false);
     }
 #endif
@@ -1217,6 +973,12 @@ void MainWindow::gest_update()
 {
     sh1 = new pref(this);
     sh1->self_update();
+}
+
+void MainWindow::avvia_audio()
+{
+    sn = new sound(this);
+    sn->avvia(":/images/login.wav");
 }
 
 void MainWindow::changeEvent(QEvent *e)

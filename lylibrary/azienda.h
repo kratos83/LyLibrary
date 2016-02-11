@@ -26,6 +26,7 @@ private slots:
     void esci();
     void cerca();
     void elimina();
+    void clear_lin_text();
 };
 
 #endif // AZIENDA_H

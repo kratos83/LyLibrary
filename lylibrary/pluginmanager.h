@@ -34,7 +34,7 @@ public slots:
 
 protected slots:
     void readPluginInfo(QTreeWidgetItem*);
-    void pluginDoubleClicked(QTreeWidgetItem*);
+    void pluginDoubleClicked(QTreeWidgetItem*,int column);
 
 private:
     QDir *pluginDir;

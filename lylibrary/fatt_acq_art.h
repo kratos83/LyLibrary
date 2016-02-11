@@ -19,7 +19,7 @@ class fatt_acq_art : public QDialog, public Ui::fatt_acq_art
     Q_OBJECT
 
 public:
-    explicit fatt_acq_art(QWidget *parent = 0);
+    explicit fatt_acq_art(QString id,QWidget *parent = 0);
     ~fatt_acq_art();
 
 private:
@@ -29,6 +29,7 @@ private:
     fatt_acq *acq;
     bool found;
     QStatusBar *bar;
+    QString id_fatt;
 private slots:
 
 
@@ -51,13 +52,9 @@ public slots:
     void iva_sum();
     void combo_categ();
     void insert_articoli();
-    void insert_prod_dig();
     void insert_carico_libri();
-    void insert_carico_prod_dig();
     void update_articoli(double qua);
-    void update_prod_dig(double qad);
     void update_carico_libri( double ca, double _pr_u, double _p_siva, double _p_civa, double _tot  );
-    void update_carico_prod_dig( double pro, double _pr_u, double _p_siva, double _p_civa, double _tot);
     void image_but();
     void p_iv(double dg);
     void cerca_codart(const QString &);

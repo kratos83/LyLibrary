@@ -21,7 +21,7 @@ static bool parseArguments(const QStringList &argomento)
             return true;
         }
         else if(a_arg == "-v" || a_arg == "--version"){
-            qDebug() << QString::fromUtf8(QObject::tr("La versione del software installato è: ")) << "2.0";
+            qDebug() << QString::fromUtf8(QObject::tr("La versione del software installato è: ").toStdString().c_str()) << "2.0";
             return false;
         }
         else if(a_arg == "-h" || a_arg == "--help")

@@ -63,19 +63,19 @@ QString verify_codicefiscale::read_codice_fis(QString code)
     int setdisp[] = { 1, 0, 5, 7, 9, 13, 15, 17, 19, 21, 2, 4, 18, 20,
             11, 3, 6, 8, 12, 14, 16, 10, 22, 25, 24, 23 };
 
-    QString testo_ndigit = QString::fromUtf8(tr("Errore: Non hai inserito nessun carattere o numero..."));
+    QString testo_ndigit = QString::fromUtf8(tr("Errore: Non hai inserito nessun carattere o numero...").toStdString().c_str());
 
     QString testo_lung= QString::fromUtf8(tr("La lunghezza del codice fiscale non è\n"
                                         "corretta: il codice fiscale deve essere lungo\n"
-                                        "esattamente 16 caratteri..."));
+                                        "esattamente 16 caratteri...").toStdString().c_str());
 
     QString testo_car = QString::fromUtf8(tr("Il codice fiscale inserito non è corretto.\n"
-                                         "Il codice di controllo non corrisponde."));
+                                         "Il codice di controllo non corrisponde.").toStdString().c_str());
 
     QString testo_p_nvalida = QString::fromUtf8(tr("Il codice fiscale contiene dei caratteri non validi:\n"
-                                                 "i soli caratteri validi sono le lettere e le cifre."));
+                                                 "i soli caratteri validi sono le lettere e le cifre.").toStdString().c_str());
 
-    QString testo_p_valida = QString::fromUtf8(tr("Il codice fiscale inserito è corretto."));
+    QString testo_p_valida = QString::fromUtf8(tr("Il codice fiscale inserito è corretto.").toStdString().c_str());
 
 
     if(code.length() == 0){

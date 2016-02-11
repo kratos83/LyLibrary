@@ -23,7 +23,6 @@ pref::pref(QWidget *parent) :
     setupUi(this);
     setModal(true);
     connect(chiudi,SIGNAL(clicked()),this,SLOT(esci()));
-    connect(menu_d,SIGNAL(pressed()),this,SLOT(menu_ex()));
     connect(apply,SIGNAL(clicked()),this,SLOT(applica()));
     manager = new QNetworkAccessManager(this);
     connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(self_update_parse(QNetworkReply*)));
@@ -45,14 +44,14 @@ pref::pref(QWidget *parent) :
     lista << QObject::tr("Modern") << QObject::tr("Elegant") << QObject::tr("Nero");
     sel_tema->addItems(lista);
     menu_pref();
-    interface();
+    interfaccia();
     readsettings();
     visagg();
     combolanguage();
 }
 
 
-void pref::interface(){
+void pref::interfaccia(){
     listWidget->setViewMode(QListView::IconMode);
     listWidget->setIconSize(QSize(84,84));
     listWidget->setMovement(QListView::Static);
@@ -62,8 +61,6 @@ void pref::interface(){
 }
 
 void pref::readsettings(){
-
-    menu_d->setChecked(settings->generalValue("MainWindow/menu",QVariant()).toBool());
 
     settings->generalValue("Version/version",QVariant()).toString();
     en_update->setChecked(settings->generalValue("Update/agg_en",QVariant()).toBool());
@@ -86,12 +83,12 @@ void pref::readsettings(){
 
     //FONT APPLICATION
     QFont fnt;
-    fnt.fromString(settings->generalValue("Application/font","Verdana,-1,11,5,50,0,0,0,0,0").toString());
+    fnt.fromString(settings->generalValue("Application/font",QVariant()).toString());
     cmbFontName->setFont(fnt);
     spinFontSize->setValue(fnt.pixelSize());
 
     QFont appfnt;
-    appfnt.fromString(settings->generalValue("Application/font","Verdana,-1,11,5,50,0,0,0,0,0").toString());
+    appfnt.fromString(settings->generalValue("Application/font",QVariant()).toString());
     cmbApplicationFontName->setFont(appfnt);
     spinApplicationFontSize->setValue(appfnt.pixelSize());
 
@@ -102,15 +99,6 @@ void pref::readsettings(){
     alt_larg->show();
 
     combo_language->setCurrentText(settings->generalValue("Language/language",QVariant()).toString());
-}
-
-void pref::menu_ex(){
-    if(menu_d->isChecked()){
-       form->disable_menu();
-    }
-    else{
-        form->enable_menu();
-    }
 }
 
 void pref::agg_en(){
@@ -149,7 +137,6 @@ void pref::visagg(){
 
 void pref::applica(){
 
-    settings->setGeneralValue("MainWindow/menu",menu_d->isChecked());
     //Salvataggio
     //FONT
     QFont selFont=cmbFontName->currentFont();
@@ -196,7 +183,7 @@ void pref::menu_pref(){
         updateButton->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
         fatturaButton = new QListWidgetItem(listWidget);
-        fatturaButton->setIcon(QIcon(":/images/logo.png"));
+        fatturaButton->setIcon(QIcon(":/images/fattura.png"));
         fatturaButton->setText(tr("Impostazioni\nfattura"));
         fatturaButton->setTextAlignment(Qt::AlignHCenter);
         fatturaButton->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
@@ -485,8 +472,8 @@ void pref::connetti_database()
 {
     if(ip->text().length() == 0 || db_rete->text().length() == 0 || utente->text().length() == 0 || pwd->text().length() == 0){
         QMessageBox MsgBox2;
-        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB")));
-        MsgBox2.setInformativeText(QString::fromUtf8(tr("Verificare che i dati siano corretti")));
+        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB").toStdString().c_str()));
+        MsgBox2.setInformativeText(QString::fromUtf8(tr("Verificare che i dati siano corretti").toStdString().c_str()));
         MsgBox2.setWindowTitle(tr("LyLibrary"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/logo1.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -521,8 +508,8 @@ void pref::connetti_database()
     }
     else{
         QMessageBox MsgBox2;
-        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB")));
-        MsgBox2.setInformativeText(QString::fromUtf8(tr("Impossibile connettersi al db.Controllare le impostazioni.")));
+        MsgBox2.setText(QString::fromUtf8(tr("Errore di connessione al DB").toStdString().c_str()));
+        MsgBox2.setInformativeText(QString::fromUtf8(tr("Impossibile connettersi al db.Controllare le impostazioni.").toStdString().c_str()));
         MsgBox2.setWindowTitle(tr("LyLibrary"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/logo1.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -575,7 +562,7 @@ void pref::esci()
 
 void pref::combolanguage()
 {
-    const QDir lang_dir(":/language/lylibrary/");
+	const QDir lang_dir(":/language/");
         const QStringList files = lang_dir.entryList(QStringList() << "*.qm");
         foreach (QString lang_file, files) {
             lang_file = lang_file.split('.').first();

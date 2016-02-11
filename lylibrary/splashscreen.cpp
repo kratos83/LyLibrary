@@ -25,8 +25,5 @@ void splashscreen::closeEvent(QCloseEvent *event)
 
 void splashscreen::mousePressEvent(QMouseEvent *event){
 
-    if(event->button() == Qt::LeftButton)
-    {
-        event->ignore();
-    }
+    event->ignore();
 }

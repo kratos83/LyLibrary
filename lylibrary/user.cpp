@@ -249,8 +249,8 @@ void user::del_rec(){
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8(tr("Errore")));
-                MsgBox.setInformativeText(QString::fromUtf8(tr("Inpossibile eliminare record poichè non hai selezionato nulla")));
+                MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+                MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile eliminare record poichè non hai selezionato nulla").toStdString().c_str()));
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
@@ -386,7 +386,7 @@ void user::filtro(){
         QMessageBox MsgBox;
         MsgBox.setWindowTitle(tr("LyLibrary"));
         MsgBox.setText(tr("Avviso"));
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca").toStdString().c_str()));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }

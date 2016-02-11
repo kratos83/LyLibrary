@@ -34,9 +34,6 @@ porto::porto(QWidget *parent) :
     connect(ui->search,SIGNAL(textEdited(QString)),this,SLOT(cerca_libri(QString)));
     connect(ui->cerca_categ,SIGNAL(clicked()),this,SLOT(filtro()));
     mod_grid = new QSqlRelationalTableModel;
-    ui->dockWidget->setFloating(false);
-    ui->dockWidget->setTitleBarWidget(new QWidget);
-    ui->dockWidget->setObjectName("Top");
     ui->id->setEnabled(false);
     lista();
 }
@@ -102,7 +99,7 @@ void porto::filtro(){
         QMessageBox MsgBox;
         MsgBox.setWindowTitle("Lylibrary");
         MsgBox.setText("Avviso");
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca").toStdString().c_str()));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -114,6 +111,12 @@ void porto::filtro(){
     }
 }
 
+void porto::clear_lin_text()
+{
+    ui->id->setText("");
+    ui->lineEdit->setText("");
+}
+
 void porto::aggiorna(){
 
     if(ui->id->text() == ""){
@@ -123,20 +126,16 @@ void porto::aggiorna(){
     QSqlQuery querys;
     if(!ui->id->text().isEmpty()){
 
-    querys.prepare("select categ from categoria where categ=:categ");
-    querys.bindValue(":id",ui->id->text());
+    querys.prepare("select * from categoria where categ='"+ui->id->text()+"'");
     querys.exec();
 
     if(querys.next()){
         QSqlQuery query;
-        query.prepare("UPDATE categoria SET tipo_categ = :tipo_categ "
-                      " where categ=:categ");
-        query.bindValue(":categ",ui->id->text());
-        query.bindValue(":tipo_categ",QString::fromUtf8(ui->lineEdit->text().toStdString().c_str()));
+        query.prepare("UPDATE categoria SET tipo_categ ='"+ui->lineEdit->text()+"' "
+                      " where categ='"+ui->id->text()+"'");
 
         if(query.exec()){
-            ui->id->setText("");
-            ui->lineEdit->setText("");
+            clear_lin_text();
         }
         else{
             QMessageBox::warning(this,tr("LyLibrary"),tr("Impossibile aggiornare...\n")+querys.lastError().text());
@@ -153,22 +152,17 @@ void porto::aggiorna(){
 
 void porto::salva(){
 
-
     QSqlQuery query;
-    query.prepare("INSERT INTO categoria (categ,tipo_categ)"
-                  "VALUES(:categ,:tipo_categ)");
-
-    query.bindValue(":categ",ui->id->text());
-    query.bindValue(":tipo_categ",QString::fromUtf8(ui->lineEdit->text().toStdString().c_str()));
+    query.prepare("INSERT INTO categoria "
+                  "VALUES('"+ui->id->text()+"','"+ui->lineEdit->text()+"')");
 
     if(query.exec()){
-        ui->id->setText("");;
-        ui->lineEdit->setText("");
+        clear_lin_text();
     }
     else{
         QMessageBox MsgBox;
-        MsgBox.setText(QString::fromUtf8(tr("Errore")));
-        MsgBox.setInformativeText(tr("Inpossibile inserire...\n")+query.lastError().text());
+        MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+        MsgBox.setInformativeText(tr("Impossibile inserire...\n")+query.lastError().text());
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -181,38 +175,33 @@ void porto::elimina(){
 
         if (ui->tableView->selectionModel()->currentIndex().isValid())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
-
             QSqlQuery qctrl;
-            qctrl.prepare("SELECT * FROM categoria WHERE categ = :categ");
-            qctrl.bindValue(":categ",ui->id->text());
+            qctrl.prepare("SELECT * FROM categoria WHERE categ='"+ui->id->text()+"'");
             qctrl.exec();
 
             // Se si passano i controlli di cui sopra si procede all'eliminazione
 
             QSqlQuery query;
 
-            query.prepare("DELETE FROM categoria WHERE categ = :categ");
-            query.bindValue(":categ",ui->id->text());
+            query.prepare("DELETE FROM categoria WHERE categ='"+ui->id->text()+"'");
 
             if (query.exec()) //Se esito OK Eliminato da DB
             {
-                ui->id->setText("");
-                ui->lineEdit->setText("");
+                clear_lin_text();
             }
             else
             {
                 QMessageBox MsgBox;
-                MsgBox.setText(QString::fromUtf8(tr("Errore")));
-                MsgBox.setInformativeText(tr("Inpossibile eliminare...\n")+query.lastError().text());
+                MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+                MsgBox.setInformativeText(tr("Impossibile eliminare...\n")+query.lastError().text());
                 MsgBox.setIcon(QMessageBox::Warning);
                 MsgBox.exec();
              }
         }
         else{
             QMessageBox MsgBox;
-            MsgBox.setText(QString::fromUtf8(tr("Errore")));
-            MsgBox.setInformativeText(QString::fromUtf8(tr("Seleziona una riga per eliminarla...")));
+            MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+            MsgBox.setInformativeText(QString::fromUtf8(tr("Seleziona una riga per eliminarla...").toStdString().c_str()));
             MsgBox.setIcon(QMessageBox::Warning);
             MsgBox.exec();
         }
@@ -237,8 +226,7 @@ void porto::clickgrid(){
 void porto::cerca(){
 
     QSqlQuery query;
-    query.prepare("select * from categoria where categ=:categ");
-    query.bindValue(":categ",ui->id->text());
+    query.prepare("select * from categoria where categ='"+ui->id->text()+"'");
     query.exec();
 
     if(query.next()){
@@ -246,10 +234,8 @@ void porto::cerca(){
         ui->lineEdit->setText(query.value(1).toString());
     }
     else{
-        ui->id->setText("");
-        ui->lineEdit->setText("");
+        clear_lin_text();
     }
-
 }
 
 void porto::lista(){

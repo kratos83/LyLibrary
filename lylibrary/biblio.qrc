@@ -58,5 +58,9 @@
         <file>comuni_cap.txt</file>
         <file>images/p_iva_large.png</file>
         <file>images/codice_fiscale_logo.png</file>
+	<file>stati.txt</file>
+	<file>images/paypal.png</file>
+	<file>images/go-next.png</file>
+	<file>images/fattura.png</file>
     </qresource>
 </RCC>

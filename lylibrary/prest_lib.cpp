@@ -268,7 +268,7 @@ void prest_lib::filtro(){
         QMessageBox MsgBox;
         MsgBox.setWindowTitle(tr("Lylibrary"));
         MsgBox.setText(tr("Avviso"));
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca").toStdString().c_str()));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }

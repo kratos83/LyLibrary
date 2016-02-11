@@ -6,6 +6,7 @@
   */
 #include <QMdiArea>
 #include <QtGui>
+#include <QtWidgets>
 #include <QProcess>
 #include <QMainWindow>
 #include <QPluginLoader>
@@ -31,9 +32,6 @@
 #include "classe.h"
 #include "pref.h"
 #include "prest_lib.h"
-#include "prodotti_dvd.h"
-#include "prestito_app_dig.h"
-#include "prestito_dig.h"
 #include "cod_fisc.h"
 #include "pag.h"
 #include "causali.h"
@@ -47,6 +45,7 @@
 #include "find_cap_italian.h"
 #include "verify_piva.h"
 #include "verify_codicefiscale.h"
+#include "sound.h"
 
 
 namespace Ui {
@@ -61,8 +60,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void load_style(const QString &sheetName);
-    void enable_menu();
-    void disable_menu();
     void setVisible(bool visible);
     void createActions();
     void createTrayIcon();
@@ -88,11 +85,7 @@ public:
     QAction *quitAction;
     QAction *ag_tray;
     QComboBox *box;
-    QToolButton *p_art,*toolButton,*about_tool,*toolButton_9,*doc_fatt;
     QMenu *menu,*menu_p,*menu_d,*trayMenu,*menu_doc,*menu_ana,*menu_pr,*menu_sc,*menu_plugins,*menu_verifica;
-    prodotti_dvd *digital;
-    prestito_app_dig *prestoapp;
-    prestito_dig *dig_app;
     cod_fisc *fisc;
     pag *pagamento;
     causali *caus;
@@ -105,6 +98,7 @@ public:
     find_cap_italian *find_cap;
     verify_piva *verifica_iva;
     verify_codicefiscale *verifica_codice;
+    sound *sn;
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -126,7 +120,7 @@ public slots:
         void categorie();
         void presta_libri();
         void settings();
-        void interface();
+        void interfaccia();
         void onwid();
         void read();
         void messageClicked(QSystemTrayIcon::ActivationReason reason);
@@ -134,15 +128,11 @@ public slots:
         void reload_data();
         void core();
         void gestioneplugin();
-        void prodotti_digitali();
-        void prestiti_digitali();
         QString getLineFromCommandOutput( QString command );
         void agg_automatico();
         void dis_agg_automatico();
         void avvio_licenza();
         void orologio();
-        void prestiti_digitali_app();
-        void riavvia_data();
         void gest_pagamento();
         void gest_causali();
         void gest_codfisc();
@@ -154,6 +144,7 @@ public slots:
         void gest_fornitori();
         void gest_fattura_v();
         void populateMenus(QObject *plugin);
+	void removePopulateMenus(QObject *plugin);
         void addToMenu(QObject *plugin, QIcon ico, const QString &name, QMenu *menu_add,
                        const char *member);
 
@@ -166,6 +157,8 @@ public slots:
         void verifica_part_iva();
         void verifica_cod_fisc();
         void gest_update();
+	void avvia_audio();
+	void dona();
 
 protected slots:
         void pluginLoad(QObject *plugin, QTreeWidgetItem *item);

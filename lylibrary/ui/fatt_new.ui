@@ -200,20 +200,6 @@
       <string>Dati fattura esterna</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_7">
-      <item row="0" column="2">
-       <widget class="QRadioButton" name="f_libri">
-        <property name="text">
-         <string>Fattura Libri</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QRadioButton" name="f_prod_dig">
-        <property name="text">
-         <string>Fattura prodottI digitali</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0" rowspan="2">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
@@ -252,19 +238,6 @@
         </item>
        </layout>
       </item>
-      <item row="0" column="1">
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>266</width>
-          <height>22</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
       <item row="1" column="1">
        <spacer name="horizontalSpacer_4">
         <property name="orientation">
@@ -274,32 +247,6 @@
          <size>
           <width>224</width>
           <height>78</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="3">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="3">
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
          </size>
         </property>
        </spacer>
@@ -513,9 +460,7 @@
   <tabstop>t_pagam</tabstop>
   <tabstop>n_fatt</tabstop>
   <tabstop>dateEdit</tabstop>
-  <tabstop>f_libri</tabstop>
   <tabstop>textEdit</tabstop>
-  <tabstop>f_prod_dig</tabstop>
   <tabstop>tab_view</tabstop>
   <tabstop>n_riga</tabstop>
   <tabstop>md_riga</tabstop>

@@ -145,6 +145,6 @@ void license::traduzione()
 {
     QString locale = general->value("Language/language").toString();
     QTranslator *translator = new QTranslator(this);
-    translator->load(":/language/license/"+locale+".qm");
+    translator->load(":/language/"+locale+".qm");
     qApp->installTranslator(translator);
 }

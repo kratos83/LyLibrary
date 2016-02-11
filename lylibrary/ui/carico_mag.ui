@@ -40,24 +40,6 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="1">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="0">
-      <widget class="QCheckBox" name="car_lb">
-       <property name="text">
-        <string>Visualizza lista carico libri</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="car_pr">
-       <property name="text">
-        <string>Visualizza lista carico prodotti digitali</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
    <item row="1" column="1" colspan="2">
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="0" column="1">
@@ -94,6 +76,9 @@
          <height>50</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>Esci</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -110,6 +95,9 @@
          <width>50</width>
          <height>50</height>
         </size>
+       </property>
+       <property name="toolTip">
+        <string>Esporta in excel</string>
        </property>
        <property name="text">
         <string/>
@@ -128,6 +116,9 @@
          <height>50</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>Esporta in pdf</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -139,6 +130,9 @@
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="pr_st">
+       <property name="toolTip">
+        <string>Stampa</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -150,6 +144,9 @@
      </item>
      <item row="1" column="1">
       <widget class="QPushButton" name="del_rec">
+       <property name="toolTip">
+        <string>Elimina</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -161,12 +158,13 @@
      </item>
     </layout>
    </item>
+   <item row="2" column="1">
+    <layout class="QGridLayout" name="gridLayout"/>
+   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>car_pr</tabstop>
-  <tabstop>car_lb</tabstop>
   <tabstop>quan</tabstop>
   <tabstop>ex_pdf</tabstop>
   <tabstop>pr_st</tabstop>

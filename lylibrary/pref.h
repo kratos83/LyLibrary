@@ -16,6 +16,7 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtGui>
+#include <QCheckBox>
 #include <QVector>
 #include <QtSql>
 #include <QTableWidget>
@@ -73,9 +74,8 @@ private:
 public slots:
     void changePage(QListWidgetItem *current, QListWidgetItem *previous);
     void menu_pref();
-    void interface();
+    void interfaccia();
     void applica();
-    void menu_ex();
     void self_update();
     void self_update_parse(QNetworkReply *reply);
     void agg_en();

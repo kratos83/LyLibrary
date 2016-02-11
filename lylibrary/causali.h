@@ -29,6 +29,7 @@ private slots:
     void clickgrid();
     void cerca();
     void inserisci();
+    void clear_lin_text();
 };
 
 #endif // CAUSALI_H

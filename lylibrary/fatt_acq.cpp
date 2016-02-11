@@ -16,20 +16,6 @@ fatt_acq::fatt_acq(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
 
-    /**********************************************
-     *IMPOSTAZIONE AZIONI PUSHBUTTON
-     *********************************************/
-    agg_fattura_libri = new QAction(tr("Fattura"),this);
-    agg_fattura_prod_dig = new QAction(tr("Fattura_prodotti digitali"),this);
-
-    /**********************************************
-     * Impostazione menu pushbutton
-     **********************************************/
-    menu = new QMenu(this);
-    menu->addAction(agg_fattura_libri);
-    menu->addSeparator();
-    menu->addAction(agg_fattura_prod_dig);
-    Aggiungi->setMenu(menu);
 
     /*********************************************
      * Connessioni ai diversi metodi
@@ -42,8 +28,7 @@ fatt_acq::fatt_acq(QWidget *parent) :
     connect(modifica,SIGNAL(clicked()),this,SLOT(aggiorna_fattura()));
     connect(stampa,SIGNAL(clicked()),this,SLOT(stampa_fatt()));
     connect(cerca1,SIGNAL(textEdited(QString)),this,SLOT(cerca_dxt(const QString &)));
-    connect(agg_fattura_libri,SIGNAL(triggered()),this,SLOT(nuova_fattura_libri()));
-    connect(agg_fattura_prod_dig,SIGNAL(triggered()),this,SLOT(nuova_fattura_prodotti_dig()));
+    connect(Aggiungi,SIGNAL(clicked()),this,SLOT(nuova_fattura_libri()));
     connect(find_cer,SIGNAL(clicked()),this,SLOT(filtro()));
 
     /************************************************
@@ -128,7 +113,7 @@ void fatt_acq::filtro(){
         QMessageBox MsgBox;
         MsgBox.setWindowTitle(tr("Lylibrary"));
         MsgBox.setText(tr("Avviso"));
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca").toStdString().c_str()));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -154,47 +139,13 @@ void fatt_acq::nuova_fattura_libri(){
             fs->id->setText("1");
             fs->formatta_num();
 
-
     connect(fs,SIGNAL(salvafatturanew()),SLOT(lista()));
-    fs->f_libri->setChecked(true);
-    fs->f_prod_dig->setEnabled(false);
     fs->show();
     }
     else{
             fs->id->setText(query.value(0).toString());
             fs->formatta_num();
-
             connect(fs,SIGNAL(salvafatturanew()),SLOT(lista()));
-            fs->f_libri->setChecked(true);
-            fs->f_prod_dig->setEnabled(false);
-            fs->show();
-        }
-    }
-}
-
-void fatt_acq::nuova_fattura_prodotti_dig()
-{
-    fatt_new *fs = new fatt_new(this);
-    QSqlQuery query("select max(id)+1 from fatture_acq");
-    query.exec();
-    if(query.next()){
-        if(query.value(0).toInt() == 0){
-            fs->id->setText("1");
-            fs->formatta_num();
-
-
-    connect(fs,SIGNAL(salvafatturanew()),SLOT(lista()));
-    fs->f_prod_dig->setChecked(true);
-    fs->f_libri->setEnabled(false);
-    fs->show();
-    }
-    else{
-            fs->id->setText(query.value(0).toString());
-            fs->formatta_num();
-
-            connect(fs,SIGNAL(salvafatturanew()),SLOT(lista()));
-            fs->f_prod_dig->setChecked(true);
-            fs->f_libri->setEnabled(false);
             fs->show();
         }
     }
@@ -206,7 +157,7 @@ void fatt_acq::salva_fattura(){
     query.prepare("select count(id) from fatture_acq");
     query.exec();
     if(query.next()){
-        QString text = QString::fromUtf8(tr("Le fatture d'acquisto sono: ")) + query.value(0).toString();
+        QString text = QString::fromUtf8(tr("Le fatture d'acquisto sono: ").toStdString().c_str()) + query.value(0).toString();
         tot_fatt->setText(text);
     }
     else{
@@ -216,7 +167,7 @@ void fatt_acq::salva_fattura(){
     query1.prepare("select sum(totale) from fatture_acq");
     query1.exec();
     if(query1.next()){
-        QString txt = QString::fromUtf8(tr("Il totale delle fatture d'acquisto è: "))+QString::fromUtf8("\u20AC")+" "+query1.value(0).toString();
+        QString txt = QString::fromUtf8(tr("Il totale delle fatture d'acquisto è: ").toStdString().c_str())+QString::fromUtf8("\u20AC")+" "+query1.value(0).toString();
         tot_eur->setText(txt);
     }
     else{
@@ -262,19 +213,6 @@ void fatt_acq::agg_fatt(QModelIndex index){
         ft->n_fatt->setText(query.value(9).toString());
         ft->dateEdit->setDate(query.value(10).toDate());
         ft->textEdit->setText(query.value(11).toString());
-        QSqlQuery query1;
-        query1.prepare("select tipo_fattura from fatture_acq where id='"+id->text()+"'");
-        query1.exec();
-        if(query1.next()){
-            if(query1.value(0).toString() == "Acquisto libri"){
-                ft->f_libri->setChecked(true);
-                ft->f_prod_dig->setEnabled(false);
-            }
-            else{
-                ft->f_prod_dig->setChecked(true);
-                ft->f_libri->setEnabled(false);
-            }
-        }
         }
         ft->lista();
         lista();
@@ -292,17 +230,13 @@ void fatt_acq::elimina_fatt(){
     if(tab_view->selectionModel()->currentIndex().isValid()){
         if (!id->text().isEmpty())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
-
             QSqlQuery qctrl;
-            qctrl.prepare("SELECT * FROM fatture_acq WHERE id = :id LIMIT 1");
-            qctrl.bindValue(":id",id->text());
+            qctrl.prepare("SELECT * FROM fatture_acq WHERE id ='"+id->text()+"'");
             qctrl.exec();
-
 
                     QMessageBox *box= new QMessageBox(this);
                     box->setWindowTitle(tr("Lylibrary"));
-                    box->setInformativeText(tr("Vuoi eliminare veramente \n il record selezionato?...."));
+                    box->setInformativeText(tr("Vuoi eliminare veramente\n il record selezionato?...."));
                     box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
                     box->setDefaultButton(QMessageBox::Ok);
                     int ret = box->exec();
@@ -332,14 +266,9 @@ void fatt_acq::elimina_riga(){
 
     QSqlQuery query,query1,query2;
 
-    query.prepare("DELETE FROM fatture_acq WHERE id = :id LIMIT 1");
-    query.bindValue(":id",id->text());
-
-    query1.prepare("DELETE FROM fatture_righe_acq_art WHERE id = :id");
-    query1.bindValue(":id",id->text());
-
-    query2.prepare("DELETE FROM fatture_acq_righe where id=:id");
-    query2.bindValue(":id",id->text());
+    query.prepare("DELETE FROM fatture_acq WHERE id ='"+id->text()+"'");
+    query1.prepare("DELETE FROM fatture_righe_acq_art WHERE id ='"+id->text()+"'");
+    query2.prepare("DELETE FROM fatture_acq_righe where id='"+id->text()+"'");
 
     if (query.exec() & query1.exec() & query2.exec()) //Se esito OK Eliminato da DB
     {
@@ -347,8 +276,11 @@ void fatt_acq::elimina_riga(){
     }
     else
     {
-        //scrivere codice per gestione Errore cancellazione
-        qWarning()<<query.lastError();
+        QMessageBox MsgBox;
+        MsgBox.setText(QString::fromUtf8(tr("Errore").toStdString().c_str()));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Impossibile eliminare il record.").toStdString().c_str()));
+        MsgBox.setIcon(QMessageBox::Warning);
+        MsgBox.exec();
      }
     lista();
     salva_fattura();
@@ -360,11 +292,10 @@ void fatt_acq::elimina_riga(){
 void fatt_acq::cerca(){
 
     QSqlQuery query;
-    query.prepare("select * from fatture_acq where id=:id");
-    query.bindValue(":id",id->text());
+    query.prepare("select * from fatture_acq where id='"+id->text()+"'");
     query.exec();
     if(query.next()){
-        textEdit->setText(QString::fromUtf8(tr("Informazioni della fattura d'acquisto: "))+"\n"
+        textEdit->setText(QString::fromUtf8(tr("Informazioni della fattura d'acquisto: ").toStdString().c_str())+"\n"
                           +tr("ID:")+query.value(0).toString()+"\n"
                           +tr("Data: ")+query.value(1).toString()+"\n"
                           +tr("Fornitore: ")+query.value(2).toString()+"\n"

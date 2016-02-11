@@ -7,8 +7,7 @@
   @class sound
   @author Angelo Scarna' <calang83@gmail.com>
 *********************************************/
-#include <phonon/mediaobject.h>
-#include <phonon/audiooutput.h>
+#include <QtMultimedia/QtMultimedia>
 
 
 class sound : public QObject
@@ -21,10 +20,11 @@ signals:
     
 public slots:
     void avvia(QString resource);
+    void finishedPlaying(QAudio::State state);
 
 private:
-    Phonon::MediaObject* addmusic;
-    Phonon::AudioOutput* ouput;
+    QFile inputFile;           // class member.
+    QAudioOutput *audioOutput; // class member.
     
 };
 

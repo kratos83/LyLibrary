@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2006-2014 Angelo e Calogero Scarna
+** Copyright (C) 2006-2016 Angelo e Calogero Scarna
 ** Contact: Angelo Scarnà (angelo.scarna@codelinsoft.it)
 **          Calogero Scarnà (calogero.scarna@codelinsoft.it)
 **          Team Codelinsoft (info@codelinsoft.it)

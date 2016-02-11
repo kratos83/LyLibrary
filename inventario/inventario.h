@@ -25,9 +25,6 @@ public slots:
     void stampa_inv();
     void esporta_pdf();
     void preview_prev(QPrinter *printer);
-    void esporta_prod();
-    void st_prod();
-    void ant_st_prod(QPrinter *printer);
 };
 
 #endif // INVENTARIO_H

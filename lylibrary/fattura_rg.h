@@ -46,12 +46,9 @@ public slots:
     void fatt_aggiorna();
     void fatt_inserisci();
     void lista_libri();
-    void lista_prod_dig();
     void tot_imp_iva();
     void insert_f_libri();
-    void insert_f_prod_dig();
     void update_f_libri();
-    void update_f_prod_dig();
     void clickgrid();
     void fattura_riga_open();
     void chiudi();

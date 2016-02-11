@@ -140,7 +140,7 @@ void articoli::filtro(){
         QMessageBox MsgBox;
         MsgBox.setWindowTitle(tr("Lylibrary"));
         MsgBox.setText(tr("Avviso"));
-        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca")));
+        MsgBox.setInformativeText(QString::fromUtf8(tr("Inserisci il testo nella casella cerca").toStdString().c_str()));
         MsgBox.setIcon(QMessageBox::Warning);
         MsgBox.exec();
     }
@@ -164,12 +164,12 @@ void articoli::nuovo(){
     QString id_cl;
     if(query.next()){
         if(query.value(0).toInt() == 0){
-                    cod_art->setText("1");
-                }
-                else{
-                id_cl = query.value(0).toString();
-                cod_art->setText(id_cl);
-                }
+             cod_art->setText("1");
+        }
+        else{
+             id_cl = query.value(0).toString();
+             cod_art->setText(id_cl);
+        }
     }
     art_nom->setText("");
     cod_barre->setText("");
@@ -200,6 +200,19 @@ void articoli::combo_iva(){
     }
 }
 
+void articoli::clear_lin_text()
+{
+    cod_art->setText("");
+    cod_barre->setText("");
+    art_nom->setText("");
+    descrizione->setText("");
+    scaffale->setText("");
+    comboBox->clear();
+    quant1->setText("");
+    textEdit->setText("");
+    autore->setText("");
+    lingua->setText("");
+}
 
 void articoli::delete_art(){
 
@@ -210,11 +223,8 @@ void articoli::delete_art(){
     }
      else if (!cod_art->text().isEmpty())
         {
-            // Si controlla che il cd_voce non sia usato in Spese o Budget
-
             QSqlQuery qctrl;
-            qctrl.prepare("SELECT * FROM articoli WHERE cod_articolo = :cod_articolo");
-            qctrl.bindValue(":cod_articolo",cod_art->text());
+            qctrl.prepare("SELECT * FROM articoli WHERE cod_articolo='"+cod_art->text()+"'");
             qctrl.exec();
 
             if (qctrl.next()) //Se esito OK inserimento DB
@@ -225,42 +235,22 @@ void articoli::delete_art(){
             if (qctrl.next()) //Se esito OK inserimento DB
             {
                 flag_controllo = "SI";
-
-
                     QMessageBox MsgBox;
                     MsgBox.setText(tr("Voce non eliminabile"));
                     MsgBox.setInformativeText(tr("E' una voce utilizzata in anagrafica clienti"));
                     MsgBox.setIcon(QMessageBox::Warning);
                     MsgBox.exec();
-
                     return;
-
-
              }
-
             // Se si passano i controlli di cui sopra si procede all'eliminazione
-
             QSqlQuery query;
-
-            query.prepare("DELETE FROM articoli WHERE cod_articolo=:cod_articolo LIMIT 1");
-            query.bindValue(":cod_articolo",cod_art->text());
-
+            query.prepare("DELETE FROM articoli WHERE cod_articolo='"+cod_art->text()+"' LIMIT 1");
             if (query.exec()) //Se esito OK Eliminato da DB
             {
-                cod_art->setText("");
-                cod_barre->setText("");
-                art_nom->setText("");
-                descrizione->setText("");
-                scaffale->setText("");
-                comboBox->clear();
-                quant1->setText("");
-                textEdit->setText("");
-                autore->setText("");
-                lingua->setText("");
+                clear_lin_text();
             }
             else
             {
-                //scrivere codice per gestione Errore cancellazione
                 QMessageBox MsgBox;
                 MsgBox.setText(tr("Voce non eliminabile"));
                 MsgBox.setInformativeText(tr("Impossibile eliminare..."));
@@ -279,11 +269,8 @@ void articoli::aggiungi(){
 
          //Si controlla se il record esiste già sul DB
          QSqlQuery Qctrl;
-         Qctrl.prepare("SELECT * FROM articoli WHERE cod_articolo = :cod_articolo");
-         Qctrl.bindValue(":cod_articolo",cod_art->text());
-
+         Qctrl.prepare("SELECT * FROM articoli WHERE cod_articolo='"+cod_art->text()+"'");
          Qctrl.exec();
-
          if (Qctrl.next()) //Se esiste già
          {
              inserisci();
@@ -316,42 +303,19 @@ void articoli::aggiorna(QModelIndex index){
     //Tentativo di aggiornamento del record perché trovato
     if(index.row() < mod_grid->rowCount()){
     QSqlQuery Query;
-    Query.prepare("UPDATE articoli SET  codbarre=:codbarre, nome_articolo=:nome_articolo, "
-                  " descrizione=:descrizione, autore=:autore, lingua=:lingua, infoeditore=:infoeditore, "
-                  "categ=:categ, scaffale=:scaffale, quantita=:quantita, image=:image "
-                  "WHERE cod_articolo = :cod_articolo");
-
-    Query.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
-    Query.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
-    Query.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
-    Query.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
-    Query.bindValue(":categ",QString::fromUtf8(comboBox->currentText().toStdString().c_str()));
-    Query.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
-    Query.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
-    Query.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
-    Query.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
-    double quant = local_settings->toDouble(quant1->text().toStdString().c_str());
-    Query.bindValue(":quantita",quant);
-    Query.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
-
+    Query.prepare("UPDATE articoli SET  codbarre='"+cod_barre->text()+"', nome_articolo='"+art_nom->text()+"', "
+                  " descrizione='"+descrizione->toPlainText()+"', autore='"+autore->text()+"', "
+		  " lingua='"+lingua->text()+"', infoeditore='"+textEdit->toPlainText()+"', "
+                  " categ='"+comboBox->currentText()+"', scaffale='"+scaffale->text()+"', "
+		  " quantita='"+quant1->text()+"', image='"+image_dir->text()+"' "
+                  "WHERE cod_articolo ='"+cod_art->text()+"'");
     if (Query.exec())
     {
         // Aggiornamento effettuato
-        cod_art->setText("");
-        cod_barre->setText("");
-        art_nom->setText("");
-        descrizione->setText("");
-        quant1->setText("");
-        textEdit->setText("");
-        autore->setText("");
-        lingua->setText("");
-        image_dir->setText("");
+        clear_lin_text();
     }
     else
     {
-        // Errore Aggiornamento
-        // scrivere codice per per gestione dell'errore
-
             QMessageBox MsgBox;
             MsgBox.setText(tr("Voce non aggiornabile"));
             MsgBox.setInformativeText(tr("Impossibile aggiornare"));
@@ -379,50 +343,31 @@ void articoli::inserisci(){
         quant1->setStyleSheet("background-color: rgb(249, 22, 5)");
     }
     else{
-                    QSqlQuery Query;
-                    Query.prepare("INSERT INTO articoli (cod_articolo,codbarre,nome_articolo,descrizione,autore,lingua,infoeditore,categ,scaffale,quantita,image)"
-                                  " VALUES (:cod_articolo,:cod_barre,:nome_articolo,:descrizione,:autore,:lingua,:infoeditore,:categ,:scaffale,:quantita,:image)");
-
-                    Query.bindValue(":cod_articolo",QString::fromUtf8(cod_art->text().toStdString().c_str()));
-                    Query.bindValue(":codbarre",QString::fromUtf8(cod_barre->text().toStdString().c_str()));
-                    Query.bindValue(":nome_articolo",QString::fromUtf8(art_nom->text().toStdString().c_str()));
-                    Query.bindValue(":descrizione",QString::fromUtf8(descrizione->toPlainText().toStdString().c_str()));
-                    Query.bindValue(":categ",QString::fromUtf8(comboBox->currentText().toStdString().c_str()));
-                    Query.bindValue(":scaffale",QString::fromUtf8(scaffale->text().toStdString().c_str()));
-                    Query.bindValue(":autore",QString::fromUtf8(autore->text().toStdString().c_str()));
-                    Query.bindValue(":lingua",QString::fromUtf8(lingua->text().toStdString().c_str()));
-                    Query.bindValue(":infoeditore",QString::fromUtf8(textEdit->toPlainText().toStdString().c_str()));
-                    double quant = local_settings->toDouble(quant1->text().toStdString().c_str());
-                    Query.bindValue(":quantita",quant);
-                    Query.bindValue(":image",QString::fromUtf8(image_dir->text().toStdString().c_str()));
-
-                    if (Query.exec())
-                    {
-                        // Aggiornamento effettuato
-                        cod_art->setText("");
-                        art_nom->setText("");
-                        descrizione->setText("");
-                        quant1->setText("");
-                        textEdit->setText("");
-                        autore->setText("");
-                        lingua->setText("");
-                        image_dir->setText("");
-                        cod_barre->setText("");
-                    }
-                    else
-                    {
-                        // Errore Aggiornamento
-                        // scrivere codice per per gestione dell'errore
-
-                            QMessageBox MsgBox;
-                            MsgBox.setText(tr("Non puoi inserire"));
-                            MsgBox.setInformativeText(tr("Impossibile inserire"));
-                            MsgBox.setIcon(QMessageBox::Warning);
-                            MsgBox.exec();
-                    }
-
-                lista();
-                emit article_prod();
+          QSqlQuery Query;
+          Query.prepare("INSERT INTO articoli (cod_articolo,codbarre,nome_articolo,"
+			"descrizione,autore,lingua,"
+			"categ,scaffale,quantita,"
+			"infoeditore,image)"
+                         " VALUES ('"+cod_art->text()+"','"+cod_barre->text()+"','"+art_nom->text()+"',"
+			 "'"+descrizione->toPlainText()+"','"+autore->text()+"','"+lingua->text()+"',"
+			 "'"+comboBox->currentText()+"','"+scaffale->text()+"','"+quant1->text()+"',"
+			 "'"+textEdit->toPlainText()+"','"+image_dir->text()+"')");
+           if (Query.exec())
+           {
+               // inserimento effettuato
+	       clear_lin_text();
+           }
+           else
+           {
+              // Errore inserimento
+               QMessageBox MsgBox;
+               MsgBox.setText(tr("Non puoi inserire"));
+               MsgBox.setInformativeText(tr("Impossibile inserire"));
+               MsgBox.setIcon(QMessageBox::Warning);
+               MsgBox.exec();
+           }
+           lista();
+           emit article_prod();
     }
 }
 
@@ -438,7 +383,7 @@ void articoli::lista(){
     mod_grid->setHeaderData(5, Qt::Horizontal, tr("Lingua"));
     mod_grid->setHeaderData(6, Qt::Horizontal, tr("Categoria"));
     mod_grid->setHeaderData(7,Qt::Horizontal,tr("Collocazione"));
-    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr(("Quantità"))));
+    mod_grid->setHeaderData(8,Qt::Horizontal,QString::fromUtf8(tr("Quantità").toStdString().c_str()));
     mod_grid->setHeaderData(9,Qt::Horizontal,tr("Info editore"));
     mod_grid->setHeaderData(10, Qt::Horizontal, tr("Image"));
 
@@ -467,14 +412,10 @@ void articoli::clickgrid(){
 }
 
 void articoli::cerca(){
-
-
     QSqlQuery query;
-    query.prepare("SELECT * FROM articoli where cod_articolo=:cod_articolo");
-        query.bindValue(":cod_articolo",cod_art->text());
-        query.exec();
-
-
+    query.prepare("SELECT * FROM articoli where cod_articolo='"+cod_art->text()+"'");
+    query.exec();
+    
         if (query.next())
         {
             dettagli->setText(QObject::tr("Cod. Art.: ")+query.value(0).toString()+"\n"+
@@ -486,7 +427,7 @@ void articoli::cerca(){
                                   QObject::tr("Categoria libro: ")+query.value(6).toString()+"\n"+
                                   QObject::tr("Info editore: ")+query.value(9).toString()+"\n"+
                                   QObject::tr("Collocazione: ")+query.value(7).toString()+"\n"+
-                                  QString::fromUtf8(QObject::tr("Quantità: "))+query.value(8).toString());
+                                  QString::fromUtf8(QObject::tr("Quantità: ").toStdString().c_str())+query.value(8).toString());
             QImage img(query.value(10).toString());
             image_file->setPixmap(QPixmap::fromImage(img));
             cod_barre->setText(query.value(1).toString());
@@ -502,14 +443,8 @@ void articoli::cerca(){
         }
         else
         {
-            // Elemento non trovato, pulizia campi di immissione
-            //  voce contabile di nuova creazione
-
-            art_nom->setText("");
-            cod_barre->setText("");
-            descrizione->setText("");
-            scaffale->setText("");
-            quant1->setText("");
+            // Elemento non trovato
+	    clear_lin_text();
         }
 }
 
@@ -676,15 +611,13 @@ void articoli::view_barre(QModelIndex av){
 
     if(av.row() < mod_grid->rowCount()){
         QSqlQuery qr;
-        qr.prepare("select codbarre from articoli where cod_articolo=:cod_articolo");
-        qr.bindValue(":cod_articolo",cod_art->text());
+        qr.prepare("select codbarre from articoli where cod_articolo='"+cod_art->text()+"'");
         qr.exec();
 
         if(qr.next()){
-
             QFont nv("IDAutomationHC39M", 8, QFont::Normal);
             cod_barre->setFont(nv);
-         codice_barre->updateSwtClicked(qr.value(0).toString());
+	    codice_barre->updateSwtClicked(qr.value(0).toString());
         }
         else{
             QMessageBox::warning(this,QObject::tr("LyLibrary"),QObject::tr("Impossibile ottenere il barcode....\n")+qr.lastError().text());
@@ -695,8 +628,7 @@ void articoli::view_barre(QModelIndex av){
 QString articoli::display_codbarre(QString text)
 {
     QSqlQuery qr;
-    qr.prepare("select * from articoli where codbarre=:codbarre");
-    qr.bindValue(":codbarre",text);
+    qr.prepare("select * from articoli where codbarre='"+text+"'");
     qr.exec();
 
     if(qr.next()){
@@ -772,17 +704,12 @@ bool articoli::eventFilter(QObject *o, QEvent *e){
        }
 
     //Installazione eventi Qt::Key_Tab
-
-
-
         if( o==tab_view && e->type() == QEvent::ContextMenu)
                 {
                     QMouseEvent *mouseEvent = static_cast<QMouseEvent*> (e);
                     this ->Popup(mouseEvent->pos());
                     return false;
         }
-
-
 
         return QDialog::eventFilter(o,e);
 

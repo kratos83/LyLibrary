@@ -156,6 +156,9 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
          <widget class="QPushButton" name="Aggiungi">
+          <property name="toolTip">
+           <string>Nuova fattura di acquisto</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -173,6 +176,9 @@
         </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="modifica">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modifica fattura di acquisto&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -184,6 +190,9 @@
         </item>
         <item row="0" column="2">
          <widget class="QPushButton" name="elimina">
+          <property name="toolTip">
+           <string>Elimina</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -204,6 +213,9 @@
         </item>
         <item row="0" column="3">
          <widget class="QPushButton" name="stampa">
+          <property name="toolTip">
+           <string>Stampa</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -221,6 +233,9 @@
         </item>
         <item row="0" column="4">
          <widget class="QPushButton" name="esci">
+          <property name="toolTip">
+           <string>Chiudi</string>
+          </property>
           <property name="text">
            <string/>
           </property>
