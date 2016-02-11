@@ -261,8 +261,20 @@ IF(WIN32)
 		"../windows/gzip.exe"
 		"../windows/unzip.exe" 
 		DESTINATION ./windows )
+	INSTALL(FILES
+		"installdb/install_db.sql"
+		DESTINATION ./installdb )
+	INSTALL(FILES
+		"updatedb/update_db.sql"
+		DESTINATION ./updatedb )
 ELSE()
     INSTALL( TARGETS lylibrary RUNTIME DESTINATION /opt/lylibrary)
     INSTALL( FILES "images/logo4.png" DESTINATION /opt/lylibrary)
+    INSTALL(FILES
+		"installdb/install_db.sql"
+		DESTINATION /opt/lylibrary/installdb )
+	INSTALL(FILES
+		"updatedb/update_db.sql"
+		DESTINATION /opt/lylibrary/updatedb )
     INSTALL( FILES "desktop/lylibrary.desktop" DESTINATION /usr/share/applications )
 endif()
