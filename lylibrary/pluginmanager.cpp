@@ -40,10 +40,10 @@ void pluginmanager::leggiplugin(){
 QStringList fileNames=pluginDir->entryList( QStringList("*.so"), QDir::Files, QDir::Name);
 QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
 #elif defined Q_OS_WIN
-QStringList fileNames=pluginDir->entryList( QStringList("*.dylib"), QDir::Files, QDir::Name);
+QStringList fileNames=pluginDir->entryList( QStringList("*.dll"), QDir::Files, QDir::Name);
 QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
 #elif defined (Q_OS_MACX)
-QStringList fileNames=pluginDir->entryList( QStringList("*.dll"), QDir::Files, QDir::Name);
+QStringList fileNames=pluginDir->entryList( QStringList("*.dylib"), QDir::Files, QDir::Name);
 QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
 #endif
 
