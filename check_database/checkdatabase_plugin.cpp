@@ -78,7 +78,3 @@ void checkdatabase_plugin::pluginTranslator(){
 QIcon checkdatabase_plugin::icona(){
     return QIcon(":/images/svn-commit.png");
 }
-
-#if QT_VERSION < 0x050000
-Q_EXPORT_PLUGIN2(importcheckdatabase_plugin, checkdatabase_plugin)
-#endif // QT_VERSION < 0x050000

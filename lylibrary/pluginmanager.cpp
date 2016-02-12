@@ -129,7 +129,7 @@ void pluginmanager::add_details()
 
 void pluginmanager::pluginDoubleClicked(QTreeWidgetItem *item, int column){
 
-  if(column == 2){
+  if(column == 1){
     if(!item)
         return;
 

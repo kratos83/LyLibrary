@@ -1,5 +1,6 @@
 /opt/lylibrary
-/opt/lylibrary/data
+/opt/lylibrary/installdb
+/opt/lylibrary/updatedb
 /opt/lylibrary/plugin
 /usr/share/applications
 
