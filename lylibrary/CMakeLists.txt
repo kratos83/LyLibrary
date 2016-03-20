@@ -256,6 +256,10 @@ IF(WIN32)
 		"${MINGW_PREFIX}/lib/qt5/plugins/imageformats/qsvg.dll"
 		DESTINATION ./imageformats
 		)
+	INSTALL(FILES 
+		"${MINGW_PREFIX}/lib/qt5/plugins/printsupport/windowsprintersupport.dll" 
+		DESTINATION ./printsupport
+		)
 	INSTALL(FILES
 		"../windows/gunzip.exe"
 		"../windows/gzip.exe"
