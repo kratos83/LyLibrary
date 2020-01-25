@@ -66,10 +66,10 @@ static void impostazioni(SettingsManager *settings)
      *Impostazione della versione
      **********************************/
     if(settings->generalValue("Version/version",QVariant()).toString().length() == 0){
-        settings->setGeneralValue("Version/version","3.0");
+        settings->setGeneralValue("Version/version","3.1");
     }
-    else if(settings->generalValue("Version/version",QVariant()).toString() <= "2.1.1"){
-        settings->setGeneralValue("Version/version","3.0");
+    else if(settings->generalValue("Version/version",QVariant()).toString() <= "3.0"){
+        settings->setGeneralValue("Version/version","3.1");
     }
     else{
         settings->generalValue("Version/version",QVariant()).toString();

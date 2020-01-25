@@ -1,7 +1,7 @@
 #include "fattura.h"
 #include "ui_fattura.h"
 #include "fattura_rg.h"
-#include "../lylibrary/print.h"
+#include "print.h"
 #include <QtSql>
 #include <QtGui>
 #include <QMenu>
@@ -11,7 +11,7 @@
 #include <QFileDialog>
 
 fattura::fattura(QWidget *parent) :
-    QWidget(parent)
+    QDialog(parent)
 {
     setupUi(this);
     id->setVisible(false);

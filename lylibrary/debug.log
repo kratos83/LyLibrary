@@ -1,0 +1,12 @@
+QIODevice::read (QFile, ":/qss/elegant.qss"): device not open
+QMdiArea:: 
+    QWidget::qt_scrollarea_hcontainer 
+        QScrollBar:: 
+        QBoxLayout:: 
+    QWidget::qt_scrollarea_vcontainer 
+        QScrollBar:: 
+        QBoxLayout:: 
+    QWidget:: 
+QIODevice::read (QFile, ":/qss/elegant.qss"): device not open
+PulseAudioService: pa_context_connect() failed
+"Formato raw non supportato. Impossibile avviare audio..."

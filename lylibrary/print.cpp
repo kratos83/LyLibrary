@@ -1501,16 +1501,16 @@ void Stampe::esporta_pdf(QPrinter *printer, QSqlRelationalTableModel *dataset)
                            record.value("nome_articolo").toString());
               painter->drawText(1000,verticalPos,800,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("lingua").toString());
+                                record.value("descrizione").toString());
               painter->drawText(1400,verticalPos,1000,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("categ").toString());
+                                record.value("prezzo_unitario").toString());
               painter->drawText(1600,verticalPos,1400,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("scaffale").toString());
+                                record.value("iva").toString());
               painter->drawText(1800,verticalPos,1600,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("quantita").toString());
+                                record.value("totale").toString());
               ++recNo;
           }
 
@@ -1555,22 +1555,22 @@ void Stampe::pagina(int pagNo)
                    "ID");
   painter->drawText(200,200,400,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Barcode");
+                   BARCODE);
   painter->drawText(600,200,600,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Titolo");
+                   PRODOTTO);
   painter->drawText(1000,200,800,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Lingua");
+                    DESCRIZIONE);
   painter->drawText(1400,200,1000,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Categoria");
+                    PREZZO_UNITARIO);
   painter->drawText(1600,200,1400,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Collocazione");
+                    IVA);
   painter->drawText(1800,200,1600,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Quantità");
+                    TOTALE);
 
       painter->setFont(QFont("Arial",10,50));
       painter->drawText(0,1900,2700,100,
@@ -1636,16 +1636,16 @@ void Stampe::esporta_scarico(QPrinter *printer, QSqlRelationalTableModel *datase
                            record.value("nome_articolo").toString());
               painter->drawText(1000,verticalPos,800,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("lingua").toString());
+                                record.value("descrizione").toString());
               painter->drawText(1400,verticalPos,1000,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("categ").toString());
+                                record.value("prezzo_unitario").toString());
               painter->drawText(1600,verticalPos,1400,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("scaffale").toString());
+                                record.value("iva").toString());
               painter->drawText(1800,verticalPos,1600,100,
                                 Qt::AlignVCenter|Qt::AlignHCenter,
-                                record.value("quantita").toString());
+                                record.value("totale").toString());
               ++recNo;
           }
 
@@ -1690,22 +1690,22 @@ void Stampe::pagina_scarico(int pagNo)
                    "ID");
   painter->drawText(200,200,400,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Barcode");
+                   BARCODE);
   painter->drawText(600,200,600,100,
                    Qt::AlignVCenter|Qt::AlignHCenter,
-                   "Titolo");
+                   PRODOTTO);
   painter->drawText(1000,200,800,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Lingua");
+                    DESCRIZIONE);
   painter->drawText(1400,200,1000,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Categoria");
+                    PREZZO_UNITARIO);
   painter->drawText(1600,200,1400,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Collocazione");
+                    IVA);
   painter->drawText(1800,200,1600,100,
                     Qt::AlignVCenter|Qt::AlignHCenter,
-                    "Quantità");
+                    TOTALE);
 
       painter->setFont(QFont("Arial",10,50));
       painter->drawText(0,1900,2700,100,

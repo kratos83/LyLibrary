@@ -43,6 +43,8 @@
 #define DATA_SC "Data"
 #define BANCA "Banca"
 #define IBAN "Iban"
+#define PRODOTTO "Prodotto"
+#define BARCODE "Barcode"
 
 class Stampe
 {

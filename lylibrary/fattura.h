@@ -1,7 +1,7 @@
 #ifndef FATTURA_H
 #define FATTURA_H
 
-#include <QWidget>
+#include <QtWidgets>
 #include <QtSql>
 #include <QtGui>
 #include <QPrinter>
@@ -11,7 +11,7 @@ namespace Ui {
 class fattura;
 }
 
-class fattura : public QWidget, public Ui::fattura
+class fattura : public QDialog, public Ui::fattura
 {
     Q_OBJECT
     

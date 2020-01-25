@@ -225,13 +225,20 @@ void MainWindow::reload_data(){
             st = tr("Vi sono ")+str+ tr(" scadenze");
             cl1->setText(st);
         }
+        else if(query.value(1).toString().mid(0, 1) == "-"){
+            cl1->setText("");
+            st1.clear();
+            str2 = query.value(1).toString();
+            st1 = tr("Sono passati ")+str2+tr(" giorni alla scadenza del prestito");
+            cl1->setText(st1);
+        }
         else{
             cl1->setText("");
             st1.clear();
             str2 = query.value(1).toString();
             st1 = tr("Mancano ")+str2+tr(" giorni alla scadenza del prestito");
             cl1->setText(st1);
-            }
+        }
     }
     }
     cl1->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
@@ -468,25 +475,14 @@ void MainWindow::azienda_cod(){
 
         azUi = new azienda(this);
         azUi->setWindowModality(Qt::WindowModal);
-        QMdiSubWindow *ws_az = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-        ws_az->setWidget(azUi);
-        mdiArea->addSubWindow(ws_az);
-
-        connect(azUi,SIGNAL(destroyed()),ws_az,SLOT(deleteLater()));
-        azUi->showMaximized();
+        azUi->exec();
         QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica azienda...."));
 }
 
 void MainWindow::vis_carico_magazzino()
 {
     carico_mag *car_mag = new carico_mag(this);
-    QMdiSubWindow *ws_carico = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_carico->setWidget(car_mag);
-    ws_carico->setAttribute(Qt::WA_DeleteOnClose);
-    mdiArea->addSubWindow(ws_carico);
-
-    connect(car_mag,SIGNAL(destroyed()),ws_carico,SLOT(deleteLater()));
-    car_mag->showMaximized();
+    car_mag->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura carico magazzino...."));
 }
@@ -494,41 +490,21 @@ void MainWindow::vis_carico_magazzino()
 void MainWindow::vis_scarico_magazzino()
 {
     scarico_mag *scar_mag = new scarico_mag(this);
-    QMdiSubWindow *ws_carico = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_carico->setWidget(scar_mag);
-    ws_carico->setAttribute(Qt::WA_DeleteOnClose);
-    mdiArea->addSubWindow(ws_carico);
-
-    connect(scar_mag,SIGNAL(destroyed()),ws_carico,SLOT(deleteLater()));
-    scar_mag->showMaximized();
+    scar_mag->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura scarico magazzino...."));
 }
 
 void MainWindow::gest_fattura_v(){
     fattura *fa = new fattura(this);
-    QMdiSubWindow *ws_fa = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_fa->setWidget(fa);
-    ws_fa->setAttribute(Qt::WA_DeleteOnClose);
-    mdiArea->addSubWindow(ws_fa);
-
-    connect(fa,SIGNAL(destroyed()),ws_fa,SLOT(deleteLater()));
-    fa->show();
+    fa->exec();
     QMainWindow::statusBar()->showMessage(tr("Apertura fattura di vendita...."));
 }
 
 void MainWindow::gest_banca(){
 
         banca = new banche(this);
-        banca->setWindowModality(Qt::WindowModal);
-        QMdiSubWindow *sid = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-        sid->setWidget(banca);
-        sid->setGeometry(0,0,600,500);
-        mdiArea->addSubWindow(sid);
-
-        connect(banca,SIGNAL(destroyed()),sid,SLOT(deleteLater()));
-
-        banca->showMaximized();
+        banca->exec();
         QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica banca...."));
 }
 
@@ -622,13 +598,6 @@ void MainWindow::presta_libri(){
     sh = new presto(this);
     connect(sh,SIGNAL(avvia_data()),this,SLOT(reload_data()));
     sh->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_sh = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_sh->setWidget(sh);
-    ws_sh->setGeometry(0,0,500,500);
-    mdiArea->addSubWindow(ws_sh);
-
-    connect(sh,SIGNAL(destroyed()),ws_sh,SLOT(deleteLater()));
-
     sh->exec();
     QMainWindow::statusBar()->showMessage(tr("Apertura Prestito libri...."));
 
@@ -638,14 +607,7 @@ void MainWindow::categorie(){
 
         po = new porto(this);
         po->setWindowModality(Qt::WindowModal);
-        QMdiSubWindow *ws_pot = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-        ws_pot->setWidget(po);
-        ws_pot->setGeometry(6,6,700,500);
-        mdiArea->addSubWindow(ws_pot);
-
-        connect(po,SIGNAL(destroyed()),ws_pot,SLOT(deleteLater()));
-
-        po->showMaximized();
+        po->exec();
         QMainWindow::statusBar()->showMessage(tr("Apertura categorie...."));
 }
 
@@ -653,7 +615,7 @@ void MainWindow::onclose()
 {
     esci *chiudi = new esci(this);
     chiudi->setWindowModality(Qt::WindowModal);
-    chiudi->show();
+    chiudi->exec();
     QMainWindow::statusBar()->showMessage(tr("Chiudi Lylibrary...."));
 }
 
@@ -661,13 +623,7 @@ void MainWindow::onactionAbout()
 {
     about *about1 = new about(this);
     about1->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_about = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_about->setWidget(about1);
-    ws_about->setGeometry(10,10,430,430);
-    mdiArea->addSubWindow(ws_about);
-
-    connect(about1,SIGNAL(destroyed()),ws_about,SLOT(deleteLater()));
-    about1->show();
+    about1->exec();
     QMainWindow::statusBar()->showMessage(tr("Apertura about...."));
 }
 
@@ -675,12 +631,7 @@ void MainWindow::gest_causali(){
 
     caus = new causali(this);
     caus->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_caus = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_caus->setWidget(caus);
-    mdiArea->addSubWindow(ws_caus);
-
-    connect(caus,SIGNAL(destroyed()),ws_caus,SLOT(deleteLater()));
-    caus->show();
+    caus->exec();
     QMainWindow::statusBar()->showMessage(tr("Apertura causali di trasporto...."));
 }
 
@@ -698,12 +649,7 @@ void MainWindow::gest_pagamento(){
 
     pagamento = new pag(this);
     pagamento->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_pagamento = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_pagamento->setWidget(pagamento);
-    mdiArea->addSubWindow(ws_pagamento);
-
-    connect(pagamento,SIGNAL(destroyed()),ws_pagamento,SLOT(deleteLater()));
-    pagamento->show();
+    pagamento->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica pagamento...."));
 }
@@ -712,12 +658,7 @@ void MainWindow::gest_iva(){
 
     iv = new iva(this);
     iv->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_iv = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_iv->setWidget(iv);
-    mdiArea->addSubWindow(ws_iv);
-
-    connect(iv,SIGNAL(destroyed()),ws_iv,SLOT(deleteLater()));
-    iv->show();
+    iv->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica iva..."));
 }
@@ -726,12 +667,7 @@ void MainWindow::gest_fatt_acq(){
 
     fatt = new fatt_acq(this);
     fatt->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_fatt = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_fatt->setWidget(fatt);
-    mdiArea->addSubWindow(ws_fatt);
-
-    connect(fatt,SIGNAL(destroyed()),ws_fatt,SLOT(deleteLater()));
-    fatt->show();
+    fatt->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura fattura d'acquisto...."));
 }
@@ -740,12 +676,7 @@ void MainWindow::gest_fornitori(){
 
     forn = new fornitori(this);
     forn->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_forn = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_forn->setWidget(forn);
-    mdiArea->addSubWindow(ws_forn);
-
-    connect(forn,SIGNAL(destroyed()),ws_forn,SLOT(deleteLater()));
-    forn->show();
+    forn->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica fornitori..."));
 }
@@ -754,14 +685,7 @@ void MainWindow::onclienti()
 {
     user *user1 = new user(this);
     user1->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_user = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_user->setWidget(user1);
-    ws_user->setGeometry(10,10,600,520);
-    mdiArea->addSubWindow(ws_user);
-
-    connect(user1,SIGNAL(destroyed()),ws_user,SLOT(deleteLater()));
-    user1->show();
-    user1->showMaximized();
+    user1->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica utenti...."));
 }
@@ -772,20 +696,13 @@ void MainWindow::onarticoli()
 {
     articoli *art = new articoli(this);
     art->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *ws_art = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    ws_art->setWidget(art);
-    mdiArea->addSubWindow(ws_art);
-
-    connect(art,SIGNAL(destroyed()),ws_art,SLOT(deleteLater()));
-
-    art->show();
-    art->showMaximized();
+    art->exec();
     QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica libri...."));
 }
 
 void MainWindow::onactiondatabasetriggered()
 {
-
+    //Da avviare documentazione
 
 }
 
@@ -824,13 +741,7 @@ void MainWindow::libri_pr(){
     prest_lib *pr = new prest_lib(this);
     connect(pr,SIGNAL(riavvia()),this,SLOT(reload_data()));
     pr->setWindowModality(Qt::WindowModal);
-    QMdiSubWindow *pr_sub = new QMdiSubWindow(this,Qt::FramelessWindowHint);
-    pr_sub->setWidget(pr);
-    mdiArea->addSubWindow(pr_sub);
-
-    connect(pr,SIGNAL(destroyed()),pr_sub,SLOT(deleteLater()));
-    pr->show();
-    pr->showMaximized();
+    pr->exec();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica prestiti libri...."));
 }
