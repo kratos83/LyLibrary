@@ -1,0 +1,14 @@
+/opt/lylibrary/lib/libanaclogclock.so
+/opt/lylibrary/plugin/libbackup_restore_db.so
+/opt/lylibrary/plugin/libcheck_database.so
+/opt/lylibrary/lib/libinitdb.so
+/opt/lylibrary/plugin/libinventario.so
+/opt/lylibrary/lib/liblog_man.so
+/opt/lylibrary/lib/libxlsx_lylibrary.so
+/opt/lylibrary/lylibrary
+/opt/lylibrary/logo4.png
+/opt/lylibrary/installdb/install_db.sql
+/opt/lylibrary/updatedb/update_db.sql
+/usr/share/applications/lylibrary.desktop
+/opt/lylibrary/update
+/opt/lylibrary/backup_restore

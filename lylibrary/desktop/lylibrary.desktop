@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Application;Office
+Comment[it]=Gestionale per biblioteche
+Comment=Gestionale per biblioteche
+Encoding=UTF-8
+Exec=sh -c "LD_LIBRARY_PATH=/opt/lylibrary/lib /opt/lylibrary/lylibrary"
+GenericName[it]=
+GenericName=
+Icon=/opt/lylibrary/logo4.png
+MimeType=
+Name[it]=Lylibrary
+Name=Lylibrary
+Name[it_IT]=Lylibrary
+Path=/opt/lylibrary
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

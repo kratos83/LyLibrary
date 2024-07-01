@@ -1,0 +1,3 @@
+1) aggiungere l'importazione da file excel su libri(inizio)
+2) aggiungere l'importazione da file excel su scadenze
+3) sistemare la stampa per libri(ok), prestiti(ok) e scadenze(ok)

@@ -1,0 +1,78 @@
+/***************************************************/
+			LyLibrary 3.0
+Port Qt5
+Fix QString::fromUtf8
+Fix azienda
+Change skin mainwindow
+Add support cmake
+Add support audio avaible
+Remove bindValue to articoli.cpp,azienda.cpp,banche.cpp,carico_mag.cpp
+	categoria.cpp,causali.cpp, fatt_acq.cpp
+Add update db
+Remove support digital include in articoli
+fix user button
+fix plugin extensions
+fix name title bar
+fix view image codicefiscale and list stati
+Add donation
+fix image qlistview in pref.cpp
+fix carico_mag select sum
+complete translation
+fix compile windows
+
+/***************************************************/
+			LyLibrary 2.1.1
+Fix comuni di nascita codicefiscale
+Fix install update in Linux, FreeBSD and Windows
+Add translation details plugin
+Fix main loop
+
+/***************************************************/
+			LyLibrary 2.1
+
+Fix cap comuni
+Fix dettagli plugin
+Add details plugin
+Fix install update
+Fix launch update on mac os x
+
+/***************************************************/
+			LyLibrary 2.0.3
+FIX crash on mac os x
+FIX launch update from mac os x
+FIX open Book and Digital product
+FIX barcode to mac os x
+Remove dependes poppler
+Fix translator
+Add Language to management 
+FIX VAT 
+FIX tax code
+
+/***************************************************/
+			LyLibrary 2.0.2
+
+Fix gestore plugin
+Fix upgrade and new gestore aggiornamenti
+Fix cap comuni
+Fix intensive cpu
+Add verifica codice fiscale
+
+/***************************************************/
+			LyLibrary 2.0.1
+FIX dump and restore database
+FIX check and repair database
+ADD codice fiscale old state
+FIX connection database
+FIX QWidget::setTabOrder()
+FIX QLayout:: Attempting  to add QLayout
+ADD image codice fiscale
+ADD print codice fiscale
+ADD find italian cap
+ADD check partita IVA italian
+FIX create database
+FIX check partita iva italian
+
+/****************************************************/
+			LyLibrary 2.0
+
+Stable release

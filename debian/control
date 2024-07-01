@@ -1,0 +1,20 @@
+Source: lylibrary
+Section: office
+Priority: optional
+Maintainer: Codelinsoft <info@codelinsoft.it>
+Build-Depends: debhelper (>= 8.0.0),libqt5concurrent5, libqt5core5a,libqt5gui5, libqt5multimedia5, libqt5network5,
+	libqt5opengl5, libqt5printsupport5, libqt5sql5, libqt5sql5-mysql, libqt5svg5, libqt5widgets5, libqt5xml5,
+	libmariadb3, mariadb-common, mariadb-server, mariadb-client
+Standards-Version: 3.9.2
+
+Package: lylibrary
+Architecture: amd64
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: <Software per la gestione delle biblioteche>
+ <Software gestionale che ti aiuta ad organizzare le attività
+   commerciali della tua azienda. Lylibrary permette di gestire
+   in modo semplice ed intuitivo schede prodotto libri,
+   alunni, archiviazione libri e molto altro. Software displonibile
+   per Linux, Windows e Apple Os X.>

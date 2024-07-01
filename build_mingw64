@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MINGW=/usr/x86_64-w64-mingw32/
+export PATH=$PATH:$MINGW/bin
+#export CFLAGS="-fno-tree-vectorize"
+export CXXFLAGS="$CFLAGS"
+
+cmake -DCMAKE_TOOLCHAIN_FILE=cmake/modules/Win64Toolchain.cmake -DCMAKE_MODULE_PATH=`pwd`/cmake/modules/ $CMAKE_OPTS
+make -j5
+cpack -G NSIS64

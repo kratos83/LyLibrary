@@ -1,0 +1,96 @@
+lylibrary (3.1) stable; urgency=low
+
+  * Add support import data to excel
+  * Add library qtxlsx
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 22 Jul 2024 13:52:38 +0200
+
+lylibrary (3.0) stable; urgency=low
+
+  * Port Qt5
+  * Fix QString::fromUtf8
+  * Fix azienda
+  * Change skin mainwindow
+  * Add support cmake
+  * Add support audio avaible
+  * Remove bindValue to articoli.cpp,azienda.cpp,banche.cpp,carico_mag.cpp
+  * 	categoria.cpp,causali.cpp, fatt_acq.cpp
+  * Add update db
+  * Remove support digital include in articoli
+  * fix user button
+  * fix plugin extensions
+  * fix name title bar
+  * fix view image codicefiscale and list stati
+  * Add donation
+  * fix image qlistview in pref.cpp
+  * fix carico_mag select sum
+  * complete translation
+  * fix compile windows
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 17 Gen 2015 13:52:38 +0200
+
+lylibrary (2.1.1) stable; urgency=low
+
+  * Fix comuni di nascita codicefiscale
+  * Fix install update in Linux, FreeBSD and Windows
+  * Add translation details plugin
+  * Fix main loop
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 17 Gen 2015 13:52:38 +0200
+
+lylibrary (2.1) stable; urgency=low
+
+  * Fix cap comuni
+  * Fix dettagli plugin
+  * Add details plugin
+  * Fix install update
+  * Fix launch update on mac os x
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 10 Gen 2015 23:52:38 +0200
+
+lylibrary (2.0.3) stable; urgency=low
+
+  * FIX crash on mac os x
+  * FIX launch update from mac os x
+  * FIX open Book and Digital product
+  * FIX barcode to mac os x
+  * Remove dependes poppler
+  * Fix translator
+  * Add Language to management 
+  * FIX VAT 
+  * FIX tax code
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 07 Dec 2014 23:52:38 +0200
+
+lylibrary (2.0.2) stable; urgency=low
+
+  * Fix gestore plugin
+  * Fix upgrade and new gestore aggiornamenti
+  * Fix cap comuni
+  * Fix intensive cpu
+  * Add verifica codice fiscale
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 15 Nov 2014 23:52:38 +0200
+
+lylibrary (2.0.1) stable; urgency=low
+
+  * FIX dump and restore database
+  * FIX check and repair database
+  * ADD codice fiscale old state
+  * FIX connection database
+  * FIX QWidget::setTabOrder()
+  * FIX QLayout:: Attempting  to add QLayout
+  * ADD image codice fiscale
+  * ADD print codice fiscale
+  * ADD find italian cap
+  * ADD check partita IVA italian
+  * FIX create database
+  * FIX check partita iva italian
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 1 Nov 2014 23:52:38 +0200
+
+lylibrary (2.0) stable; urgency=low
+
+  * Stable release
+
+ -- Codelinsoft <info@codelinsoft.it>  Sat, 11 Oct 2014 23:52:38 +0200
