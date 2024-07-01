@@ -67,7 +67,7 @@ void MainWindow::interfaccia(){
     
     cl1 = new classe(this);
 
-    connect(actionAbout_2,&QAction::triggered,this,&MainWindow::onactionWAbout);
+    connect(actionAbout_2,&QAction::triggered,this,&MainWindow::onactionAbout);
     actionAbout_2->setIconVisibleInMenu(true);
     actionAbout_2->setShortcut(tr("Ctrl+H"));
     connect(close_ac,&QAction::triggered,this,&MainWindow::onclose);
@@ -282,7 +282,7 @@ void MainWindow::removePopulateMenus(QObject *plugin)
 void MainWindow::addToMenu(QObject *plugin, QIcon ico, const QString &name, QMenu *menu_add, const char *member){
 
         action = new QAction(ico,name, plugin);
-        connect(action, &QAction::triggered, this, member);
+        connect(action, SIGNAL(triggered()), this, member);
         menu_add->addAction(action);
         menu_add->addSeparator();
 }
