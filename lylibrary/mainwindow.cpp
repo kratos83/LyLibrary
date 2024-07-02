@@ -102,7 +102,7 @@ void MainWindow::interfaccia(){
     connect(actionCalcola_codicefiscale,&QAction::triggered,this,&MainWindow::gest_codfisc);
     connect(actionAnagrafica_azienda,&QAction::triggered,this,&MainWindow::azienda_cod);
     connect(cod_fiscale,SIGNAL(clicked()),this,SLOT(gest_codfisc()));
-    connect(actionInstalla_plugin,&QAction::triggered,this,&MainWindow::installa_plugin&MainWindow::);
+    connect(actionInstalla_plugin,&QAction::triggered,this,&MainWindow::installa_plugin);
     connect(actionCerca_CAP,&QAction::triggered,this,&MainWindow::cerca_cap_comune);
     connect(actionVerifica_patrtita_iva,&QAction::triggered,this,&MainWindow::verifica_part_iva);
     connect(actionRicerca_aggiornamento,&QAction::triggered,this,&MainWindow::gest_update);
