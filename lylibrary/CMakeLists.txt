@@ -145,10 +145,19 @@ if (APPLE)
     set(SOURCE_FILES ${SOURCE_FILES} images/logo4.icns)
     set_source_files_properties(images/logo4.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
     ADD_EXECUTABLE(lylibrary MACOSX_BUNDLE ${lylibrary_srcs} ${lylibrary_mocs} ${lylibrary_ui_hdrs} ${RESOURCE_FILES} ${WINRC} ${SOURCE_FILES})
+	target_link_libraries( lylibrary
+  anaclogclock 
+  initdb 
+  log_man
+  xlsx_lylibrary
+  Qt5::Widgets Qt5::Xml
+  Qt5::Network Qt5::Gui 
+  Qt5::Sql Qt5::Core 
+  Qt5::Svg Qt5::PrintSupport 
+  Qt5::Multimedia
+)
 else()
 ADD_EXECUTABLE(lylibrary ${lylibrary_srcs} ${lylibrary_mocs} ${lylibrary_ui_hdrs} ${RESOURCE_FILES} ${WINRC} ${SOURCE_FILES})
-endif()
-
 target_link_libraries( lylibrary
   anaclogclock 
   initdb 
@@ -160,6 +169,7 @@ target_link_libraries( lylibrary
   Qt5::Svg Qt5::PrintSupport 
   Qt5::Multimedia
 )
+endif()
 
 
 IF(WIN32)
@@ -246,8 +256,8 @@ IF(WIN32)
 	INSTALL(FILES
 		"updatedb/update_db.sql"
 		DESTINATION ./updatedb )
-ELSE()
-    INSTALL( TARGETS lylibrary RUNTIME DESTINATION /opt/lylibrary)
+ELSEIF(APPLE)
+    INSTALL( TARGETS lylibrary BUNDLE DESTINATION /opt/lylibrary)
     INSTALL( FILES "images/logo4.png" DESTINATION /opt/lylibrary)
     INSTALL(FILES
 		"installdb/install_db.sql"
@@ -256,4 +266,14 @@ ELSE()
 		"updatedb/update_db.sql"
 		DESTINATION /opt/lylibrary/updatedb )
     INSTALL( FILES "desktop/lylibrary.desktop" DESTINATION /usr/share/applications )
+ELSE()
+	INSTALL( TARGETS lylibrary RUNTIME DESTINATION /opt/lylibrary)
+	INSTALL( FILES "images/logo4.png" DESTINATION /opt/lylibrary)
+	INSTALL(FILES
+		"installdb/install_db.sql"
+		DESTINATION /opt/lylibrary/installdb )
+	INSTALL(FILES
+		"updatedb/update_db.sql"
+		DESTINATION /opt/lylibrary/updatedb )
+	INSTALL( FILES "desktop/lylibrary.desktop" DESTINATION /usr/share/applications )
 endif()

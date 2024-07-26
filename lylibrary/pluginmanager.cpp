@@ -26,7 +26,7 @@ pluginmanager::pluginmanager(QWidget *parent) : QDialog(parent)
 
 void pluginmanager::leggiplugin(){
 
-#if defined (Q_OS_LINUX) || defined (Q_OS_UNIX)
+#if defined (Q_OS_LINUX) || defined (Q_OS_FREEBSD)
 QStringList fileNames=pluginDir->entryList( QStringList("*.so"), QDir::Files, QDir::Name);
 QStringList toLoad=settingsManager->generalValue( "plugin/loaded",QVariant()).value<QStringList>();
 #elif defined Q_OS_WIN

@@ -49,7 +49,7 @@ void db_bk_rs::crea_backup()
         QString comando;
         QStringList args;
         if(general->value("Database/databaselocale").toString() == "locale"){
-        #if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+        #if defined(Q_OS_LINUX) || defined (Q_OS_FREEBSD)
             comando=getLineFromCommandOutput("mysqldump --database lylibrary -u root -p"+password->text()+"> "+fileName);
         #endif
         #ifdef Q_OS_MAC
@@ -60,7 +60,7 @@ void db_bk_rs::crea_backup()
         #endif
         }
         else if(general->value("Database/databaselocale").toString() == "server"){
-        #if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+        #if defined(Q_OS_LINUX) || defined (Q_OS_FREEBSD)
         comando=getLineFromCommandOutput("mysqldump --database lylibrary -u root -p"+password->text()+" --host="+general->value("DatabaseServer/indirizzoip").toString()+"> "+fileName);
         #endif
         #ifdef Q_OS_MAC
@@ -102,7 +102,7 @@ void db_bk_rs::restore_db()
     if (!fileName.isNull()){
         QString comando;
         if(general->value("Database/databaselocale").toString() == "locale"){
-        #if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+        #if defined(Q_OS_LINUX) || defined (Q_OS_FREEBSD)
         comando=getLineFromCommandOutput("mysql --one-database lylibrary -u root -p"+password->text()+" < "+fileName);
         #endif
         #ifdef Q_OS_MAC
@@ -113,7 +113,7 @@ void db_bk_rs::restore_db()
         #endif
         }
         else if(general->value("Database/databaselocale").toString() == "server"){
-        #if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+        #if defined(Q_OS_LINUX) || defined (Q_OS_FREEBSD)
         comando=getLineFromCommandOutput("mysql --one-database lylibrary -u root -p"+password->text()+" --host="+general->value("DatabaseServer/indirizzoip").toString()+" < "+fileName);
         #endif
         #ifdef Q_OS_MAC

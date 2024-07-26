@@ -46,6 +46,7 @@ public slots:
 protected:
     void closeEvent(QCloseEvent *);
     QString Base64ToAscii(QString String);
+    QString getLineFromCommandOutput( QString command );
 };
 
 #endif // CONNESSIONE_H

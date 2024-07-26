@@ -84,7 +84,14 @@ void connessione::creadb(QSqlDatabase db, QString db_lylibrary, int year){
             db.setDatabaseName(db_lylibrary);
             db.open();
             textEdit->append(tr("Creazione database Lylibrary effettuata..."));
-
+#if defined Q_OS_MACX
+            QProcess processo;
+            QString comando;
+            comando = getLineFromCommandOutput("mysql -u "+db.userName()+" -p"+password->text()+" lylibrary < /Applications/LyLibrary/installdb/install_db.sql");
+            QStringList args;
+            args << comando;
+            processo.start(comando,args);
+#else
             QFile file(QDir::currentPath()+"/installdb/install_db.sql");
             if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
                 qDebug() << "file non trovato" << file.fileName();
@@ -121,6 +128,7 @@ void connessione::creadb(QSqlDatabase db, QString db_lylibrary, int year){
             textEdit->append(tr("Creazione database locale"));
 
             textEdit->append(tr("Configurazione database in corso..."));
+#endif
             db.close();
 
             if(db.open()){
@@ -287,4 +295,23 @@ void connessione::traduzione()
     QTranslator *translator = new QTranslator(this);
     translator->load(":/language/"+locale+".qm");
     qApp->installTranslator(translator);
+}
+
+QString connessione::getLineFromCommandOutput(QString command){
+    FILE *file = popen(command.toLatin1(),"r");
+
+                char buffer[100];
+
+                QString line = "";
+                char firstChar;
+
+                if ((firstChar = fgetc(file)) != -1){
+                        line += firstChar;
+                        line += fgets(buffer,100,file);
+                }
+
+                pclose(file);
+
+
+                return line;
 }

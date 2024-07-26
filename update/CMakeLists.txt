@@ -60,39 +60,44 @@ IF(WIN64)
 ADD_DEFINITIONS(-D_X64)
 ENDIF(WIN64)
 
-# IF(WIN32)
-# 	SET(WINRC "${CMAKE_CURRENT_BINARY_DIR}/update.obj")
-# 	ADD_DEFINITIONS(-D__USE_MINGW_ANSI_STDIO=1)
-# 	ADD_CUSTOM_COMMAND(OUTPUT ${WINRC}
-# 						COMMAND ${WINDRES}
-# 							-I${CMAKE_CURRENT_SOURCE_DIR}
-# 							-o${WINRC}
-# 							-i${CMAKE_CURRENT_BINARY_DIR}/winicon.rc
-# 						DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/winicon.rc)
-
-#ENDIF(WIN32)
+IF(WIN32)
+ 	SET(WINRC "${CMAKE_CURRENT_BINARY_DIR}/update.obj")
+ 	ADD_DEFINITIONS(-D__USE_MINGW_ANSI_STDIO=1)
+ 	ADD_CUSTOM_COMMAND(OUTPUT ${WINRC}
+ 						COMMAND ${WINDRES}
+ 							-I${CMAKE_CURRENT_SOURCE_DIR}
+ 							-o${WINRC}
+ 							-i${CMAKE_CURRENT_BINARY_DIR}/winicon.rc
+ 						DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/winicon.rc)
+ENDIF(WIN32)
 
 LINK_LIBRARIES(-lpthread)
 if(APPLE)
 set(SOURCE_FILES ${SOURCE_FILES} images/upgrade.icns)
 set_source_files_properties(images/upgrade.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 ADD_EXECUTABLE(update MACOSX_BUNDLE ${update_srcs} ${update_mocs} ${update_uis} ${RESOURCE_FILES} ${WINRC})
-ELSE()
-ADD_EXECUTABLE(update ${update_srcs} ${update_mocs} ${update_uis} ${RESOURCE_FILES} ${WINRC})
-ENDIF()
-
 target_link_libraries( update
   Qt5::Widgets Qt5::Xml
   Qt5::Network Qt5::Gui 
   Qt5::Sql Qt5::Core 
   Qt5::Svg
 )
-
+ELSE()
+ADD_EXECUTABLE(update ${update_srcs} ${update_mocs} ${update_uis} ${RESOURCE_FILES} ${WINRC})
+target_link_libraries( update
+  Qt5::Widgets Qt5::Xml
+  Qt5::Network Qt5::Gui 
+  Qt5::Sql Qt5::Core 
+  Qt5::Svg
+)
+ENDIF()
 
 IF(WIN32)
     INSTALL( TARGETS update RUNTIME DESTINATION .)
+elseif(APPLE)
+    INSTALL( TARGETS update BUNDLE DESTINATION /opt/lylibrary)
 else()
-    INSTALL( TARGETS update RUNTIME DESTINATION /opt/lylibrary)
+INSTALL( TARGETS update RUNTIME DESTINATION /opt/lylibrary)
 endif()
 
 # set up apple vars before traversing into data/scripts

@@ -44,9 +44,16 @@ void update_db::aggiorna_db(QSqlDatabase db, QString db_lylibrary)
     {
         QSqlQuery query;
         db.setDatabaseName(db_lylibrary);
-        db.open();
-
         qDebug() << QDir::currentPath();
+#if defined Q_OS_MACX
+            QProcess processo;
+            QString comando;
+            comando = getLineFromCommandOutput("mysql -u "+db.userName()+" -p"+Base64ToAscii(general->value("Database/password").toString())+" lylibrary < /Applications/LyLibrary/updatedb/update_db.sql");
+            QStringList args;
+            args << comando;
+            processo.start(comando,args);
+#else
+        db.open();
         QFile file(QDir::currentPath()+"/updatedb/update_db.sql");
         if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
             qDebug() << "file non trovato";
@@ -77,6 +84,7 @@ void update_db::aggiorna_db(QSqlDatabase db, QString db_lylibrary)
 
         ui->textEdit->append(tr("Aggiornamento database in corso..."));
         messaggio();
+#endif
         db.close();
 
         if(db.open()){
@@ -155,4 +163,23 @@ QString update_db::Base64ToAscii(QString String){
 update_db::~update_db()
 {
     delete ui;
+}
+
+QString update_db::getLineFromCommandOutput(QString command){
+    FILE *file = popen(command.toLatin1(),"r");
+
+                char buffer[100];
+
+                QString line = "";
+                char firstChar;
+
+                if ((firstChar = fgetc(file)) != -1){
+                        line += firstChar;
+                        line += fgets(buffer,100,file);
+                }
+
+                pclose(file);
+
+
+                return line;
 }

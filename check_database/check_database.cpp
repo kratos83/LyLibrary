@@ -24,7 +24,7 @@ check_database::check_database(QWidget *parent) :
 void check_database::analizza_database()
 {
     ui->outpuarea->clear();
-    #if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+    #if defined(Q_OS_LINUX) || defined (Q_OS_FREEBSD)
     QString comando="mysqlcheck --databases lylibrary -a -u root -p"+ui->password->text();
     #endif
     #ifdef Q_OS_MAC
@@ -54,7 +54,7 @@ void check_database::analizza_database()
 void check_database::ripristina_database()
 {
     ui->outpuarea->clear();
-    #if defined(Q_OS_LINUX) || defined (Q_OS_UNIX)
+    #if defined(Q_OS_LINUX) || defined (Q_OS_FREEBSD)
     QString comando="mysqlcheck --databases lylibrary -r -u root -p"+ui->password->text();
     #endif
     #ifdef Q_OS_MAC

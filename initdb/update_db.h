@@ -35,6 +35,7 @@ public slots:
     void aggiorna_db(QSqlDatabase db,QString db_fabaria);
     void aggiorna_tabelle(const QString &sql) const;
     void messaggio();
+    QString getLineFromCommandOutput( QString command );
 };
 
 #endif // UPDATE_DB_H

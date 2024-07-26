@@ -57,38 +57,45 @@ IF(WIN64)
 ADD_DEFINITIONS(-D_X64)
 ENDIF(WIN64)
 
-# IF(WIN32)
-# 	SET(WINRC "${CMAKE_CURRENT_BINARY_DIR}/backup_restore.obj")
-# 	ADD_DEFINITIONS(-D__USE_MINGW_ANSI_STDIO=1)
-# 	ADD_CUSTOM_COMMAND(OUTPUT ${WINRC}
-# 						COMMAND ${WINDRES}
-# 							-I${CMAKE_CURRENT_SOURCE_DIR}
-# 							-o${WINRC}
-# 							-i${CMAKE_CURRENT_BINARY_DIR}/winicon.rc
-# 						DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/winicon.rc)
-# ENDIF(WIN32)
+IF(WIN32)
+	SET(WINRC "${CMAKE_CURRENT_BINARY_DIR}/backup_restore.obj")
+ 	ADD_DEFINITIONS(-D__USE_MINGW_ANSI_STDIO=1)
+ 	ADD_CUSTOM_COMMAND(OUTPUT ${WINRC}
+ 						COMMAND ${WINDRES}
+ 							-I${CMAKE_CURRENT_SOURCE_DIR}
+ 							-o${WINRC}
+ 							-i${CMAKE_CURRENT_BINARY_DIR}/winicon.rc
+ 						DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/winicon.rc)
+ENDIF(WIN32)
 
 LINK_LIBRARIES(-lpthread)
 IF(APPLE)
 set(SOURCE_FILES ${SOURCE_FILES} images/backup_restor.icns)
 set_source_files_properties(images/backup_restor.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 ADD_EXECUTABLE( backup_restore  MACOSX_BUNDLE ${backup_restore_srcs} ${backup_restore_ui_hdrs} ${backup_restore_mocs} ${RESOURCE_FILES} ${SOURCE_FILES} ${WINRC})
-ELSE()
-ADD_EXECUTABLE( backup_restore  ${backup_restore_srcs} ${backup_restore_ui_hdrs} ${backup_restore_mocs} ${RESOURCE_FILES} ${SOURCE_FILES} ${WINRC})
-ENDIF()
-
 target_link_libraries( backup_restore
   Qt5::Widgets Qt5::Xml
   Qt5::Network Qt5::Gui 
   Qt5::Sql Qt5::Core 
   Qt5::Svg
 )
+ELSE()
+ADD_EXECUTABLE( backup_restore  ${backup_restore_srcs} ${backup_restore_ui_hdrs} ${backup_restore_mocs} ${RESOURCE_FILES} ${SOURCE_FILES} ${WINRC})
+target_link_libraries( backup_restore
+  Qt5::Widgets Qt5::Xml
+  Qt5::Network Qt5::Gui 
+  Qt5::Sql Qt5::Core 
+  Qt5::Svg
+)
+ENDIF()
 
 
 IF(WIN32)
     INSTALL( TARGETS backup_restore RUNTIME DESTINATION .)
-ELSE()
-    INSTALL( TARGETS backup_restore RUNTIME DESTINATION /opt/lylibrary)
+ELSEIF(APPLE)
+    INSTALL( TARGETS backup_restore BUNDLE DESTINATION /opt/lylibrary)
+else()
+INSTALL( TARGETS backup_restore RUNTIME DESTINATION /opt/lylibrary)
 endif()
 
 # set up apple vars before traversing into data/scripts

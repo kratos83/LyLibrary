@@ -24,3 +24,9 @@ echo "Rimozione file parameter"
 find . -type f -name '*.cxx_parameters' -delete
 echo "Rimozione file moc"
 find . -type f -name 'moc_*' -delete
+echo "Rimozione file cmake_install.cmake"
+find . -type f -name 'cmake_install.cmake' -delete
+echo "Rimozione file install_manifest.txt"
+find . -type f -name 'install_manifest.txt' -delete
+echo "Rimozione file __"
+find . -type d -name '__' -exec rm -rf {} \;
