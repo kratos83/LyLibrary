@@ -140,7 +140,7 @@ void MainWindow::reload_data(){
     QSqlQuery query;
     connect(cl1,SIGNAL(clicked()),this,SLOT(libri_pr()));
     cl1->clear();
-    query.prepare("select count(id),(data_rientro-curdate()) from prestiti where rientro='Non rientrato'");
+    query.prepare("select count(id),DATEDIFF(data_rientro-curdate()) from prestiti where rientro='Non rientrato'");
     if(query.exec()){
       while(query.next()){
 
