@@ -140,7 +140,7 @@ void MainWindow::reload_data(){
     QSqlQuery query;
     connect(cl1,SIGNAL(clicked()),this,SLOT(libri_pr()));
     cl1->clear();
-    query.prepare("select count(id),DATEDIFF(data_rientro-curdate()) from prestiti where rientro='Non rientrato'");
+    query.prepare("select count(id),DATEDIFF(data_rientro,curdate()) from prestiti where rientro='Non rientrato'");
     if(query.exec()){
       while(query.next()){
 
@@ -154,7 +154,7 @@ void MainWindow::reload_data(){
         else if(query.value(1).toString().mid(0, 1) == "-"){
             cl1->setText("");
             st1.clear();
-            str2 = query.value(1).toString();
+            str2 = query.value(1).toString().remove("-");
             st1 = tr("Sono passati ")+str2+tr(" giorni alla scadenza del prestito");
             cl1->setText(st1);
         }
