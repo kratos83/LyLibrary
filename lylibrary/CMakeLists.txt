@@ -61,6 +61,7 @@ set(lylibrary_moc_hdrs
 	stampa/StampaPrestiti.h
 	stampa/StampaScadenze.h
 	Process.h
+	messages/LyLibraryMessageBox.h
 )
 
 
@@ -85,6 +86,7 @@ set(lylibrary_uis
 	ui/user.ui
 	ui/verify_codicefiscale.ui
 	ui/verify_piva.ui
+	messages/LyLibraryMessageBox.ui
 )
 
 qt5_wrap_ui(lylibrary_ui_hdrs ${lylibrary_uis})
@@ -124,6 +126,7 @@ set(lylibrary_srcs
 	stampa/StampaPrestiti.cpp
 	stampa/StampaScadenze.cpp
 	Process.cpp
+	messages/LyLibraryMessageBox.cpp
 )
 
 qt5_add_resources(RESOURCE_FILES biblio.qrc lang.qrc) 

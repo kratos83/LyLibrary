@@ -37,7 +37,7 @@
 #include "luxuryim.h"
 #include "../initdb/connessione.h"
 #include "Process.h"
-
+#include "messages/LyLibraryMessageBox.h"
 MainWindow *form = 0;
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
@@ -475,9 +475,25 @@ void MainWindow::categorie(){
 
 void MainWindow::onclose()
 {
-    esci *chiudi = new esci(this);
-    chiudi->setWindowModality(Qt::WindowModal);
-    chiudi->exec();
+    LyLibraryMessageBox MsgBox;
+    MsgBox.setWindowTitleLyLibrary("LyLibrary");
+    MsgBox.setText("Uscita LyLibrary");
+    MsgBox.setInformativeText("Vuoi uscire definitivamente\ndal LyLibray?");
+    MsgBox.setIcon(LyLibraryMessageBox::CExitIcon);
+    QPushButton *m_pushEsci = new QPushButton;
+    m_pushEsci->setText("Esci");
+    m_pushEsci->setIcon(QIcon(":/images/application-exit.png"));
+    MsgBox.addButton(m_pushEsci,LyLibraryMessageBox::LyLibraryMessageBoxBoxAcceptRole);
+    QPushButton *m_pushCancel = new QPushButton;
+    m_pushCancel->setText("Cancella");
+    m_pushCancel->setIcon(QIcon(":/images/stop.png"));
+    MsgBox.addButton(m_pushCancel,LyLibraryMessageBox::LyLibraryMessageBoxBoxRejectRole);
+    MsgBox.exec();
+    if(MsgBox.clickedButton() == m_pushEsci){
+        exit(0);
+    }
+    else if(MsgBox.clickedButton() == m_pushCancel){
+        MsgBox.close();}
     QMainWindow::statusBar()->showMessage(tr("Chiudi Lylibrary...."));
 }
 
@@ -528,8 +544,7 @@ void MainWindow::onactiondatabasetriggered()
 void MainWindow::closeEvent(QCloseEvent *event){
 
     scrivi_posizione();
-    esci *m_esci = new esci(this);
-    m_esci->exec();
+    onclose();
 }
 
 void MainWindow::moveEvent(QMoveEvent *){

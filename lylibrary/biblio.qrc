@@ -59,5 +59,9 @@
 	<file>images/paypal.png</file>
 	<file>images/go-next.png</file>
 	<file>images/fattura.png</file>
+    <file>images/stop.png</file>
+    <file>images/alert.png</file>
+    <file>images/attenzione.png</file>
+    <file>images/online.png</file>
     </qresource>
 </RCC>
