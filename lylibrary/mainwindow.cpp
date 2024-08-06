@@ -37,7 +37,6 @@
 #include "luxuryim.h"
 #include "../initdb/connessione.h"
 #include "Process.h"
-#include "messages/LyLibraryMessageBox.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
