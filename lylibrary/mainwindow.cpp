@@ -38,14 +38,9 @@
 #include "../initdb/connessione.h"
 #include "Process.h"
 #include "messages/LyLibraryMessageBox.h"
-MainWindow *form = 0;
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    if(form)
-        delete form;
-    form = this;
-
     setupUi(this);
 
     QString st = "";
@@ -396,9 +391,13 @@ void MainWindow::read(){
      * Impostazione font mainWindow
      ***********************************************************/
     QFont appfnt;
+    int sizeFont = 0;
     appfnt.fromString(settingsManager->generalValue("Application/applicationFont",QVariant()).toString());
-    QApplication::setFont(appfnt);
-
+#ifdef Q_OS_UNIX
+     qApp->setFont(QFont(appfnt.toString(),sizeFont,10,false)); //FIXME
+#elif defined Q_OS_WIN
+     qApp->setFont(QFont(appfnt.toString(),sizeFont,10,false)); //FIXME
+#endif
     settingsManager->generalValue("Version/version",QVariant()).toString();
     settingsManager->generalValue("Database/initialize",QVariant()).toString();
 
@@ -475,25 +474,8 @@ void MainWindow::categorie(){
 
 void MainWindow::onclose()
 {
-    LyLibraryMessageBox MsgBox;
-    MsgBox.setWindowTitleLyLibrary("LyLibrary");
-    MsgBox.setText("Uscita LyLibrary");
-    MsgBox.setInformativeText("Vuoi uscire definitivamente\ndal LyLibray?");
-    MsgBox.setIcon(LyLibraryMessageBox::CExitIcon);
-    QPushButton *m_pushEsci = new QPushButton;
-    m_pushEsci->setText("Esci");
-    m_pushEsci->setIcon(QIcon(":/images/application-exit.png"));
-    MsgBox.addButton(m_pushEsci,LyLibraryMessageBox::LyLibraryMessageBoxBoxAcceptRole);
-    QPushButton *m_pushCancel = new QPushButton;
-    m_pushCancel->setText("Cancella");
-    m_pushCancel->setIcon(QIcon(":/images/stop.png"));
-    MsgBox.addButton(m_pushCancel,LyLibraryMessageBox::LyLibraryMessageBoxBoxRejectRole);
-    MsgBox.exec();
-    if(MsgBox.clickedButton() == m_pushEsci){
-        exit(0);
-    }
-    else if(MsgBox.clickedButton() == m_pushCancel){
-        MsgBox.close();}
+    esci *m_exi = new esci(this);
+    m_exi->exec();
     QMainWindow::statusBar()->showMessage(tr("Chiudi Lylibrary...."));
 }
 
@@ -512,9 +494,7 @@ void MainWindow::gest_codfisc(){
     fisc->show();
 
     QMainWindow::statusBar()->showMessage(tr("Apertura calcolo codice fiscale italiano...."));
-
 }
-
 
 void MainWindow::onclienti()
 {
@@ -524,8 +504,6 @@ void MainWindow::onclienti()
 
     QMainWindow::statusBar()->showMessage(tr("Apertura anagrafica utenti...."));
 }
-
-
 
 void MainWindow::onarticoli()
 {
@@ -541,8 +519,9 @@ void MainWindow::onactiondatabasetriggered()
     QMessageBox::warning(this,"Lylibrary","Documentazione non disponibile");
 }
 
-void MainWindow::closeEvent(QCloseEvent *event){
-
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    event->ignore();
     scrivi_posizione();
     onclose();
 }
@@ -558,7 +537,6 @@ void MainWindow::resizeEvent(QResizeEvent *)
 
 void MainWindow::createStatusBar(){
     QMainWindow::statusBar()->showMessage(tr("Database inizializzato correttamente"));
-
 }
 
 void MainWindow::libri_pr(){
@@ -591,11 +569,7 @@ QString MainWindow::getLineFromCommandOutput(QString command){
 }
 MainWindow::~MainWindow()
 {
-    mdiArea->closeAllSubWindows();
-    delete manager;
-    delete settingsManager;
 }
-
 
 void MainWindow::installa_plugin()
 {

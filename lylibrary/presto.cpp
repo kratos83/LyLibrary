@@ -507,8 +507,6 @@ void presto::filtro(){
 }
 
 void presto::reloadframe(){
-    form->cl1->clear();
-    form->reload_data();
     emit avvia_data();
 }
 

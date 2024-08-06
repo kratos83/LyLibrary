@@ -138,6 +138,4 @@ protected slots:
 Q_SIGNALS:
         void pluginLoaded(const QString&, bool);
 };
-
-extern MainWindow *form;
 #endif

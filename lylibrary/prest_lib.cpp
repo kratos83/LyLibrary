@@ -323,14 +323,10 @@ void prest_lib::elimina(){
 }
 
 void prest_lib::agg_riavvia_count(){
-    form->cl1->clear();
-    form->reload_data();
     emit riavvia();
 }
 
 void prest_lib::el_riavvia_count(){
-    form->cl1->clear();
-    form->reload_data();
     emit riavvia();
 }
 
