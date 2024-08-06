@@ -390,13 +390,8 @@ void MainWindow::read(){
      * Impostazione font mainWindow
      ***********************************************************/
     QFont appfnt;
-    int sizeFont = 0;
     appfnt.fromString(settingsManager->generalValue("Application/applicationFont",QVariant()).toString());
-#ifdef Q_OS_UNIX
-     qApp->setFont(QFont(appfnt.toString(),sizeFont,10,false)); //FIXME
-#elif defined Q_OS_WIN
-     qApp->setFont(QFont(appfnt.toString(),sizeFont,10,false)); //FIXME
-#endif
+    QApplication::setFont(appfnt); //FIXME
     settingsManager->generalValue("Version/version",QVariant()).toString();
     settingsManager->generalValue("Database/initialize",QVariant()).toString();
 
